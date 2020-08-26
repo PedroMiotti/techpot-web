@@ -1,10 +1,13 @@
 import React from 'react';
 import './App.css';
 
+// Components
+import FeedGrupo from './pages/FeedGrupo/index'
+
 function App() {
   return (
     <div className="App">
-        <h1>Oi</h1>
+        <FeedGrupo />
     </div>
   );
 }
