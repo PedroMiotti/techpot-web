@@ -18,7 +18,7 @@
     height: 100vh;
     background-color: #1e2e3e ;
     border-bottom-right-radius: 30px ;
-    padding-top: 100px ;
+    padding-top: 60px ;
 }
 
 .feedGrupoInfo{
@@ -28,11 +28,20 @@
     flex-direction: column;
 }
 
-.groupImage{
-    width: 85%;
-    border-radius: 30px;
+.feedGrupoImageContainer{
+    display: inline-block;
+    position: relative;
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    border-radius: 50%; 
     margin-bottom: 20px;
-    box-shadow: 0px 8px 24px rgb(56, 56, 56);
+}
+
+.groupImage{
+    width: auto;
+    height: 100%;
+    margin-left: -50px;
 }
 
 .feedGrupoInfoText{
@@ -129,34 +138,60 @@
 @media screen and (max-width: 850px) {
     
 
-     .feedGrupoContainer{
+    .feedGrupoContainer{
         display: flex;
         flex-direction: column;
     }
+
+
     .feedGrupoSideContainer{
-        width: 100vh;
-        height: 30vh;
-        padding-top: 0 ;
+        width: 100vw;
+        height: 35vh;
+        padding-top: 20px ;
+        border-bottom-right-radius: 0;
     }
+
+    .feedGrupoInfo{
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+    
+    .feedGrupoInfoTextBIO{
+        display: none;
+    } 
+
+    
+    
+    .feedGrupoTopContainer{
+        border-bottom-right-radius: 0;
+        box-shadow: 0 6px 12px rgb(65, 65, 65);
+    }
+
+    .feedGrupoConvidarContainerButton{
+        display: none;
+    }
+
+    .feedGrupoNavItems{
+        width: 100%;
+        margin: 4px 25px ;
+
+        justify-content: space-between; 
+        align-items: center;
+    }
+
+    .feedGrupoNavItems a{
+        
+        
+        font-size: 1.1em;
+        padding: 16px 6px;
+        
+    }
+
+
 
 /*
 
-    .groupImage{
-        width:100%;
-        height: 50vh;
-        border-radius: 0;
-        background-color: #fff ;
-        border-bottom-right-radius: 0px ;
-        box-shadow: none;
-    }
-
-    .feedGrupoInfoText{
-        color: #262626;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-    }
 
     .feedGrupoInfoTextName{
         font-size: 3em

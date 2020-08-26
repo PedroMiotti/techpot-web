@@ -11,8 +11,11 @@ const FeedGrupo = ( ) => {
             <div className="feedGrupoSideContainer">
 
                 <div className="feedGrupoInfo">
-
-                    <img src={groupImagePic} alt="GroupProfilePic" className="groupImage"/>
+                    
+                    <div className="feedGrupoImageContainer">
+                        <img src={groupImagePic} alt="GroupProfilePic" className="groupImage"/>
+                    </div>
+                    
                     
                     <div className="feedGrupoInfoText">
                         <h1 className="font-techpot feedGrupoInfoTextName">Tech</h1>
