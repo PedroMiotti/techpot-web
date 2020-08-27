@@ -1,0 +1,96 @@
+.loginContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #d0094c;
+    height: 100vh;
+}
+
+.loginWrapper{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    
+    box-shadow: 4px 5px 28px #a3073b;
+    max-width: 600px;
+    width: 450px;
+    height: 60vh;
+    border-radius: 20px;
+}
+
+.loginWrapperHeader{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-direction: column;
+
+    color: #fff;
+    padding: 20px;
+    margin: 30px;
+}
+
+.loginWrapperBottom{
+    flex: 1 auto 0;
+
+    display: grid;
+    grid-template-columns: auto ;
+    grid-template-rows: auto auto auto;
+
+    background-color: #1e2e3e;
+    border-radius: 20px;
+    color: #fff;
+}
+
+.loginWrapperBottom a{
+    text-decoration: none;
+    color: #fff
+}
+
+.loginWrapperButtons a {
+    padding: 10px;
+    font-weight: 700;
+}
+.loginWrapperForm{
+    place-self: center;
+}
+
+.loginWrapperForm p{
+    margin: 12px 0 ;
+    font-weight: 600;
+}
+
+.loginWrapperButtons{
+    justify-self: start;
+    align-self: center;
+    margin-left: 30px;
+    
+}
+
+.loginWrapperButtons a:first-child{
+    border-bottom-width: 4px;
+    border-bottom-color: #d0094c;
+    border-bottom-style: solid;
+    border-bottom-right-radius: 2px;
+    border-bottom-left-radius: 2px;
+}
+
+
+
+
+.loginWrapperLoginButton{
+    place-self: center;
+
+    padding: 10px 40px;
+    background-color: #d0094c;
+    border-radius: 10px;
+
+    font-weight: 700;
+}
+
+
+
+
+
+

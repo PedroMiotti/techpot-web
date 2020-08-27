@@ -1,14 +1,20 @@
 import React from 'react';
 import './App.css';
 
-// Components
-import FeedGrupo from './pages/FeedGrupo/index'
 
-function App() {
+
+// Pages
+  import FeedGrupo from './pages/FeedGrupo/index'
+  import Login from './pages/Login'
+
+const App = () => {
   return (
+
     <div className="App">
-        <FeedGrupo />
+        {/* <FeedGrupo /> */}
+        <Login />
     </div>
+
   );
 }
 
