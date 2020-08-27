@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import Navbar from './components/Navbar/index';
 
 
 
@@ -12,7 +13,8 @@ const App = () => {
 
     <div className="App">
         {/* <FeedGrupo /> */}
-        <Login />
+        <Navbar/>
+        <FeedGrupo />
     </div>
 
   );

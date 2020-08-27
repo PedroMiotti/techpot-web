@@ -1,6 +1,7 @@
 import React from 'react';
 import './styles/index.css';
 
+
 // Assets
     import groupImagePic from '../../assets/unnamed.png'
 
