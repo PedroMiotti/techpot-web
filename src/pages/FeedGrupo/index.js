@@ -4,10 +4,14 @@ import './styles/index.css';
 // Assets
     import groupImagePic from '../../assets/unnamed.png'
 
+// Components
+    import PostBox from '../../components/postBox/index'
+    import Post from '../../components/post/index'
+
 
 const FeedGrupo = ( ) => {
     return(
-        <div className = "feedGrupoContainer">
+        <div className = "feedGrupoContainer font-techpot">
             <div className="feedGrupoSideContainer">
 
                 <div className="feedGrupoInfo">
@@ -18,9 +22,9 @@ const FeedGrupo = ( ) => {
                     
                     
                     <div className="feedGrupoInfoText">
-                        <h1 className="font-techpot feedGrupoInfoTextName">Tech</h1>
-                        <p className="font-techpot feedGrupoInfoTextMembros">193 Membros</p>
-                        <p className="font-techpot feedGrupoInfoTextBIO">Grupo para todos os cursantes de TECH.</p>
+                        <h1 className="feedGrupoInfoTextName">Tech</h1>
+                        <p className="feedGrupoInfoTextMembros">193 Membros</p>
+                        <p className="feedGrupoInfoTextBIO">Grupo para todos os cursantes de TECH.</p>
                     </div>
 
                 </div>
@@ -30,17 +34,25 @@ const FeedGrupo = ( ) => {
             <div className="feedGrupoTopContainer">
 
                 <div className="feedGrupoNavItems">
-                    <a href="/" className="font-techpot">FEED</a>
-                    <a href="/" className="font-techpot">SOBRE</a>
-                    <a href="/" className="font-techpot">EVENTOS</a>
-                    <a href="/" className="font-techpot">MEMBROS</a>
+                    <a href="/">FEED</a>
+                    <a href="/">SOBRE</a>
+                    <a href="/">EVENTOS</a>
+                    <a href="/">MEMBROS</a>
                 </div>
 
                 <div className="feedGrupoConvidarContainerButton">
-                    <a href="/" className="font-techpot feedGrupoConvidarButton">+ Convidar</a>
+                    <a href="/" className="feedGrupoConvidarButton">+ Convidar</a>
                 </div>
 
             </div>
+            <div className="feedGrupoPosts">
+                <PostBox />
+                <Post />
+                <Post />
+                <Post />
+
+            </div>
+
 
         </div>
     )

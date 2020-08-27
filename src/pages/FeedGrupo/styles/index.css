@@ -4,11 +4,25 @@
     box-sizing: border-box;
 }
 
+body{
+    background-color: rgb(247, 247, 247);
+}
+
 /* Container */
 .feedGrupoContainer{
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: 300px auto ;
+    grid-template-rows: 15vh auto ;
     
+}
+
+/* Posts */
+.feedGrupoPosts{
+    margin-top: 40px;
+    
+    grid-column-start: 2;
+    grid-row-start: 2;
+    place-self: center;
 }
 
 
@@ -53,7 +67,6 @@
 }
 
 .feedGrupoInfoTextMembros{
-
     color: rgb(161, 161, 161);
     margin: 10px 0 20px 0;
     font-size: 13px ;
@@ -66,10 +79,12 @@
     display: flex;
     justify-content: space-between;
 
+    
+    
     background-color: #1e2e3e;
     border-bottom-right-radius: 30px;
     box-shadow: 20px 5px 15px rgb(121, 121, 121);
-    height: 20vh;
+    height: 15vh;
 
 }
 
@@ -123,13 +138,29 @@
     font-size: 1.2em;
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1050px) {
     .feedGrupoNavItems{
         width: 60%;
     }
 
     .feedGrupoConvidarButton{
         font-size: 1em;
+    }
+}
+
+@media screen and (min-width: 851px) {
+    
+    .feedGrupoSideContainer{
+
+        position: sticky;
+        position: -webkit-sticky;
+        top: 0;
+    }
+
+    .feedGrupoTopContainer{
+        position: sticky;
+        position: -webkit-sticky;
+        top: 0;
     }
 }
 
@@ -187,29 +218,6 @@
         padding: 16px 6px;
         
     }
-
-
-
-/*
-
-
-    .feedGrupoInfoTextName{
-        font-size: 3em
-    }
-    
-    .feedGrupoInfoTextMembros{
-        font-size: 18px ;
-    }
-
-    .feedGrupoInfoTextBIO{
-        display: none;
-    } */
-
-    /* .feedGrupoTopContainer{
-        display: none;
-    } */
-
-
 
 
 }
