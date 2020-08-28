@@ -14,25 +14,30 @@
     
     box-shadow: 4px 5px 28px #a3073b;
     max-width: 600px;
-    width: 450px;
-    height: 60vh;
+    width: 600px;
+    height: 65vh;
     border-radius: 20px;
 }
 
 .loginWrapperHeader{
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     align-content: center;
     flex-direction: column;
-
+    width: 100%;
+    height: 25%;
     color: #fff;
     padding: 20px;
-    margin: 30px;
+    margin-top: 30px;
+    
 }
 
+
 .loginWrapperBottom{
-    flex: 1 auto 0;
+    flex: 1 ;
+    
+    min-height: 400px;
 
     display: grid;
     grid-template-columns: auto ;
@@ -52,14 +57,7 @@
     padding: 10px;
     font-weight: 700;
 }
-.loginWrapperForm{
-    place-self: center;
-}
 
-.loginWrapperForm p{
-    margin: 12px 0 ;
-    font-weight: 600;
-}
 
 .loginWrapperButtons{
     justify-self: start;
@@ -77,6 +75,23 @@
 }
 
 
+.loginWrapperForm{
+    place-self: center;
+    width: 60%;
+}
+
+.loginWrapperForm p{
+    margin: 18px 0 ;
+    font-weight: 600;
+}
+
+.loginWrapperForm input{
+    border-radius: 20px;
+    height: 37px;
+    border: 0;
+    padding: 10px;
+    width: 100%;
+}
 
 
 .loginWrapperLoginButton{
@@ -85,11 +100,39 @@
     padding: 10px 40px;
     background-color: #d0094c;
     border-radius: 10px;
-
+    width: 180px;
+    text-align: center;
     font-weight: 700;
 }
 
 
+/* Mobile  */
+@media screen and (max-height: 850px){
+    .loginWrapper{
+        height: 100vh;
+    }
+
+    .loginWrapperLoginButton{
+        width: 80%;
+        height: 30%;
+        text-align: center;
+        line-height: 30px;
+    }
+
+    .loginWrapperForm{
+        width: 80%;
+    }
+
+    .loginWrapperForm p{
+        margin: 15px 0 ;
+        
+    }
+
+    .loginWrapperForm input{
+        height: 50px;
+    }
+
+}
 
 
 
