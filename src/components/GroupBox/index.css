@@ -1,0 +1,21 @@
+.button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+
+    width: 80%;
+    height: 15%;
+
+    align-self: center;
+
+    margin-bottom: 20px;
+
+    background-color: #d0094c;
+}
+
+.button:hover{
+    background-color: #04d361;
+    cursor: pointer;
+}
+

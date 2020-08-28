@@ -98,6 +98,7 @@ a{
     width: 8%;
     display:flex;
     justify-content: space-between;
+   
 }
 
 .div-functions li{
@@ -167,6 +168,7 @@ a{
     #main-nav{
         border-bottom-left-radius: 10%;
         border-bottom-right-radius: 10%;
+        
     }
 
     .menu{
