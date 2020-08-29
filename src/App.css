@@ -1,0 +1,30 @@
+
+
+body{
+    background-color: #1d2d3d;
+}
+
+.spaced{
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+
+#page{
+    margin: 0 20px 0 20px;
+    
+}
+
+body{
+    font-family: 'PT Sans', sans-serif;
+}
+
+
+#div-navbar{
+    min-width: 100vw;
+}
+
+#div-bottomnavbar{
+    min-width: 100vw;
+}

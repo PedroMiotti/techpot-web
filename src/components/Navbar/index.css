@@ -1,0 +1,195 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee&display=swap');
+
+
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+
+}
+
+#main-nav{
+    background: #d0094c;
+    
+    min-width: 100vw;
+    max-height: 10vh;
+    align-content: center;
+    
+}
+
+.menu{
+    display: flex;
+    padding: 0 20px;
+    justify-content: space-between;
+    min-height: 5vh;
+    max-height: 10vh;
+    
+    align-items: center;
+    min-width: 100vw;
+}
+
+
+/*Tira as bolinhas da lista*/
+ul{
+    list-style-type: none;
+
+}
+
+a{
+    color: white;
+    text-decoration: none;
+}
+
+.div-hamburguer{
+    display: none;
+}
+
+
+.menu li{
+    font-size: 16px;
+    color: #fff;
+}
+
+
+
+/* LOGO =============*/
+.logo a{
+    font-size: 2.5vw;
+    font-family: 'Bungee', cursive;
+
+}
+
+.div-logo {
+    display: flex;
+    justify-items: center;
+}
+
+.photoLogo {
+    
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    background: #1e2e3e; 
+    align-items: center;
+    margin: auto 10px;
+    
+}
+/*=============*/
+
+
+/* SEARCH BAR =============*/
+.div-search{
+    width: 40%;
+}
+.searchBar{
+    width: 100%;
+    padding: 10px 20px;
+    border-radius: 50px;
+    display: flex;
+    border: 1px;
+    
+    
+}
+/*=============*/
+
+/* FUNCTIONS =============*/
+
+.div-functions{
+    width: 8%;
+    display:flex;
+    justify-content: space-between;
+}
+
+.div-functions li{
+    
+    border-radius: 10%;
+}
+
+
+/*=============*/
+
+
+/* USER =============*/
+.div-user{
+    width: 15%;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+}
+
+
+.perfil{
+    text-align: right;
+}
+
+.nickname{
+    text-align: right;
+}
+
+
+.div-userInfo{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.photo {
+    
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    background: #1e2e3e; 
+    align-items: center;
+    margin: auto 0;
+    margin-left: 10px;
+    
+    
+}
+
+/*=============*/
+
+
+
+@media screen and (max-width: 960px){
+    .iconsino,
+    .photo,
+    .photoLogo,
+    .div-user, 
+    .div-search{
+        display: none;
+    }
+
+    .div-hamburguer{
+        
+        display: block;
+    }
+
+    #main-nav{
+        border-bottom-left-radius: 10%;
+        border-bottom-right-radius: 10%;
+    }
+
+    .menu{
+        min-width: 100vw;
+        height: 20vh;
+    }
+
+    .logo a{
+        font-size: 8vw;
+        font-family: 'Bungee', cursive;
+    
+    }
+
+    .iconmail{
+        display: block;
+
+    }
+
+    .div-logo{
+        margin: 0;
+    }
+
+   
+
+
+}

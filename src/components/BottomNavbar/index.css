@@ -1,0 +1,24 @@
+#bottom-nav{
+    display: none;
+    
+    
+}
+
+
+@media screen and (max-width: 960px){
+    #bottom-nav{
+        display: flex;
+        justify-content: ;
+        width: 100vw;
+        min-height: 8vh;
+        max-height: 10vh;
+
+        background-color: #d0094c;
+        position:fixed;
+        bottom: 0;
+        padding: 0px 20px;
+
+        border-top-left-radius: 10%;
+        border-top-right-radius: 10%;
+    }
+}

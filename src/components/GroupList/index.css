@@ -1,0 +1,34 @@
+
+.containerGroup{
+    display: flex;
+    /*arruma os filhos em colunas*/
+    flex-direction: column;
+    
+    background-color: #fff;
+
+    width: 20%;
+    height: 70vh;
+
+    padding: 15px 0;
+    margin: 50px;
+}
+
+/* faz tratamento da scrollbar*/
+::-webkit-scrollbar{
+    display: none;
+}
+
+h1{
+    align-self: left;
+    margin: 0 20px;
+    margin-bottom: 10px;
+    font-size: 20px;
+    color: #666;
+}
+
+
+@media screen and (max-width: 960px){
+    .containerGroup{
+        display: none;
+    }
+}
