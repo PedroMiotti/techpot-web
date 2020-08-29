@@ -16,7 +16,7 @@ const BottomNavbar = () => {
         
 
         <nav id="bottom-nav">
-            <div class="div-icons">
+            <div class="div-bottom-icons">
                 <div id="homeIcon"><Home style={icon}/></div>
                 <div id="searchIcon"><Search style={icon}/> </div>
                 <div id="calendarIcon"><Event style={icon}/></div>
