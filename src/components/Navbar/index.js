@@ -15,7 +15,11 @@ const Navbar = () => {
     return(
         
 
+<<<<<<< HEAD
         <nav id="main-nav">
+=======
+        <nav id="main-nav" class="font-techpot">
+>>>>>>> 3c9098d7c44cdb5c0381e72a507cff94844a9362
             <div>
                 <ul class="menu">
                     <div class= "div-hamburguer">

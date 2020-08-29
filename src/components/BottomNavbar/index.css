@@ -8,7 +8,11 @@
 @media screen and (max-width: 960px){
     #bottom-nav{
         display: flex;
+<<<<<<< HEAD
         justify-content: ;
+=======
+        justify-content: space-between ;
+>>>>>>> 3c9098d7c44cdb5c0381e72a507cff94844a9362
         width: 100vw;
         min-height: 8vh;
         max-height: 10vh;

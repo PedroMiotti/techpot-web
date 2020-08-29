@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 
+=======
+>>>>>>> 3c9098d7c44cdb5c0381e72a507cff94844a9362
 .containerGroup{
     display: flex;
     /*arruma os filhos em colunas*/
@@ -18,7 +21,18 @@
     display: none;
 }
 
+<<<<<<< HEAD
 h1{
+=======
+.separator{
+    width: 80%;
+    border-bottom: 2px solid #ddd;
+    margin-bottom: 15px;
+    align-self: center;
+}
+
+#containerHeader{
+>>>>>>> 3c9098d7c44cdb5c0381e72a507cff94844a9362
     align-self: left;
     margin: 0 20px;
     margin-bottom: 10px;

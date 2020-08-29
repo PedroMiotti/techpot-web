@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 
 body{
@@ -27,4 +28,16 @@ body{
 
 #div-bottomnavbar{
     min-width: 100vw;
+=======
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+
+
+.font-techpot{
+    font-family: 'PT Sans', sans-serif;
+}
+
+#div-navbar{
+    background-color: #1d2d3d;
+>>>>>>> 3c9098d7c44cdb5c0381e72a507cff94844a9362
 }
