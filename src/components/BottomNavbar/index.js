@@ -16,13 +16,13 @@ const BottomNavbar = () => {
         
 
         <nav id="bottom-nav">
-            <div class="div-icons">
-                <div id="homeIcon"><Home style={icon}/></div>
-                <div id="searchIcon"><Search style={icon}/> </div>
-                <div id="calendarIcon"><Event style={icon}/></div>
-                <div id="bellIcon"><Notifications style={icon}/></div>
-                <div id="userIcon"><AccountCircle style={icon}/></div>
-            </div>
+            <ul class="div-icons">
+                <div><li id="homeIcon"><Home style={icon}/></li></div>
+                <div><li id="searchIcon"><Search style={icon}/> </li></div>
+                <div><li id="calendarIcon"><Event style={icon}/></li></div>
+                <div><li id="bellIcon"><Notifications style={icon}/></li></div>
+                <div><li id="userIcon"><AccountCircle style={icon}/></li></div>
+            </ul>
             
         </nav>
 
