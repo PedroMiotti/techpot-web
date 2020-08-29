@@ -1,7 +1,12 @@
 import React from 'react';
 import './index.css';
-import { Mail, Menu, Notifications } from '@material-ui/icons';
 
+// Icons
+    import { Mail, Menu, Notifications } from '@material-ui/icons';
+
+// Componentes
+    import LogoTechPot from '../../shared/LogoTechPot/index';
+    import userProfilePicture from '../../assets/Rafa.jpg';
 
 
 const icon = {
@@ -13,39 +18,42 @@ const icon = {
 
 const Navbar = () => {
     return(
-        
-
-        <nav id="main-nav" class="font-techpot">
-            <div>
-                <ul class="menu">
-                    <div class= "div-hamburguer">
+        <nav class="font-techpot navbarContainer">
+                <ul class="navbarMenu">
+                    <div class= "navbarHamburguer">
                         <Menu style={icon}/>
-
                     </div>            
 
-                    <div class="div-logo">
-                    <li class="photoLogo"></li>
-                    <li class="logo"><a href="#">TECHPOT</a></li> 
+                    <LogoTechPot />
+
+                    <div class="navbarSearchboxContainer">
+                        <li><input class="navbarSearchBox" placeholder="Pesquisar..."></input></li>
                     </div>
 
-                    <div class="div-search">
-                    <li><input class="searchBar" placeholder="pesquisar..."></input></li>
-                    </div>
+                    <div class="navbarSideInfoContainer">
+                        <div class="navbarIconsContainer">
+                            <li class="item iconsino">
+                                <Notifications style={icon}/>
+                            </li>
 
-                    <div class="div-functions">
-                    <li class="item iconsino"><Notifications style={icon}/></li>
-                    <li class="item iconmail">< Mail style={icon}/></li>
-                    </div>
-
-                    <div class="div-user">
-                        <div class="div-userInfo">
-                            <li class="nickname">Olá, <a href="#">Nickname</a></li>
-                            <li class="perfil"><a href="#">meu perfil</a></li>
+                            <li class="item iconmail">
+                                < Mail style={icon}/>
+                            </li>
                         </div>
-                    <li class="photo"><a href="#"></a></li>
+
+                        <div class="navbarUserContainer">
+                            <div class="navbarUserInfo">
+                                <li class="nickname">Olá, <a href="#">Nickname</a></li>
+                                <li class="perfil"><a href="#">meu perfil</a></li>
+                            </div>
+
+                            <div class="navbarUserProfilePicContainer">
+                               <img src={userProfilePicture} class="navbarUserProfilePic"/>
+                            </div>
+                            
+                        </div>
                     </div>
                 </ul>
-            </div>
         </nav>
 
         

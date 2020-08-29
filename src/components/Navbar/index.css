@@ -8,80 +8,56 @@
 
 }
 
-#main-nav{
+.navbarContainer{
     background: #d0094c;
     
-    min-width: 100vw;
+    max-width: 100vw;
     max-height: 10vh;
     align-content: center;
+
+    overflow: hidden;
     
 }
 
-.menu{
+.navbarMenu{
     display: flex;
-    padding: 0 20px;
     justify-content: space-between;
+
+    padding: 0 20px;
     min-height: 5vh;
     max-height: 10vh;
+    min-width: 100vw;
     
     align-items: center;
-    min-width: 100vw;
 }
 
-
-/*Tira as bolinhas da lista*/
-ul{
-    list-style-type: none;
-
-}
-
-a{
-    color: white;
-    text-decoration: none;
-}
-
-.div-hamburguer{
-    display: none;
-}
-
-
-.menu li{
+.navbarMenu li{
     font-size: 16px;
     color: #fff;
 }
 
+.navbarHamburguer{
+    display: none;
+}
 
 
-/* LOGO =============*/
-.logo a{
-    font-size: 2.5vw;
-    font-family: 'Bungee', cursive;
+/*Tira as bolinhas da lista*/
+.navbarContainer ul{
+    list-style-type: none;
 
 }
 
-.div-logo {
-    display: flex;
-    justify-items: center;
+.navbarContainer a{
+    color: white;
+    text-decoration: none;
 }
-
-.photoLogo {
-    
-    border-radius: 50%;
-    height: 50px;
-    width: 50px;
-    background: #1e2e3e; 
-    align-items: center;
-    margin: auto 10px;
-    
-}
-/*=============*/
 
 
 /* SEARCH BAR =============*/
-.div-search{
-    width: 40%;
+.navbarSearchboxContainer{
+    width: 30%;
 }
-.searchBar{
+.navbarSearchBox{
     width: 100%;
     padding: 10px 20px;
     border-radius: 50px;
@@ -92,59 +68,65 @@ a{
 }
 /*=============*/
 
-/* FUNCTIONS =============*/
 
-.div-functions{
-    width: 8%;
+.navbarSideInfoContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    min-width: 300px;
+}
+
+/* ICONS =============*/
+
+.navbarIconsContainer{
     display:flex;
     justify-content: space-between;
+    width: 15%;
    
 }
 
-.div-functions li{
-    
-    border-radius: 10%;
+.navbarIconsContainer li:first-child{
+    margin-right: 30px;
 }
 
 
 /*=============*/
 
-
 /* USER =============*/
-.div-user{
-    width: 15%;
+.navbarUserContainer{
+    /* width: 15%; */
     display: flex;
     align-items: center;
-    justify-content: center; 
+    justify-content: end; 
 }
 
-
-.perfil{
-    text-align: right;
-}
-
-.nickname{
-    text-align: right;
-}
-
-
-.div-userInfo{
+.navbarUserInfo{
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
 }
 
-.photo {
-    
-    border-radius: 50%;
-    height: 50px;
+.navbarUserInfo .nickname,
+.navbarUserInfo .perfil{
+    text-align: right;
+}
+
+
+
+.navbarUserProfilePicContainer{
+    display: inline-block;
     width: 50px;
-    background: #1e2e3e; 
-    align-items: center;
-    margin: auto 0;
-    margin-left: 10px;
-    
-    
+    height: 50px;
+    overflow: hidden;
+    border-radius: 50%; 
+    margin: 3px 0 3px 10px;
+
+}
+
+.navbarUserProfilePic{
+    width: auto;
+    height: 100%;
 }
 
 /*=============*/
@@ -153,45 +135,38 @@ a{
 
 @media screen and (max-width: 960px){
     .iconsino,
-    .photo,
-    .photoLogo,
-    .div-user, 
-    .div-search{
+    .navbarUserProfilePic,
+    .navbarUserContainer, 
+    .navbarSearchboxContainer{
         display: none;
     }
 
-    .div-hamburguer{
+    .navbarHamburguer{
         
         display: block;
     }
 
-    #main-nav{
+    /* .navbarContainer{
         border-bottom-left-radius: 10%;
         border-bottom-right-radius: 10%;
         
-    }
+    } */
 
-    .menu{
+    .navbarMenu{
         min-width: 100vw;
         height: 20vh;
     }
 
-    .logo a{
-        font-size: 8vw;
-        font-family: 'Bungee', cursive;
-    
+    .navbarSideInfoContainer{
+        min-width: 0;
     }
+
 
     .iconmail{
         display: block;
+        margin-right: 5px;
 
     }
-
-    .div-logo{
-        margin: 0;
-    }
-
    
-
 
 }
