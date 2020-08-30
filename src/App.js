@@ -15,10 +15,10 @@ const App = () => {
   return (
     <div className="App">
 
-        <Navbar />
+        {/* <Navbar /> */}
 
         {/* <FeedGrupo /> */}
-        {/* <Login /> */}
+        <Login />
         {/* <FeedPrincipal /> */}
 
         <BottomNavbar />

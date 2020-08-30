@@ -71,6 +71,7 @@ const Navbar = () => {
             </nav>
 
             <Sidebar toggle={toggleSidebar}/>
+            
         </Fragment>
         
             
