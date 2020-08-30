@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, Fragment } from 'react';
 import './index.css';
 
 // Icons
@@ -6,6 +6,9 @@ import './index.css';
 
 // Componentes
     import LogoTechPot from '../../shared/LogoTechPot/index';
+    import Sidebar from '../Sidebar/index'
+
+// Assets
     import userProfilePicture from '../../assets/Rafa.jpg';
 
 
@@ -17,46 +20,58 @@ const icon = {
 };
 
 const Navbar = () => {
+    const [ toggleSidebar, setToggleSidebar ] = useState(false);
+
+
+    const openSidebar = () => {
+        setToggleSidebar(!toggleSidebar);
+    }
+
+
     return(
-        <nav class="font-techpot navbarContainer">
-                <ul class="navbarMenu">
-                    <div class= "navbarHamburguer">
-                        <Menu style={icon}/>
-                    </div>            
+        <Fragment>
 
-                    <LogoTechPot />
+            <nav class="font-techpot navbarContainer">
+                    <ul class="navbarMenu">
+                        <div class= "navbarHamburguer" onClick={openSidebar}>
+                            <Menu style={icon} />
+                        </div>            
 
-                    <div class="navbarSearchboxContainer">
-                        <input class="navbarSearchBox" placeholder="Pesquisar..."></input>
-                        <a href='/' ><SearchOutlined /></a>
-                    </div>
+                        <LogoTechPot />
 
-                    <div class="navbarSideInfoContainer">
-                        <div class="navbarIconsContainer">
-                            <li class="item iconsino">
-                                <Notifications style={icon}/>
-                            </li>
-
-                            <li class="item iconmail">
-                                < Mail style={icon}/>
-                            </li>
+                        <div class="navbarSearchboxContainer">
+                            <input class="navbarSearchBox" placeholder="Pesquisar..."></input>
+                            <a href='/' ><SearchOutlined /></a>
                         </div>
 
-                        <div class="navbarUserContainer">
-                            <div class="navbarUserInfo">
-                                <li class="nickname">Olá, <a href="/">Nickname</a></li>
-                                <li class="perfil"><a href="/">meu perfil</a></li>
+                        <div class="navbarSideInfoContainer">
+                            <div class="navbarIconsContainer">
+                                <li class="item iconsino">
+                                    <Notifications style={icon}/>
+                                </li>
+
+                                <li class="item iconmail">
+                                    < Mail style={icon}/>
+                                </li>
                             </div>
 
-                            <div class="navbarUserProfilePicContainer">
-                               <img src={userProfilePicture} class="navbarUserProfilePic" alt="Profile pic user"/>
+                            <div class="navbarUserContainer">
+                                <div class="navbarUserInfo">
+                                    <li class="nickname">Olá, <a href="/">Nickname</a></li>
+                                    <li class="perfil"><a href="/">meu perfil</a></li>
+                                </div>
+
+                                <div class="navbarUserProfilePicContainer">
+                                <img src={userProfilePicture} class="navbarUserProfilePic" alt="Profile pic user"/>
+                                </div>
+                                
                             </div>
-                            
                         </div>
-                    </div>
-                </ul>
-        </nav>
+                    </ul>
+            </nav>
 
+            <Sidebar toggle={toggleSidebar}/>
+        </Fragment>
         
             
         
