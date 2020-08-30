@@ -1,6 +1,11 @@
 
+<<<<<<< HEAD
 .logoText{
     font-size: 2.7em;
+=======
+.logoText a{
+    font-size: 2.5em;
+>>>>>>> 7b6c95c9de5bce3d250639479dd7670adf7d1d2e
     font-family: 'Bungee', cursive;
     color: #fff;
     text-decoration: none;
@@ -11,6 +16,7 @@
 .logoContainer {
     display: flex;
     justify-items: center;
+    align-items: center;
 }
 
 .logoIcon {
