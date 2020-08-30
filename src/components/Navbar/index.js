@@ -2,7 +2,7 @@ import React from 'react';
 import './index.css';
 
 // Icons
-    import { Mail, Menu, Notifications } from '@material-ui/icons';
+    import { Mail, Menu, Notifications, SearchOutlined } from '@material-ui/icons';
 
 // Componentes
     import LogoTechPot from '../../shared/LogoTechPot/index';
@@ -27,7 +27,8 @@ const Navbar = () => {
                     <LogoTechPot />
 
                     <div class="navbarSearchboxContainer">
-                        <li><input class="navbarSearchBox" placeholder="Pesquisar..."></input></li>
+                        <input class="navbarSearchBox" placeholder="Pesquisar..."></input>
+                        <a href='/' ><SearchOutlined /></a>
                     </div>
 
                     <div class="navbarSideInfoContainer">
@@ -43,12 +44,12 @@ const Navbar = () => {
 
                         <div class="navbarUserContainer">
                             <div class="navbarUserInfo">
-                                <li class="nickname">Olá, <a href="#">Nickname</a></li>
-                                <li class="perfil"><a href="#">meu perfil</a></li>
+                                <li class="nickname">Olá, <a href="/">Nickname</a></li>
+                                <li class="perfil"><a href="/">meu perfil</a></li>
                             </div>
 
                             <div class="navbarUserProfilePicContainer">
-                               <img src={userProfilePicture} class="navbarUserProfilePic"/>
+                               <img src={userProfilePicture} class="navbarUserProfilePic" alt="Profile pic user"/>
                             </div>
                             
                         </div>

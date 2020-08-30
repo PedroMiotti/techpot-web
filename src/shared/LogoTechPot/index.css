@@ -21,4 +21,8 @@
     .logoIcon{
         display: none;
     }
+
+    .logoText a{
+        font-size: 2.1em
+    }
 }

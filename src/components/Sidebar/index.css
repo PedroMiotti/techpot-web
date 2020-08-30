@@ -1,0 +1,120 @@
+.sidebarContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    
+    background-color: #1e2e3e;
+    width: 80vw;
+    height: 100vh;
+    z-index: 1;
+
+    transition: 0.5s;
+
+
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+
+}
+
+.sidebarUserInfoContainer{
+    flex: 0.7;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    width: 100%;
+    background-color: #1e2e3e;
+    box-shadow: 0 1px 10px rgb(0, 0, 0);
+
+    border-bottom-right-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+
+}
+
+.sidebarCloseContainer{
+
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 36px;
+    padding: 0 10px;
+}
+
+
+.sidebarProfilePictureContainer{
+
+    display: inline-block;
+    width: 120px;
+    height: 120px;
+    overflow: hidden;
+    border-radius: 50%; 
+    margin-bottom: 20px;
+}
+
+.sidebarUserPicture{
+    width: auto;
+    height: 100%;
+}
+
+.sidebarGroupsContainer{
+    flex: 1;
+
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    padding-top: 30px;
+    width: 100%;
+    overflow-y: scroll
+}
+
+.sidebarUserDescContainer{
+    color: #fff;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.sidebarUserDescContainer p{
+    color: #9e9e9e;
+}
+
+.sidebarGroupsContainer h2{
+    color: #fff;
+    margin-left: 15px;
+    margin-bottom: 20px;
+    
+    width: 30%;
+    height: 40px;
+
+    display: inline-block;
+    border-bottom: 4px solid #d0094c;
+    border-radius: 2px;
+
+}
+
+
+@media screen and (min-width: 600px){
+    .sidebarContainer{
+        width: 60vw;
+    }
+}
+
+
+
+/* Desktop  */
+@media screen and (min-width: 961px){
+    .sidebarContainer{
+        display: none;
+    }
+}

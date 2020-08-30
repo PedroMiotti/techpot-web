@@ -60,5 +60,11 @@
 .postBoxMediaButton{
     text-decoration: none;
     color: rgb(158, 158, 158);
-    margin-left: 10px;
+    margin-left: 5px;
+}
+
+.postBoxImageMediaContainer{
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
 }

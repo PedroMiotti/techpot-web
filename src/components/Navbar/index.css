@@ -55,16 +55,31 @@
 
 /* SEARCH BAR =============*/
 .navbarSearchboxContainer{
+    display: flex;
     width: 30%;
 }
+
 .navbarSearchBox{
     width: 100%;
     padding: 10px 20px;
-    border-radius: 50px;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+
     display: flex;
     border: 1px;
-    
-    
+}
+
+.navbarSearchboxContainer a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #fff;
+    color: #d0094c;
+
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+    width: 60px;
 }
 /*=============*/
 
@@ -98,7 +113,7 @@
     /* width: 15%; */
     display: flex;
     align-items: center;
-    justify-content: end; 
+    justify-content: flex-end; 
 }
 
 .navbarUserInfo{

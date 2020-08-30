@@ -14,8 +14,8 @@ const Login = ( ) => {
                 <div className="loginWrapperBottom">
                     <div className="loginWrapperButtons">
 
-                        <a href="#">LOGIN</a>
-                        <a href="#">REGISTRAR</a>
+                        <a href="/">LOGIN</a>
+                        <a href="/">REGISTRAR</a>
 
                     </div>
 
@@ -28,7 +28,7 @@ const Login = ( ) => {
 
                     </div>
 
-                    <a href="#" className="loginWrapperLoginButton">LOGIN</a>
+                    <a href="/" className="loginWrapperLoginButton">LOGIN</a>
 
                 </div>
             </div>

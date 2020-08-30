@@ -4,6 +4,9 @@ import './style/index.css'
 // Assets
     import postTestPicture from '../../assets/Rafa.jpg';
 
+// Icons
+    import { ImageOutlined } from '@material-ui/icons';
+
 const PostBox = () => {
     return(
         <div className="postBoxContainer">
@@ -16,8 +19,12 @@ const PostBox = () => {
                 <input className="postBoxTextInput" placeholder="No que está pensando ?"></input>
 
                 <div className="postBoxButtonContainer">
-                    <a href="#" className="postBoxMediaButton">Foto/Video</a>
-                    <a href="#" className="postBoxSendButton">Postar</a>
+                    <div className="postBoxImageMediaContainer">
+                        <ImageOutlined style={{color:'#9e9e9e'}}/>
+                        <a href="/" className="postBoxMediaButton"> Foto/Video</a>
+                    </div>
+
+                    <a href="/" className="postBoxSendButton">Postar</a>
                 </div>
 
             </div>

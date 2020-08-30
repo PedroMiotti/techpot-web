@@ -3,6 +3,8 @@ import './App.css';
 
 // Componentes
   import Navbar from './components/Navbar/index';
+  import BottomNavbar from './components/BottomNavbar/index';
+  import Sidebar from './components/Sidebar/index'
 
 
 // Pages
@@ -16,9 +18,12 @@ const App = () => {
 
         <Navbar/>
 
-        <FeedGrupo />
+        {/* <FeedGrupo /> */}
         {/* <Login /> */}
         {/* <FeedPrincipal /> */}
+        <Sidebar />
+
+        <BottomNavbar />
         
     </div>
 

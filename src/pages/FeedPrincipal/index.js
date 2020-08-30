@@ -2,7 +2,6 @@ import React from 'react';
 import './index.css';
 
 // Components
-  import BottomNavbar from '../../components/BottomNavbar/index';
   import GroupList from '../../components/GroupList/index';
 
 
@@ -16,10 +15,7 @@ const FeedPrincipal = () => {
           <GroupList titulo="Eventos"/>
         </div>
       </div>     
-          
-      <div id="div-bottomnavbar">
-        <BottomNavbar />
-      </div>
+
         
     </div>
   );

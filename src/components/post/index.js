@@ -7,6 +7,9 @@ import './style/index.css';
 // Components
     import BottomLine from '../../shared/bottomLine/index';
 
+// Icons
+    import { FavoriteBorder, ChatBubbleOutline } from '@material-ui/icons'
+
 const Post = () => {
     return(
         <div className="postContainer font-techpot">
@@ -30,8 +33,15 @@ const Post = () => {
             <BottomLine/>
 
             <div className="postFooter">
-                <div className="postComments">12</div>
-                <div className="postLikes">186</div>
+                <div className="postCommentsContainer">
+                    <ChatBubbleOutline style={{color:'#d0094c'}}/>
+                    <p className="postCommentsText">12</p>
+                </div>
+                
+                <div className="postLikesContainer">
+                    <FavoriteBorder style={{color:'#d0094c'}}/>
+                    <p className="postLikesText">186</p>
+                </div>
             </div>
         </div>
     )
