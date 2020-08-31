@@ -5,6 +5,7 @@ import './App.css';
   import Navbar from './components/Navbar/index';
   import BottomNavbar from './components/BottomNavbar/index';
   import Sidebar from './components/Sidebar/index'
+  import EventsMobile from './pages/EventsMobile'
 
 
 // Pages
@@ -21,6 +22,7 @@ const App = () => {
         {/* <FeedGrupo /> */}
         {/* <Login /> */}
         {/* <FeedPrincipal /> */}
+        {/*<EventsMobile /> */}
         <FeedPrincipal />
 
         <BottomNavbar />
