@@ -4,17 +4,28 @@
     
 }
 
+#div-toHide-boxList{
+    display: flex;
+    justify-content: center;
+    width: 33%;
+}
+
 #div-main{
-    height: 100vh;
+    height: 90vh;
     background-color: #1d2d3d;
 }
 
 #page{
     margin: 0 20px 0 20px;
-    
-    
 }
 
 #div-navbar{
     min-width: 100vw;
+}
+
+
+@media screen and (max-width: 960px){
+    #div-toHide-boxList{
+        display: none;
+    }
 }
