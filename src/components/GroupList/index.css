@@ -12,6 +12,13 @@
     margin: 50px;
 }
 
+.div-group-box{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow-y: scroll;
+}
+
 /* faz tratamento da scrollbar*/
 ::-webkit-scrollbar{
     display: none;
@@ -31,6 +38,8 @@
     font-size: 20px;
     color: #666;
 }
+
+
 
 
 @media screen and (max-width: 960px){

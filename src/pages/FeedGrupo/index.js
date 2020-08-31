@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import './styles/index.css';
 
 
@@ -14,7 +14,6 @@ const FeedGrupo = ( ) => {
     return(
         <div className = "feedGrupoContainer font-techpot">
             <div className="feedGrupoSideContainer">
-
                 <div className="feedGrupoInfo">
                     
                     <div className="feedGrupoImageContainer">

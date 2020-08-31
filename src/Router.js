@@ -12,6 +12,7 @@ import { Switch, Route } from 'react-router-dom';
   import FeedGrupo from './pages/FeedGrupo/index';
   import Login from './pages/Login';
   import FeedPrincipal from './pages/FeedPrincipal';
+  import Evento from './pages/Evento/index';
 
 const Routes = () => {
   return (
@@ -24,6 +25,8 @@ const Routes = () => {
             
             <Route path="/grupo/feed" component={FeedGrupo}/>
             
+            <Route path="/evento" component={Evento} />
+
             <Route path="/login" component={Login} />
 
         </Switch>

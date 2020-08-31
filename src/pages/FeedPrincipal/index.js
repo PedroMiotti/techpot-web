@@ -11,8 +11,10 @@ const FeedPrincipal = () => {
 
       <div id="page" class="font-techpot">
         <div className="spaced">
+          
           <GroupList titulo="Grupos"/>
           <GroupList titulo="Eventos"/>
+          
         </div>
       </div>     
 
