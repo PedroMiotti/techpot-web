@@ -15,6 +15,8 @@ const marginIcon = {
     marginRight: '6px'
 }
 
+
+
 const Evento = () => {
     return(
         <div className="eventoContainer font-techpot">
