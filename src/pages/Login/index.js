@@ -1,13 +1,16 @@
 import React from 'react';
 import './style/index.css';
 
+// Components
+    import LogoTechPot from '../../shared/LogoTechPot/index'
+
 
 const Login = ( ) => {
     return(
         <div className="loginContainer font-techpot">
             <div className="loginWrapper">
                 <div className="loginWrapperHeader">
-                    <h1>TECHPOT</h1>
+                    <LogoTechPot />
                     <p>Bem vindo(a) comunindade TECH !</p>
                 </div>
 

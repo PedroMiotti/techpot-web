@@ -1,7 +1,10 @@
 
-.logoText a{
-    font-size: 2.5em;
+.logoText {
+    font-size: 2em;
     font-family: 'Bungee', cursive;
+    color: #fff;
+    text-decoration: none;
+    
 
 }
 

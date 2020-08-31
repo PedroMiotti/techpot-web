@@ -57,7 +57,7 @@ body{
     height: 100%;
     margin-left: -50px;
 }
-
+ 
 .feedGrupoInfoText{
     color: #fff;
     display: flex;
@@ -150,14 +150,9 @@ body{
 
 @media screen and (min-width: 961px) {
     
+    .feedGrupoTopContainer,
     .feedGrupoSideContainer{
 
-        position: sticky;
-        position: -webkit-sticky;
-        top: 0;
-    }
-
-    .feedGrupoTopContainer{
         position: sticky;
         position: -webkit-sticky;
         top: 0;

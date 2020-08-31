@@ -11,7 +11,7 @@ const LogoTechPot = () => {
         <div class="logoContainer">
 
             <img src={logoIconTechPot} class="logoIcon" alt="logoTechpotiCon"/>
-            <li class="logoText"><a href="/">TECHPOT</a></li> 
+            <a class="logoText" href="/">TECHPOT</a>
 
         </div>
 
