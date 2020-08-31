@@ -11,10 +11,16 @@ const GroupList = ({titulo}) => {
             {/*A linhazinha que separa o titulo das boxes*/}
             <div className="separator"></div>
             
-            {/*Box dos grupos em que o usuario pertence*/}
-            <GroupBox/>
-            <GroupBox/>
-            <GroupBox/>
+            <div className="div-group-box">
+                {/*Box dos grupos em que o usuario pertence*/}
+                <GroupBox/>
+                <GroupBox/>
+                <GroupBox/>
+                <GroupBox/>
+                <GroupBox/>
+                <GroupBox/>
+                <GroupBox/>
+            </div>
         </div>
     )
 
