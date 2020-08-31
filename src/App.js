@@ -21,7 +21,7 @@ const App = () => {
         {/* <FeedGrupo /> */}
         {/* <Login /> */}
         {/* <FeedPrincipal /> */}
-        <Sidebar />
+        <FeedPrincipal />
 
         <BottomNavbar />
         
