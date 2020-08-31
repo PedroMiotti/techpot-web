@@ -13,6 +13,7 @@ import { Switch, Route } from 'react-router-dom';
   import Login from './pages/Login';
   import FeedPrincipal from './pages/FeedPrincipal';
   import Evento from './pages/Evento/index';
+  import perfilUsuario from './pages/perfilUsuario/index.js';
 
 const Routes = () => {
   return (
@@ -28,6 +29,8 @@ const Routes = () => {
             <Route path="/evento" component={Evento} />
 
             <Route path="/login" component={Login} />
+
+            <Route path="/usuario/perfil" component={perfilUsuario} />  
 
         </Switch>
             
