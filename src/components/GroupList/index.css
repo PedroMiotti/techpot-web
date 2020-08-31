@@ -5,10 +5,11 @@
     
     background-color: #fff;
 
-    width: 20%;
+    width: 60%;
     height: 70vh;
 
     padding: 15px 0;
+    padding-bottom: 30px;
     margin: 50px;
 }
 
@@ -32,18 +33,34 @@
 }
 
 #containerHeader{
+    color: #666;
     align-self: left;
     margin: 0 20px;
     margin-bottom: 10px;
     font-size: 20px;
-    color: #666;
+    
 }
-
-
-
 
 @media screen and (max-width: 960px){
     .containerGroup{
-        display: none;
+        background-color: #1d2d3d;
+        margin: 0;
+        height: 100%;
+        width: 100vw;
+
     }
+
+    #containerHeader{
+        color: #ddd;
+        align-self: center;
+        
+        margin-bottom: 10px;
+        font-size: 22px;
+    }
+
+    
 }
+
+
+
+
