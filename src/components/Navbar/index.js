@@ -1,5 +1,6 @@
 import React, { useState, Fragment } from 'react';
 import './index.css';
+import { Link } from 'react-router-dom';
 
 // Icons
     import { Mail, Menu, Notifications, SearchOutlined } from '@material-ui/icons';
@@ -58,7 +59,7 @@ const Navbar = () => {
                             <div class="navbarUserContainer">
                                 <div class="navbarUserInfo">
                                     <li class="nickname">Olá, <a href="/">Nickname</a></li>
-                                    <li class="perfil"><a href="/">meu perfil</a></li>
+                                    <li class="perfil"><Link to="/usuario/perfil">meu perfil</Link></li>
                                 </div>
 
                                 <div class="navbarUserProfilePicContainer">

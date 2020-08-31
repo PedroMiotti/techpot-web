@@ -4,12 +4,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    border-bottom-left-radius: 7%;
-    border-bottom-right-radius: 7%;
+    border-bottom-left-radius: 5vh;
+    border-bottom-right-radius: 5vh;
     box-shadow: 0 0 24px #1e2e3e;
 }
 
-#FotoUsuario {
+#FotoUsuario a img {
     width: 25vh;
     border-radius: 50%;
 }
@@ -18,7 +18,7 @@
     padding-left: 15vh;
 }
 
-#NomeUsuario {
+#DescricaoUsuario h1 {
     padding-top: 5vh;
     color: #d0094c;
     text-shadow: 0 0 14px #d0094ca6;
@@ -31,7 +31,7 @@
     text-shadow: 0 0 14px #fefefe;
 }
 
-#Categoria {
+#NickCat h5 {
     padding-left: 0.5vh;
 }
 
@@ -53,7 +53,7 @@
     padding-top: 2vh;
 }
 
-.BotaoSocial {
+#BotaoSocial button {
     background: #1e2e3e;
     border: 0;
     padding-left: 2vh;
@@ -61,7 +61,7 @@
     font-weight: bold;
 }
 
-.BotaoSocial a {
+#BotaoSocial button a {
     color: #fff;
     text-decoration: none;
     display: flex;
@@ -70,15 +70,15 @@
     font-weight: bold;
 }
 
-.BotaoSocial a:hover {
+#BotaoSocial button a:hover {
     color: #04d361;
 }
 
-.BotaoSocial a h4 {
+#BotaoSocial button a h4 {
     padding-left: 1vh;
 }
 
-.ImagemBotaoSocial {
+#BotaoSocial button a img {
     border-radius: 25%;
     width: 3vh;
 }
@@ -92,9 +92,9 @@
         padding-top: 2vh;
     }
 
-    #NomeUsuario {
+    #DescricaoUsuario h1 {
         padding-top: 3vh;
-        font-size: 4vw;
+        font-size: 4.8vw;
     }
 
     #NickCat {
