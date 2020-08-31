@@ -1,0 +1,119 @@
+#InfoUsuario {
+    background-color: #1e2e3e;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom-left-radius: 5vh;
+    border-bottom-right-radius: 5vh;
+    box-shadow: 0 0 24px #1e2e3e;
+}
+
+#FotoUsuario a img {
+    width: 25vh;
+    border-radius: 50%;
+}
+
+#DescricaoUsuario {
+    padding-left: 15vh;
+}
+
+#DescricaoUsuario h1 {
+    padding-top: 5vh;
+    color: #d0094c;
+    text-shadow: 0 0 14px #d0094ca6;
+}
+
+#NickCat {
+    display: flex;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+    text-shadow: 0 0 14px #fefefe;
+}
+
+#NickCat h5 {
+    padding-left: 0.5vh;
+}
+
+#Bio {
+    padding-top: 6vh;
+    padding-bottom: 6vh;
+    max-width: 140vh;
+    background-color: #1e2e3e;
+    text-align: left;
+    border-radius: 25px;
+    box-shadow: 0 0 14px #1e2e3e; 
+    font-weight: bold;
+}
+
+#BotaoSocial {
+    display: flex;
+    justify-content: flex-end;
+    padding-bottom: 5vh;
+    padding-top: 2vh;
+}
+
+#BotaoSocial button {
+    background: #1e2e3e;
+    border: 0;
+    padding-left: 2vh;
+    text-shadow: 0 0 14px #fefefe;
+    font-weight: bold;
+}
+
+#BotaoSocial button a {
+    color: #fff;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;   
+    font-weight: bold;
+}
+
+#BotaoSocial button a:hover {
+    color: #04d361;
+}
+
+#BotaoSocial button a h4 {
+    padding-left: 1vh;
+}
+
+#BotaoSocial button a img {
+    border-radius: 25%;
+    width: 3vh;
+}
+
+@media only screen and (max-width: 600px) {
+    #InfoUsuario {
+        flex-flow: row wrap;
+    }
+
+    #FotoUsuario {
+        padding-top: 2vh;
+    }
+
+    #DescricaoUsuario h1 {
+        padding-top: 3vh;
+        font-size: 4.8vw;
+    }
+
+    #NickCat {
+       font-size: 3.8vw;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    #DescricaoUsuario {
+        padding-left: 5vh;
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    #FotoUsuario {
+        padding-left: 2vh;
+    }
+
+    #DescricaoUsuario {
+        padding-right: 2vh;
+    }
+}
