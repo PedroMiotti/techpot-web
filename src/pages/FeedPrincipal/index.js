@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import './index.css';
 
 // Components
@@ -11,8 +11,13 @@ const FeedPrincipal = () => {
 
       <div id="page" class="font-techpot">
         <div className="spaced">
-          <GroupList titulo="Grupos"/>
-          <GroupList titulo="Eventos"/>
+          <div id="div-toHide-boxList">
+            <GroupList tituloBoxList="Grupos"/>
+          </div>
+          <div id="div-toHide-boxList">
+            <GroupList tituloBoxList="Eventos"/>
+          </div>
+          
         </div>
       </div>     
 
