@@ -65,9 +65,19 @@
 
     #eventBox-details{
         display:flex;
+        width: 85%;
+        height: 15%;
+        align-self: center;
         justify-content: space-between;
-        width: 80%
-    
+        margin: 0 20px;
+        margin-bottom: 5px;
+    }
+
+    .link-center{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 85%;
     }
 
     #eventBox-titulo{
@@ -88,26 +98,29 @@
         display: flex;
         flex-direction: column;
         flex-shrink: 0;
-        height: 45%;
-        align-items: center;
-        margin: 0;
+        height: 35%;
+        width: 80%;
+        align-content: center;
+        
+        justify-content: center;
+        margin-top: 0;
+        margin-bottom: 8%;
     
     }
 
     .image-eventBox{
         background-color: #d0094c;
         display: flex;
-        
-        flex-shrink: 0;
-    
+
         width: 80%;
-        height: 70%;
-        margin-bottom: 20px;
-    
-        align-self: center;
+        height: 100%;
         
 
-        border: 1px solid #ccc;
+        align-self: center;
+        
+        
+        border: 2px solid #ddd;
+        border-radius: 5px;
         
     }
     

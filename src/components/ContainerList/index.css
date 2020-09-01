@@ -45,6 +45,10 @@
 }
 
 @media screen and (max-width: 960px){
+    .div-groupOrEvent-box{
+        display: flex;
+        align-items: center;
+    }
     .containerList{
         padding-top: 10px;
         background-color: #1d2d3d;
