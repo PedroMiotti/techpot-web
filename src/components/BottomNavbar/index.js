@@ -2,7 +2,7 @@ import React from 'react';
 import './index.css';
 import { Notifications, Home, Search, Event, AccountCircle} from '@material-ui/icons';
 
-
+import {Link} from 'react-router-dom'; 
 
 const icon = {
     color: '#fff',
@@ -19,9 +19,9 @@ const BottomNavbar = () => {
             <div class="div-bottom-icons">
                 <a href="/" id="homeIcon"><Home style={icon}/></a>
                 <a href="/" id="searchIcon"> <Search style={icon}/></a> 
-                <a href="/" id="calendarIcon"><Event style={icon}/></a>
+                <Link to="/mobile/eventos" id="calendarIcon"><Event style={icon}/></Link>
                 <a href="/" id="bellIcon"> <Notifications style={icon}/> </a>
-                <a href="/" id="userIcon"><AccountCircle style={icon}/></a>
+                <Link to="/usuario/perfil" id="userIcon"><AccountCircle style={icon}/></Link>
             </div>
             
         </nav>
