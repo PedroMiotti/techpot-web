@@ -1,16 +1,22 @@
 #InfoUsuario {
     background-color: #1e2e3e;
-    color: #fff;
+    box-shadow: 0 0 24px #1e2e3e;
+    color: #eee;
     display: flex;
     align-items: center;
     justify-content: center;
     border-bottom-left-radius: 5vh;
     border-bottom-right-radius: 5vh;
-    box-shadow: 0 0 24px #1e2e3e;
+}
+
+#FotoUsuario {
+    padding-top: 1.5vh;
+    padding-bottom: 1.5vh;
+    padding-left: 14vh;
 }
 
 #FotoUsuario a img {
-    width: 25vh;
+    width: 30vh;
     border-radius: 50%;
 }
 
@@ -18,38 +24,42 @@
     padding-left: 15vh;
 }
 
-#DescricaoUsuario h1 {
-    padding-top: 5vh;
+#DescricaoUsuario h1 {  
+    padding-top: 1.5vh;  
     color: #d0094c;
     text-shadow: 0 0 14px #d0094ca6;
+    font-size: 2.2rem;
 }
 
 #NickCat {
     display: flex;
     padding-top: 2vh;
     padding-bottom: 2vh;
-    text-shadow: 0 0 14px #fefefe;
+    text-shadow: 0 0 8px #eee;
+    font-size: 1.15rem;
 }
 
 #NickCat h5 {
     padding-left: 0.5vh;
+    font-size: 1rem;
 }
 
 #Bio {
-    padding-top: 6vh;
-    padding-bottom: 6vh;
-    max-width: 140vh;
+    padding-top: 3vh;
+    padding-bottom: 3vh;
+    max-width: 95vh;
     background-color: #1e2e3e;
-    text-align: left;
-    border-radius: 25px;
     box-shadow: 0 0 14px #1e2e3e; 
+    text-align: justify;
     font-weight: bold;
+    font-size: 1.4rem;
+    border-radius: 25px;
 }
 
 #BotaoSocial {
     display: flex;
     justify-content: flex-end;
-    padding-bottom: 5vh;
+    padding-bottom: 1.5vh;
     padding-top: 2vh;
 }
 
@@ -57,21 +67,21 @@
     background: #1e2e3e;
     border: 0;
     padding-left: 2vh;
-    text-shadow: 0 0 14px #fefefe;
-    font-weight: bold;
+    text-shadow: 0 0 8px #eee;
+    font-size: 0.95rem;
 }
 
 #BotaoSocial button a {
-    color: #fff;
+    color: #eee;
     text-decoration: none;
     display: flex;
     align-items: center;
-    justify-content: center;   
-    font-weight: bold;
+    justify-content: center;
 }
 
 #BotaoSocial button a:hover {
     color: #04d361;
+    transition: 0.44s;
 }
 
 #BotaoSocial button a h4 {
@@ -83,37 +93,34 @@
     width: 3vh;
 }
 
-@media only screen and (max-width: 600px) {
-    #InfoUsuario {
-        flex-flow: row wrap;
-    }
-
-    #FotoUsuario {
-        padding-top: 2vh;
-    }
-
-    #DescricaoUsuario h1 {
-        padding-top: 3vh;
-        font-size: 4.8vw;
-    }
-
-    #NickCat {
-       font-size: 3.8vw;
-    }
-}
-
-@media only screen and (max-width: 768px) {
-    #DescricaoUsuario {
-        padding-left: 5vh;
-    }
-}
-
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 1280px) {
     #FotoUsuario {
         padding-left: 2vh;
     }
+    
+    #FotoUsuario a img {
+        width: 20vh;
+    }
 
     #DescricaoUsuario {
-        padding-right: 2vh;
+        padding-left: 5vh;
+        padding-right: 2.5vh;
+    }
+
+    #DescricaoUsuario h1 {  
+        font-size: 1.8rem;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    #InfoUsuario {
+        flex-flow: row wrap;
+        border-bottom-left-radius: 0vh;
+        border-bottom-right-radius: 0vh;
+        padding-bottom: 7.5vh;
+    }
+
+    #DescricaoUsuario h1 {  
+        font-size: 1.6rem;
     }
 }
