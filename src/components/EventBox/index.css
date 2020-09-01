@@ -2,31 +2,39 @@
     display: flex;
     flex-direction: column;
     flex-shrink: 0;
-    height: 40%;
+    height: 35%;
     align-content: center;
-    margin-top: 15px;
+    justify-content: center;
+    margin-top: 20px;
 }
 
 #eventBox-details{
     display:flex;
+    height: 15%;
     justify-content: space-between;
     margin: 0 20px;
     margin-bottom: 5px;
 
 }
 
+.link-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 85%;
+}
+
 
 .image-eventBox{
     background-color: #d0094c;
     display: flex;
-    
-    flex-shrink: 0;
 
-    width: 85%;
-    height: 80%;
-    margin-bottom: 20px;
+    width: 80%;
+    height: 100%;
+    
 
     align-self: center;
+    
     
     border: 2px solid #ddd;
     border-radius: 5px;
@@ -50,6 +58,8 @@
     cursor: pointer;
     border: 3px solid #04d361;
 }
+
+
 
 @media screen and (max-width: 960px){
 
@@ -104,7 +114,3 @@
 
 }
 
-.link-center{
-    display: flex;
-    justify-content: center;
-}

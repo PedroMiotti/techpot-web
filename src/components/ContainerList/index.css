@@ -24,7 +24,7 @@
 }
 
 /* faz tratamento da scrollbar*/
-::-webkit-scrollbar{
+*::-webkit-scrollbar{
     display: none;
 }
 
