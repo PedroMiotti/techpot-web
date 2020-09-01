@@ -40,9 +40,13 @@
         display: none;
     }
 
+    .spaced{
+        justify-content: center;
+    }
+
     #div-posts-FeedPrincipal{
         width: 90%;
-        margin: 15px;
+        margin: 20px;
         
     }
 }
