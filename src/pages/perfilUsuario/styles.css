@@ -1,0 +1,10 @@
+#perfilUsuario {
+    background-color: #eee;
+    display: flex;
+    flex-direction: column; 
+}
+
+.sp {
+    height: 1.5vh;
+    background-color: #eee;
+}

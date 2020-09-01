@@ -6,7 +6,7 @@ class InfoUsuario extends Component {
         return(
             <div id="InfoUsuario">
                 <div id="FotoUsuario"> {/* Foto do usuário */}
-                    <a href="https://avatars0.githubusercontent.com/u/1372390?s=400&v=4">
+                    <a href="https://avatars0.githubusercontent.com/u/1372390?s=400&v=4" target="_blank">
                         <img src="https://avatars0.githubusercontent.com/u/1372390?s=400&v=4" alt="Carlos Rafael Gimenes das Neves" />
                     </a>
                 </div>
