@@ -8,7 +8,7 @@ import './styles/index.css';
 // Components
 
 // Icons
-    import { CheckCircleOutlineOutlined, AddOutlined, AccessTime, Language, Public } from '@material-ui/icons'
+    import { CheckCircleOutlineOutlined, AddOutlined, AccessTime, Language } from '@material-ui/icons'
 
 
 const marginIcon = {
