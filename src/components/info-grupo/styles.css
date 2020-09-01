@@ -59,7 +59,7 @@
     transition: 0.44s;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 1280px) {
     #NomeInfoGrupo h1 {
         padding-left: 0;
         text-align: center;
