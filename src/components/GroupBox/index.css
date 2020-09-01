@@ -1,20 +1,64 @@
-.button{
-    background-color: #d0094c;
-    display: flex;
-    
+.container-groupBox{
+    display:flex;
+    align-self: center;
+
     flex-shrink: 0;
 
     width: 80%;
     height: 20%;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    
+    border: #ddd solid 2px;
+    border-radius: 10px;
 
-    align-self: center;
-    margin-bottom: 20px;
+    transform: all .4s ;
 
+    text-decoration: none;
     
 }
 
-.button:hover{
-    background-color: #04d361;
+.container-groupBox:hover{
+    opacity: 0.8;
+    border: 3px solid #04d361;
     cursor: pointer;
 }
 
+#groupBox-image-div{
+    display:flex;
+    width: 40%;
+    margin-right: 10px;
+
+}
+
+.groupBox-image{
+    width: 100%;
+    border-radius: 8px;
+    border-top-right-radius: 45%;
+    border-bottom-right-radius: 45%;
+    
+}
+
+#groupBox-details{
+    display: flex;
+    
+    align-self: center;
+
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+#groupBox-tituloGrupo{
+    font-size: 24px;
+    align-self: flex-start;
+    color: #444;
+
+
+}
+
+#groupBox-members{
+    color: #999;
+    font-size: 14px;
+    align-self: flex-start;
+}

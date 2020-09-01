@@ -16,6 +16,10 @@
     align-content: center;
 
     overflow: hidden;
+
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
     
 }
 
@@ -50,6 +54,7 @@
 .navbarContainer a{
     color: white;
     text-decoration: none;
+    
 }
 
 
@@ -127,6 +132,10 @@
     text-align: right;
 }
 
+.perfil:hover{
+    cursor: pointer;
+    text-decoration: underline ;
+}
 
 
 .navbarUserProfilePicContainer{
