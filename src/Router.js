@@ -29,6 +29,8 @@ const Routes = () => {
             
             <Route path="/evento" component={Evento} />
 
+            <Route path="/mobile/eventos" component={EventsMobile} />
+
             <Route path="/login" component={Login} />
 
             <Route path="/usuario/perfil" component={PerfilUsuario} />  
