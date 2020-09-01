@@ -1,4 +1,4 @@
-#container-groupBox{
+.container-groupBox{
     display:flex;
     align-self: center;
 
@@ -13,10 +13,12 @@
     border-radius: 10px;
 
     transform: all .4s ;
+
+    text-decoration: none;
     
 }
 
-#container-groupBox:hover{
+.container-groupBox:hover{
     opacity: 0.8;
     border: 3px solid #04d361;
     cursor: pointer;
