@@ -1,73 +1,62 @@
 #container-groupBox{
-    display: flex;
-    flex-direction: column;
+    display:flex;
+    align-self: center;
+
     flex-shrink: 0;
-    height: 30%;
+
+    width: 82%;
+    height: 20%;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    
+    border: #ddd solid 2px;
+    border-radius: 10px;
+
+    transform: all .4s ;
+    
+}
+
+#container-groupBox:hover{
+    opacity: 0.8;
+    border: 3px solid #04d361;
+    cursor: pointer;
+}
+
+#groupBox-image-div{
+    display:flex;
+    width: 40%;
+    margin-right: 10px;
+
+}
+
+.groupBox-image{
+    width: 100%;
+    border-radius: 8px;
+    border-top-right-radius: 45%;
+    border-bottom-right-radius: 45%;
+    
+}
+
+#groupBox-details{
+    display: flex;
+    
+    align-self: center;
+
+    flex-direction: column;
     align-items: center;
     
 }
 
-#groupBox-dataHeader{
-    display: none;
+#groupBox-tituloGrupo{
+    font-size: 24px;
+    align-self: flex-start;
+    color: #444;
+
 
 }
-.button{
-    background-color: #d0094c;
-    display: flex;
-    
-    flex-shrink: 0;
 
-    width: 80%;
-    height: 80%;
-
-    align-self: center;
-    margin-bottom: 20px;
-}
-
-#groupBox-dataHeader{
-    color: #666;
-    font-size: 18px;
-    align-self: left;
-    margin-bottom: 10px;
-}
-
-.button:hover{
-    background-color: #04d361;
-    cursor: pointer;
-}
-
-@media screen and (max-width: 960px){
-
-    #groupBox-dataHeader{
-        display: flex;
-        color: #ddd;
-        font-size: 18px;
-        align-self: left;
-        margin-bottom: 10px;
-    }
-
-    #container-groupBox{
-        display: flex;
-        flex-direction: column;
-        flex-shrink: 0;
-        height: 45%;
-        align-items: center;
-    
-        margin-bottom: 4%;
-    }
-
-    .button{
-        background-color: #d0094c;
-        display: flex;
-        
-        flex-shrink: 0;
-    
-        width: 80%;
-        height: 70%;
-    
-        align-self: center;
-        margin-bottom: 20px;
-    }
-    
-
+#groupBox-members{
+    color: #999;
+    font-size: 14px;
+    align-self: flex-start;
 }

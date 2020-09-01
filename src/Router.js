@@ -13,6 +13,7 @@ import { Switch, Route } from 'react-router-dom';
   import Login from './pages/Login';
   import FeedPrincipal from './pages/FeedPrincipal';
   import Evento from './pages/Evento/index';
+  import EventsMobile from './pages/EventsMobile';
 
 const Routes = () => {
   return (

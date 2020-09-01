@@ -2,13 +2,21 @@ import React from 'react';
 import './index.css';
 
 // Components
-  import GroupList from '../../components/GroupList/index';
+  import ContainerList from '../../components/ContainerList/index';
+  import EventBox from '../../components/EventBox/index';
 
 
 const EventsMobile = () => {
   return (
     <div id="div-eventos">
-        <GroupList tituloBoxList="Eventos"/>
+        <ContainerList tituloBoxList="Eventos">
+          <EventBox tituloEvento="HackaTruck" dataEvento="31/08"/>
+          <EventBox tituloEvento="HackaTruck" dataEvento="31/08"/>
+          <EventBox tituloEvento="HackaTruck" dataEvento="31/08"/>
+          <EventBox tituloEvento="HackaTruck" dataEvento="31/08"/>
+          <EventBox tituloEvento="HackaTruck" dataEvento="31/08"/>
+          <EventBox tituloEvento="HackaTruck" dataEvento="31/08"/>
+        </ContainerList>
     </div>
   );
 }
