@@ -13,11 +13,8 @@ import { Switch, Route } from 'react-router-dom';
   import Login from './pages/Login';
   import FeedPrincipal from './pages/FeedPrincipal';
   import Evento from './pages/Evento/index';
-<<<<<<< HEAD
   import EventsMobile from './pages/EventsMobile';
-=======
-  import perfilUsuario from './pages/perfilUsuario/index.js';
->>>>>>> d0bffaac6230a6fc747a6fbe9bff0e5ca28015dc
+  import PerfilUsuario from './pages/perfilUsuario/index.js';
 
 const Routes = () => {
   return (
@@ -34,7 +31,7 @@ const Routes = () => {
 
             <Route path="/login" component={Login} />
 
-            <Route path="/usuario/perfil" component={perfilUsuario} />  
+            <Route path="/usuario/perfil" component={PerfilUsuario} />  
 
         </Switch>
             
