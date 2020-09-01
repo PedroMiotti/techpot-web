@@ -4,17 +4,45 @@
     
 }
 
+#div-toHide-boxList{
+    display: flex;
+    justify-content: center;
+    margin: 0 2%;
+    width: 22%;
+}
+
+#div-posts-FeedPrincipal{
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    
+    overflow: scroll;
+    height: 80vh;
+    width: 40%;
+    margin-top: 40px;
+    
+
+}
+
 #div-main{
-    height: 100vh;
+    height: 90vh;
     background-color: #1d2d3d;
 }
 
-#page{
-    margin: 0 20px 0 20px;
-    
-    
-}
 
 #div-navbar{
     min-width: 100vw;
+}
+
+
+@media screen and (max-width: 960px){
+    #div-toHide-boxList{
+        display: none;
+    }
+
+    #div-posts-FeedPrincipal{
+        width: 90%;
+        margin: 15px;
+        
+    }
 }

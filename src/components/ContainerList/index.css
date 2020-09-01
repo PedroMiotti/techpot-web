@@ -1,0 +1,80 @@
+.containerList{
+    display: flex;
+    /*arruma os filhos em colunas*/
+    flex-direction: column;
+    
+    background-color: #fff;
+
+    width: 100%;
+    height: 70vh;
+
+    padding: 15px 0;
+    padding-bottom: 30px;
+    margin-top:50px;
+    
+
+    border-radius: 15px;
+}
+
+.div-groupOrEvent-box{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow-y: scroll;
+}
+
+/* faz tratamento da scrollbar*/
+::-webkit-scrollbar{
+    display: none;
+}
+
+.separator{
+    width: 80%;
+    border-bottom: 2px solid #ddd;
+    
+    align-self: center;
+}
+
+#containerHeader{
+    color: #666;
+    align-self: left;
+    margin: 0 20px;
+    margin-bottom: 10px;
+    font-size: 20px;
+    
+}
+
+@media screen and (max-width: 960px){
+    .containerList{
+        padding-top: 10px;
+        background-color: #1d2d3d;
+        margin: 0;
+        height: 100%;
+        width: 100vw;
+        border-radius: 0;
+
+    }
+
+    #containerHeader{
+        color: #ddd;
+        align-self: center;
+        
+        margin-bottom: 10px;
+        font-size: 22px;
+    }
+
+    .separator{
+        width: 80%;
+        border-bottom: 2px solid #ddd;
+        
+        align-self: center;
+
+        margin-bottom: 10px;
+    }
+
+    
+}
+
+
+
+
