@@ -7,20 +7,25 @@
     margin: 0;
 
 }
+.navbarContainer-higher{
+    width: 100vw;
+    height: 6vh;
+}
+
 
 .navbarContainer{
-    background: #d0094c;
+
+    position: fixed;
+    position: -webkit-sticky;
+    top: 0;
+
+    background-color: #d0094c;
     
-    max-width: 100vw;
-    max-height: 10vh;
+    width: 100vw;
+    height: 6vh;
     align-content: center;
 
     overflow: hidden;
-
-    position: sticky;
-    position: -webkit-sticky;
-    top: 0;
-    
 }
 
 .navbarMenu{

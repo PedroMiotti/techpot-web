@@ -31,7 +31,10 @@ const Navbar = () => {
 
     return(
         <Fragment>
+            
+            <div className="navbarContainer-higher">
 
+            
             <nav class="font-techpot navbarContainer">
                     <ul class="navbarMenu">
                         <div class= "navbarHamburguer" onClick={openSidebar}>
@@ -70,6 +73,7 @@ const Navbar = () => {
                         </div>
                     </ul>
             </nav>
+            </div>
 
             <Sidebar toggle={toggleSidebar}/>
             
