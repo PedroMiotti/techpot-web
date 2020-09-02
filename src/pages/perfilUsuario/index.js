@@ -1,7 +1,10 @@
-import React, { Component } from 'react';
-import InfoUsuario from '../../components/info-usuario/index.js';
-import InfoGrupo from '../../components/info-grupo/index.js';
+import React from 'react';
 import './styles.css';
+
+// Components
+    import InfoUsuario from './Components/info-usuario/index.js';
+    import InfoGrupo from './Components/info-grupo/index.js';
+
 
 const PerfilUsuario = () => {
     return(

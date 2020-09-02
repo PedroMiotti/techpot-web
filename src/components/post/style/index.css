@@ -53,6 +53,7 @@
     margin-bottom: 10px;
 }
 
+.postLikesContainer,
 .postCommentsContainer{
     display: flex;
 
@@ -63,7 +64,3 @@
     margin-left: 12px;
 }
 
-.postLikesContainer{
-    display: flex;
-    
-}

@@ -16,7 +16,7 @@ const PostBox = () => {
             </div>
 
             <div className="postBoxInfo">
-                <input className="postBoxTextInput" placeholder="No que está pensando ?"></input>
+                <input className="postBoxTextInput" placeholder="     No que está pensando ?"></input>
 
                 <div className="postBoxButtonContainer">
                     <div className="postBoxImageMediaContainer">

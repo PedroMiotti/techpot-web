@@ -12,8 +12,12 @@
     padding-bottom: 30px;
     margin-top:50px;
     
-
+    box-shadow: 8px 5px 15px rgb(218, 218, 218);
     border-radius: 15px;
+
+    position: sticky;
+    position: -webkit-sticky;
+    top: 10vh;
 }
 
 .div-groupOrEvent-box{

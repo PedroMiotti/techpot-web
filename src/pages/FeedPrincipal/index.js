@@ -5,13 +5,14 @@ import './index.css';
   import ContainerList from '../../components/ContainerList/index';
   import EventBox from '../../components/EventBox/index';
   import GroupBox from '../../components/GroupBox/index';
-  import Post from '../../components/post';
-  import PostBox from '../../components/postBox';
+  import Post from '../../components/post/index';
+  import PostBox from '../../components/postBox/index';
+
 
 
 const FeedPrincipal = () => {
   return (
-    <div id="div-main">
+    <div id="FeedPrincipal-div-main">
 
       <div id="page" class="font-techpot">
         <div className="spaced">

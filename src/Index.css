@@ -5,3 +5,26 @@
 .font-techpot{
     font-family: 'PT Sans', sans-serif;
 }
+
+
+
+/* Custom scrollbar  */
+/* Firefox  */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #d0094c #fff;
+}
+
+/* Chrome/Edge/Safari */
+*::-webkit-scrollbar {
+    width: 20px;
+}
+*::-webkit-scrollbar-track {
+    background: #fff;
+}
+*::-webkit-scrollbar-thumb {
+    background-color: #d0094c;
+    border-radius: 20px;
+    border: 3px solid #fff;
+}
+ 

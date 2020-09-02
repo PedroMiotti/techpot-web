@@ -9,14 +9,17 @@
     margin-top: 20px;
     margin-bottom: 10px;
     
-    border: #ddd solid 2px;
+    /* border: #ddd solid 2px; */
+    box-shadow: 8px 5px 15px rgb(218, 218, 218);
+
     border-radius: 10px;
 
     transform: all .4s ;
 
     text-decoration: none;
-    
 }
+
+
 
 .container-groupBox:hover{
     opacity: 0.8;

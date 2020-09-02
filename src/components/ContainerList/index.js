@@ -1,6 +1,6 @@
 import React from 'react';
 import './index.css';
-import EventBox from '../EventBox/index';
+
 
 const ContainerList = ({tituloBoxList, children}) => {
     return(
