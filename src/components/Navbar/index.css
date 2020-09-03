@@ -126,17 +126,12 @@
     height: 10px;
     
     position: absolute;
-    
     right: 1px;
     content: '';
 
     border-radius: 12px;
     border: 1.2px solid #d0094c;
 
-    text-align: right;
-    font-size: 13px;
-    font-weight: bold;
-    color: #ddd;
 
 }
 
