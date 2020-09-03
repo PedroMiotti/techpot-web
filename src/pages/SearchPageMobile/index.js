@@ -16,11 +16,10 @@ const largeIcon = {
 const SearchPageMobile = () => {
     return(
         <div id="div-search-page">
-            <div id="div-search-icon">
-                <Search style={largeIcon}/>
-            </div>
+            
             <div id="search-page-div-searchbar">
                 <input type ="text" placeholder="procurar..."/>
+                <a href='/' > <Search /></a>
             </div>
             <div id="search-page-most-searched">
                 <SearchBox/>
