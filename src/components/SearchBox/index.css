@@ -1,0 +1,62 @@
+
+@media screen and (max-width: 960px){
+    #div-container-SearchBox{
+        display: flex;
+        align-self: center;
+        background-color: #fff;
+        height: 25%;
+        width: 100%;
+        margin-bottom: 25px;
+        box-shadow: 3px 3px 5px rgb(168, 168, 168);
+
+        border-radius: 10px;
+        
+    
+    }
+
+    #searchBox-div-img{
+        width: 25%;
+        height: 100%;
+
+    }
+
+    #searchBox-img{
+        width:100%;
+        height: 100%;
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+    }
+
+    #searchBox-div-details{
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+        padding: 10px 10px;
+    }
+
+    #searchBox-nickname{
+        font-size: 18px;
+       
+    }
+
+    #searchBox-sub{
+        font-size: 14px;
+        
+        color: #666;
+    }
+    #searchBox-div-typeSearch{
+        display:flex;
+        width: 25%;
+        justify-content: flex-end;
+        align-items: flex-end;
+    }
+
+    #searchBox-typeSearch{
+        color: #666;
+        padding: 0 10px 10px 0;
+    }
+
+
+
+   
+}
