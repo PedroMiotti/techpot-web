@@ -1,17 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Bungee&display=swap');
 
 
-*{
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
 
-}
 .navbarContainer-higher{
-    width: 100vw;
-    height: 6vh;
+    max-width: 100vw;
+    height: 60px;
+    overflow: hidden;
 }
-
 
 .navbarContainer{
 
@@ -22,7 +17,7 @@
     background-color: #d0094c;
     
     width: 100vw;
-    height: 6vh;
+    height: 60px;
     align-content: center;
 
     overflow: hidden;
@@ -33,8 +28,7 @@
     justify-content: space-between;
 
     padding: 0 20px;
-    min-height: 5vh;
-    max-height: 10vh;
+    height: 100%;
     min-width: 100vw;
     
     align-items: center;
@@ -186,11 +180,11 @@
         border-bottom-right-radius: 10%;
         
     } */
-
-    .navbarMenu{
-        min-width: 100vw;
-        height: 20vh;
+    .navbarContainer,
+    .navbarContainer-higher{
+        height: 70px;
     }
+
 
     .navbarSideInfoContainer{
         min-width: 0;

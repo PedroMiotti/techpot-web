@@ -3,7 +3,9 @@
     justify-content: center;
     align-items: center;
 
-    background-color: #d0094c;
+    /* background-color: #d0094c; */
+    background: url('../../../assets/Tech-Building.jpg');
+    background-repeat: repeat;
     height: 100vh;
 }
 
@@ -11,13 +13,16 @@
     display: flex;
     justify-content: space-between;
     flex-direction: column;
-    
-    box-shadow: 4px 5px 28px #a3073b;
+
+    background-color: #d0094c;
+
+    box-shadow: 4px 5px 28px #3b3b3b;
     max-width: 600px;
     width: 600px;
     height: 65vh;
     border-radius: 20px;
 }
+
 
 .loginWrapperHeader{
     display: flex;
@@ -78,6 +83,8 @@
 .loginWrapperForm{
     place-self: center;
     width: 60%;
+    
+
 }
 
 .loginWrapperForm p{

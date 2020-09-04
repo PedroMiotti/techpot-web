@@ -4,8 +4,70 @@ import './style/index.css';
 // Components
     import LogoTechPot from '../../shared/LogoTechPot/index'
 
+// Icons
+    import { PersonOutline, LockOutlined } from '@material-ui/icons' 
+    import TextField from '@material-ui/core/TextField';
+    import Grid from '@material-ui/core/Grid';
+
+    import {
+        fade,
+        ThemeProvider,
+        withStyles,
+        makeStyles,
+        createMuiTheme,
+      } from '@material-ui/core/styles';
+
+
+    const CssTextField = withStyles({
+        root: {
+          '& label.Mui-focused': {
+            color: '#d0094c',
+          },
+          '& .MuiInput-underline:after': {
+            borderBottomColor: '#d0094c',
+            color:'#fff !important',
+          },
+          '& .MuiInput-underline:before': {
+            borderBottomColor: '#ddd',
+            color:'#fff !important',
+            
+          },
+          '& .MuiOutlinedInput-root': {
+            '& fieldset': {
+              borderColor: '#d0094c',
+              color:'#fff !important',
+              
+            },
+            '&:hover fieldset': {
+              borderColor: '#d0094c',
+              color:'#fff !important',
+            },
+            '&.Mui-focused fieldset': {
+              borderColor: '#d0094c',
+              color:'#fff !important',
+            },
+          },
+        },
+      })(TextField);
+
+      const useStyles = makeStyles((theme) => ({
+
+        inputLabel: {
+            color:'#fff !important',
+        },
+
+        inputLabelFocused: {
+            color:'#d0094c !important',
+        },
+
+      }));
+
+
 
 const Login = ( ) => {
+
+    const classes = useStyles();
+
     return(
         <div className="loginContainer font-techpot">
             <div className="loginWrapper">
@@ -23,11 +85,23 @@ const Login = ( ) => {
                     </div>
 
                     <div className="loginWrapperForm">
-                        <p>Usuario/E-mail</p>
-                        <input placeholder="Usuario/E-mail"/>
+                        <Grid container spacing={1} alignItems="flex-end" style={{marginBottom: '15px'}}>
+                            <Grid item>
+                                <PersonOutline />
+                            </Grid>
+                            <Grid item > 
+                                <CssTextField label="Usuario/E-mail" fullWidth InputLabelProps={{ classes: {root: classes.inputLabel,focused: classes.inputLabelFocused,}}}/>
+                            </Grid>
+                        </Grid>
 
-                        <p>Senha</p>
-                        <input placeholder="Senha"/>
+                        <Grid container spacing={1} alignItems="flex-end" >
+                            <Grid item >
+                                <LockOutlined />
+                            </Grid>
+                            <Grid item > 
+                                <CssTextField flexGrow={1} label="Senha" InputLabelProps={{ classes: {root: classes.inputLabel,focused: classes.inputLabelFocused,}}} />
+                            </Grid>
+                        </Grid>
 
                     </div>
 
@@ -43,3 +117,5 @@ const Login = ( ) => {
 
 
 export default Login;
+
+
