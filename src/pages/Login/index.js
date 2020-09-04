@@ -5,7 +5,7 @@ import './style/index.css';
     import LogoTechPot from '../../shared/LogoTechPot/index'
 
 // Icons
-    import { PersonOutline, LockOutlined } from '@material-ui/icons' 
+    import { PersonOutline, LockOutlined, VisibilityOff } from '@material-ui/icons' 
     import TextField from '@material-ui/core/TextField';
     import Grid from '@material-ui/core/Grid';
 
@@ -30,6 +30,12 @@ import './style/index.css';
           '& .MuiInput-underline:before': {
             borderBottomColor: '#ddd',
             color:'#fff !important',
+            
+          },
+          '& .MuiInput-underline': {
+            borderBottomColor: '#ddd',
+            color:'#fff !important',
+            width: '240px'
             
           },
           '& .MuiOutlinedInput-root': {
@@ -60,6 +66,10 @@ import './style/index.css';
             color:'#d0094c !important',
         },
 
+        gridInput: {
+            flexGrow: 1
+        }
+
       }));
 
 
@@ -85,8 +95,8 @@ const Login = ( ) => {
                     </div>
 
                     <div className="loginWrapperForm">
-                        <Grid container spacing={1} alignItems="flex-end" style={{marginBottom: '15px'}}>
-                            <Grid item>
+                        <Grid container spacing={1} alignItems="flex-end" justify='center'  style={{marginBottom: '15px'}}>
+                            <Grid item >
                                 <PersonOutline />
                             </Grid>
                             <Grid item > 
@@ -94,12 +104,12 @@ const Login = ( ) => {
                             </Grid>
                         </Grid>
 
-                        <Grid container spacing={1} alignItems="flex-end" >
+                        <Grid container spacing={1} alignItems="flex-end"  justify='center'>
                             <Grid item >
                                 <LockOutlined />
                             </Grid>
                             <Grid item > 
-                                <CssTextField flexGrow={1} label="Senha" InputLabelProps={{ classes: {root: classes.inputLabel,focused: classes.inputLabelFocused,}}} />
+                                <CssTextField label="Senha" InputLabelProps={{ classes: {root: classes.inputLabel,focused: classes.inputLabelFocused,}}} />
                             </Grid>
                         </Grid>
 
