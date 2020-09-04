@@ -18,8 +18,8 @@ const BottomNavbar = () => {
         <nav id="bottom-nav">
             <div class="div-bottom-icons">
                 <a href="/" id="homeIcon"><Home style={icon}/></a>
-                <a href="/" id="searchIcon"> <Search style={icon}/></a> 
-                <Link to="/mobile/eventos" id="calendarIcon"><Event style={icon}/></Link>
+                <Link to="mobile-search" id="searchIcon"> <Search style={icon}/></Link> 
+                <Link to="/mobile-eventos" id="calendarIcon"><Event style={icon}/></Link>
                 <a href="/" id="bellIcon"> <Notifications style={icon}/> </a>
                 <Link to="/usuario/perfil" id="userIcon"><AccountCircle style={icon}/></Link>
             </div>

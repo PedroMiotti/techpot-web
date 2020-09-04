@@ -15,6 +15,7 @@ import { Switch, Route } from 'react-router-dom';
   import Evento from './pages/Evento/index';
   import EventsMobile from './pages/EventsMobile';
   import PerfilUsuario from './pages/perfilUsuario/index.js';
+  import SearchPageMobile from './pages/SearchPageMobile/index';
 
 const Routes = () => {
   return (
@@ -29,11 +30,13 @@ const Routes = () => {
             
             <Route path="/evento" component={Evento} />
 
-            <Route path="/mobile/eventos" component={EventsMobile} />
+            <Route path="/mobile-eventos" component={EventsMobile} />
 
             <Route path="/login" component={Login} />
 
-            <Route path="/usuario/perfil" component={PerfilUsuario} />  
+            <Route path="/usuario/perfil" component={PerfilUsuario} /> 
+
+            <Route path="/mobile-search" component={SearchPageMobile} /> 
 
         </Switch>
             

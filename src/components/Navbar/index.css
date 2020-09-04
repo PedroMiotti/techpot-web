@@ -115,6 +115,24 @@
     margin-right: 30px;
 }
 
+.iconsino{
+    position: relative;
+}
+
+.iconsino::after{
+    background-color: #04d361;
+    width: 10px;
+    height: 10px;
+    
+    position: absolute;
+    right: 1px;
+    content: '';
+
+    border-radius: 12px;
+    border: 1.2px solid #d0094c;
+
+
+}
 
 /*=============*/
 
