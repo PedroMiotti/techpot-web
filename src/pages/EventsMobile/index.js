@@ -3,19 +3,19 @@ import './index.css';
 
 // Components
   import ContainerList from '../../components/ContainerList/index';
-  import EventBox from '../../components/EventBox/index';
+  import EventBox2 from '../../components/EventBox2/index';
 
 
 const EventsMobile = () => {
   return (
     <div id="div-eventos">
         <ContainerList tituloBoxList="Eventos">
-          <EventBox tituloEvento="HackaTruck" dataEvento="31/08"/>
-          <EventBox tituloEvento="HackaTruck" dataEvento="31/08"/>
-          <EventBox tituloEvento="HackaTruck" dataEvento="31/08"/>
-          <EventBox tituloEvento="HackaTruck" dataEvento="31/08"/>
-          <EventBox tituloEvento="HackaTruck" dataEvento="31/08"/>
-          <EventBox tituloEvento="HackaTruck" dataEvento="31/08"/>
+          <EventBox2 tituloEvento="HackaTruck" dataEvento="31/08"/>
+          <EventBox2 tituloEvento="HackaTruck" dataEvento="31/08"/>
+          <EventBox2 tituloEvento="HackaTruck" dataEvento="31/08"/>
+          <EventBox2 tituloEvento="HackaTruck" dataEvento="31/08"/>
+          <EventBox2 tituloEvento="HackaTruck" dataEvento="31/08"/>
+          <EventBox2 tituloEvento="HackaTruck" dataEvento="31/08"/>
         </ContainerList>
     </div>
   );

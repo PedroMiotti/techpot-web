@@ -110,12 +110,137 @@
 
 /* Bottom ---------------  */
 .eventoBottomContainer{
-    background-color: #242526;
-    display: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 
 
+.eventoBottom-Detalhes{
+    background-color: #1e2e3e;
+    margin-top: 30px;
+    margin-right: 20px;
+    width: 400px;
+    color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 5px 5px 15px rgb(95, 95, 95);
+    align-self: start;
+}
+
+.eventoBottom-Detalhes h1{
+    font-size : 1.5em
+}
+
+.eventoBottom-Detalhes-Horario{
+    display: flex;
+    margin: 20px 0;
+}
+
+.eventoBottom-Detalhes-Tipo{
+    display: flex;
+    margin: 20px 0;
+}
+
+.eventoBottom-Detalhes-Desc{
+    margin: 20px 0;
+}
+
+.eventoBottom-Detalhes-Horario p{
+    margin-left: 10px;
+
+}
+
+.eventoBottom-Detalhes-Tipo p{
+    margin-left: 10px;
+}
+
+.eventoBottom-Oganizador{
+    background-color: #1e2e3e;
+    margin-top: 30px;
+    width: 350px;
+    height: 150px;
+    color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 5px 5px 15px rgb(95, 95, 95);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    margin-bottom: 50px;
+    
+
+}
+
+.eventoBottom-Oganizador h1{
+    font-size : 1.5em
+}
+
+.eventoBottom-Oganizador-card{
+    display: flex;
+    width: 90%;
+
+}
+
+.eventoBottom-Oganizador-card-info p{
+    color: rgb(204, 204, 204);
+}
+
+.eventoBottom-organizador-profilePic{
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+    border-radius: 50%; 
+    margin-right: 10px;
+
+}
+
+.organizadorProfilepic{
+    width: auto;
+    height: 100%;
+}
+
+
+.eventoBottom-Pessoas{
+    background-color: #1e2e3e;
+    margin-top: 30px;
+    width: 350px;
+    height: 230px;
+    color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 5px 5px 15px rgb(95, 95, 95);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.eventoBottom-Pessoas h1{
+    font-size : 1.5em
+}
+
+.eventoBottom-Pessoas-stats{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.eventoBottom-Pessoas-stats-vao,
+.eventoBottom-Pessoas-stats-confirmadas{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.eventoBottom-Pessoas-avatar{
+    align-self: center;
+}
 
 
 
@@ -181,5 +306,18 @@
 
     .eventoTopbar-ThirdRow-FirstColumn{
         display: none;
+    }
+}
+
+
+@media screen and (max-width: 960px) {
+    .eventoBottomContainer{
+        flex-direction: column;
+    }
+
+    .eventoBottom-Detalhes{
+        align-self: center;
+        width: 350px;
+        margin-right: 0;
     }
 }

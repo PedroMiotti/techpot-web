@@ -23,7 +23,7 @@
 
 .container-groupBox:hover{
     opacity: 0.8;
-    border: 3px solid #04d361;
+    border: 1px solid #04d361;
     cursor: pointer;
 }
 
@@ -64,4 +64,59 @@
     color: #999;
     font-size: 14px;
     align-self: flex-start;
+}
+
+
+
+@media screen and (max-width: 1550px){
+
+    .container-groupBox{
+
+        height: 100px;
+
+
+    }
+    
+
+    #groupBox-image-div{
+        width: 30%;
+    }
+
+    .groupBox-image{
+        width: 100%;
+        /* border-radius: 8px; */
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        
+    }
+}
+
+
+@media screen and (max-width: 1200px){
+
+
+
+    #groupBox-image-div{
+        display: none;
+    }
+
+    #groupBox-details{
+        width: 100%;
+        
+    }
+
+    #groupBox-tituloGrupo{
+        font-size: 24px;
+        color: #444;
+        align-self: center;
+    }
+    
+    #groupBox-members{
+        color: #999;
+        font-size: 14px;
+        align-self: center;
+    }
+    
+
+
 }

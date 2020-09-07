@@ -3,7 +3,7 @@
     /*arruma os filhos em colunas*/
     flex-direction: column;
     
-    background-color: #fff;
+    background-color: #f7f7f7;
 
     width: 100%;
     height: 70vh;
@@ -12,13 +12,14 @@
     padding-bottom: 30px;
     margin-top:50px;
     
-    box-shadow: 8px 5px 15px rgb(218, 218, 218);
+    box-shadow: 5px 10px 8px rgb(218, 218, 218);
     border-radius: 15px;
 
     position: sticky;
     position: -webkit-sticky;
     top: 10vh;
 }
+
 
 .div-groupOrEvent-box{
     display: flex;
@@ -27,13 +28,8 @@
     overflow-y: scroll;
 }
 
-/* faz tratamento da scrollbar*/
-*::-webkit-scrollbar{
-    display: none;
-}
-
 .separator{
-    width: 80%;
+    width: 90%;
     border-bottom: 2px solid #ddd;
     
     align-self: center;
@@ -55,7 +51,7 @@
     }
     .containerList{
         padding-top: 10px;
-        background-color: #1d2d3d;
+        /* background-color: #1d2d3d; */
         margin: 0;
         height: 100%;
         width: 100vw;
@@ -64,7 +60,7 @@
     }
 
     #containerHeader{
-        color: #ddd;
+        /* color: #ddd; */
         align-self: center;
         
         margin-bottom: 10px;

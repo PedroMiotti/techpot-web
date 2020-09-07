@@ -5,17 +5,12 @@ import './style/index.css';
     import LogoTechPot from '../../shared/LogoTechPot/index'
 
 // Icons
-    import { PersonOutline, LockOutlined, VisibilityOff } from '@material-ui/icons' 
+    import { PersonOutline, LockOutlined } from '@material-ui/icons' 
+
+// Material UI
     import TextField from '@material-ui/core/TextField';
     import Grid from '@material-ui/core/Grid';
-
-    import {
-        fade,
-        ThemeProvider,
-        withStyles,
-        makeStyles,
-        createMuiTheme,
-      } from '@material-ui/core/styles';
+    import { withStyles, makeStyles, createMuiTheme } from '@material-ui/core/styles';
 
 
     const CssTextField = withStyles({
@@ -35,8 +30,7 @@ import './style/index.css';
           '& .MuiInput-underline': {
             borderBottomColor: '#ddd',
             color:'#fff !important',
-            width: '240px'
-            
+            width: '250px'
           },
           '& .MuiOutlinedInput-root': {
             '& fieldset': {
@@ -101,6 +95,7 @@ const Login = ( ) => {
                             </Grid>
                             <Grid item > 
                                 <CssTextField label="Usuario/E-mail" fullWidth InputLabelProps={{ classes: {root: classes.inputLabel,focused: classes.inputLabelFocused,}}}/>
+                                
                             </Grid>
                         </Grid>
 
@@ -111,6 +106,7 @@ const Login = ( ) => {
                             <Grid item > 
                                 <CssTextField label="Senha" InputLabelProps={{ classes: {root: classes.inputLabel,focused: classes.inputLabelFocused,}}} />
                             </Grid>
+                            <p className="logginForm-ForgotPasswd" style={{margin: '2px 20px', marginLeft: 'auto'}}>Esqueceu a senha ?</p>
                         </Grid>
 
                     </div>

@@ -1,15 +1,15 @@
-.loginContainer{
+.RegistroContainer{
     display: flex;
     justify-content: center;
     align-items: center;
 
     /* background-color: #d0094c; */
-    background: url('../../../assets/Tech-Building.jpg');
+    background: url('../../assets/Tech-Building.jpg');
     background-repeat: repeat;
     height: 100vh;
 }
 
-.loginWrapper{
+.RegistroWrapper{
     display: flex;
     justify-content: space-between;
     flex-direction: column;
@@ -19,19 +19,19 @@
     box-shadow: 4px 5px 28px #3b3b3b;
     max-width: 600px;
     width: 530px;
-    height: 65vh;
+    height: 80vh;
     border-radius: 20px;
 }
 
 
-.loginWrapperHeader{
+.RegistroWrapperHeader{
     display: flex;
     justify-content: space-between;
     align-items: center;
     align-content: center;
     flex-direction: column;
     width: 100%;
-    height: 25%;
+    height: 18%;
     color: #fff;
     padding: 20px;
     margin-top: 30px;
@@ -39,39 +39,43 @@
 }
 
 
-.loginWrapperBottom{
+
+.RegistroWrapperBottom{
     flex: 1 ;
     
-    min-height: 400px;
+    min-height: 500px;
 
     display: grid;
     grid-template-columns: auto ;
     grid-template-rows: auto auto auto;
 
     background-color: #1e2e3e;
+    /* background: rgb(208,9,76);
+    background: linear-gradient(180deg, rgba(208,9,76,1) 4%, rgba(30,46,62,1) 57%); */
     border-radius: 20px;
     color: #fff;
 }
 
-.loginWrapperBottom a{
+.RegistroWrapperBottom a{
     text-decoration: none;
     color: #fff
 }
 
-.loginWrapperButtons a {
+.RegistroWrapperButtons a {
     padding: 10px;
     font-weight: 700;
 }
 
 
-.loginWrapperButtons{
+.RegistroWrapperButtons{
     justify-self: start;
     align-self: center;
     margin-left: 30px;
-    
+    padding: 10px;
+
 }
 
-.loginWrapperButtons a:first-child{
+.RegistroWrapperButtons a:last-child{
     border-bottom-width: 4px;
     border-bottom-color: #d0094c;
     border-bottom-style: solid;
@@ -80,20 +84,24 @@
 }
 
 
-.loginWrapperForm{
+.RegistroWrapperForm{
     place-self: center;
-    width: 60%;
-    margin-right: 20px;
+    width: 70%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
     
 
 }
 
-.loginWrapperForm p{
+.RegistroWrapperForm p{
     margin: 18px 0 ;
     font-weight: 600;
 }
 
-.loginWrapperForm input{
+.RegistroWrapperForm input{
     border-radius: 20px;
     height: 37px;
     border: 0;
@@ -102,7 +110,7 @@
 }
 
 
-.loginWrapperLoginButton{
+.RegistroWrapperRegistroButton{
     place-self: center;
 
     padding: 10px 40px;
@@ -113,43 +121,30 @@
     font-weight: 700;
 }
 
-.logginForm-ForgotPasswd{
-    
-    font-size: 14px;
-    padding: 12px;
-    color: #999;
-}
-
 
 /* Mobile  */
 @media screen and (max-height: 850px){
-    .loginWrapper{
+    .RegistroWrapper{
         height: 100vh;
-        border-radius: 0 ;
     }
 
-    .loginWrapperBottom{
-        border-radius: 0 ;
-
-    }
-
-    .loginWrapperLoginButton{
+    .RegistroWrapperRegistroButton{
         width: 80%;
         height: 50px;
         text-align: center;
         line-height: 30px;
     }
 
-    .loginWrapperForm{
+    .RegistroWrapperForm{
         width: 80%;
     }
 
-    .loginWrapperForm p{
+    .RegistroWrapperForm p{
         margin: 15px 0 ;
         
     }
 
-    .loginWrapperForm input{
+    .RegistroWrapperForm input{
         height: 50px;
     }
 

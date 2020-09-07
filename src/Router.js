@@ -16,11 +16,12 @@ import { Switch, Route } from 'react-router-dom';
   import EventsMobile from './pages/EventsMobile';
   import PerfilUsuario from './pages/perfilUsuario/index.js';
   import SearchPageMobile from './pages/SearchPageMobile/index';
+  import Registro from './pages/Registro/index'
 
 const Routes = () => {
   return (
       <Fragment>      
-        <Navbar />
+        {/* <Navbar /> */}
 
         <Switch>
 
@@ -34,13 +35,15 @@ const Routes = () => {
 
             <Route path="/login" component={Login} />
 
+            <Route path="/registro" component={Registro} />
+
             <Route path="/usuario/perfil" component={PerfilUsuario} /> 
 
             <Route path="/mobile-search" component={SearchPageMobile} /> 
 
         </Switch>
             
-        <BottomNavbar />
+        {/* <BottomNavbar /> */}
             
     </Fragment>
 
