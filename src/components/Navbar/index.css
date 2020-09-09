@@ -43,6 +43,9 @@
     display: none;
 }
 
+.navbar-navTitle{
+    color: #fff;
+}
 
 /*Tira as bolinhas da lista*/
 .navbarContainer ul{

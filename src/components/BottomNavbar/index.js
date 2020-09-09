@@ -20,7 +20,7 @@ const BottomNavbar = () => {
                 <a href="/" id="homeIcon"><Home style={icon}/></a>
                 <Link to="mobile-search" id="searchIcon"> <Search style={icon}/></Link> 
                 <Link to="/mobile-eventos" id="calendarIcon"><Event style={icon}/></Link>
-                <a href="/" id="bellIcon"> <Notifications style={icon}/> </a>
+                <Link to="/mobile-notificacao" id="bellIcon"> <Notifications style={icon}/> </Link>
                 <Link to="/usuario/perfil" id="userIcon"><AccountCircle style={icon}/></Link>
             </div>
             

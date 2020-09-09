@@ -20,9 +20,14 @@ const icon = {
 
 };
 
-const Navbar = () => {
+const Navbar = ({ pathName}) => {
     const [ toggleSidebar, setToggleSidebar ] = useState(false);
 
+
+    let navTitle;
+    if(pathName == '/mobile-notificacao'){
+        navTitle = 'Notificações'
+    }
 
     const openSidebar = () => {
         setToggleSidebar(!toggleSidebar);
@@ -41,7 +46,9 @@ const Navbar = () => {
                             <Menu style={icon} />
                         </div>            
 
-                        <LogoTechPot />
+                        
+                        {navTitle ? <h1 className="navbar-navTitle">{navTitle}</h1> : <LogoTechPot /> }
+                        
 
                         <div class="navbarSearchboxContainer">
                             <input class="navbarSearchBox" placeholder="Pesquisar..."></input>
