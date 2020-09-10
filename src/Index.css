@@ -8,7 +8,7 @@
 }
 
 body{
-    background-color: rgb(247, 247, 247);
+    background-color: #1e2e3e;
 }
 
 .font-techpot{
@@ -21,7 +21,7 @@ body{
 /* Firefox  */
 * {
     scrollbar-width: thin;
-    scrollbar-color: #d0094c #fff;
+    scrollbar-color: #d0094c #111b24;
 }
 
 /* Chrome/Edge/Safari */
