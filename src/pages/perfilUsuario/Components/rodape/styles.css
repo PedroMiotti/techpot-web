@@ -1,0 +1,24 @@
+#Rodape {
+    background-color: #d0094c;    
+    width: 100vw;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#Rodape a h1 {
+    color: #eee;
+}
+
+#Rodape a h1:hover {
+    color: #1e2e3e;
+    text-shadow: 0 0 74px #1e2e3ea6;
+    transition: 0.14s;
+}
+
+@media only screen and (max-width: 960px) {
+    #Rodape {
+        display: none;
+    }
+}
