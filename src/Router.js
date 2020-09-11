@@ -52,7 +52,7 @@ const Routes = () => {
 
         </Switch>
             
-        {/* <BottomNavbar /> */}
+        <BottomNavbar />
             
     </Fragment>
 
