@@ -161,15 +161,13 @@ const Registro = ( ) => {
                 <Grid item className="Registro-gridItem">
                   <CustomTextFieldInline
                     label="Nome"
-                    InputLabelProps={customLabelInput}
-                    fullWidth
+                    InputLabelProps={customLabelInput} 
                   />
                 </Grid>
                 <Grid item className="Registro-gridItem">
                   <CustomTextFieldInline
                     label="Sobrenome"
                     InputLabelProps={customLabelInput}
-                    fullWidth
                   />
                 </Grid>
               </Grid>

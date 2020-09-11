@@ -2,17 +2,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-
-    /* background-color: #d0094c; */
-
     background: url('../../assets/codeImg.png') ;
-    /* filter: blur(8px); */
-    
-    /* -webkit-filter: blur(8px); */
-
-    /* background-repeat: repeat; */
-     /* background: rgb(208,9,76); */
-    /* background: linear-gradient(0deg, rgba(208,9,76,1) 10%, rgba(30,46,62,1) 61%);  */
     height: 100vh;
 }
 
@@ -129,6 +119,10 @@
     font-weight: 700;
 }
 
+.Registro-gridItem{
+    width: 50%;
+}
+
 
 /* Mobile  */
 @media screen and (max-height: 850px){
@@ -181,9 +175,9 @@
 
 
 @media screen and (max-height: 1024px){
-    .Registro-gridItem{
+    /* .Registro-gridItem{
         width: 100%;
-    }
+    } */
 }
 
 
