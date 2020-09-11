@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 // Componentes
     import LogoTechPot from '../../shared/LogoTechPot/index';
     import Sidebar from '../Sidebar/index'
+    import ModalNotificacao from '../ModalNotificao/index';
 
 // Assets
     import userProfilePicture from '../../assets/Rafa.jpg';
@@ -20,8 +21,16 @@ const icon = {
 
 };
 
-const Navbar = ({ pathName}) => {
+const Navbar = ({ pathName }) => {
     const [ toggleSidebar, setToggleSidebar ] = useState(false);
+
+    const [ anchor, setAnchor ] = useState(null);
+
+    const handleClick = (event) => {
+      setAnchor(event.currentTarget);
+    };
+
+    
 
 
     let navTitle;
@@ -34,60 +43,72 @@ const Navbar = ({ pathName}) => {
     }
 
 
-    return(
-        <Fragment>
-            
-            <div className="navbarContainer-higher">
+    return (
+      <Fragment>
 
-            
-            <nav class="font-techpot navbarContainer">
-                    <ul class="navbarMenu">
-                        <div class= "navbarHamburguer" onClick={openSidebar}>
-                            <Menu style={icon} />
-                        </div>            
+        <ModalNotificacao currentTarget={anchor} />
 
-                        
-                        {navTitle ? <h1 className="navbar-navTitle">{navTitle}</h1> : <LogoTechPot /> }
-                        
+        <div className="navbarContainer-higher">
+          <nav class="font-techpot navbarContainer">
+            <ul class="navbarMenu">
+              <div class="navbarHamburguer" onClick={openSidebar}>
+                <Menu style={icon} />
+              </div>
 
-                        <div class="navbarSearchboxContainer">
-                            <input class="navbarSearchBox" placeholder="Pesquisar..."></input>
-                            <a href='/' ><SearchOutlined /></a>
-                        </div>
+              {navTitle ? (
+                <h1 className="navbar-navTitle">{navTitle}</h1>
+              ) : (
+                <LogoTechPot />
+              )}
 
-                        <div class="navbarSideInfoContainer">
-                            <div class="navbarIconsContainer">
-                                <li class="item iconsino">
-                                    <Notifications style={icon}/>
-                                </li>
+              <div class="navbarSearchboxContainer">
+                <input
+                  class="navbarSearchBox"
+                  placeholder="Pesquisar..."
+                ></input>
+                <a href="/">
+                  <SearchOutlined />
+                </a>
+              </div>
 
-                                <li class="item iconmail">
-                                    < Mail style={icon}/>
-                                </li>
-                            </div>
+              <div class="navbarSideInfoContainer">
+                <div class="navbarIconsContainer">
+                  <li class="item iconsino">
+                    <a id="icon-notificacao" onClick={handleClick}>
+                      <Notifications style={icon} />
+                    </a>
+                  </li>
 
-                            <div class="navbarUserContainer">
-                                <div class="navbarUserInfo">
-                                    <li class="nickname">Olá, <a href="/">Nickname</a></li>
-                                    <li class="perfil"><Link to="/usuario/perfil">meu perfil</Link></li>
-                                </div>
+                  <li class="item iconmail">
+                    <Mail style={icon} />
+                  </li>
+                </div>
 
-                                <div class="navbarUserProfilePicContainer">
-                                <img src={userProfilePicture} class="navbarUserProfilePic" alt="Profile pic user"/>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </ul>
-            </nav>
-            </div>
+                <div class="navbarUserContainer">
+                  <div class="navbarUserInfo">
+                    <li class="nickname">
+                      Olá, <a href="/">Nickname</a>
+                    </li>
+                    <li class="perfil">
+                      <Link to="/usuario/perfil">meu perfil</Link>
+                    </li>
+                  </div>
 
-            <Sidebar toggle={toggleSidebar}/>
-            
-        </Fragment>
-        
-            
-        
+                  <div class="navbarUserProfilePicContainer">
+                    <img
+                      src={userProfilePicture}
+                      class="navbarUserProfilePic"
+                      alt="Profile pic user"
+                    />
+                  </div>
+                </div>
+              </div>
+            </ul>
+          </nav>
+        </div>
+
+        <Sidebar toggle={toggleSidebar} />
+      </Fragment>
     );
 
 }

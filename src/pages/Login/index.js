@@ -83,8 +83,8 @@ const Login = ( ) => {
                 <div className="loginWrapperBottom">
                     <div className="loginWrapperButtons">
 
-                        <a href="/">LOGIN</a>
-                        <a href="/">REGISTRAR</a>
+                        <a href="/login">LOGIN</a>
+                        <a href="/registro">REGISTRAR</a>
 
                     </div>
 
