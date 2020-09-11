@@ -28,7 +28,7 @@ const Routes = () => {
   return (
       <Fragment>      
 
-        {/* <Navbar pathName={currentURL.pathname}/> */}
+        <Navbar pathName={currentURL.pathname}/>
 
         <Switch>
 
@@ -53,7 +53,7 @@ const Routes = () => {
 
         </Switch>
             
-        {/* <BottomNavbar /> */}
+        <BottomNavbar />
             
     </Fragment>
 
