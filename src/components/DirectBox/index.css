@@ -1,0 +1,79 @@
+#div-main-DirectBox{
+    display: flex;
+    
+
+    flex-shrink: 0;
+
+    align-self: center;
+    
+    
+    border-top: #fff solid 1px;
+
+    width: 85%;
+    height: 20%;
+
+    margin-top: 10px;
+}
+
+#div-img-DirectBox{
+    align-self: center;
+    display:flex;
+    width: 30%;
+    height: 70%;
+    position: relative;
+}
+
+#div-img-DirectBox::after{
+    background-color: #04d361;
+    width: 15px;
+    height: 15px;
+    
+    position: absolute;
+    right: 1px;
+    bottom: 0px;
+    content: ' ';
+    text-align: center;
+
+    border-radius: 12px;
+    border: 1px solid #eee;
+}
+
+.user-img-DirectBox{
+    width: 100%;
+    border-radius: 50%;
+    border: solid 1px #eee;
+    
+}
+
+
+#div-wrap-details-DirectBox{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    padding: 10px;
+    
+}
+
+#div-userName-DirectBox{
+    display: flex;
+    flex-direction: column;
+    height: 70%;
+}
+
+#div-userName-DirectBox h1{
+    color: #04D361;
+    font-size: 16px;
+}
+
+#div-userName-DirectBox p{
+    color: #888;
+    font-size: 13px;
+}
+
+
+
+#div-lstMsg-DirectBox p{
+    color: #fff;
+    font-size: 13px;
+    height: 30%;
+}

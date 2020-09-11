@@ -21,6 +21,9 @@ import { Switch, Route, useLocation } from 'react-router-dom';
   import SearchPageMobile from './pages/SearchPageMobile/index';
   import NotificaoMobile from './pages/NotificacaoMobile/index'
 
+// testng - pop later:
+  import DirectToogle from './components/DirectToogle/index';
+
 const Routes = () => {
 
   const currentURL  = useLocation(); // currentURL.pathname
@@ -28,6 +31,8 @@ const Routes = () => {
   return (
       <Fragment>      
         <Navbar pathName={currentURL.pathname}/>
+
+        {/*<DirectToogle/>*/}
 
         <Switch>
 
@@ -52,7 +57,7 @@ const Routes = () => {
 
         </Switch>
             
-        {/* <BottomNavbar /> */}
+          <BottomNavbar />
             
     </Fragment>
 
