@@ -7,6 +7,7 @@
     justify-content: center;
     border-bottom-left-radius: 5vh;
     border-bottom-right-radius: 5vh;
+    border-bottom: 1px solid #a3aaae;
 }
 
 #FotoUsuario {
@@ -27,7 +28,6 @@
 #DescricaoUsuario h1 {  
     padding-top: 1.5vh;  
     color: #d0094c;
-    text-shadow: 0 0 14px #d0094ca6;
     font-size: 2.2rem;
 }
 
@@ -35,7 +35,6 @@
     display: flex;
     padding-top: 2vh;
     padding-bottom: 2vh;
-    text-shadow: 0 0 8px #eee;
     font-size: 1.15rem;
 }
 
@@ -67,7 +66,6 @@
     background: #1e2e3e;
     border: 0;
     padding-left: 2vh;
-    text-shadow: 0 0 8px #eee;
     font-size: 0.95rem;
 }
 
@@ -80,7 +78,7 @@
 }
 
 #BotaoSocial button a:hover {
-    color: #04d361;
+    color: #d0094c;
     transition: 0.44s;
 }
 
