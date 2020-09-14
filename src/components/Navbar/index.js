@@ -27,7 +27,16 @@ const Navbar = ({ pathName}) => {
     let navTitle;
     if(pathName == '/mobile-notificacao'){
         navTitle = 'Notificações'
-    }
+    } else if(pathName == '/mobile-directs'){
+        navTitle = 'Mensagens'
+    } else if(pathName == '/mobile-eventos'){
+        navTitle = 'Eventos'
+    } else if(pathName == '/usuario/perfil'){
+        navTitle = 'Meu Perfil'
+    } else if(pathName == '/mobile-search'){
+        navTitle = 'Search'
+    } 
+
 
     const openSidebar = () => {
         setToggleSidebar(!toggleSidebar);
@@ -62,7 +71,7 @@ const Navbar = ({ pathName}) => {
                                 </li>
 
                                 <li class="item iconmail">
-                                    < Mail style={icon}/>
+                                    <Link to="/mobile-directs">< Mail style={icon}/></Link>
                                 </li>
                             </div>
 

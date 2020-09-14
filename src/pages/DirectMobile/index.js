@@ -2,19 +2,15 @@ import React, {useState} from 'react';
 import './index.css';
 
 //components
-import DirectBox from '../DirectBox/index';
+import DirectBox from '../../components/DirectBox/index';
 
 //Icon
-import { Close, Search} from '@material-ui/icons';
+import { ArrowBackIos, Search} from '@material-ui/icons';
 
-const DirectToogle = () =>{
+const DirectMobile = () =>{
     
     return(
         <div id="main-div-directToogle">
-            <div id="div-header-direct">
-                <Close style={{color: '#fff', fontSize: '30px'}}/>
-                <h1 class="font-techpot">Mensagens</h1>
-            </div>
             <div id="div-search-direct">
                 <input type="text" placeholder="Buscar contato..."/>
                 <a href='/' > <Search style={{color: '#fff', fontSize: '30px'}}/></a>
@@ -34,4 +30,4 @@ const DirectToogle = () =>{
     )
 }
 
-export default DirectToogle;
+export default DirectMobile;

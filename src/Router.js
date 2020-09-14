@@ -19,10 +19,9 @@ import { Switch, Route, useLocation } from 'react-router-dom';
 
   import EventsMobile from './pages/EventsMobile';
   import SearchPageMobile from './pages/SearchPageMobile/index';
-  import NotificaoMobile from './pages/NotificacaoMobile/index'
+  import NotificaoMobile from './pages/NotificacaoMobile/index';
+  import DirectMobile from './pages/DirectMobile/index';
 
-// testng - pop later:
-  import DirectToogle from './components/DirectToogle/index';
 
 const Routes = () => {
 
@@ -31,8 +30,6 @@ const Routes = () => {
   return (
       <Fragment>      
         <Navbar pathName={currentURL.pathname}/>
-
-        {/*<DirectToogle/>*/}
 
         <Switch>
 
@@ -53,6 +50,8 @@ const Routes = () => {
             <Route path="/mobile-search" component={SearchPageMobile} /> 
 
             <Route path="/mobile-notificacao" component={NotificaoMobile} /> 
+
+            <Route path="/mobile-directs" component={DirectMobile} />
 
 
         </Switch>
