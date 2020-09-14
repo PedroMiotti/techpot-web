@@ -9,7 +9,7 @@ import './styles.css';
 
 const PerfilUsuario = () => {
     return(
-        <div>
+        <div id="PerfilUsuario">
             <InfoUsuario />
             <div className="sp"></div>
             <InfoGrupo />
