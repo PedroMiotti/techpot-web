@@ -78,8 +78,12 @@
 }
 
 #BotaoSocial button a:hover {
-    color: #d0094c;
+    color: #04d361;
     transition: 0.44s;
+}
+
+#BotaoSocial button a:active {
+    color: #04d361;
 }
 
 #BotaoSocial button a h4 {
@@ -113,12 +117,14 @@
 @media only screen and (max-width: 600px) {
     #InfoUsuario {
         flex-flow: row wrap;
-        border-bottom-left-radius: 0vh;
-        border-bottom-right-radius: 0vh;
         padding-bottom: 7.5vh;
     }
 
     #DescricaoUsuario h1 {  
         font-size: 1.6rem;
+    }
+
+    #Bio {
+        font-size: 1.1rem;
     }
 }
