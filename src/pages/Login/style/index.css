@@ -4,7 +4,7 @@
     align-items: center;
 
     /* background-color: #d0094c; */
-    background: url('../../../assets/Tech-Building.jpg');
+    background: url('../../../assets/codeImg.png');
     background-repeat: repeat;
     height: 100vh;
 }
@@ -129,7 +129,9 @@
     }
 
     .loginWrapperBottom{
-        border-radius: 0 ;
+        border-radius: 0;
+        border-top-left-radius: 20px ;
+        border-top-right-radius: 20px ;
 
     }
 

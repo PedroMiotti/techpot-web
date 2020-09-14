@@ -29,6 +29,7 @@ const Routes = () => {
 
   return (
       <Fragment>      
+
         <Navbar pathName={currentURL.pathname}/>
 
         <Switch>

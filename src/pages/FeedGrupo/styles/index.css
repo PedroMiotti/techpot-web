@@ -25,7 +25,7 @@
 .feedGrupoSideContainer{
     width: 300px;
     height: 100vh;
-    background-color: #1e2e3e ;
+    background-color: #1f3244 ;
     border-bottom-right-radius: 30px ;
     padding-top: 60px ;
 }
@@ -76,9 +76,9 @@
 
     
     
-    background-color: #1e2e3e;
+    background-color: #1f3244;
     border-bottom-right-radius: 30px;
-    box-shadow: 20px 5px 15px rgb(121, 121, 121);
+    box-shadow:  19px 5px 15px #111b24;
     height: 9vh;
 
 }

@@ -2,10 +2,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-
-    /* background-color: #d0094c; */
-    background: url('../../assets/Tech-Building.jpg');
-    background-repeat: repeat;
+    background: url('../../assets/codeImg.png') ;
     height: 100vh;
 }
 
@@ -71,7 +68,6 @@
     justify-self: start;
     align-self: center;
     margin-left: 30px;
-    padding: 10px;
 
 }
 
@@ -86,7 +82,7 @@
 
 .RegistroWrapperForm{
     place-self: center;
-    width: 70%;
+    width: 80%;
     height: 90%;
     display: flex;
     flex-direction: column;
@@ -110,6 +106,8 @@
 }
 
 
+
+
 .RegistroWrapperRegistroButton{
     place-self: center;
 
@@ -121,11 +119,23 @@
     font-weight: 700;
 }
 
+.Registro-gridItem{
+    width: 50%;
+}
+
 
 /* Mobile  */
 @media screen and (max-height: 850px){
     .RegistroWrapper{
         height: 100vh;
+        border-radius: 0;
+    }
+
+    .RegistroWrapperBottom{
+        border-radius: 0;
+        border-top-left-radius: 20px ;
+        border-top-right-radius: 20px ;
+
     }
 
     .RegistroWrapperRegistroButton{
@@ -133,10 +143,15 @@
         height: 50px;
         text-align: center;
         line-height: 30px;
+        margin-bottom: 10px;
     }
 
     .RegistroWrapperForm{
-        width: 80%;
+        width: 90%;
+        height: 80%;
+        overflow-y: scroll ;
+        overflow-x: hidden;
+
     }
 
     .RegistroWrapperForm p{
@@ -148,8 +163,22 @@
         height: 50px;
     }
 
+    .RegistroWrapperButtons{
+        margin-top: 20px;
+    }
+
+    .Registro-gridItem{
+        width: 100%;
+    }
+
 }
 
+
+@media screen and (max-height: 1024px){
+    /* .Registro-gridItem{
+        width: 100%;
+    } */
+}
 
 
 
