@@ -1,11 +1,13 @@
 #InfoEvento {
     background-color: #1e2e3e;
     box-shadow: 0 0 24px #1e2e3e;
-    /* border-radius: 5vh; */
     border-top-left-radius: 5vh;
     border-top-right-radius: 5vh;
     display: flex;
     flex-direction: column;
+    border: 1px solid #a3aaae;
+    padding-left: 12.5vw;
+    padding-right: 12.5vw;
 }
 
 #NomeInfoEvento {
@@ -14,7 +16,6 @@
 
 #NomeInfoEvento h1 {
     color: #d0094c;
-    text-shadow: 0 0 14px #d0094ca6;
     padding-left: 22vh;
     font-size: 2.2rem;
     text-decoration: underline;
@@ -46,13 +47,12 @@
 
 #VisualEventos a h3 {
     color: #eee;
-    text-shadow: 0 0 8px #eee;
     padding-bottom: 1.5vh;    
     text-align: center;
     padding-left: 1.5vh;
     padding-right: 1.5vh;
     padding-top: 1.5vh;
-    padding-bottom: 4vh;
+    padding-bottom: 7.5vh;
     max-width: 50vh;
 }
 
@@ -61,9 +61,59 @@
     transition: 0.44s;
 }
 
-@media only screen and (max-width: 1280px) {
+#VisualEventos a h3:active {
+    color: #04d361;
+}
+
+@media only screen and (max-width: 1440px) {
     #NomeInfoEvento h1 {
         padding-left: 0;
         text-align: center;
+    }
+}
+
+@media only screen and (max-width: 1280px) {
+    #VisualEventos a img {
+        width: 35vh;
+    }
+
+    #VisualEventos a h3 {
+        max-width: 35vh;
+        font-size: 1rem;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    #VisualEventos {
+        display: flex;
+        flex-flow: row nowrap;
+        max-height: 40vh;
+        justify-content: flex-start;
+        padding-top: 15vw;
+        padding-bottom: 15vw;
+    }
+
+    #VisualEventos a {
+        padding-left: 2vh;
+        padding-right: 2vh;
+    }
+
+    #VisualEventos a img {
+        width: 50vh;
+        border-radius: 15%;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    #NomeInfoEvento h1 {
+        font-size: 1.75rem;
+    }
+
+    #VisualEventos {
+        padding-top: 12.5vh;
+    }
+
+    #VisualEventos a img {
+        width: 40vh;
     }
 }
