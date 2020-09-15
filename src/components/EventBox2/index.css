@@ -115,3 +115,12 @@
 .eventBox2-bottom-Container-row3 a:hover{
     background-color: #04d361;
 }
+
+
+@media screen and (max-width: 1310px){
+
+    .eventBox2-DayBox,
+    .eventoBottom-Pessoas-avatar{
+        display: none;
+    }
+}

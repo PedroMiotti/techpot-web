@@ -23,15 +23,7 @@ const icon = {
 
 const Navbar = ({ pathName }) => {
     const [ toggleSidebar, setToggleSidebar ] = useState(false);
-
-    const [ anchor, setAnchor ] = useState(null);
-
-    const handleClick = (event) => {
-      setAnchor(event.currentTarget);
-    };
-
-    
-
+    const [ showModalNotification, setShowModalNotification] = useState(false)
 
     let navTitle;
     if(pathName == '/mobile-notificacao'){
@@ -43,11 +35,12 @@ const Navbar = ({ pathName }) => {
     }
 
 
+    const openModalNotification = () => {
+      setShowModalNotification(!showModalNotification);
+    }
+
     return (
       <Fragment>
-
-        <ModalNotificacao currentTarget={anchor} />
-
         <div className="navbarContainer-higher">
           <nav class="font-techpot navbarContainer">
             <ul class="navbarMenu">
@@ -74,8 +67,9 @@ const Navbar = ({ pathName }) => {
               <div class="navbarSideInfoContainer">
                 <div class="navbarIconsContainer">
                   <li class="item iconsino">
-                    <a id="icon-notificacao" onClick={handleClick}>
+                    <a id="icon-notificacao" onClick={openModalNotification}>
                       <Notifications style={icon} />
+                      {showModalNotification && <ModalNotificacao />}
                     </a>
                   </li>
 

@@ -1,34 +1,38 @@
 import React, { useState, useEffect } from 'react'
+import './index.css'
 
+// Icons
+  import { NotificationsNoneOutlined } from '@material-ui/icons';
 
-// Material UI
-    import Menu from "@material-ui/core/Menu";
-    import MenuItem from "@material-ui/core/MenuItem";
+// Components
+  import NotificacaoBox from '../../shared/Notificacao/index';
+  import BottomLine from '../../shared/bottomLine/index'
 
-const ModalNotificao = ({ currentTarget }) => {
-    const [anchorEl, setAnchorEl] = useState(currentTarget);
-
-    const handleClose = () => {
-      setAnchorEl(!anchorEl);
-    };
-
-    useEffect(() => {
-
-      setAnchorEl(currentTarget);
-
-    }, [currentTarget]);
-
+const ModalNotificao = () => {
     return (
-      <div className="ModalNotificacaoContainer">
-        <Menu
-          id="simple-menu"
-          anchorEl={anchorEl}
-          keepMounted
-          open={Boolean(anchorEl)}
-          onClose={handleClose}
-        >
-          <MenuItem onClick={handleClose}>Profile</MenuItem>
-        </Menu>
+      <div className="ModalNotificacaoContainer font-techpot">
+        <div className="ModalNotificacao-topbar">
+          <NotificationsNoneOutlined />
+
+          <h3>Notificações</h3>
+
+          <div className="emptySpace"></div>
+        </div>
+
+        <BottomLine />
+
+        <div className="ModalNotificacao-notificacoes">
+          <NotificacaoBox />
+          <NotificacaoBox />
+          <NotificacaoBox />
+          <NotificacaoBox />
+        </div>
+
+        <BottomLine />
+
+        <div className="ModalNotificao-bottom">
+          <p>Ver tudo</p>
+        </div>
       </div>
     );
 }

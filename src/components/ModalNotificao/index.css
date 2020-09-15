@@ -1,0 +1,47 @@
+.ModalNotificacaoContainer{
+    position: absolute;
+    width: 300px;
+    height: 430px;
+    top: 48px;
+    left: 0;
+    z-index: 1;
+    transform: translateX(-45%);
+
+    border-radius: 20px;
+    background-color: #fff;
+
+    
+}
+
+.ModalNotificacao-topbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 13px;
+
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+
+    color: #04d361;
+    height: 50px;
+
+}
+
+.ModalNotificacao-topbar h3{
+    color: #1e2e3e;
+}
+
+.ModalNotificao-bottom{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 47px;
+    font-size: 17px ;
+    color: #04d361;
+}
+
+.ModalNotificao-bottom p:hover{
+    color: #05a84f;
+    cursor: pointer;
+}
+
