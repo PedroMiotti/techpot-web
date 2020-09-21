@@ -1,0 +1,67 @@
+@media only screen and (max-width: 800px) {
+    #EnviarMsg {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #1f3244;
+        box-shadow:  0px 5px 15px 8px #111b24;
+        border-top: 1px solid #a3aaae;
+        margin-top: .5vh;
+        padding-top: .5vw;
+        padding-bottom: .5vw;
+    }
+
+    #Anexar {
+        color: #d0094c;
+        border-top-left-radius: 1.5vw;
+        border-bottom-left-radius: 1.5vw;
+        min-height: 4.75vw;
+        background-color: #eee;  
+        box-shadow:  1.5px .5px .5px .5px #eee;
+        padding-right: 0.25vw;
+    }    
+
+    #EnviarMsg p {
+        background-color: #eee;
+        box-shadow:  1.5px .5px .5px .5px #eee;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        border-top-right-radius: 1.5vw;
+        border-bottom-right-radius: 1.5vw;
+        min-height: 4.75vw;
+        min-width: 65vw;
+        max-width: 86vw;
+        margin-top: 1.5vh;
+        margin-bottom: 1.5vh;
+        text-align: start;
+        font-size: 1rem;
+        padding: 1.15vw; 
+    }    
+    
+    #Enviar {
+        background-color: #04d361;
+        box-shadow:  0px .5px .5px 0 #04d361;
+        border-radius: 50%;
+        width: 6%;
+        height: 6%;
+        margin-left: 2vw;
+        color:#eee;
+        padding: 7.5px;
+        transform: rotate(315deg);
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    #Anexar {
+        min-height: 4vh;
+    }
+    
+    #EnviarMsg p {
+        min-height: 4vh;
+    }
+
+    #Enviar {
+        width:10%;
+        height: 10%;
+    }
+}
