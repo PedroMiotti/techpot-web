@@ -1,0 +1,103 @@
+#main-div-DirectWeb{
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+}
+
+#left-main-div-DirectWeb{
+    background-color: #1e2e3e;
+    width: 432px;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+}
+
+#div-selfInfo-DirectWeb{
+    display: flex;
+    flex-direction: row;
+    padding: 10px 15px;
+    border-bottom: solid 1px #eee;
+    height: 60px;
+
+    align-items: center;
+    justify-content: space-between;
+
+    box-sizing: border-box;
+
+
+}
+
+#div-contacts-DirectWeb{
+    height: 90%;
+    overflow-y: scroll;
+}
+
+#div-img-selfInfo-DirectWeb{
+    width: 40px;
+
+}
+
+#div-img-selfInfo-DirectWeb img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: solid 1px #eee;
+
+}
+
+
+
+#right-main-div-DirectWeb{
+    background-color: #1e2e3e;
+    width: 100%;
+    height: 100%;
+
+    border-left: solid 1px #eee;
+
+    display: flex;
+    flex-direction: column;
+}
+
+#div-userInfo-DirectWeb{
+    display: flex;
+    flex-direction: row;
+    padding: 10px 20px;
+    border-bottom: solid 1px #eee;
+    height: 60px;
+
+    align-items: center;
+    justify-content: space-between;
+
+    box-sizing: border-box;
+
+}
+
+#div-img-userInfo-DirectWeb{
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+#div-img-userInfo-DirectWeb img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: solid 1px #eee;
+    
+
+}
+
+#div-img-userInfo-DirectWeb h1{
+    padding: 15px;
+
+    color: #04d361;
+    font-size: 20px;
+
+    
+
+}

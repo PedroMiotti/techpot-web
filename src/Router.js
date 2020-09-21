@@ -21,6 +21,7 @@ import { Switch, Route, useLocation } from 'react-router-dom';
   import SearchPageMobile from './pages/SearchPageMobile/index';
   import NotificaoMobile from './pages/NotificacaoMobile/index';
   import DirectMobile from './pages/DirectMobile/index';
+  import DirectWeb from './pages/DirectWeb/index';
 
 
 const Routes = () => {
@@ -47,6 +48,8 @@ const Routes = () => {
             <Route path="/registro" component={Registro} />
 
             <Route path="/usuario/perfil" component={PerfilUsuario} /> 
+
+            <Route path="/direct/user" component={DirectWeb} />
 
             <Route path="/mobile-search" component={SearchPageMobile} /> 
 
