@@ -21,6 +21,7 @@ import { Switch, Route, useLocation } from 'react-router-dom';
   import SearchPageMobile from './pages/SearchPageMobile/index';
   import NotificaoMobile from './pages/NotificacaoMobile/index';
   import DirectMobile from './pages/DirectMobile/index';
+  import MsgDireta from './pages/MsgDireta';
 
 
 const Routes = () => {
@@ -54,6 +55,7 @@ const Routes = () => {
 
             <Route path="/mobile-directs" component={DirectMobile} />
 
+            <Route path="/pv" component={MsgDireta} />
 
         </Switch>
             
