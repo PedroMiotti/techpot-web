@@ -1,0 +1,100 @@
+@media only screen and (max-width: 800px) {
+    #Contraparte {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        background-color: #1f3244;
+        box-shadow:  8px 5px 15px #111b24;
+        border-bottom: 1px solid #a3aaae;
+    }
+
+    #BotãoRetornar {
+        padding-left: 8.5vw;
+        padding-right: 8.5vw;
+    }   
+
+    #BotãoRetornar a {
+        color: #eee;
+        padding-left: 1.5vw;
+        padding-right: 1.5vw;
+        padding-top: 1.5vw;
+        padding-bottom: 1.5vw;
+        font-size: 2.5rem;
+    }
+
+    #BotãoRetornar a:link {
+        text-decoration: none;
+    }
+
+    #BotãoRetornar a:visited {
+        text-decoration: none;
+    }
+
+    #BotãoRetornar a:hover {
+        color: #04d361;
+        transition: 0.44s;
+    }
+
+    #BotãoRetornar a:active {
+        color: #04d361;
+    }
+
+    #Usuário {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #Usuário:link {
+        text-decoration: none;
+    }
+
+    #Usuário:visited {
+        text-decoration: none;
+    }
+
+    #Usuário img {
+        max-width: 12.5vw;
+        border-radius: 50%;
+        padding-top: 1.5vw;
+        padding-bottom: 1.5vw;
+        padding-left: 1.5vw;
+        padding-right: 1.5vw;
+    }
+
+    #Usuário h1 {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #d0094c;
+        font-size: 1.5rem;
+    }    
+
+    #Usuário h1:hover {
+        color: #04d361;
+        transition: 0.21s;
+    }
+
+    #Usuário h1:active {
+        color: #04d361;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    #BotãoRetornar {
+        padding-left: 5vw;
+        padding-right: 5vw;
+    }
+
+    #BotãoRetornar a {
+        font-size: 1.75rem;
+    }
+
+    #Usuário img {
+        max-width: 17.5vw;
+    }
+    
+    #Usuário h1 {
+        font-size: 1.1rem;
+    }
+}
