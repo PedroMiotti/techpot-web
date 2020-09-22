@@ -1,6 +1,6 @@
 import React from 'react'
 
-const BottomLine = () => {
+const BottomLine = ({ z_index }) => {
     return (
         
         

@@ -8,6 +8,15 @@
     
 }
 
+.postIcon{
+    color: #d0094c;
+}
+
+.postIcon:hover{
+    color: #54d0b4;
+    cursor: pointer;
+}
+
 
  /* Post Header  */
 .postHeader{

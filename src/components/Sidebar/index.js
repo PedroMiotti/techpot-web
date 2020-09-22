@@ -12,63 +12,37 @@ import './index.css'
     
 
 
-const Sidebar = ({ toggle }) => {
-    const [ hideSidebar, setHideSidebar ] = useState(false)
-
-    const toggleSidebar = ( ) => {
-        setHideSidebar(false)
-    }
-
-    useEffect(() => {
-        
-        setHideSidebar(toggle)
-        
-        return () => {
-            setHideSidebar(false)
-        }
-
-    }, [toggle])
-
-
-
-
-    return(
-        <Fragment>
-            {hideSidebar ? 
-            <div className="sidebarContainer font-techpot">
-            
-                
-
-                <div className="sidebarUserInfoContainer">
-                    <div className="sidebarCloseContainer" onClick={toggleSidebar}>
-                        <Close style={{color: '#fff', fontSize: '30px'}}/>
-                    </div>
-                    <div className="sidebarProfilePictureContainer">
-                            <img src={sidebarUserTestPicture} alt="sidebarUserTestPicture" className="sidebarUserPicture"/>
-                    </div>
-
-                    <div className="sidebarUserDescContainer">
-                        <h3>Carlos Rafael</h3>
-                        <p>Professor</p>
-                    </div>
-
+const Sidebar = ({ onClose }) => {
+    return( 
+        <div className="sidebarContainer font-techpot">
+            <div className="sidebarUserInfoContainer">
+                <div className="sidebarCloseContainer" onClick={onClose}>
+                    <Close style={{color: '#fff', fontSize: '30px'}}/>
                 </div>
-                <div className="sidebarGroupsContainer">
-                    <h2>Grupos</h2>
+                <div className="sidebarProfilePictureContainer">
+                        <img src={sidebarUserTestPicture} alt="sidebarUserTestPicture" className="sidebarUserPicture"/>
+                </div>
 
-                    <div className="sidebarGroupsList">
-                        <GroupListContainer />
-                        <GroupListContainer />
-                        <GroupListContainer />
-                        <GroupListContainer />
-                        <GroupListContainer />
-                        <GroupListContainer />
+                <div className="sidebarUserDescContainer">
+                    <h3>Carlos Rafael</h3>
+                    <p>Professor</p>
+                </div>
 
-                    </div>
+            </div>
+            <div className="sidebarGroupsContainer">
+                <h2>Grupos</h2>
+
+                <div className="sidebarGroupsList">
+                    <GroupListContainer />
+                    <GroupListContainer />
+                    <GroupListContainer />
+                    <GroupListContainer />
+                    <GroupListContainer />
+                    <GroupListContainer />
+
                 </div>
             </div>
-            : null}
-        </Fragment>
+        </div>
     )
 }
 

@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
+import { createPortal } from 'react-dom'
 import './index.css'
 
 // Icons
@@ -37,4 +38,10 @@ const ModalNotificao = () => {
     );
 }
 
-export default ModalNotificao;
+
+const ModalNotificacaoPortal = ({ anchor }) => {
+  console.log(anchor)
+  return createPortal(<ModalNotificao />, anchor);
+};
+
+export default ModalNotificacaoPortal;

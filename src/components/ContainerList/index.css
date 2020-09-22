@@ -6,6 +6,7 @@
     background-color: #253241;
 
     width: 100%;
+    min-width: 250px;
     height: 70vh;
 
     padding: 15px 10px;

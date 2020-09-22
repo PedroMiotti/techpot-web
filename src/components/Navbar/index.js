@@ -1,4 +1,4 @@
-import React, { useState, Fragment } from 'react';
+import React, { useState, Fragment, useRef } from 'react';
 import './index.css';
 import { Link } from 'react-router-dom';
 
@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 // Componentes
     import LogoTechPot from '../../shared/LogoTechPot/index';
     import Sidebar from '../Sidebar/index'
-    import ModalNotificacao from '../ModalNotificao/index';
+    import ModalNotificacaoPortal from "../ModalNotificao/index";
 
 // Assets
     import userProfilePicture from '../../assets/Rafa.jpg';
@@ -24,6 +24,10 @@ const icon = {
 const Navbar = ({ pathName }) => {
     const [ toggleSidebar, setToggleSidebar ] = useState(false);
     const [ showModalNotification, setShowModalNotification] = useState(false)
+    const[ anchorEl, setAnchorEl ] = useState(null);
+
+    const modalNotificacaoRef = useRef();
+
 
     let navTitle;
     if(pathName == '/mobile-notificacao'){
@@ -44,12 +48,15 @@ const Navbar = ({ pathName }) => {
     }
 
 
-    const openModalNotification = () => {
+    const openModalNotification = (e) => {
       setShowModalNotification(!showModalNotification);
+      setAnchorEl(modalNotificacaoRef.current);
     }
 
     return (
       <Fragment>
+        {showModalNotification && <ModalNotificacaoPortal anchor={anchorEl} />}
+
         <div className="navbarContainer-higher">
           <nav class="font-techpot navbarContainer">
             <ul class="navbarMenu">
@@ -76,14 +83,19 @@ const Navbar = ({ pathName }) => {
               <div class="navbarSideInfoContainer">
                 <div class="navbarIconsContainer">
                   <li class="item iconsino">
-                    <a id="icon-notificacao" onClick={openModalNotification}>
+                    <a
+                      id="icon-notificacao"
+                      onClick={openModalNotification}
+                      ref={modalNotificacaoRef}
+                    >
                       <Notifications style={icon} />
-                      {showModalNotification && <ModalNotificacao />}
                     </a>
                   </li>
 
                   <li class="item iconmail">
-                    <Link to="/mobile-directs">< Mail style={icon}/></Link>
+                    <Link to="/mobile-directs">
+                      <Mail style={icon} />
+                    </Link>
                   </li>
                 </div>
 
@@ -110,7 +122,7 @@ const Navbar = ({ pathName }) => {
           </nav>
         </div>
 
-        <Sidebar toggle={toggleSidebar} />
+        {toggleSidebar && (<Sidebar onClose={() => setToggleSidebar(!toggleSidebar)} />)}
       </Fragment>
     );
 

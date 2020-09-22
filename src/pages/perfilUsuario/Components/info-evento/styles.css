@@ -16,7 +16,6 @@
 
 #NomeInfoEvento h1 {
     color: #d0094c;
-    padding-left: 22vh;
     font-size: 2.2rem;
     text-decoration: underline;
 }
@@ -36,6 +35,7 @@
     flex-flow: column;
     justify-content: center;
     align-items: center;
+    text-decoration: none;
 }
 
 #VisualEventos a img {
