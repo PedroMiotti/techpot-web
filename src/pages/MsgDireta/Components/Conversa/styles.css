@@ -1,0 +1,158 @@
+@media only screen and (max-width: 800px) {
+    #Conversa {
+        display: flex;
+        flex-direction: column;
+        overflow-y: scroll;
+        max-height: 82.5vh;
+    }
+
+    .Data {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding-top: 2.5vw;
+        padding-bottom: 2.5vw;
+    }
+
+    .Data h2 {
+        color: #eee;
+        background-color: #1f3244;
+        box-shadow:  8px 5px 15px #111b24;
+        padding-left: 1.5vw;
+        padding-right: 1.5vw;
+        padding-top: 0.5vw;
+        padding-bottom: 0.5vw;
+        border-radius: 5vw;
+        font-size: 1rem;
+    }
+
+    .SímboloNãoBrega {
+        font-size: .75rem;
+    }
+
+    .MsgEnviada {
+        display: flex;
+        justify-content: flex-end;
+        padding-top: 0.5vw;
+        padding-bottom: 0.5vw;
+        position: relative;
+        padding-right: 2.5vw;
+    }
+
+    .MsgEnviada:before {
+        content: "";
+        width: 0;
+        height: 0;
+        position: absolute;
+        border-left: 15px solid #04d361;
+        border-right: 15px solid transparent;
+        border-top: 15px solid #04d361;
+        border-bottom: 15px solid transparent;
+        right: 1.25vw;
+        top: .5vw;
+    }
+
+    #ConteúdoEnviado {
+        display: flex;
+        padding: 1.5vw 1.25vw .25vw 1.5vw;
+        background-color: #04d361;
+        box-shadow:  1.15px 1.15px 2.5px #04d361;
+        border-radius: 1.5vw;        
+    }
+
+    #ConteúdoEnviado p {
+        max-width: 70vw;
+        font-size: 1rem;
+        text-align: start;
+    }
+
+    #ConteúdoEnviado p:after {        
+        display: flex;
+        justify-content: flex-end;
+        content: "12:42";
+        color: #1e2e3e;
+        font-size: .75rem;
+        font-weight: bold;
+        padding-right: .15vw;
+    }
+
+    #MsgLida {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+    }
+
+    #ÍconeMsgLida {
+        font-size: 1rem;
+        color: #d0094c;
+    }
+
+    .MsgRecebida {
+        display: flex;
+        justify-content: flex-start;
+        padding-top: 0.5vw;
+        padding-bottom: 0.5vw;
+        position: relative;
+        padding-left: 2.5vw;
+    }
+
+    .MsgRecebida:before {
+        content: "";
+        width: 0;
+        height: 0;
+        position: absolute;
+        border-left: 15px solid transparent;
+        border-right: 15px solid transparent;
+        border-top: 15px solid #eee;
+        border-bottom: 15px solid transparent;
+        left: 1.25vw;
+        top: .5vw;
+    }
+
+    #ConteúdoRecebido {
+        display: flex;
+        padding: 1.5vw 1.5vw .25vw 1.25vw;
+        background-color: #eee;
+        box-shadow:  1.35px 1.35px 2.5px #eee;
+        border-radius: 1.5vw;        
+    }
+
+    #ConteúdoRecebido p {
+        max-width: 70vw;
+        font-size: 1rem;
+        text-align: start;
+    }
+
+    #ConteúdoRecebido p:after {        
+        display: flex;
+        justify-content: flex-end;
+        content: "14:17";
+        color: #1e2e3e;
+        font-size: .75rem;
+        font-weight: bold;
+        padding-right: .15vw;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    #Conversa {
+        max-height: 83vh;
+    }
+    
+    .Data h2 {
+        font-size: .9rem;
+    }
+    
+    #ConteúdoEnviado p {
+        max-width: 60vw;
+        font-size: .9rem;
+        padding-right: 1vw;
+    }
+
+    #ConteúdoRecebido p {
+        max-width: 60vw;
+        font-size: .9rem;
+        padding-top: 1.25vw;
+    }
+}

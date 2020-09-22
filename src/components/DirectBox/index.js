@@ -1,7 +1,7 @@
 import React from 'react';
 import './index.css'
 
-//import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 //assets
 import FlavioUser from '../../assets/Flavio.jpg'
@@ -9,7 +9,7 @@ import FlavioUser from '../../assets/Flavio.jpg'
 const DirectBox = () =>{
     return(
 
-        <div id="div-main-DirectBox" class="font-techpot">
+        <Link to="/direct/user" id="div-main-DirectBox" class="font-techpot">
             <div id="div-img-DirectBox">
                 <img src={FlavioUser} alt="User Profile Image" class="user-img-DirectBox"/>
             </div>
@@ -23,7 +23,7 @@ const DirectBox = () =>{
 
                 </div>
             </div>
-        </div>
+        </Link>
         
         
     )
