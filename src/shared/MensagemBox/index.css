@@ -1,0 +1,106 @@
+.MensagemBox-Container{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 80px;
+
+    margin-bottom: 1px ;
+    padding: 0 10px;
+    position: relative;
+}
+
+.MensagemBox-Container:hover{
+    background-color: rgb(224, 224, 224);
+    cursor: pointer;
+}
+
+.MensagemBox-text-container{
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 12px;
+    color: #000;
+    width: 240px;
+    height: 75%;
+}
+
+.MensagemBox-text{
+    font-size: 0.78em;
+    color: #999;
+}
+
+.MensagemBox-UserActionName{
+    font-weight: 700;
+}
+
+.MensagemBox-tempo{
+    color: #999;
+    font-size: 0.7em;
+    text-align: center;
+}
+
+
+.MensagemBox-userPic-Container{
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+    border-radius: 50%; 
+}
+
+.MensagemBox-userPic{
+    width: auto;
+    height: 100%;
+}
+
+.MensagemBox-userPic-Container::after{
+    background-color: #04d361;
+    width: 10px;
+    height: 10px;
+    
+    position: absolute;
+    left: 38px;
+    bottom: 14px;
+    content: ' ';
+    text-align: center;
+
+    border-radius: 12px;
+    border: 1px solid #fff;
+}
+
+
+.MensagemBox-ActionPic-Container{
+    display: flex;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+
+    position: relative;
+}
+
+.MensagemBox-ActionPic{
+    width: auto;
+    height: 100%;
+}
+
+.MensagemBox-NewMessage::after{
+    background-color: #1e2e3e;
+    width: 15px;
+    height: 15px;
+    
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    content: ' 1 ';
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: #fff;
+    text-align: center;
+    font-size: 0.76em;
+
+    border-radius: 12px;
+
+}
