@@ -7,15 +7,15 @@ import './index.css'
 const NotificacaoMobile = () => {
     return (
         <div className="notificacaoMobile-container">
-            <NotificacaoBox />
-            <NotificacaoBox />
-            <NotificacaoBox />
-            <NotificacaoBox />
-            <NotificacaoBox />
-            <NotificacaoBox />
-            <NotificacaoBox />
-            <NotificacaoBox />
-            <NotificacaoBox />
+            <NotificacaoBox fontColor="light" />
+            <NotificacaoBox fontColor="light" />
+            <NotificacaoBox fontColor="light" />
+            <NotificacaoBox fontColor="light" />
+            <NotificacaoBox fontColor="light" />
+            <NotificacaoBox fontColor="light" />
+            <NotificacaoBox fontColor="light" />
+            <NotificacaoBox fontColor="light" />
+            <NotificacaoBox fontColor="light" />
 
 
             

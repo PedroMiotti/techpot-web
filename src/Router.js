@@ -37,61 +37,56 @@ const Routes = () => {
   const { height, width } = useWindowDimensions();
 
   return (
-      <Fragment>      
+    <Fragment>
+      
+      <Navbar pathName={currentURL.pathname} />
 
-        <Navbar pathName={currentURL.pathname}/>
+      <Switch>
+        {/* Home  */}
+        <Route exact path="/" component={FeedPrincipal} />
 
-        <Switch>
+        {/* Grupo  */}
+        <Route path="/grupo/feed" component={FeedGrupo} />
 
-            {/* Home  */}
-            <Route exact path="/" component={ FeedPrincipal }/>
+        {/* Evento  */}
+        <Route path="/evento" component={Evento} />
 
-            {/* Grupo  */}
-            <Route path="/grupo/feed" component={ FeedGrupo }/>
-            
-            {/* Evento  */}
-            <Route path="/evento" component={ Evento } />
+        {/* Mensagens */}
+        <Route path="/direct/user" component={DirectWeb} />
 
-            {/* Mensagens */}
-            <Route path="/direct/user" component={ DirectWeb } />
+        {/* Login && Registro  */}
+        <Route path="/registro" component={Registro} />
+        <Route path="/login" component={Login} />
 
-            {/* Login && Registro  */}
-            <Route path="/registro" component={ Registro } />
-            <Route path="/login" component={ Login } />
+        {/* Usuario  */}
+        <Route path="/usuario/perfil" component={PerfilUsuario} />
 
-            {/* Usuario  */}
-            <Route path="/usuario/perfil" component={ PerfilUsuario } /> 
+        {/* Mobile Exclusive */}
 
-            {/* 404  */}
-            <Route path="*" component={ PageNotFound }/>
+        {width <= 961 ? 
+          <>
+            <Route path="/mobile-eventos" component={EventsMobile} />
 
-            {/* Mobile Exclusive */}
+            <Route path="/mobile-search" component={SearchPageMobile} />
 
-            {width <= 961 ? 
-              <>
-                <Route path="/mobile-eventos" component={ EventsMobile } />
+            <Route path="/mobile-notificacao" component={NotificaoMobile} />
 
-                <Route path="/mobile-search" component={ SearchPageMobile } />
+            <Route path="/mobile-directs" component={DirectMobile} />
 
-                <Route path="/mobile-notificacao" component={ NotificaoMobile } /> 
+            <Route path="/pv" component={MsgDireta} />
+          </>
+        : 
+          null
+        }
 
-                <Route path="/mobile-directs" component={ DirectMobile } />
+        {/* 404  */}
+        <Route exact path="*" component={PageNotFound} />
 
-                <Route path="/pv" component={ MsgDireta } />
-              </>
-              : 
-              null
-            }
+      </Switch>
 
-            
+      <BottomNavbar />
 
-        </Switch>
-            
-          <BottomNavbar />
-            
     </Fragment>
-
-    
   );
 };
 
