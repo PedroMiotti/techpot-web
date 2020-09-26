@@ -1,23 +1,21 @@
 .container-groupBox{
     display:flex;
     align-self: center;
-
+    flex-direction: column;
     flex-shrink: 0;
 
+    position: relative;
+
     width: 80%;
-    height: 20%;
+    height: 170px;
     margin-top: 20px;
     margin-bottom: 10px;
-    
-    /* border: #ddd solid 2px; */
-    /* box-shadow: 8px 5px 15px #111b24; */
-    background-color: #fff;
-
     border-radius: 10px;
+    text-decoration: none;
+
+    background-color: #1e2e3e;
 
     transform: all .4s ;
-
-    text-decoration: none;
 }
 
 
@@ -31,46 +29,64 @@
 
 #groupBox-image-div{
     display:flex;
-    width: 40%;
+    width: 100%;
+    height: 100%;
     margin-right: 10px;
 
 }
 
 .groupBox-image{
     width: 100%;
+    /* border-radius: 8px; */
+    border-top-right-radius: 10px;
+    border-top-left-radius: 8px;
     border-radius: 8px;
-    border-top-right-radius: 45%;
-    border-bottom-right-radius: 45%;
     
 }
 
 #groupBox-details{
-    display: flex;
-    
     align-self: center;
 
-    flex-direction: column;
+    display: flex;
+    flex-direction: row;
     align-items: center;
+    justify-content: space-between;
+    
+    position: absolute;
+    bottom: 0;
+    
+    width: 100%;
+    height: 50px;
+    padding: 0 15px;
+    
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+    
+    color: #fff;
+    background: rgb(30,46,62);
+    background: linear-gradient(180deg, rgba(30,46,62,0.5340336818321079) 11%, rgba(30,46,62,1) 74%); 
+
     
 }
 
 #groupBox-tituloGrupo{
     font-size: 24px;
-    align-self: flex-start;
-    color: #444;
+    align-self: center;
+    /* color: #444; */
+    color: #fff;
 
 
 }
 
 #groupBox-members{
-    color: #999;
-    font-size: 14px;
-    align-self: flex-start;
+    color: rgb(204, 204, 204);
+    font-size: 12px;
+    align-self: center;
 }
 
 
 
-@media screen and (max-width: 1550px){
+/* @media screen and (max-width: 1550px){
 
     .container-groupBox{
 
@@ -86,7 +102,7 @@
 
     .groupBox-image{
         width: 100%;
-        /* border-radius: 8px; */
+        border-radius: 8px;
         border-top-right-radius: 0;
         border-bottom-right-radius: 0;
         
@@ -121,4 +137,4 @@
     
 
 
-}
+} */

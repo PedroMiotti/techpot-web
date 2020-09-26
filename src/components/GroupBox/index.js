@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 //Assets
 import groupImage from '../../assets/unnamed.png';
 
-const GroupBox = ({groupTitle, groupMembersNum}) =>{
+const GroupBox = ({ groupTitle, groupMembersNum }) =>{
     return(
 
         <Link to="/grupo/feed" className="container-groupBox">

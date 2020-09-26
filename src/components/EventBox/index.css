@@ -1,154 +1,128 @@
-#container-eventBox{
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap');
+
+#container-eventBox2{
     display: flex;
     flex-direction: column;
-    flex-shrink: 0;
-    height: 35%;
-    align-content: center;
     justify-content: center;
-    margin-top: 20px;
+    align-items: center;
+    width: 85%;
 
-    padding: 10px 5px;
-    box-shadow: 8px 5px 15px rgb(218, 218, 218);
-}
+    background-color: #fff;
 
-
-#eventBox-details{
-    display:flex;
-    height: 15%;
-    justify-content: space-between;
-    margin: 0 20px;
-    margin-bottom: 5px;
+    margin-top: 15px;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
 
 }
 
-.link-center{
+
+
+.image-eventBox2{
+    width: 100%;
+    
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+    
+}
+
+
+.eventBox2-bottom-Container-row1{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    padding: 15px;
+}
+
+.eventBox2-DayBox{
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    width: 30px;
+    height: 35px;
+    border-radius: 8px;
+    background-color: rgb(255, 255, 255);
+    border: 0.1px solid rgb(190, 190, 190);
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 85%;
+    padding-top: 2px ;
+
+    /* border-bottom: 10px solid #d0094d; */
+}
+
+#eventBox2-bottom-details-row1{
+    margin-left: 10px;
+}
+
+#eventBox2-bottom-details-row1 h4{
+    font-size: 17px ;
+    font-weight: 500;
+
+}
+
+#eventBox2-bottom-details-row1 p{
+    font-size: 14px ;
+    font-weight: 500;
+    color: rgb(133, 133, 133);
     
 }
 
 
-.image-eventBox{
-    background-color: #d0094c;
+.eventBox2-bottom-Container-row2{
+    width: 100%;
     display: flex;
-
-    width: 80%;
-    height: 100%;
-    
-
-    align-self: center;
-    border-radius: 5px;
+    flex-direction: column;
+    padding: 4px 15px;
 }
 
-#eventBox-titulo{
-    color: #666;
-    font-size: 18px;
-    
- 
+.eventBox2-bottom-Container-row2 h3{
+    font-size: 18px ;
+    font-weight: 600;
 }
 
-#eventBox-data{
-    color: #666;
-    font-size: 18px;
-    
- 
-}
-.image-eventBox:hover{
-    opacity: 0.8;
-    cursor: pointer;
-    border: 1px solid #04d361;
+.eventBox2-bottom-Container-row2 p{
+    font-size: 14px ;
+    font-weight: 500;
+    color: rgb(133, 133, 133);
 }
 
-
-@media screen and (max-width: 1500px){
-
-    #container-eventBox{
-        height: 30%;
-        margin-top: 10px;
-    }
-
-    .link-center{
-       height: 60%;
-        
-    }
-    .image-eventBox{
-        width: 200px;
-    }
-}
-
-@media screen and (max-width: 1160px){
-    #eventBox-titulo,
-    #eventBox-data{
-        font-size: 15px;
-    }
-}
-
-
-@media screen and (max-width: 960px){
-
-    #eventBox-details{
-        display:flex;
-        width: 85%;
-        height: 15%;
-        align-self: center;
-        justify-content: space-between;
-        margin: 0 20px;
-        margin-bottom: 5px;
-    }
-
-    .link-center{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 85%;
-    }
-
-    #eventBox-titulo{
-        /* color: #ddd; */
-        font-size: 18px;
-
-    }
-
-    #eventBox-data{
-        display: flex;
-        /* color: #ddd; */
-        font-size: 18px;
-        align-self: left;
-        margin-bottom: 10px;
-    }
-
-    #container-eventBox{
-        display: flex;
-        flex-direction: column;
-        flex-shrink: 0;
-        height: 35%;
-        width: 80%;
-        align-content: center;
-        
-        justify-content: center;
-        margin-top: 0;
-        margin-bottom: 8%;
-    
-    }
-
-    .image-eventBox{
-        background-color: #d0094c;
-        display: flex;
-
-        width: 80%;
-        height: 100%;
-        
-
-        align-self: center;
-        
-        
-        border: 2px solid #ddd;
-        border-radius: 5px;
-        
-    }
-    
+.eventBox2-bottom-Container-row3{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 15px;
 
 }
 
+.eventBox2-bottom-Container-row3 a{
+    color: #fff;
+    padding: 5px;
+
+    background-color: #7e848a;
+    border-radius: 10px;
+
+    text-decoration: none;
+    font-size: 1em;
+    font-weight: 700;
+    text-align: center;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.eventBox2-bottom-Container-row3 a:hover{
+    background-color: #04d361;
+}
+
+
+@media screen and (max-width: 1310px){
+
+    .eventBox2-DayBox,
+    .eventoBottom-Pessoas-avatar{
+        display: none;
+    }
+}

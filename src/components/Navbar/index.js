@@ -36,15 +36,13 @@ const Navbar = ({ pathName }) => {
   const { height, width } = useWindowDimensions();
 
   let navTitle;
-  if (pathName == "/mobile-notificacao") {
+  if (width <= 960 && pathName == "/mobile-notificacao") {
     navTitle = "Notificações";
-  } else if (pathName == "/mobile-directs") {
+  } else if (width <= 960 && pathName == "/mobile-directs") {
     navTitle = "Mensagens";
-  } else if (pathName == "/mobile-eventos") {
+  } else if (width <= 960 && pathName == "/mobile-eventos") {
     navTitle = "Eventos";
-  } else if (pathName == "/usuario/perfil") {
-    navTitle = "Meu Perfil";
-  } else if (pathName == "/mobile-search") {
+  } else if (width <= 960 && pathName == "/mobile-search") {
     navTitle = "Search";
   }
 

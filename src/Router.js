@@ -7,6 +7,9 @@ import { Switch, Route, useLocation } from 'react-router-dom';
   import Navbar from './components/Navbar/index';
   import BottomNavbar from './components/BottomNavbar/index';
 
+// Hooks
+  import useWindowDimensions from "./hooks/useWindowDimensions";
+
 
 // Pages
   import Login from './pages/Login';
@@ -24,10 +27,14 @@ import { Switch, Route, useLocation } from 'react-router-dom';
   import DirectWeb from './pages/DirectWeb/index';
   import MsgDireta from './pages/MsgDireta';
 
+  import PageNotFound from './pages/404/index'
+
 
 const Routes = () => {
 
-  const currentURL  = useLocation(); // currentURL.pathname
+  const currentURL  = useLocation();
+
+  const { height, width } = useWindowDimensions();
 
   return (
       <Fragment>      
@@ -36,29 +43,47 @@ const Routes = () => {
 
         <Switch>
 
-            <Route exact path="/" component={FeedPrincipal}/>
+            {/* Home  */}
+            <Route exact path="/" component={ FeedPrincipal }/>
+
+            {/* Grupo  */}
+            <Route path="/grupo/feed" component={ FeedGrupo }/>
             
-            <Route path="/grupo/feed" component={FeedGrupo}/>
+            {/* Evento  */}
+            <Route path="/evento" component={ Evento } />
+
+            {/* Mensagens */}
+            <Route path="/direct/user" component={ DirectWeb } />
+
+            {/* Login && Registro  */}
+            <Route path="/registro" component={ Registro } />
+            <Route path="/login" component={ Login } />
+
+            {/* Usuario  */}
+            <Route path="/usuario/perfil" component={ PerfilUsuario } /> 
+
+            {/* 404  */}
+            <Route path="*" component={ PageNotFound }/>
+
+            {/* Mobile Exclusive */}
+
+            {width <= 961 ? 
+              <>
+                <Route path="/mobile-eventos" component={ EventsMobile } />
+
+                <Route path="/mobile-search" component={ SearchPageMobile } />
+
+                <Route path="/mobile-notificacao" component={ NotificaoMobile } /> 
+
+                <Route path="/mobile-directs" component={ DirectMobile } />
+
+                <Route path="/pv" component={ MsgDireta } />
+              </>
+              : 
+              null
+            }
+
             
-            <Route path="/evento" component={Evento} />
-
-            <Route path="/mobile-eventos" component={EventsMobile} />
-
-            <Route path="/login" component={Login} />
-
-            <Route path="/registro" component={Registro} />
-
-            <Route path="/usuario/perfil" component={PerfilUsuario} /> 
-
-            <Route path="/direct/user" component={DirectWeb} />
-
-            <Route path="/mobile-search" component={SearchPageMobile} /> 
-
-            <Route path="/mobile-notificacao" component={NotificaoMobile} /> 
-
-            <Route path="/mobile-directs" component={DirectMobile} />
-
-            <Route path="/pv" component={MsgDireta} />
 
         </Switch>
             
