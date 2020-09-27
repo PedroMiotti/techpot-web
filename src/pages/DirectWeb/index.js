@@ -5,10 +5,9 @@ import './index.css';
 import { MoreHoriz } from '@material-ui/icons';
 
 // Assets
-import userProfilePicture from '../../assets/Rafa.jpg';
-import contactProfilePicture from '../../assets/Flavio.jpg';
-import DirectMobile from '../DirectMobile';
-import DirectBox from '../../components/DirectBox';
+    import userProfilePicture from '../../assets/Rafa.jpg';
+    import contactProfilePicture from '../../assets/Flavio.jpg';
+    import DirectBox from '../../components/DirectBox';
 
 
 const icon = {
@@ -28,6 +27,7 @@ const DirectWeb = () => {
                     </div>
 
                     <MoreHoriz style={icon} />
+                    
                 </div>
 
                 <div id="div-contacts-DirectWeb">

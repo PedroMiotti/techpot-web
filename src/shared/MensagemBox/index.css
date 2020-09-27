@@ -38,18 +38,12 @@
     text-align: center;
 }
 
-
 .MensagemBox-userPic-Container{
     display: inline-block;
     width: 50px;
     height: 50px;
     overflow: hidden;
     border-radius: 50%; 
-}
-
-.MensagemBox-userPic{
-    width: auto;
-    height: 100%;
 }
 
 .MensagemBox-userPic-Container::after{
@@ -62,11 +56,15 @@
     bottom: 14px;
     content: ' ';
     text-align: center;
-
+    
     border-radius: 12px;
     border: 1px solid #fff;
 }
 
+.MensagemBox-userPic{
+    width: auto;
+    height: 100%;
+}
 
 .MensagemBox-ActionPic-Container{
     display: flex;
@@ -102,5 +100,87 @@
     font-size: 0.76em;
 
     border-radius: 12px;
+}
 
+
+/* Direct Mobile  */
+
+.MensagemBox-Container-DirectMobile{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 80px;
+
+    padding: 0 10px;
+    position: relative;
+    margin: 11px 0;
+
+}
+
+
+.MensagemBox-text-container-DirectMobile{
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 12px;
+    color: #fff;
+    width: 240px;
+    height: 75%;
+}
+
+.MensagemBox-text-DirectMobile{
+    font-size: 0.78em;
+    color: rgb(233, 233, 233);
+    margin-top: 3px;
+}
+
+.MensagemBox-userPic-Container-DirectMobile{
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+    border-radius: 50%; 
+}
+
+.MensagemBox-userPic-Container-DirectMobile::after{
+    background-color: #04d361;
+    width: 10px;
+    height: 10px;
+    
+    position: absolute;
+    left: 41px;
+    bottom: 3px;
+    content: ' ';
+    text-align: center;
+    
+    border-radius: 12px;
+    border: 1px solid #fff;
+}
+
+
+.MensagemBox-tempo-DirectMobile{
+    color: rgb(233, 233, 233);
+    font-size: 0.7em;
+    text-align: center;
+}
+
+
+.MensagemBox-NewMessage-DirectMobile::after{
+    background-color: #d0094c;
+    width: 17px;
+    height: 17px;
+    
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    content: ' 1 ';
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: #fff;
+    text-align: center;
+    font-size: 0.76em;
+
+    border-radius: 12px;
 }

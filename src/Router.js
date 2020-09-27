@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 
 // Router
-import { Switch, Route, useLocation } from 'react-router-dom';
+  import { Switch, Route, useLocation } from 'react-router-dom';
 
 // Componentes
   import Navbar from './components/Navbar/index';
@@ -12,14 +12,16 @@ import { Switch, Route, useLocation } from 'react-router-dom';
 
 
 // Pages
+
   import Login from './pages/Login';
   import Registro from './pages/Registro/index'
-
+  
   import FeedGrupo from './pages/FeedGrupo/index';
   import FeedPrincipal from './pages/FeedPrincipal';
   import Evento from './pages/Evento/index';
   import PerfilUsuario from './pages/perfilUsuario/index.js';
 
+  // Mobile
   import EventsMobile from './pages/EventsMobile';
   import SearchPageMobile from './pages/SearchPageMobile/index';
   import NotificaoMobile from './pages/NotificacaoMobile/index';
@@ -27,6 +29,7 @@ import { Switch, Route, useLocation } from 'react-router-dom';
   import DirectWeb from './pages/DirectWeb/index';
   import MsgDireta from './pages/MsgDireta';
 
+  // 404
   import PageNotFound from './pages/404/index'
 
 
@@ -34,11 +37,11 @@ const Routes = () => {
 
   const currentURL  = useLocation();
 
-  const { height, width } = useWindowDimensions();
+  const { width } = useWindowDimensions();
 
   return (
     <Fragment>
-      
+
       <Navbar pathName={currentURL.pathname} />
 
       <Switch>

@@ -17,7 +17,6 @@ const NotificacaoBox = ({ fontColor }) => {
         </div>
 
         <div
-          className="notificacaoBox-text-container "
           className={
             fontColor
               ? "notificacaoBox-text-container-light"

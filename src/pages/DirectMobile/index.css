@@ -13,6 +13,9 @@
 
     padding-bottom: 8px;
 
+    overflow-y: scroll;
+
+
 }
 
 #div-search-direct{
@@ -20,25 +23,23 @@
     width: 100%;
     height: 18%;
 
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
+    padding: 10px;
     
 }
 
 #div-search-direct input{
-    width: 65%;
+    width: 80%;
     height: 45%;
     padding: 15px 20px;
     
-    border-top-left-radius: 15px;
-    border-bottom-left-radius: 15px;
+    /* border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px; */
     border: solid 1px #ddd;
     display: flex;
     box-shadow: 0px 5px 4px rgba(0, 0, 0, 0.45);
 
-    
-
-    
 }
 
 #div-search-direct a{
@@ -51,7 +52,7 @@
 
     color: #fff;
     width: 17%;
-    height: 45%;
+    height: 100%;
     background-color: #d0094c;
 
     box-shadow: 0px 5px 4px rgba(0, 0, 0, 0.45);
@@ -63,7 +64,7 @@
     display: flex;
     flex-direction: column;
     height: 70vh;
-    width: 90%;
-    overflow-y: scroll;
+    width: 95%;
+    /* overflow-y: scroll; */
     bottom: 20vh;
 }

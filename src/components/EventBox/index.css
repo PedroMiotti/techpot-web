@@ -7,6 +7,8 @@
     align-items: center;
     width: 85%;
 
+    /* min-width: 250px; */
+
     background-color: #fff;
 
     margin-top: 15px;
@@ -124,5 +126,10 @@
     .eventBox2-DayBox,
     .eventoBottom-Pessoas-avatar{
         display: none;
+    }
+
+    .eventBox2-bottom-Container-row3 a{
+        width: 100%;
+        height: 40px;
     }
 }

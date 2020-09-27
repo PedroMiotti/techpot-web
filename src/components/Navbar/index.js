@@ -1,21 +1,23 @@
 import React, { useState, Fragment, useRef } from "react";
 import "./index.css";
-import { Link } from "react-router-dom";
+
+// Router
+  import { Link, useHistory } from "react-router-dom";
 
 // Icons
-import { Mail, Menu, Notifications, SearchOutlined } from "@material-ui/icons";
+  import { Mail, Menu, Notifications, SearchOutlined, ArrowBack, Add } from "@material-ui/icons";
 
 // Componentes
-import LogoTechPot from "../../shared/LogoTechPot/index";
-import Sidebar from "../Sidebar/index";
-import ModalNotificacao from "../ModalNotificacao/index";
-import ModalMensagens from "../ModalMensagens/index";
+  import LogoTechPot from "../../shared/LogoTechPot/index";
+  import Sidebar from "../Sidebar/index";
+  import ModalNotificacao from "../ModalNotificacao/index";
+  import ModalMensagens from "../ModalMensagens/index";
 
 // Assets
-import userProfilePicture from "../../assets/Rafa.jpg";
+  import userProfilePicture from "../../assets/Rafa.jpg";
 
 // Hooks
-import useWindowDimensions from "../../hooks/useWindowDimensions";
+  import useWindowDimensions from "../../hooks/useWindowDimensions";
 
 const icon = {
   color: "#fff",
@@ -33,16 +35,18 @@ const Navbar = ({ pathName }) => {
   const modalNotificacaoRef = useRef();
   const modalMensagendsRef = useRef();
 
-  const { height, width } = useWindowDimensions();
+  const { width } = useWindowDimensions();
 
   let navTitle;
-  if (width <= 960 && pathName == "/mobile-notificacao") {
+  let directScreen = false;
+  if (width <= 960 && pathName === "/mobile-notificacao") {
     navTitle = "Notificações";
-  } else if (width <= 960 && pathName == "/mobile-directs") {
+  } else if (width <= 960 && pathName === "/mobile-directs") {
     navTitle = "Mensagens";
-  } else if (width <= 960 && pathName == "/mobile-eventos") {
+    directScreen = true;
+  } else if (width <= 960 && pathName === "/mobile-eventos") {
     navTitle = "Eventos";
-  } else if (width <= 960 && pathName == "/mobile-search") {
+  } else if (width <= 960 && pathName === "/mobile-search") {
     navTitle = "Search";
   }
 
@@ -68,6 +72,13 @@ const Navbar = ({ pathName }) => {
     setAnchorTop(postion.bottom);
   };
 
+
+  const history = useHistory();
+
+  const goBackPrevious = () => {
+    history.goBack();
+  }
+
   return (
     <Fragment>
       {showModalNotification && (
@@ -89,9 +100,15 @@ const Navbar = ({ pathName }) => {
       <div className="navbarContainer-higher">
         <nav class="font-techpot navbarContainer">
           <ul class="navbarMenu">
-            <div class="navbarHamburguer" onClick={openSidebar}>
-              <Menu style={icon} />
-            </div>
+            {directScreen ? (
+              <div class="navbarBackIcon" onClick={goBackPrevious}>
+                <ArrowBack style={icon} />
+              </div>
+            ) : (
+              <div class="navbarHamburguer" onClick={openSidebar}>
+                <Menu style={icon} />
+              </div>
+            )}
 
             {navTitle ? (
               <h1 className="navbar-navTitle">{navTitle}</h1>
@@ -113,6 +130,7 @@ const Navbar = ({ pathName }) => {
                     id="icon-notificacao"
                     onClick={openModalNotification}
                     ref={modalNotificacaoRef}
+                    href="/"
                   >
                     <Notifications style={icon} />
                   </a>
@@ -124,13 +142,22 @@ const Navbar = ({ pathName }) => {
                       id="icon-mensagens"
                       onClick={openModalMensagens}
                       ref={modalMensagendsRef}
+                      href="/"
                     >
                       <Mail style={icon} />
                     </a>
                   ) : (
-                    <Link to="/mobile-directs">
-                      <Mail style={icon} />
-                    </Link>
+                    <div>
+                      {directScreen ? (
+                        <a href="/">
+                          <Add style={icon} />
+                        </a>
+                      ) : (
+                        <Link to="/mobile-directs">
+                          <Mail style={icon} />
+                        </Link>
+                      )}
+                    </div>
                   )}
                 </li>
               </div>

@@ -1,33 +1,27 @@
-import React, {useState} from 'react';
+import React from 'react';
 import './index.css';
 
-//components
-import DirectBox from '../../components/DirectBox/index';
-
-//Icon
-import { ArrowBackIos, Search} from '@material-ui/icons';
+//Components
+    import MensagemBox from '../../shared/MensagemBox/index';
 
 const DirectMobile = () =>{
-    
-    return(
-        <div id="main-div-directToogle">
-            <div id="div-search-direct">
-                <input type="text" placeholder="Buscar contato..."/>
-                <a href='/' > <Search style={{color: '#fff', fontSize: '30px'}}/></a>
-            </div>
-            <div id="div-directBox-direct">
-                <DirectBox/>
-                <DirectBox/>
-                <DirectBox/>
-                <DirectBox/>
-                <DirectBox/>
-                <DirectBox/>
-                <DirectBox/>
-                <DirectBox/>
-                <DirectBox/>
-            </div>
+    return (
+      <div id="main-div-directToogle">
+        <div id="div-directBox-direct">
+          <MensagemBox DirectMobile={ true }/>
+          <MensagemBox DirectMobile={ true } />
+          <MensagemBox DirectMobile={ true } />
+          <MensagemBox DirectMobile={ true } />
+          <MensagemBox DirectMobile={ true } />
+          <MensagemBox DirectMobile={ true } />
+          <MensagemBox DirectMobile={ true } />
+          <MensagemBox DirectMobile={ true } />
+          <MensagemBox DirectMobile={ true } />
+          <MensagemBox DirectMobile={ true } />
+          <MensagemBox DirectMobile={ true } />
         </div>
-    )
+      </div>
+    );
 }
 
 export default DirectMobile;

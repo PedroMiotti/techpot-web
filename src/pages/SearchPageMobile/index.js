@@ -2,16 +2,11 @@ import React from 'react';
 import './index.css';
 import '../../components/SearchBox/index';
 
-//icone
-import {Search} from '@material-ui/icons';
+// Icons
+    import { Search } from '@material-ui/icons';
 
-//componente
+// Components
 import SearchBox from '../../components/SearchBox/index';
-
-const largeIcon = {
-    color: 'eee',
-    fontSize: 90
-}
 
 const SearchPageMobile = () => {
     return(

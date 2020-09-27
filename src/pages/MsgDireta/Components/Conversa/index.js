@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import './styles.css';
-import DoneIcon from '@material-ui/icons/Done';
-import DoneAllIcon from '@material-ui/icons/DoneAll';
+
+// Icons
+    import DoneAllIcon from '@material-ui/icons/DoneAll';
 
 class Conversa extends Component {
     render() {

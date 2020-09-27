@@ -9,9 +9,9 @@ import FlavioUser from '../../assets/Flavio.jpg'
 const DirectBox = () =>{
     return(
 
-        <Link to="/direct/user" id="div-main-DirectBox" class="font-techpot">
+        <Link to="/direct/user" id="div-main-DirectBox" className="font-techpot">
             <div id="div-img-DirectBox">
-                <img src={FlavioUser} alt="User Profile Image" class="user-img-DirectBox"/>
+                <img src={FlavioUser} alt="User Profile" className="user-img-DirectBox"/>
             </div>
             <div id="div-wrap-details-DirectBox">
                 <div id="div-userName-DirectBox">
