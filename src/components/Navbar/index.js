@@ -130,7 +130,7 @@ const Navbar = ({ pathName }) => {
                     id="icon-notificacao"
                     onClick={openModalNotification}
                     ref={modalNotificacaoRef}
-                    href="/"
+                    
                   >
                     <Notifications style={icon} />
                   </a>
@@ -141,15 +141,14 @@ const Navbar = ({ pathName }) => {
                     <a
                       id="icon-mensagens"
                       onClick={openModalMensagens}
-                      ref={modalMensagendsRef}
-                      href="/"
+                      ref={modalMensagendsRef}   
                     >
                       <Mail style={icon} />
                     </a>
                   ) : (
                     <div>
                       {directScreen ? (
-                        <a href="/">
+                        <a >
                           <Add style={icon} />
                         </a>
                       ) : (
