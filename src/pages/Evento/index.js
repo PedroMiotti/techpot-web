@@ -7,10 +7,6 @@ import './styles/index.css';
     import RafaPic from '../../assets/Rafa.jpg'
     import FlavioPic from '../../assets/Flavio.jpg'
 
-
-// Components
-    import BottomLine from '../../shared/bottomLine/index'
-
 // Icons
     import { CheckCircleOutlineOutlined, AddOutlined, AccessTime, Language } from '@material-ui/icons'
 

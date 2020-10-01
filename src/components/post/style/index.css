@@ -1,11 +1,20 @@
 .postContainer{
     padding: 10px;
     border-radius: 20px;
-    box-shadow: 8px 5px 15px rgb(218, 218, 218);
+    box-shadow: 8px 5px 15px #111b24;
     background-color: #fff;
     max-width: 500px;
     margin-bottom: 30px;
     
+}
+
+.postIcon{
+    color: #d0094c;
+}
+
+.postIcon:hover{
+    color: #54d0b4;
+    cursor: pointer;
 }
 
 

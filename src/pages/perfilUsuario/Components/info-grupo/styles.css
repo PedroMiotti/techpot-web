@@ -4,6 +4,11 @@
     border-radius: 5vh;
     display: flex;
     flex-direction: column;
+    border: 1px solid #a3aaae;
+    padding-left: 12.5vw;
+    padding-right: 12.5vw;
+
+    overflow-x: hidden;
 }
 
 #NomeInfoGrupo {
@@ -12,8 +17,6 @@
 
 #NomeInfoGrupo h1 {
     color: #d0094c;
-    text-shadow: 0 0 14px #d0094ca6;
-    padding-left: 22vh;
     font-size: 2.2rem;
     text-decoration: underline;
 }
@@ -33,6 +36,7 @@
     flex-flow: column;
     justify-content: center;
     align-items: center;
+    text-decoration: none;
 }
 
 #VisualGrupos a img {
@@ -44,7 +48,6 @@
 
 #VisualGrupos a h3 {
     color: #eee;
-    text-shadow: 0 0 8px #eee;
     padding-bottom: 1.5vh;    
     text-align: center;
     padding-left: 1.5vh;
@@ -59,15 +62,45 @@
     transition: 0.44s;
 }
 
-@media only screen and (max-width: 1280px) {
+#VisualGrupos a h3:active {
+    color: #04d361;
+}
+
+@media only screen and (max-width: 1440px) {
     #NomeInfoGrupo h1 {
         padding-left: 0;
         text-align: center;
     }
 }
 
+@media only screen and (max-width: 800px) {
+    #VisualGrupos {
+        display: flex;
+        flex-flow: row nowrap;
+        max-height: 25vh;
+        justify-content: flex-start;
+    }
+
+    #VisualGrupos a h3 {
+        font-size: 1rem;
+    }
+}
+
 @media only screen and (max-width: 600px) {
+    #NomeInfoGrupo h1 {
+        font-size: 1.75rem;
+    }
+    
+    #VisualGrupos {
+        padding-left: 0vw;
+        padding-right: 0vw;
+    }
+    
     #VisualGrupos a {
         max-width: 180px;
+    }
+
+    #VisualGrupos a h3 {
+        font-size: 1.05rem;
     }
 }

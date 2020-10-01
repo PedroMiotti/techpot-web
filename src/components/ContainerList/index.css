@@ -3,17 +3,19 @@
     /*arruma os filhos em colunas*/
     flex-direction: column;
     
-    background-color: #f7f7f7;
+    background-color: #253241;
 
     width: 100%;
+    min-width: 250px;
     height: 70vh;
 
-    padding: 15px 0;
+    padding: 15px 10px;
     padding-bottom: 30px;
     margin-top:50px;
     
-    box-shadow: 5px 10px 8px rgb(218, 218, 218);
+    /* box-shadow: 5px 10px 8px #111b24; */
     border-radius: 15px;
+    
 
     position: sticky;
     position: -webkit-sticky;
@@ -24,6 +26,7 @@
 .div-groupOrEvent-box{
     display: flex;
     flex-direction: column;
+    align-items: center;
     height: 100%;
     overflow-y: scroll;
 }
@@ -36,7 +39,7 @@
 }
 
 #containerHeader{
-    color: #666;
+    color: #fff;
     align-self: left;
     margin: 0 20px;
     margin-bottom: 10px;

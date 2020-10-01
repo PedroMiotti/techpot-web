@@ -1,116 +1,194 @@
-import React, { useState, Fragment } from 'react';
-import './index.css';
-import { Link } from 'react-router-dom';
+import React, { useState, Fragment, useRef } from "react";
+import "./index.css";
+
+// Router
+  import { Link, useHistory } from "react-router-dom";
 
 // Icons
-    import { Mail, Menu, Notifications, SearchOutlined } from '@material-ui/icons';
+  import { Mail, Menu, Notifications, SearchOutlined, ArrowBack, Add } from "@material-ui/icons";
 
 // Componentes
-    import LogoTechPot from '../../shared/LogoTechPot/index';
-    import Sidebar from '../Sidebar/index'
-    import ModalNotificacao from '../ModalNotificao/index';
+  import LogoTechPot from "../../shared/LogoTechPot/index";
+  import Sidebar from "../Sidebar/index";
+  import ModalNotificacao from "../ModalNotificacao/index";
+  import ModalMensagens from "../ModalMensagens/index";
 
 // Assets
-    import userProfilePicture from '../../assets/Rafa.jpg';
+  import userProfilePicture from "../../assets/Rafa.jpg";
 
+// Hooks
+  import useWindowDimensions from "../../hooks/useWindowDimensions";
 
 const icon = {
-    color: '#fff',
-    fontSize : 30,
-    cursor: 'pointer'
-
+  color: "#fff",
+  fontSize: 30,
+  cursor: "pointer",
 };
 
 const Navbar = ({ pathName }) => {
-    const [ toggleSidebar, setToggleSidebar ] = useState(false);
+  const [toggleSidebar, setToggleSidebar] = useState(false);
+  const [showModalNotification, setShowModalNotification] = useState(false);
+  const [showModalMensagens, setShowModalMensagens] = useState(false);
+  const [anchorLeft, setAnchorLeft] = useState(null);
+  const [anchorTop, setAnchorTop] = useState(null);
 
-    const [ anchor, setAnchor ] = useState(null);
+  const modalNotificacaoRef = useRef();
+  const modalMensagendsRef = useRef();
 
-    const handleClick = (event) => {
-      setAnchor(event.currentTarget);
-    };
+  const { width } = useWindowDimensions();
 
-    
+  let navTitle;
+  let directScreen = false;
+  if (width <= 960 && pathName === "/mobile-notificacao") {
+    navTitle = "Notificações";
+  } else if (width <= 960 && pathName === "/mobile-directs") {
+    navTitle = "Mensagens";
+    directScreen = true;
+  } else if (width <= 960 && pathName === "/mobile-eventos") {
+    navTitle = "Eventos";
+  } else if (width <= 960 && pathName === "/mobile-search") {
+    navTitle = "Search";
+  }
+
+  const openSidebar = () => {
+    setToggleSidebar(!toggleSidebar);
+  };
+
+  const openModalNotification = (e) => {
+    setShowModalNotification(!showModalNotification);
+
+    // Pegando a posicao do icone
+    const postion = modalNotificacaoRef.current.getBoundingClientRect();
+    setAnchorLeft(postion.left);
+    setAnchorTop(postion.bottom);
+  };
+
+  const openModalMensagens = (e) => {
+    setShowModalMensagens(!showModalMensagens);
+
+    // Pegando a posicao do icone
+    const postion = modalMensagendsRef.current.getBoundingClientRect();
+    setAnchorLeft(postion.left);
+    setAnchorTop(postion.bottom);
+  };
 
 
-    let navTitle;
-    if(pathName == '/mobile-notificacao'){
-        navTitle = 'Notificações'
-    }
+  const history = useHistory();
 
-    const openSidebar = () => {
-        setToggleSidebar(!toggleSidebar);
-    }
+  const goBackPrevious = () => {
+    history.goBack();
+  }
 
+  return (
+    <Fragment>
+      {showModalNotification && (
+        <ModalNotificacao
+          anchorLeft={anchorLeft}
+          anchorTop={anchorTop}
+          onClose={() => setShowModalNotification(!showModalNotification)}
+        />
+      )}
 
-    return (
-      <Fragment>
+      {showModalMensagens && (
+        <ModalMensagens
+          anchorLeft={anchorLeft}
+          anchorTop={anchorTop}
+          onClose={() => setShowModalMensagens(!showModalMensagens)}
+        />
+      )}
 
-        <ModalNotificacao currentTarget={anchor} />
-
-        <div className="navbarContainer-higher">
-          <nav class="font-techpot navbarContainer">
-            <ul class="navbarMenu">
+      <div className="navbarContainer-higher">
+        <nav class="font-techpot navbarContainer">
+          <ul class="navbarMenu">
+            {directScreen ? (
+              <div class="navbarBackIcon" onClick={goBackPrevious}>
+                <ArrowBack style={icon} />
+              </div>
+            ) : (
               <div class="navbarHamburguer" onClick={openSidebar}>
                 <Menu style={icon} />
               </div>
+            )}
 
-              {navTitle ? (
-                <h1 className="navbar-navTitle">{navTitle}</h1>
-              ) : (
-                <LogoTechPot />
-              )}
+            {navTitle ? (
+              <h1 className="navbar-navTitle">{navTitle}</h1>
+            ) : (
+              <LogoTechPot />
+            )}
 
-              <div class="navbarSearchboxContainer">
-                <input
-                  class="navbarSearchBox"
-                  placeholder="Pesquisar..."
-                ></input>
-                <a href="/">
-                  <SearchOutlined />
-                </a>
-              </div>
+            <div class="navbarSearchboxContainer">
+              <input class="navbarSearchBox" placeholder="Pesquisar..."></input>
+              <a href="/">
+                <SearchOutlined />
+              </a>
+            </div>
 
-              <div class="navbarSideInfoContainer">
-                <div class="navbarIconsContainer">
-                  <li class="item iconsino">
-                    <a id="icon-notificacao" onClick={handleClick}>
-                      <Notifications style={icon} />
+            <div class="navbarSideInfoContainer">
+              <div class="navbarIconsContainer">
+                <li class="item iconsino">
+                  <a
+                    id="icon-notificacao"
+                    onClick={openModalNotification}
+                    ref={modalNotificacaoRef}
+                    
+                  >
+                    <Notifications style={icon} />
+                  </a>
+                </li>
+
+                <li class="item iconmail">
+                  {width >= 960 ? (
+                    <a
+                      id="icon-mensagens"
+                      onClick={openModalMensagens}
+                      ref={modalMensagendsRef}   
+                    >
+                      <Mail style={icon} />
                     </a>
-                  </li>
+                  ) : (
+                    <div>
+                      {directScreen ? (
+                        <a >
+                          <Add style={icon} />
+                        </a>
+                      ) : (
+                        <Link to="/mobile-directs">
+                          <Mail style={icon} />
+                        </Link>
+                      )}
+                    </div>
+                  )}
+                </li>
+              </div>
 
-                  <li class="item iconmail">
-                    <Mail style={icon} />
+              <div class="navbarUserContainer">
+                <div class="navbarUserInfo">
+                  <li class="nickname">
+                    Olá, <a href="/">Nickname</a>
+                  </li>
+                  <li class="perfil">
+                    <Link to="/usuario/perfil">meu perfil</Link>
                   </li>
                 </div>
 
-                <div class="navbarUserContainer">
-                  <div class="navbarUserInfo">
-                    <li class="nickname">
-                      Olá, <a href="/">Nickname</a>
-                    </li>
-                    <li class="perfil">
-                      <Link to="/usuario/perfil">meu perfil</Link>
-                    </li>
-                  </div>
-
-                  <div class="navbarUserProfilePicContainer">
-                    <img
-                      src={userProfilePicture}
-                      class="navbarUserProfilePic"
-                      alt="Profile pic user"
-                    />
-                  </div>
+                <div class="navbarUserProfilePicContainer">
+                  <img
+                    src={userProfilePicture}
+                    class="navbarUserProfilePic"
+                    alt="Profile pic user"
+                  />
                 </div>
               </div>
-            </ul>
-          </nav>
-        </div>
+            </div>
+          </ul>
+        </nav>
+      </div>
 
-        <Sidebar toggle={toggleSidebar} />
-      </Fragment>
-    );
-
-}
+      {toggleSidebar && (
+        <Sidebar onClose={() => setToggleSidebar(!toggleSidebar)} />
+      )}
+    </Fragment>
+  );
+};
 
 export default Navbar;

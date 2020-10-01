@@ -4,7 +4,7 @@ import './styles.css';
 class InfoEvento extends Component {
     render() {
         return(
-            <div id="InfoEvento">
+            <div id="InfoEvento" className="font-techpot">
                 <div id="NomeInfoEvento">
                     <h1>EVENTOS</h1>
                 </div>

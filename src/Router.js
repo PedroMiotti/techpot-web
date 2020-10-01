@@ -1,63 +1,95 @@
 import React, { Fragment } from 'react';
 
 // Router
-import { Switch, Route, useLocation } from 'react-router-dom';
+  import { Switch, Route, useLocation } from 'react-router-dom';
 
 // Componentes
   import Navbar from './components/Navbar/index';
   import BottomNavbar from './components/BottomNavbar/index';
 
+// Hooks
+  import useWindowDimensions from "./hooks/useWindowDimensions";
+
 
 // Pages
+
   import Login from './pages/Login';
   import Registro from './pages/Registro/index'
-
+  
   import FeedGrupo from './pages/FeedGrupo/index';
   import FeedPrincipal from './pages/FeedPrincipal';
   import Evento from './pages/Evento/index';
   import PerfilUsuario from './pages/perfilUsuario/index.js';
 
+  // Mobile
   import EventsMobile from './pages/EventsMobile';
   import SearchPageMobile from './pages/SearchPageMobile/index';
-  import NotificaoMobile from './pages/NotificacaoMobile/index'
+  import NotificaoMobile from './pages/NotificacaoMobile/index';
+  import DirectMobile from './pages/DirectMobile/index';
+  import DirectWeb from './pages/DirectWeb/index';
+  import MsgDireta from './pages/MsgDireta';
+
+  // 404
+  import PageNotFound from './pages/404/index'
+
 
 const Routes = () => {
 
-  const currentURL  = useLocation(); // currentURL.pathname
+  const currentURL  = useLocation();
+
+  const { width } = useWindowDimensions();
 
   return (
-      <Fragment>      
+    <Fragment>
 
-        <Navbar pathName={currentURL.pathname}/>
+      <Navbar pathName={currentURL.pathname} />
 
-        <Switch>
+      <Switch>
+        {/* Home  */}
+        <Route exact path="/" component={FeedPrincipal} />
 
-            <Route exact path="/" component={FeedPrincipal}/>
-            
-            <Route path="/grupo/feed" component={FeedGrupo}/>
-            
-            <Route path="/evento" component={Evento} />
+        {/* Grupo  */}
+        <Route path="/grupo/feed" component={FeedGrupo} />
 
+        {/* Evento  */}
+        <Route path="/evento" component={Evento} />
+
+        {/* Mensagens */}
+        <Route path="/direct/user" component={DirectWeb} />
+
+        {/* Login && Registro  */}
+        <Route path="/registro" component={Registro} />
+        <Route path="/login" component={Login} />
+
+        {/* Usuario  */}
+        <Route path="/usuario/perfil" component={PerfilUsuario} />
+
+        {/* Mobile Exclusive */}
+
+        {width <= 961 ? 
+          <>
             <Route path="/mobile-eventos" component={EventsMobile} />
 
-            <Route path="/login" component={Login} />
+            <Route path="/mobile-search" component={SearchPageMobile} />
 
-            <Route path="/registro" component={Registro} />
+            <Route path="/mobile-notificacao" component={NotificaoMobile} />
 
-            <Route path="/usuario/perfil" component={PerfilUsuario} /> 
+            <Route path="/mobile-directs" component={DirectMobile} />
 
-            <Route path="/mobile-search" component={SearchPageMobile} /> 
+            <Route path="/pv" component={MsgDireta} />
+          </>
+        : 
+          null
+        }
 
-            <Route path="/mobile-notificacao" component={NotificaoMobile} /> 
+        {/* 404  */}
+        <Route exact path="*" component={PageNotFound} />
 
+      </Switch>
 
-        </Switch>
-            
-        <BottomNavbar />
-            
+      <BottomNavbar />
+
     </Fragment>
-
-    
   );
 };
 

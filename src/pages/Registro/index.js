@@ -122,10 +122,6 @@ const Registro = ( ) => {
       showPassword: false,
     });
 
-    const handleChange = (prop) => (event) => {
-      setValues({ ...values, [prop]: event.target.value });
-    };
-  
     const handleClickShowPassword = () => {
       setValues({ ...values, showPassword: !values.showPassword });
     };
@@ -161,15 +157,13 @@ const Registro = ( ) => {
                 <Grid item className="Registro-gridItem">
                   <CustomTextFieldInline
                     label="Nome"
-                    InputLabelProps={customLabelInput}
-                    fullWidth
+                    InputLabelProps={customLabelInput} 
                   />
                 </Grid>
                 <Grid item className="Registro-gridItem">
                   <CustomTextFieldInline
                     label="Sobrenome"
                     InputLabelProps={customLabelInput}
-                    fullWidth
                   />
                 </Grid>
               </Grid>
