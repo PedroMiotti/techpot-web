@@ -61,7 +61,7 @@
 
 .postBoxSendButton{
     display: block;
-    background-color: #04d361;
+    background-color: var(--color-terciary);
     color: #fff;
     padding: 10px 17px;
     border-radius: 10px;

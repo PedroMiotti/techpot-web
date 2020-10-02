@@ -9,7 +9,7 @@
 }
 
 .postIcon{
-    color: #d0094c;
+    color: var(--color-secundary);
 }
 
 .postIcon:hover{

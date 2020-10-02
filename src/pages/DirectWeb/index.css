@@ -7,7 +7,7 @@
 }
 
 #left-main-div-DirectWeb{
-    background-color: #1e2e3e;
+    background-color: var(--color-primary);
     width: 600px;
     height: 100%;
 
@@ -51,7 +51,7 @@
 
 
 #right-main-div-DirectWeb{
-    background-color: #1e2e3e;
+    background-color: var(--color-primary);
     width: 100%;
     height: 100%;
 
@@ -95,7 +95,7 @@
 #div-img-userInfo-DirectWeb h1{
     padding: 15px;
 
-    color: #04d361;
+    color: var(--color-terciary);
     font-size: 20px;
 
     

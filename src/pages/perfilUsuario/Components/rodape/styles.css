@@ -1,5 +1,5 @@
 #Rodape {
-    background-color: #d0094c;    
+    background-color: var(--color-secundary);    
     width: 100vw;
     height: 60px;
     display: flex;
@@ -12,7 +12,7 @@
 }
 
 #Rodape a h1:hover {
-    color: #1e2e3e;
+    color: var(--color-primary);
     text-shadow: 0 0 74px #1e2e3ea6;
     transition: 0.14s;
 }

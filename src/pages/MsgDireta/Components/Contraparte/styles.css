@@ -31,12 +31,12 @@
     }
 
     #BotãoRetornar a:hover {
-        color: #04d361;
+        color: var(--color-terciary);
         transition: 0.44s;
     }
 
     #BotãoRetornar a:active {
-        color: #04d361;
+        color: var(--color-terciary);
     }
 
     #Usuário {
@@ -66,17 +66,17 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        color: #d0094c;
+        color: var(--color-secundary);
         font-size: 1.5rem;
     }    
 
     #Usuário h1:hover {
-        color: #04d361;
+        color: var(--color-terciary);
         transition: 0.21s;
     }
 
     #Usuário h1:active {
-        color: #04d361;
+        color: var(--color-terciary);
     }
 }
 

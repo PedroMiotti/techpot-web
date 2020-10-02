@@ -18,7 +18,7 @@
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
 
-    background-color: #d0094c;
+    background-color: var(--color-secundary);
     
     width: 100vw;
     height: 60px;
@@ -86,7 +86,7 @@
     justify-content: center;
 
     background-color: #fff;
-    color: #d0094c;
+    color: var(--color-secundary);
 
     border-top-right-radius: 50px;
     border-bottom-right-radius: 50px;
@@ -94,7 +94,7 @@
 }
 
 .navbarSearchboxContainer a:hover{
-    background-color: #d0094c;
+    background-color: var(--color-secundary);
     color: #fff;
     border: 1px solid #fff;
 }
@@ -127,7 +127,7 @@
 }
 
 .iconsino::after{
-    background-color: #04d361;
+    background-color: var(--color-terciary);
     width: 10px;
     height: 10px;
     
@@ -137,7 +137,7 @@
     text-align: center;
 
     border-radius: 12px;
-    border: 1.2px solid #d0094c;
+    border: 1.2px solid var(--color-secundary);
 
 
 }

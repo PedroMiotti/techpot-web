@@ -8,7 +8,13 @@
 }
 
 body{
-    background-color: #1e2e3e;
+    background-color: var(--color-primary);
+}
+
+:root{
+    --color-primary: #1e2e3e;
+    --color-secundary: #d0094d;
+    --color-terciary: #04d361;
 }
 
 .font-techpot{
@@ -21,7 +27,7 @@ body{
 /* Firefox  */
 * {
     scrollbar-width: thin;
-    scrollbar-color: #d0094c #111b24;
+    scrollbar-color: var(--color-secundary) #111b24;
 }
 
 /* Chrome/Edge/Safari */
@@ -33,7 +39,7 @@ body{
     border-radius: 20px;
 }
 *::-webkit-scrollbar-thumb {
-    background-color: #d0094c;
+    background-color: var(--color-secundary);
     border-radius: 20px;
     border: 3px solid #111b24;
 }

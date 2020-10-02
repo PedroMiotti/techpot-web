@@ -1,6 +1,6 @@
 #InfoEvento {
-    background-color: #1e2e3e;
-    box-shadow: 0 0 24px #1e2e3e;
+    background-color: var(--color-primary);
+    box-shadow: 0 0 24px var(--color-primary);
     border-top-left-radius: 5vh;
     border-top-right-radius: 5vh;
     display: flex;
@@ -15,7 +15,7 @@
 }
 
 #NomeInfoEvento h1 {
-    color: #d0094c;
+    color: var(--color-secundary);
     font-size: 2.2rem;
     text-decoration: underline;
 }
@@ -57,12 +57,12 @@
 }
 
 #VisualEventos a h3:hover {
-    color: #04d361;
+    color: var(--color-terciary);
     transition: 0.44s;
 }
 
 #VisualEventos a h3:active {
-    color: #04d361;
+    color: var(--color-terciary);
 }
 
 @media only screen and (max-width: 1440px) {

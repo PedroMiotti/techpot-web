@@ -47,7 +47,7 @@
 }
 
 .MensagemBox-userPic-Container::after{
-    background-color: #04d361;
+    background-color: var(--color-terciary);
     width: 10px;
     height: 10px;
     
@@ -82,7 +82,7 @@
 }
 
 .MensagemBox-NewMessage::after{
-    background-color: #1e2e3e;
+    background-color: var(--color-primary);
     width: 15px;
     height: 15px;
     
@@ -142,7 +142,7 @@
 }
 
 .MensagemBox-userPic-Container-DirectMobile::after{
-    background-color: #04d361;
+    background-color: var(--color-terciary);
     width: 10px;
     height: 10px;
     
@@ -165,7 +165,7 @@
 
 
 .MensagemBox-NewMessage-DirectMobile::after{
-    background-color: #d0094c;
+    background-color: var(--color-secundary);
     width: 17px;
     height: 17px;
     

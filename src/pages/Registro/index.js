@@ -15,10 +15,10 @@ import './index.css';
     const CustomTextField = withStyles({
         root: {
           '& label.Mui-focused': {
-            color: '#d0094c',
+            color: 'var(--color-secundary)',
           },
           '& .MuiInput-underline:after': {
-            borderBottomColor: '#d0094c',
+            borderBottomColor: 'var(--color-secundary)',
             color:'#fff !important',
           },
           '& .MuiInput-underline:before': {
@@ -36,16 +36,16 @@ import './index.css';
           },
           '& .MuiOutlinedInput-root': {
             '& fieldset': {
-              borderColor: '#d0094c',
+              borderColor: 'var(--color-secundary)',
               color:'#fff !important',
               
             },
             '&:hover fieldset': {
-              borderColor: '#d0094c',
+              borderColor: 'var(--color-secundary)',
               color:'#fff !important',
             },
             '&.Mui-focused fieldset': {
-              borderColor: '#d0094c',
+              borderColor: 'var(--color-secundary)',
               color:'#fff !important',
             },
           },
@@ -55,10 +55,10 @@ import './index.css';
       const CustomTextFieldInline = withStyles({
         root: {
           "& label.Mui-focused": {
-            color: "#d0094c",
+            color: "var(--color-secundary)",
           },
           "& .MuiInput-underline:after": {
-            borderBottomColor: "#d0094c",
+            borderBottomColor: "var(--color-secundary)",
             color: "#fff !important",
           },
           "& .MuiInput-underline:before": {
@@ -76,15 +76,15 @@ import './index.css';
           },
           "& .MuiOutlinedInput-root": {
             "& fieldset": {
-              borderColor: "#d0094c",
+              borderColor: "var(--color-secundary)",
               color: "#fff !important",
             },
             "&:hover fieldset": {
-              borderColor: "#d0094c",
+              borderColor: "var(--color-secundary)",
               color: "#fff !important",
             },
             "&.Mui-focused fieldset": {
-              borderColor: "#d0094c",
+              borderColor: "var(--color-secundary)",
               color: "#fff !important",
             },
           },
@@ -98,7 +98,7 @@ import './index.css';
         },
 
         inputLabelFocused: {
-            color:'#d0094c !important',
+            color:'var(--color-secundary) !important',
         },
 
         gridInput: {

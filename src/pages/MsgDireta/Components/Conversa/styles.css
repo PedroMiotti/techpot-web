@@ -45,9 +45,9 @@
         width: 0;
         height: 0;
         position: absolute;
-        border-left: 15px solid #04d361;
+        border-left: 15px solid var(--color-terciary);
         border-right: 15px solid transparent;
-        border-top: 15px solid #04d361;
+        border-top: 15px solid var(--color-terciary);
         border-bottom: 15px solid transparent;
         right: 1.25vw;
         top: .5vw;
@@ -56,8 +56,8 @@
     #ConteúdoEnviado {
         display: flex;
         padding: 1.5vw 1.25vw .25vw 1.5vw;
-        background-color: #04d361;
-        box-shadow:  1.15px 1.15px 2.5px #04d361;
+        background-color: var(--color-terciary);
+        box-shadow:  1.15px 1.15px 2.5px var(--color-terciary);
         border-radius: 1.5vw;        
     }
 
@@ -71,7 +71,7 @@
         display: flex;
         justify-content: flex-end;
         content: "12:42";
-        color: #1e2e3e;
+        color: var(--color-primary);
         font-size: .75rem;
         font-weight: bold;
         padding-right: .15vw;
@@ -85,7 +85,7 @@
 
     #ÍconeMsgLida {
         font-size: 1rem;
-        color: #d0094c;
+        color: var(--color-secundary);
     }
 
     .MsgRecebida {
@@ -128,7 +128,7 @@
         display: flex;
         justify-content: flex-end;
         content: "14:17";
-        color: #1e2e3e;
+        color: var(--color-primary);
         font-size: .75rem;
         font-weight: bold;
         padding-right: .15vw;

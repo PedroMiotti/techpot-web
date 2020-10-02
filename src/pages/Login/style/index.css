@@ -3,7 +3,7 @@
     justify-content: center;
     align-items: center;
 
-    /* background-color: #d0094c; */
+    /* background-color: var(--color-secundary); */
     background: url('../../../assets/codeImg.png');
     background-repeat: repeat;
     height: 100vh;
@@ -14,7 +14,7 @@
     justify-content: space-between;
     flex-direction: column;
 
-    background-color: #d0094c;
+    background-color: var(--color-secundary);
 
     box-shadow: 4px 5px 28px #3b3b3b;
     max-width: 600px;
@@ -48,7 +48,7 @@
     grid-template-columns: auto ;
     grid-template-rows: auto auto auto;
 
-    background-color: #1e2e3e;
+    background-color: var(--color-primary);
     border-radius: 20px;
     color: #fff;
 }
@@ -73,7 +73,7 @@
 
 .loginWrapperButtons a:first-child{
     border-bottom-width: 4px;
-    border-bottom-color: #d0094c;
+    border-bottom-color: var(--color-secundary);
     border-bottom-style: solid;
     border-bottom-right-radius: 2px;
     border-bottom-left-radius: 2px;
@@ -106,7 +106,7 @@
     place-self: center;
 
     padding: 10px 40px;
-    background-color: #d0094c;
+    background-color: var(--color-secundary);
     border-radius: 10px;
     width: 180px;
     text-align: center;

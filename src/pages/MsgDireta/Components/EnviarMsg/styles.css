@@ -12,7 +12,7 @@
     }
 
     #Anexar {
-        color: #d0094c;
+        color: var(--color-secundary);
         border-top-left-radius: 1.5vw;
         border-bottom-left-radius: 1.5vw;
         min-height: 4.75vw;
@@ -39,8 +39,8 @@
     }    
     
     #Enviar {
-        background-color: #04d361;
-        box-shadow:  0px .5px .5px 0 #04d361;
+        background-color: var(--color-terciary);
+        box-shadow:  0px .5px .5px 0 var(--color-terciary);
         border-radius: 50%;
         width: 6%;
         height: 6%;

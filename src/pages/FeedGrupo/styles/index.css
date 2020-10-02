@@ -106,7 +106,7 @@
 
 .feedGrupoNavItems a:hover{
     border-bottom-width: 4px;
-    border-bottom-color: #d0094c;
+    border-bottom-color: var(--color-secundary);
     border-bottom-style: solid;
     border-bottom-right-radius: 2px;
     border-bottom-left-radius: 2px;
@@ -126,7 +126,7 @@
 .feedGrupoConvidarButton{
     color: #fff;
     text-decoration: none;
-    background-color: #04d361;
+    background-color: var(--color-terciary);
     padding: 10px;
     border-radius: 10px;
     margin-bottom: 10px;

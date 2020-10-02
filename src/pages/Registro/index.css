@@ -11,7 +11,7 @@
     justify-content: space-between;
     flex-direction: column;
 
-    background-color: #d0094c;
+    background-color: var(--color-secundary);
 
     box-shadow: 4px 5px 28px #3b3b3b;
     max-width: 600px;
@@ -46,7 +46,7 @@
     grid-template-columns: auto ;
     grid-template-rows: auto auto auto;
 
-    background-color: #1e2e3e;
+    background-color: var(--color-primary);
     /* background: rgb(208,9,76);
     background: linear-gradient(180deg, rgba(208,9,76,1) 4%, rgba(30,46,62,1) 57%); */
     border-radius: 20px;
@@ -73,7 +73,7 @@
 
 .RegistroWrapperButtons a:last-child{
     border-bottom-width: 4px;
-    border-bottom-color: #d0094c;
+    border-bottom-color: var(--color-secundary);
     border-bottom-style: solid;
     border-bottom-right-radius: 2px;
     border-bottom-left-radius: 2px;
@@ -112,7 +112,7 @@
     place-self: center;
 
     padding: 10px 40px;
-    background-color: #d0094c;
+    background-color: var(--color-secundary);
     border-radius: 10px;
     width: 180px;
     text-align: center;

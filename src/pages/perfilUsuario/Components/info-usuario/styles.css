@@ -1,6 +1,6 @@
 #InfoUsuario {
-    background-color: #1e2e3e;
-    box-shadow: 0 0 24px #1e2e3e;
+    background-color: var(--color-primary);
+    box-shadow: 0 0 24px var(--color-primary);
     color: #eee;
     display: flex;
     align-items: center;
@@ -27,7 +27,7 @@
 
 #DescricaoUsuario h1 {  
     padding-top: 1.5vh;  
-    color: #d0094c;
+    color: var(--color-secundary);
     font-size: 2.2rem;
 }
 
@@ -47,8 +47,8 @@
     padding-top: 3vh;
     padding-bottom: 3vh;
     max-width: 95vh;
-    background-color: #1e2e3e;
-    box-shadow: 0 0 14px #1e2e3e; 
+    background-color: var(--color-primary);
+    box-shadow: 0 0 14px var(--color-primary); 
     text-align: justify;
     font-weight: bold;
     font-size: 1.4rem;
@@ -63,7 +63,7 @@
 }
 
 #BotaoSocial button {
-    background: #1e2e3e;
+    background: var(--color-primary);
     border: 0;
     padding-left: 2vh;
     font-size: 0.95rem;
@@ -78,12 +78,12 @@
 }
 
 #BotaoSocial button a:hover {
-    color: #04d361;
+    color: var(--color-terciary);
     transition: 0.44s;
 }
 
 #BotaoSocial button a:active {
-    color: #04d361;
+    color: var(--color-terciary);
 }
 
 #BotaoSocial button a h4 {

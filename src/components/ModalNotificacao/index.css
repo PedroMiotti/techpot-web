@@ -23,13 +23,13 @@
     border-bottom-right-radius: 20px;
     border-bottom-left-radius: 20px;
 
-    color: #04d361;
+    color: var(--color-terciary);
     height: 50px;
 
 }
 
 .ModalNotificacao-topbar h3{
-    color: #1e2e3e;
+    color: var(--color-primary);
 }
 
 .ModalNotificacao-bottom{
@@ -38,7 +38,7 @@
     align-items: center;
     height: 47px;
     font-size: 17px ;
-    color: #04d361;
+    color: var(--color-terciary);
 }
 
 .ModalNotificacao-bottom p:hover{

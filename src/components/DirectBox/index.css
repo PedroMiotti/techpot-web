@@ -29,7 +29,7 @@
     }
 
     #div-img-DirectBox::after{
-        background-color: #04d361;
+        background-color: var(--color-terciary);
         width: 15px;
         height: 15px;
         
@@ -116,7 +116,7 @@
     }
 
     #div-img-DirectBox::after{
-        background-color: #04d361;
+        background-color: var(--color-terciary);
         width: 25px;
         height: 25px;
         
@@ -204,7 +204,7 @@
     }
 
     #div-img-DirectBox::after{
-        background-color: #04d361;
+        background-color: var(--color-terciary);
         width: 15px;
         height: 15px;
         
@@ -291,7 +291,7 @@
     }
 
     #div-img-DirectBox::after{
-        background-color: #04d361;
+        background-color: var(--color-terciary);
         width: 15px;
         height: 15px;
         

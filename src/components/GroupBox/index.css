@@ -13,7 +13,7 @@
     border-radius: 10px;
     text-decoration: none;
 
-    background-color: #1e2e3e;
+    background-color: var(--color-primary);
 
     transform: all .4s ;
 }
@@ -22,7 +22,7 @@
 
 .container-groupBox:hover{
     opacity: 0.8;
-    border: 1px solid #04d361;
+    border: 1px solid var(--color-terciary);
     cursor: pointer;
     box-shadow: 10px 8px 15px #111b24;
 }

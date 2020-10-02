@@ -13,7 +13,7 @@
     }
 
     #bottom-nav{
-        background-color: #d0094c;
+        background-color: var(--color-secundary);
         padding: 0;
 
         display: flex;
