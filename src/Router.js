@@ -76,7 +76,7 @@ const Routes = () => {
 
             <Route path="/mobile-directs" component={DirectMobile} />
 
-            <Route path="/pv" component={MsgDireta} />
+            <Route path="/pv" component={ MsgDireta } />
           </>
         : 
           null
