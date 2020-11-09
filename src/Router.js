@@ -19,6 +19,7 @@ import React, { Fragment } from 'react';
   import FeedGrupo from './pages/FeedGrupo/index';
   import FeedPrincipal from './pages/FeedPrincipal';
   import Evento from './pages/Evento/index';
+  import EventoCriar from './pages/Evento-Criar/index.js';
   import PerfilUsuario from './pages/perfilUsuario/index.js';
 
   // Mobile
@@ -52,7 +53,9 @@ const Routes = () => {
         <Route path="/grupo/feed" component={FeedGrupo} />
 
         {/* Evento  */}
+        <Route path="/evento/criar" component={EventoCriar} />
         <Route path="/evento" component={Evento} />
+        
 
         {/* Mensagens */}
         <Route path="/direct/user" component={DirectWeb} />

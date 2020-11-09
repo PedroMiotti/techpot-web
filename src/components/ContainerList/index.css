@@ -23,6 +23,18 @@
 }
 
 
+#ContainerList-div-header{
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+#criar-componente{
+    margin-right: 25px;
+    cursor: pointer;
+
+}
+
 .div-groupOrEvent-box{
     display: flex;
     flex-direction: column;
