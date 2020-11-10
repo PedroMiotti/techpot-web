@@ -1,6 +1,9 @@
 // Redux
 import { combineReducers } from "redux";
 
-// Entities Slices
+// _entities Slices
+    import UserReducer from './User'
 
-export default combineReducers({});
+export default combineReducers({
+    user: UserReducer,
+});
