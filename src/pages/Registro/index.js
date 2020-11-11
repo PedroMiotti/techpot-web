@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import './index.css';
 
 // Components
@@ -14,8 +14,6 @@ import './index.css';
 // Redux
   import { useSelector, useDispatch } from 'react-redux'
   import { createUser } from '../../store/_entities/User';
-
-
 
 
     const CustomTextField = withStyles({
@@ -134,7 +132,7 @@ const Registro = ( ) => {
   const [sobrenomeInput, setSobrenomeInput] = useState('');
   const [emailInput, setEmailInput] = useState('');
   const [senhaInput, setSenhaInput] = useState('');
-
+  
   
   const dispatch = useDispatch();
   

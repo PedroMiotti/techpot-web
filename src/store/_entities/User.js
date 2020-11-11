@@ -57,8 +57,11 @@ const slice = createSlice({
             usuario.isLoggedIn = true;
 
             localStorage.setItem("_auth", action.payload.token)
-            history.push("/")
-            window.location.reload(true);
+            
+            setTimeout(() => {
+                history.push("/");
+                window.location.reload(true);
+            }, 1000);
 
         },
 

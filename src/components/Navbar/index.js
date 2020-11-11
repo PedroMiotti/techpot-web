@@ -98,14 +98,14 @@ const Navbar = ({ pathName }) => {
       )}
 
       <div className="navbarContainer-higher">
-        <nav class="font-techpot navbarContainer">
-          <ul class="navbarMenu">
+        <nav className="font-techpot navbarContainer">
+          <ul className="navbarMenu">
             {directScreen ? (
-              <div class="navbarBackIcon" onClick={goBackPrevious}>
+              <div className="navbarBackIcon" onClick={goBackPrevious}>
                 <ArrowBack style={icon} />
               </div>
             ) : (
-              <div class="navbarHamburguer" onClick={openSidebar}>
+              <div className="navbarHamburguer" onClick={openSidebar}>
                 <Menu style={icon} />
               </div>
             )}
@@ -116,16 +116,16 @@ const Navbar = ({ pathName }) => {
               <LogoTechPot />
             )}
 
-            <div class="navbarSearchboxContainer">
-              <input class="navbarSearchBox" placeholder="Pesquisar..."></input>
+            <div className="navbarSearchboxContainer">
+              <input className="navbarSearchBox" placeholder="Pesquisar..."></input>
               <a href="/">
                 <SearchOutlined />
               </a>
             </div>
 
-            <div class="navbarSideInfoContainer">
-              <div class="navbarIconsContainer">
-                <li class="item iconsino">
+            <div className="navbarSideInfoContainer">
+              <div className="navbarIconsContainer">
+                <li className="item iconsino">
                   <a
                     id="icon-notificacao"
                     onClick={openModalNotification}
@@ -136,7 +136,7 @@ const Navbar = ({ pathName }) => {
                   </a>
                 </li>
 
-                <li class="item iconmail">
+                <li className="item iconmail">
                   {width >= 960 ? (
                     <a
                       id="icon-mensagens"
@@ -161,20 +161,20 @@ const Navbar = ({ pathName }) => {
                 </li>
               </div>
 
-              <div class="navbarUserContainer">
-                <div class="navbarUserInfo">
-                  <li class="nickname">
+              <div className="navbarUserContainer">
+                <div className="navbarUserInfo">
+                  <li className="nickname">
                     Olá, <a href="/">Nickname</a>
                   </li>
-                  <li class="perfil">
+                  <li className="perfil">
                     <Link to="/usuario/perfil">meu perfil</Link>
                   </li>
                 </div>
 
-                <div class="navbarUserProfilePicContainer">
+                <div className="navbarUserProfilePicContainer">
                   <img
                     src={userProfilePicture}
-                    class="navbarUserProfilePic"
+                    className="navbarUserProfilePic"
                     alt="Profile pic user"
                   />
                 </div>
