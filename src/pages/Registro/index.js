@@ -12,7 +12,7 @@ import './index.css';
   import { withStyles, makeStyles } from '@material-ui/core/styles';
 
 // Redux
-  import { useSelector, useDispatch } from 'react-redux'
+  import { useSelector, useDispatch } from 'react-redux';
   import { createUser } from '../../store/_entities/User';
 
 

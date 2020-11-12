@@ -15,7 +15,7 @@ const api = ({dispatch }) => next => async action => {
 
     try{
         const response = await axios.request({
-            baseURL: 'http://192.168.1.57:4000',
+            baseURL: 'http://localhost:4000',
             url,
             headers,
             method,
