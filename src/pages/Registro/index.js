@@ -2,14 +2,18 @@ import React, { useState } from 'react';
 import './index.css';
 
 // Components
-    import LogoTechPot from '../../shared/LogoTechPot/index'
+  import LogoTechPot from '../../shared/LogoTechPot/index'
 
 // Icons
-    import { Visibility, VisibilityOff } from '@material-ui/icons' 
+  import { Visibility, VisibilityOff } from '@material-ui/icons' 
 
 // Material UI
-    import { TextField, Grid, IconButton, InputAdornment } from '@material-ui/core';
-    import { withStyles, makeStyles } from '@material-ui/core/styles';
+  import { TextField, Grid, IconButton, InputAdornment } from '@material-ui/core';
+  import { withStyles, makeStyles } from '@material-ui/core/styles';
+
+// Redux
+  import { useSelector, useDispatch } from 'react-redux';
+  import { createUser } from '../../store/_entities/User';
 
 
     const CustomTextField = withStyles({
@@ -115,107 +119,142 @@ import './index.css';
 
 const Registro = ( ) => {
 
-    const classes = useStyles();
+  const classes = useStyles();
 
-    const [values, setValues] = useState({
-      password: '',
-      showPassword: false,
-    });
+  // _entities
+  // const usuarioCreatedLoading = useSelector(state => state.entitie.usuario.loading);
+  // const usuarioCreatedFailed = useSelector(state => state.entitie.usuario.error);
+  // const usuarioCreatedSuccess = useSelector(state => state.entitie.usuario.success);
+  // const usuarioCreatedErrorMessage = useSelector(state => state.entitie.usuario.errorMessage);
+  // const usuarioCreatedSuccessMessage = useSelector(state => state.entitie.usuario.successMessage);
 
-    const handleClickShowPassword = () => {
-      setValues({ ...values, showPassword: !values.showPassword });
-    };
+  const [ nomeInput, setNomeInput ] = useState('');
+  const [sobrenomeInput, setSobrenomeInput] = useState('');
+  const [emailInput, setEmailInput] = useState('');
+  const [senhaInput, setSenhaInput] = useState('');
   
-    const handleMouseDownPassword = (event) => {
-      event.preventDefault();
-    };
+  
+  const dispatch = useDispatch();
+  
+  const criarUsuario = (event) => {
+    event.preventDefault();
 
-    const customLabelInput = {classes: {root: classes.inputLabel,focused: classes.inputLabelFocused }}
+    // TODO --> Form validation
+    // TODO --> Check if senha e senha2 match
 
-    return (
-      <div className="RegistroContainer font-techpot">
-        <div className="RegistroWrapper">
-          <div className="RegistroWrapperHeader">
-            <LogoTechPot />
-            <p>Bem vindo(a) comunindade TECH !</p>
+    dispatch(createUser(nomeInput, sobrenomeInput, emailInput, senhaInput));
+
+  }
+
+  const [values, setValues] = useState({
+    password: '',
+    showPassword: false,
+  });
+
+  const handleClickShowPassword = () => {
+    setValues({ ...values, showPassword: !values.showPassword });
+  };
+
+  const handleMouseDownPassword = (event) => {
+    event.preventDefault();
+  };
+
+  const customLabelInput = {classes: {root: classes.inputLabel,focused: classes.inputLabelFocused }}
+
+  return (
+    <div className="RegistroContainer font-techpot">
+      <div className="RegistroWrapper">
+        <div className="RegistroWrapperHeader">
+          <LogoTechPot />
+          <p>Bem vindo(a) comunindade TECH !</p>
+        </div>
+
+        <div className="RegistroWrapperBottom">
+          <div className="RegistroWrapperButtons">
+            <a href="/login">LOGIN</a>
+            <a href="/registro">REGISTRAR</a>
           </div>
 
-          <div className="RegistroWrapperBottom">
-            <div className="RegistroWrapperButtons">
-              <a href="/login">LOGIN</a>
-              <a href="/registro">REGISTRAR</a>
-            </div>
-
-            <div className="RegistroWrapperForm">
-              <Grid
-                container
-                spacing={1}
-                alignItems="center"
-                justify="space-between"
-                direction="row"
-              >
-                <Grid item className="Registro-gridItem">
-                  <CustomTextFieldInline
-                    label="Nome"
-                    InputLabelProps={customLabelInput} 
-                  />
-                </Grid>
-                <Grid item className="Registro-gridItem">
-                  <CustomTextFieldInline
-                    label="Sobrenome"
-                    InputLabelProps={customLabelInput}
-                  />
-                </Grid>
+          <form className="RegistroWrapperForm" onSubmit={criarUsuario}>
+            <Grid
+              container
+              spacing={1}
+              alignItems="center"
+              justify="space-between"
+              direction="row"
+            >
+              <Grid item className="Registro-gridItem">
+                <CustomTextFieldInline
+                  label="Nome"
+                  InputLabelProps={customLabelInput} 
+                  value={nomeInput}
+                  onChange={e => setNomeInput(e.target.value)}
+                />
               </Grid>
+              <Grid item className="Registro-gridItem">
+                <CustomTextFieldInline
+                  label="Sobrenome"
+                  InputLabelProps={customLabelInput}
+                  value={sobrenomeInput}
+                  onChange={e => setSobrenomeInput(e.target.value)}
+                />
+              </Grid>
+            </Grid>
 
-              <CustomTextField
-                fullWidth
-                label="E-mail"
-                InputLabelProps={customLabelInput}
-              />
+            <CustomTextField
+              fullWidth
+              label="E-mail"
+              InputLabelProps={customLabelInput}
+              value={emailInput}
+              onChange={e => setEmailInput(e.target.value)}
+            />
 
-              <CustomTextField
-                fullWidth
-                label="Senha"
-                InputLabelProps={customLabelInput}
-                type={values.showPassword ? "text" : "password"}
-                InputProps={{
-                  endAdornment: (
-                    <InputAdornment
-                      position="end"
-                      className={classes.adornedEye}
+            <CustomTextField
+              fullWidth
+              label="Senha"
+              value={senhaInput}
+              onChange={e => setSenhaInput(e.target.value)}
+              InputLabelProps={customLabelInput}
+              type={values.showPassword ? "text" : "password"}
+              InputProps={{
+                endAdornment: (
+                  <InputAdornment
+                    position="end"
+                    className={classes.adornedEye}
+                  >
+                    <IconButton
+                      aria-label="visibilidade senha"
+                      onClick={handleClickShowPassword}
+                      onMouseDown={handleMouseDownPassword}
                     >
-                      <IconButton
-                        aria-label="visibilidade senha"
-                        onClick={handleClickShowPassword}
-                        onMouseDown={handleMouseDownPassword}
-                      >
-                        {values.showPassword ? (
-                          <Visibility style={{ color: "#fff" }} />
-                        ) : (
-                          <VisibilityOff style={{ color: "#fff" }} />
-                        )}
-                      </IconButton>
-                    </InputAdornment>
-                  ),
-                }}
-              />
+                      {values.showPassword ? (
+                        <Visibility style={{ color: "#fff" }} />
+                      ) : (
+                        <VisibilityOff style={{ color: "#fff" }} />
+                      )}
+                    </IconButton>
+                  </InputAdornment>
+                ),
+              }}
+            />
 
-              <CustomTextField
-                fullWidth
-                label="Confirme a senha"
-                type={values.showPassword ? "text" : "password"}
-                InputLabelProps={customLabelInput}
-              />
-            </div>
+            <CustomTextField
+              fullWidth
+              label="Confirme a senha"
+              type={values.showPassword ? "text" : "password"}
+              InputLabelProps={customLabelInput}
+            />
 
-            <a href="/" className="RegistroWrapperRegistroButton">
+            <button className="RegistroWrapperRegistroButton" type="submit">
               Criar conta
-            </a>
-          </div>
+            </button>
+
+          </form>
+
         </div>
       </div>
-    );
+    </div>
+  );
 }
 
 

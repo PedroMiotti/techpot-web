@@ -2,9 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import './Index.css'
-
-
 import Routes from './Router'
+
+// Redux 
+import store from './store/index'
+import { Provider } from 'react-redux'
 
 import * as serviceWorker from './serviceWorker';
 
@@ -16,9 +18,11 @@ import history from './helpers/history'
 
 ReactDOM.render(
   <Router history={history}>
-    <Routes />
+    <Provider store={store}>
+      <Routes />
+    </Provider>
   </Router>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 
 

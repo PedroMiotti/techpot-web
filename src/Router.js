@@ -3,9 +3,13 @@ import React, { Fragment } from 'react';
 // Router
   import { Switch, Route, useLocation } from 'react-router-dom';
 
+// Redux
+  import { useSelector,} from 'react-redux'
+
 // Componentes
   import Navbar from './components/Navbar/index';
   import BottomNavbar from './components/BottomNavbar/index';
+  import ProtectdRoute from './shared/ProtectedRoute/index';
 
 // Hooks
   import useWindowDimensions from "./hooks/useWindowDimensions";
@@ -36,21 +40,25 @@ import React, { Fragment } from 'react';
 
 const Routes = () => {
 
+  //_entities --> user
+  const auth = useSelector(state => state.entitie.user.isLoggedIn)
+  
   const currentURL  = useLocation();
 
   const { width } = useWindowDimensions();
 
+
   return (
     <Fragment>
 
-      <Navbar pathName={currentURL.pathname} />
+      {auth && <Navbar pathName={currentURL.pathname} /> }
 
       <Switch>
         {/* Home  */}
-        <Route exact path="/" component={FeedPrincipal} />
+        <ProtectdRoute exact path="/" component={FeedPrincipal} />
 
         {/* Grupo  */}
-        <Route path="/grupo/feed" component={FeedGrupo} />
+        <ProtectdRoute path="/grupo/feed" component={FeedGrupo} />
 
         {/* Evento  */}
         <Route path="/evento/criar" component={EventoCriar} />
@@ -58,28 +66,28 @@ const Routes = () => {
         
 
         {/* Mensagens */}
-        <Route path="/direct/user" component={DirectWeb} />
+        <ProtectdRoute path="/direct/user" component={DirectWeb} />
+
+        {/* Usuario  */}
+        <ProtectdRoute path="/usuario/perfil" component={PerfilUsuario} />
 
         {/* Login && Registro  */}
         <Route path="/registro" component={Registro} />
         <Route path="/login" component={Login} />
 
-        {/* Usuario  */}
-        <Route path="/usuario/perfil" component={PerfilUsuario} />
-
         {/* Mobile Exclusive */}
 
         {width <= 961 ? 
           <>
-            <Route path="/mobile-eventos" component={EventsMobile} />
+            <ProtectdRoute path="/mobile-eventos" component={EventsMobile} />
 
-            <Route path="/mobile-search" component={SearchPageMobile} />
+            <ProtectdRoute path="/mobile-search" component={SearchPageMobile} />
 
-            <Route path="/mobile-notificacao" component={NotificaoMobile} />
+            <ProtectdRoute path="/mobile-notificacao" component={NotificaoMobile} />
 
-            <Route path="/mobile-directs" component={DirectMobile} />
+            <ProtectdRoute path="/mobile-directs" component={DirectMobile} />
 
-            <Route path="/pv" component={MsgDireta} />
+            <ProtectdRoute path="/pv" component={ MsgDireta } />
           </>
         : 
           null
@@ -90,7 +98,7 @@ const Routes = () => {
 
       </Switch>
 
-      <BottomNavbar />
+      {auth && <BottomNavbar /> }
 
     </Fragment>
   );
