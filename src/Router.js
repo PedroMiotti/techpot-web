@@ -25,6 +25,7 @@ import React, { Fragment } from 'react';
   import Evento from './pages/Evento/index';
   import EventoCriar from './pages/Evento-Criar/index.js';
   import PerfilUsuario from './pages/perfilUsuario/index.js';
+  import EditUsuario from './pages/EditUsuario/index'
 
   // Mobile
   import EventsMobile from './pages/EventsMobile';
@@ -69,7 +70,8 @@ const Routes = () => {
         <ProtectdRoute path="/direct/user" component={DirectWeb} />
 
         {/* Usuario  */}
-        <ProtectdRoute path="/usuario/perfil" component={PerfilUsuario} />
+        <ProtectdRoute exact path="/usuario/perfil" component={PerfilUsuario} />
+        <ProtectdRoute path="/usuario/perfil/editar" component={EditUsuario} />
 
         {/* Login && Registro  */}
         <Route path="/registro" component={Registro} />
