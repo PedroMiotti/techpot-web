@@ -12,6 +12,18 @@
     width: 22%;
 }
 
+.containerWelcome{
+    height: 60px;
+    align-self: left;
+    width: 500px;
+}
+
+.containerWelcome h3{
+    color: #fff;
+    font-weight: 600;
+    font-size: 1.6em;
+}
+
 #div-posts-FeedPrincipal{
     display: flex;
     flex-direction: column;

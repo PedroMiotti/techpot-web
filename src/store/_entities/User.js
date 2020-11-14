@@ -29,6 +29,7 @@ const slice = createSlice({
         id: hasToken ? infoUser.u.id : '',
         token: '',
         perfil: {},
+        firstAccess: false
     },
 
     reducers: {
@@ -48,20 +49,22 @@ const slice = createSlice({
 
         USER_INFO_SUCCESSFUL: (usuario, action) => {
             usuario.loading = false;
-            usuario.perfil = { usuario: action.payload.u }; 
+            usuario.perfil = { u: action.payload.u }; 
 
+            // console.log(usuario.perfil.u);
         },
 
         USER_LOGIN_SUCCESSFUL: (usuario, action) => {
             usuario.loading = false;
             usuario.isLoggedIn = true;
+            usuario.firstAccess = false;
 
             localStorage.setItem("_auth", action.payload.token)
             
-           // setTimeout(() => {
-              //  history.push("/");
-                //window.location.reload(true);
-            //}, 1000);
+            setTimeout(() => {
+                history.push("/");
+                window.location.reload(true);
+            }, 1000);
 
         },
 
@@ -70,6 +73,7 @@ const slice = createSlice({
             usuario.perfil = {};
             usuario.id = null;
             usuario.token = null;
+            usuario.firstAccess = false;
 
             localStorage.removeItem("_auth")
             history.push("/")
@@ -78,16 +82,18 @@ const slice = createSlice({
         USER_CREATED_SUCCESSFUL: (usuario, action) => {
             usuario.loading = false;
             usuario.success = true;
+            usuario.isLoggedIn = true;
             usuario.successMessage = action.payload.message;
             usuario.token = action.payload.token;
+            usuario.firstAccess = true;
 
             localStorage.setItem("_auth", usuario.token)
 
             // If it changes route in the middle of a reducer action it throws this error (TEMP FIX : Use setTimeout) --> Error: You may not call store.getState() while the reducer is executing. The reducer has already received the state as an argument. Pass it down from the top reducer instead of reading it from the store.
-            //setTimeout(() => {
-              //  history.push("/");
-                //window.location.reload(true);
-            //}, 1000);
+            setTimeout(() => {
+               history.push("/");
+                window.location.reload(true);
+            }, 1000);
 
         },
 
@@ -110,8 +116,6 @@ const slice = createSlice({
             usuario.error = false;
             usuario.success = true;
             usuario.successMessage = action.payload.message;
-
-
         },
 
     }
@@ -133,7 +137,7 @@ export const createUser = (nome, sobrenome, email, senha ) => apiCallBegan({
     onError: USER_FAILED.type
 });
 
-export const userInfo = (id) => apiCallBegan({
+export const userInfo = ( id ) => apiCallBegan({
     url: url + "/info",
     headers: authHeader(),
     method: "post",

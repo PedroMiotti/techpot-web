@@ -1,18 +1,19 @@
 import React from 'react';
 import './style/index.css'
 
-// Assets
-    import postTestPicture from '../../assets/Rafa.jpg';
 
 // Icons
     import { ImageOutlined } from '@material-ui/icons';
+
+// Components
+    import UserProfileImg from "../../shared/UserProfileImg/index"
 
 const PostBox = () => {
     return(
         <div className="postBoxContainer">
 
             <div className="postBoxUserPicture">
-                <img src={postTestPicture} alt="UserProfilePic" className="postBoxProfilePic"/>
+                <UserProfileImg classe="postBoxProfilePic"/> 
             </div>
 
             <div className="postBoxInfo">

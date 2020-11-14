@@ -1,8 +1,8 @@
 import React from "react";
 import "./index.css";
 
-// Assets
-import RafaPic from "../../assets/Rafa.jpg";
+// Components
+  import UserProfileImg from "../../shared/UserProfileImg/index"
 
 const MensagemBox = ({ DirectMobile }) => {
   return (
@@ -20,11 +20,7 @@ const MensagemBox = ({ DirectMobile }) => {
             : "MensagemBox-userPic-Container"
         }
       >
-        <img
-          src={RafaPic}
-          alt="userNotificacaoPic"
-          className="MensagemBox-userPic"
-        />
+        <UserProfileImg classe="MensagemBox-userPic"/>
       </div>
 
       <div
@@ -42,7 +38,7 @@ const MensagemBox = ({ DirectMobile }) => {
         >
           Reunião marcada para as 18h então, até la, abraços !!
         </p>{" "}
-        {/*TODO --> Add a limit of chars to ...*/}
+        {/* TODO --> Add a limit of chars to ...*/}
       </div>
 
       <div className="MensagemBox-ActionPic-Container ">
