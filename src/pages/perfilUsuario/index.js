@@ -7,6 +7,7 @@ import './styles.css';
     import InfoEvento from './Components/info-evento/index.js';
     import Rodape from './Components/rodape/index.js';
 
+
 const PerfilUsuario = () => {
     return(
         <div id="PerfilUsuario font-techpot">

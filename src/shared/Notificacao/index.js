@@ -2,18 +2,16 @@ import React from 'react';
 import './index.css'
 
 // Assets
-    import RafaPic from '../../assets/Rafa.jpg'
     import HTTP_Post from '../../assets/HTTP.png'
+
+// Components
+  import UserProfileImg from "../../shared/UserProfileImg/index"
 
 const NotificacaoBox = ({ fontColor }) => {
     return (
       <div className="notificacaoBox-Container font-techpot">
-        <div className="notificacaoBox-userPic-Container">
-          <img
-            src={RafaPic}
-            alt="userNotificacaoPic"
-            className="notificacaoBox-userPic"
-          />
+        <div className="notificacaoBox-userPic-Container">  
+          <UserProfileImg classe="notificacaoBox-userPic"/> 
         </div>
 
         <div

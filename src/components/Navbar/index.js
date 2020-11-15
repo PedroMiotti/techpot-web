@@ -1,4 +1,4 @@
-import React, { useState, Fragment, useRef } from "react";
+import React, { useState, Fragment, useRef, useEffect } from "react";
 import "./index.css";
 
 // Router
@@ -12,12 +12,18 @@ import "./index.css";
   import Sidebar from "../Sidebar/index";
   import ModalNotificacao from "../ModalNotificacao/index";
   import ModalMensagens from "../ModalMensagens/index";
-
-// Assets
-  import userProfilePicture from "../../assets/Rafa.jpg";
+  import UserProfileImg from "../../shared/UserProfileImg/index"
 
 // Hooks
   import useWindowDimensions from "../../hooks/useWindowDimensions";
+
+// Redux
+  import { useSelector, useDispatch } from 'react-redux';
+  import { userInfo } from '../../store/_entities/User';
+
+// Helpers
+  import { firstLetterUppercase } from '../../helpers/UpperFirstLetter';
+
 
 const icon = {
   color: "#fff",
@@ -34,6 +40,11 @@ const Navbar = ({ pathName }) => {
 
   const modalNotificacaoRef = useRef();
   const modalMensagendsRef = useRef();
+
+  // Getting user id 
+  const usuarioId = useSelector(state => state.entitie.user.id);
+  const usuarioPerfil = useSelector(state => state.entitie.user.perfil);
+
 
   const { width } = useWindowDimensions();
 
@@ -78,6 +89,14 @@ const Navbar = ({ pathName }) => {
   const goBackPrevious = () => {
     history.goBack();
   }
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+
+    dispatch(userInfo(usuarioId));
+
+  }, [])
 
   return (
     <Fragment>
@@ -164,7 +183,7 @@ const Navbar = ({ pathName }) => {
               <div className="navbarUserContainer">
                 <div className="navbarUserInfo">
                   <li className="nickname">
-                    Olá, <a href="/">Nickname</a>
+                      Olá, <a href="/">{usuarioPerfil.u ? firstLetterUppercase(usuarioPerfil.u.nome) : "Usuario"}</a>
                   </li>
                   <li className="perfil">
                     <Link to="/usuario/perfil">meu perfil</Link>
@@ -172,11 +191,7 @@ const Navbar = ({ pathName }) => {
                 </div>
 
                 <div className="navbarUserProfilePicContainer">
-                  <img
-                    src={userProfilePicture}
-                    className="navbarUserProfilePic"
-                    alt="Profile pic user"
-                  />
+                  <UserProfileImg classe="navbarUserProfilePic"/> 
                 </div>
               </div>
             </div>

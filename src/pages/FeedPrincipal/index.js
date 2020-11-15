@@ -2,19 +2,25 @@ import React from 'react';
 import './index.css';
 
 // Components
-  import ContainerList from '../../components/ContainerList/index';
-  import EventBox from '../../components/EventBox/index';
-  import GroupBox from '../../components/GroupBox/index';
-  import Post from '../../components/post/index';
-  import PostBox from '../../components/postBox/index';
+import ContainerList from '../../components/ContainerList/index';
+import EventBox from '../../components/EventBox/index';
+import GroupBox from '../../components/GroupBox/index';
+import Post from '../../components/post/index';
+import PostBox from '../../components/postBox/index';
+import PhotoUpdateContainer from '../../components/photoUpdateBox/index'
 
+// Redux
+import { useSelector, useDispatch } from 'react-redux';
+
+// Helpers
+import { firstLetterUppercase } from '../../helpers/UpperFirstLetter';
 
 // Material UI
-  import Fab from "@material-ui/core/Fab";
-  import { makeStyles } from "@material-ui/core/styles";
+import Fab from "@material-ui/core/Fab";
+import { makeStyles } from "@material-ui/core/styles";
 
 // Icons
-  import { Add } from '@material-ui/icons';
+import { Add } from '@material-ui/icons';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -31,9 +37,11 @@ const useStyles = makeStyles((theme) => ({
 const FeedPrincipal = () => {
   const classes = useStyles();
 
+  const usuarioPerfil = useSelector(state => state.entitie.user.perfil);
+
   return (
     <div id="FeedPrincipal-div-main">
-      <div id="page" class="font-techpot">
+      <div id="page" className="font-techpot">
         <div className="spaced">
           <div id="div-toHide-boxList">
             <ContainerList tituloBoxList="Grupos">
@@ -46,6 +54,26 @@ const FeedPrincipal = () => {
             </ContainerList>
           </div>
           <div id="div-posts-FeedPrincipal">
+
+            {
+              usuarioPerfil.u ?
+                usuarioPerfil.u.firstAccess ?
+                  null
+                  :
+                  <div className="afterRegisterContainer">
+
+                    <div className="containerWelcome font-techpot">
+                      <h3 className="font-techpot">Bem vindo(a) a comunidade TECH {usuarioPerfil.u ? firstLetterUppercase(usuarioPerfil.u.nome) : "Usuario"} !</h3>
+                    </div>
+
+                    <div className="containerPhotoUpdate">
+                      <PhotoUpdateContainer />
+                    </div>
+                  </div>
+                :
+                null
+            }
+
             <PostBox />
             <Post />
             <Post />
