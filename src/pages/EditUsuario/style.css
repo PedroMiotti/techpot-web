@@ -1,0 +1,75 @@
+div{
+    margin: 0;
+}
+
+.editUserContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.editUserTitleBar{
+    align-self: flex-start;
+    padding-left: 25px;
+    display: flex;
+    width: 55%;
+    justify-content: space-between;
+
+    color: #fff;
+    margin: 20px 0;
+}
+
+.editUserContainerPadrao{    
+    width: 50vw;
+    height: auto;
+    background-color: #3f566d;
+    margin:  20px 0;
+    padding: 20px;
+    border-radius: 10px;
+
+}
+
+.editUserContainerPadrao-col1{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px ;
+}
+
+.editUserContainerInput-row1{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 20px;
+}
+
+.editUserContainerInput-row1 input{
+    border-radius: 10px;
+    height: 40px;
+    width: 40%;
+    border: 1px solid #fff;
+    padding: 9px;
+    font-size: 15px;
+}
+
+.editUserContainerPadrao-col1 h2{
+    color: #fff;
+}
+
+.editUserContainerPadrao-col1 a{
+    color: #fff;
+    text-decoration: underline;
+}
+
+.editPhotoImage{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.editPhotoImage img{
+    width: 200px;
+    border-radius: 50%;
+}
+
+

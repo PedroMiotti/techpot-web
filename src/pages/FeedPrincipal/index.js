@@ -38,6 +38,7 @@ const FeedPrincipal = () => {
   const classes = useStyles();
 
   const usuarioPerfil = useSelector(state => state.entitie.user.perfil);
+  const usuarioFirstAccess = useSelector(state => state.entitie.user.firstAccess);
 
   return (
     <div id="FeedPrincipal-div-main">
@@ -57,7 +58,7 @@ const FeedPrincipal = () => {
 
             {
               usuarioPerfil.u ?
-                usuarioPerfil.u.firstAccess ?
+                !usuarioFirstAccess ?
                   null
                   :
                   <div className="afterRegisterContainer">

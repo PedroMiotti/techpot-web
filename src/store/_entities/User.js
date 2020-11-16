@@ -51,7 +51,6 @@ const slice = createSlice({
             usuario.loading = false;
             usuario.perfil = { u: action.payload.u }; 
 
-            // console.log(usuario.perfil.u);
         },
 
         USER_LOGIN_SUCCESSFUL: (usuario, action) => {

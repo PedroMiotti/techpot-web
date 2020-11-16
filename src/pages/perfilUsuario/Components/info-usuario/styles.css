@@ -8,12 +8,10 @@
     border-bottom-left-radius: 5vh;
     border-bottom-right-radius: 5vh;
     border-bottom: 1px solid #a3aaae;
+    padding: 20px 0;
 }
 
 #FotoUsuario {
-    padding-top: 1.5vh;
-    padding-bottom: 1.5vh;
-    padding-left: 14vh;
     position: relative;
 }
 
@@ -45,33 +43,38 @@
     /* font-size: 1rem; */
 }
 
-#Bio {
-    /* padding-top: 3vh; */
-    padding-bottom: 3vh;
+#Bio{
+    margin: 15px 0;
+    max-width: auto; /* TODO : Test the max chars */
+
+}
+
+#Bio h4{
     max-width: 95vh;
-    background-color: var(--color-primary);
-    box-shadow: 0 0 14px var(--color-primary); 
-    text-align: justify;
-    /* font-weight: bold; */
     font-size: 1.4rem;
-    border-radius: 25px;
+}
+
+#Bio a{
+    text-align: justify;
+}
+
+#Bio a:hover{
+    color: var(--color-terciary);
+    cursor: pointer;
+    transition: 0.44s;
 }
 
 #BotaoSocial {
     display: flex;
-    justify-content: flex-end;
-    padding-bottom: 1.5vh;
-    padding-top: 2vh;
-}
-
-#BotaoSocial button {
-    background: var(--color-primary);
+    justify-content: space-between;
+    width: auto;
+    padding: 15px 10px 15px 0;
     border: 0;
-    padding-left: 2vh;
     font-size: 0.95rem;
 }
 
-#BotaoSocial button a {
+#BotaoSocial p,
+#BotaoSocial a {
     color: #eee;
     text-decoration: none;
     display: flex;
@@ -79,23 +82,23 @@
     justify-content: center;
 }
 
-#BotaoSocial button a:hover {
+#BotaoSocial a:hover {
     color: var(--color-terciary);
+    cursor: pointer;
     transition: 0.44s;
 }
 
-#BotaoSocial button a:active {
+#BotaoSocial a:active {
     color: var(--color-terciary);
 }
 
-#BotaoSocial button a h4 {
-    padding-left: 1vh;
+#BotaoSocial p a,
+#BotaoSocial a h4{
+    padding-left: 10px;
+    padding-right: 15px;
 }
 
-#BotaoSocial button a img {
-    border-radius: 25%;
-    width: 3vh;
-}
+
 
 @media only screen and (max-width: 1280px) {
     #FotoUsuario {

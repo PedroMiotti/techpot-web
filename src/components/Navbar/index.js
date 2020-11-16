@@ -2,27 +2,28 @@ import React, { useState, Fragment, useRef, useEffect } from "react";
 import "./index.css";
 
 // Router
-  import { Link, useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 // Icons
-  import { Mail, Menu, Notifications, SearchOutlined, ArrowBack, Add } from "@material-ui/icons";
+import { Mail, Menu, Notifications, SearchOutlined, ArrowBack, Add, ArrowDropDown } from "@material-ui/icons";
 
 // Componentes
-  import LogoTechPot from "../../shared/LogoTechPot/index";
-  import Sidebar from "../Sidebar/index";
-  import ModalNotificacao from "../ModalNotificacao/index";
-  import ModalMensagens from "../ModalMensagens/index";
-  import UserProfileImg from "../../shared/UserProfileImg/index"
+import LogoTechPot from "../../shared/LogoTechPot/index";
+import Sidebar from "../Sidebar/index";
+import ModalNotificacao from "../ModalNotificacao/index";
+import ModalMensagens from "../ModalMensagens/index";
+import ModalUserPreferences from '../ModalUserPreferences/index'
+import UserProfileImg from "../../shared/UserProfileImg/index"
 
 // Hooks
-  import useWindowDimensions from "../../hooks/useWindowDimensions";
+import useWindowDimensions from "../../hooks/useWindowDimensions";
 
 // Redux
-  import { useSelector, useDispatch } from 'react-redux';
-  import { userInfo } from '../../store/_entities/User';
+import { useSelector, useDispatch } from 'react-redux';
+import { userInfo } from '../../store/_entities/User';
 
 // Helpers
-  import { firstLetterUppercase } from '../../helpers/UpperFirstLetter';
+import { firstLetterUppercase } from '../../helpers/UpperFirstLetter';
 
 
 const icon = {
@@ -35,16 +36,17 @@ const Navbar = ({ pathName }) => {
   const [toggleSidebar, setToggleSidebar] = useState(false);
   const [showModalNotification, setShowModalNotification] = useState(false);
   const [showModalMensagens, setShowModalMensagens] = useState(false);
+  const [showModalUserPreferences, setShowModalUserPreferences] = useState(false);
   const [anchorLeft, setAnchorLeft] = useState(null);
   const [anchorTop, setAnchorTop] = useState(null);
 
   const modalNotificacaoRef = useRef();
   const modalMensagendsRef = useRef();
+  const modalUserPreferencesRef = useRef();
 
-  // Getting user id 
+  // Getting user id && perfil
   const usuarioId = useSelector(state => state.entitie.user.id);
   const usuarioPerfil = useSelector(state => state.entitie.user.perfil);
-
 
   const { width } = useWindowDimensions();
 
@@ -83,6 +85,15 @@ const Navbar = ({ pathName }) => {
     setAnchorTop(postion.bottom);
   };
 
+  const openModalUserPreferences = (e) => {
+    setShowModalUserPreferences(!showModalUserPreferences);
+
+    // Pegando a posicao do icone
+    const postion = modalUserPreferencesRef.current.getBoundingClientRect();
+    setAnchorLeft(postion.left);
+    setAnchorTop(postion.bottom);
+  };
+
 
   const history = useHistory();
 
@@ -116,6 +127,14 @@ const Navbar = ({ pathName }) => {
         />
       )}
 
+      {showModalUserPreferences && (
+        <ModalUserPreferences
+          anchorLeft={anchorLeft}
+          anchorTop={anchorTop}
+          onClose={() => setShowModalUserPreferences(!showModalUserPreferences)}
+        />
+      )}
+
       <div className="navbarContainer-higher">
         <nav className="font-techpot navbarContainer">
           <ul className="navbarMenu">
@@ -124,16 +143,16 @@ const Navbar = ({ pathName }) => {
                 <ArrowBack style={icon} />
               </div>
             ) : (
-              <div className="navbarHamburguer" onClick={openSidebar}>
-                <Menu style={icon} />
-              </div>
-            )}
+                <div className="navbarHamburguer" onClick={openSidebar}>
+                  <Menu style={icon} />
+                </div>
+              )}
 
             {navTitle ? (
               <h1 className="navbar-navTitle">{navTitle}</h1>
             ) : (
-              <LogoTechPot />
-            )}
+                <LogoTechPot />
+              )}
 
             <div className="navbarSearchboxContainer">
               <input className="navbarSearchBox" placeholder="Pesquisar..."></input>
@@ -149,7 +168,7 @@ const Navbar = ({ pathName }) => {
                     id="icon-notificacao"
                     onClick={openModalNotification}
                     ref={modalNotificacaoRef}
-                    
+
                   >
                     <Notifications style={icon} />
                   </a>
@@ -160,40 +179,39 @@ const Navbar = ({ pathName }) => {
                     <a
                       id="icon-mensagens"
                       onClick={openModalMensagens}
-                      ref={modalMensagendsRef}   
+                      ref={modalMensagendsRef}
                     >
                       <Mail style={icon} />
                     </a>
                   ) : (
-                    <div>
-                      {directScreen ? (
-                        <a >
-                          <Add style={icon} />
-                        </a>
-                      ) : (
-                        <Link to="/mobile-directs">
-                          <Mail style={icon} />
-                        </Link>
-                      )}
-                    </div>
-                  )}
+                      <div>
+                        {directScreen ? (
+                          <a >
+                            <Add style={icon} />
+                          </a>
+                        ) : (
+                            <Link to="/mobile-directs">
+                              <Mail style={icon} />
+                            </Link>
+                          )}
+                      </div>
+                    )}
                 </li>
               </div>
 
-              <div className="navbarUserContainer">
+              <div className="navbarUserContainer" onClick={openModalUserPreferences} ref={modalUserPreferencesRef}>
                 <div className="navbarUserInfo">
                   <li className="nickname">
-                      Olá, <a href="/">{usuarioPerfil.u ? firstLetterUppercase(usuarioPerfil.u.nome) : "Usuario"}</a>
-                  </li>
-                  <li className="perfil">
-                    <Link to="/usuario/perfil">meu perfil</Link>
+                    Olá, {usuarioPerfil.u ? firstLetterUppercase(usuarioPerfil.u.nome) : "Usuario"}
                   </li>
                 </div>
 
                 <div className="navbarUserProfilePicContainer">
-                  <UserProfileImg classe="navbarUserProfilePic"/> 
+                  <UserProfileImg classe="navbarUserProfilePic" />
                 </div>
               </div>
+
+
             </div>
           </ul>
         </nav>
