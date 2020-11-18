@@ -102,7 +102,7 @@ const slice = createSlice({
     }
 })
 
-export const { EVENT_REQUESTED,  EVENT_FAILED, EVENT_CREATED_SUCCESSFUL} = slice.actions;
+export const { EVENT_REQUESTED,  EVENT_FAILED, EVENT_CREATED_SUCCESSFUL, EVENT_DELETED_SUCCESSFUL, EVENT_LISTED_SUCCESSFUL, EVENT_UPDATED_SUCCESSFUL, EVENT_LIST_SUBSCRIBERS_SUCCESSFUL, EVENT_LIST_INVITED_SUCCESSFUL, EVENT_INVITE_SUCCESSFUL, EVENT_INFO_SUCCESSFUL, EVENT_LIST_CATEGORY_SUCCESSFUL, EVENT_CONFIRM_INVITE_SUCCESSFUL } = slice.actions;
 
 
 export default slice.reducer;
@@ -132,7 +132,7 @@ export const deleteEvent = (id) => apiCallBegan({
 });
 
 
-export const listEvents = () => apiCallBegan({
+export const listEvent = () => apiCallBegan({
     url: url + "/listar",
     headers: null,
     method: "get",
@@ -158,7 +158,7 @@ export const listSubscribersEvent = (id) => apiCallBegan({
     method: "get",
     data: {id},
     onStart: EVENT_REQUESTED.type,
-    onSuccess: EVENT_SUBSCRIBERS_SUCCESSFUL.type,
+    onSuccess: EVENT_LIST_SUBSCRIBERS_SUCCESSFUL.type,
     onError: EVENT_FAILED.type
 });
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './index.css';
 
 // Components
@@ -11,6 +11,7 @@ import PhotoUpdateContainer from '../../components/photoUpdateBox/index'
 
 // Redux
 import { useSelector, useDispatch } from 'react-redux';
+import { listEvent } from '../../store/_entities/Event';
 
 // Helpers
 import { firstLetterUppercase } from '../../helpers/UpperFirstLetter';
@@ -34,11 +35,28 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+
+
+
+
 const FeedPrincipal = () => {
+
   const classes = useStyles();
 
-  const usuarioPerfil = useSelector(state => state.entitie.user.perfil);
+  const dispatch = useDispatch();
 
+  const listarEventos = () =>{
+    dispatch(listEvent())
+
+  }
+
+
+  console.log(listarEventos)
+    
+  
+
+  const usuarioPerfil = useSelector(state => state.entitie.user.perfil);
+  
   return (
     <div id="FeedPrincipal-div-main">
       <div id="page" className="font-techpot">
@@ -83,18 +101,16 @@ const FeedPrincipal = () => {
           </div>
           <div id="div-toHide-boxList">
             <ContainerList tituloBoxList="Eventos">
+              
               <EventBox tituloEvento="HackaTruck" dataEvento="31/08" />
-              <EventBox tituloEvento="HackaTruck" dataEvento="11/09" />
-              <EventBox tituloEvento="HackaTruck" dataEvento="17/09" />
-              <EventBox tituloEvento="HackaTruck" dataEvento="30/09/2020" />
-              <EventBox tituloEvento="HackaTruck" dataEvento="08/10/2020" />
-              <EventBox tituloEvento="HackaTruck" dataEvento="21/10/2020" />
+              
             </ContainerList>
           </div>
         </div>
       </div>
       <Fab color="secondary" aria-label="add" className={classes.fab}>
         <Add />
+
       </Fab>
     </div>
   );
