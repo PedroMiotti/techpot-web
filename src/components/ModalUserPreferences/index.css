@@ -1,0 +1,107 @@
+.ModalUserPreferencesContainer{
+    position: absolute;
+    width: 300px;
+    height: 160px;
+    
+    z-index: 2;
+    transform: translateX(-50%);
+
+    border-radius: 20px;
+    background-color: #fff;
+
+    position: fixed;
+    position: -webkit-sticky;
+
+}
+
+.ModalUserPreferences-topbar{
+    padding: 8px 8px;
+
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+
+    color: var(--color-terciary);
+    height: auto;
+
+}
+
+.ModalUserPreferences-topbar-row1{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+.ModalUserPreferences-topbar-col2 h3{
+    color: var(--color-primary);
+}
+
+.ModalUserPreferences-topbar-col2 p{
+    color: rgba(153, 153, 153, 0.933);
+}
+
+.ModalUserPreferencesProfilePicContainer{
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+    border-radius: 50%; 
+    margin: 3px 0 3px 10px;
+
+}
+
+.ModalUserPreferencesProfilePicContainer img{
+    width: auto;
+    height: 100%;
+}
+
+.BotaoMeuPerfilContainer{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 8px;
+}
+
+.BotaoMeuPerfilContainer:hover{
+    cursor: pointer;
+}
+
+.BotaoMeuPerfil{
+    background-color: #fff;
+    color: #05a84f;
+    border: 1px solid #05a84f;
+    width: 90%;
+    text-align: center;
+    border-radius: 10px;
+    height: 30px;
+    line-height: 27px;
+
+}
+
+.ModalUserPreferences-bottom{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 47px;
+    font-size: 17px ;
+    color: rgba(153, 153, 153, 0.933);
+}
+
+.ModalUserPreferences-bottom p:hover{
+    color: #05a84f;
+    cursor: pointer;
+    transition: 0.3;
+}
+
+.ModalUserPreferences-overlay{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 1;
+}
+

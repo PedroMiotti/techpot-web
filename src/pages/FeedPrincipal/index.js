@@ -43,19 +43,9 @@ const FeedPrincipal = () => {
 
   const classes = useStyles();
 
-  const dispatch = useDispatch();
-
-  const listarEventos = () =>{
-    dispatch(listEvent())
-
-  }
-
-
-  console.log(listarEventos)
-    
   
-
   const usuarioPerfil = useSelector(state => state.entitie.user.perfil);
+  const usuarioFirstAccess = useSelector(state => state.entitie.user.firstAccess);
   
   return (
     <div id="FeedPrincipal-div-main">
@@ -75,7 +65,7 @@ const FeedPrincipal = () => {
 
             {
               usuarioPerfil.u ?
-                usuarioPerfil.u.firstAccess ?
+                !usuarioFirstAccess ?
                   null
                   :
                   <div className="afterRegisterContainer">

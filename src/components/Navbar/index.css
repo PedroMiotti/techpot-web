@@ -146,11 +146,15 @@
 
 /* USER =============*/
 .navbarUserContainer{
-    /* width: 15%; */
     display: flex;
     align-items: center;
     justify-content: flex-end; 
 }
+
+.navbarUserContainer:hover{
+    cursor: pointer;
+}
+
 
 .navbarUserInfo{
     display: flex;
@@ -158,15 +162,11 @@
     justify-content: flex-end;
 }
 
-.navbarUserInfo .nickname,
-.navbarUserInfo .perfil{
+
+.navbarUserInfo .nickname{
     text-align: right;
 }
 
-.perfil:hover{
-    cursor: pointer;
-    text-decoration: underline ;
-}
 
 
 .navbarUserProfilePicContainer{

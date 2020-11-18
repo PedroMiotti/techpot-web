@@ -34,13 +34,14 @@ body{
 *::-webkit-scrollbar {
     width: 10px;
 }
+
 *::-webkit-scrollbar-track {
     background: #111b24;
     border-radius: 20px;
 }
 *::-webkit-scrollbar-thumb {
     background-color: var(--color-secundary);
-    border-radius: 20px;
+    border-radius: 10px;
     border: 3px solid #111b24;
 }
  

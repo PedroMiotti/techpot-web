@@ -1,13 +1,11 @@
 #InfoEvento {
     background-color: var(--color-primary);
-    box-shadow: 0 0 24px var(--color-primary);
-    border-top-left-radius: 5vh;
-    border-top-right-radius: 5vh;
+    /* box-shadow: 0 0 24px var(--color-primary); */
     display: flex;
     flex-direction: column;
-    border: 1px solid #a3aaae;
-    padding-left: 12.5vw;
-    padding-right: 12.5vw;
+    /* border: 1px solid #a3aaae; */
+    margin: 0 5vw;
+    padding: 20px;
 }
 
 #NomeInfoEvento {
@@ -15,19 +13,21 @@
 }
 
 #NomeInfoEvento h1 {
-    color: var(--color-secundary);
+    color: #fff;
     font-size: 2.2rem;
-    text-decoration: underline;
 }
 
 #VisualEventos {
-    padding-top: 1.5vh;
     display: flex;
-    flex-flow: row wrap;
     justify-content: center;
     align-items: center; 
-    max-height: 47.5vh;
-    overflow: scroll;
+
+    margin-top: 25px;
+
+    padding-left: 80%;
+    min-height: 250px;
+    overflow-x: auto;
+    overflow-y: hidden;
 }
 
 #VisualEventos a {

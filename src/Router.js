@@ -1,107 +1,130 @@
 import React, { Fragment } from 'react';
 
 // Router
-  import { Switch, Route, useLocation } from 'react-router-dom';
+import { Switch, Route, useLocation, BrowserRouter } from 'react-router-dom';
 
 // Redux
-  import { useSelector,} from 'react-redux'
+import { useSelector, } from 'react-redux'
 
 // Componentes
-  import Navbar from './components/Navbar/index';
-  import BottomNavbar from './components/BottomNavbar/index';
-  import ProtectdRoute from './shared/ProtectedRoute/index';
+import Navbar from './components/Navbar/index';
+import BottomNavbar from './components/BottomNavbar/index';
+import ProtectedRoute from './shared/ProtectedRoute/index';
 
 // Hooks
-  import useWindowDimensions from "./hooks/useWindowDimensions";
+import useWindowDimensions from "./hooks/useWindowDimensions";
 
 
 // Pages
 
-  import Login from './pages/Login';
-  import Registro from './pages/Registro/index'
-  
-  import FeedGrupo from './pages/FeedGrupo/index';
-  import FeedPrincipal from './pages/FeedPrincipal';
-  import Evento from './pages/Evento/index';
-  import EventoCriar from './pages/Evento-Criar/index.js';
-  import PerfilUsuario from './pages/perfilUsuario/index.js';
+import Login from './pages/Login';
+import Registro from './pages/Registro/index'
 
-  // Mobile
-  import EventsMobile from './pages/EventsMobile';
-  import SearchPageMobile from './pages/SearchPageMobile/index';
-  import NotificaoMobile from './pages/NotificacaoMobile/index';
-  import DirectMobile from './pages/DirectMobile/index';
-  import DirectWeb from './pages/DirectWeb/index';
-  import MsgDireta from './pages/MsgDireta';
+import FeedGrupo from './pages/FeedGrupo/index';
+import FeedPrincipal from './pages/FeedPrincipal';
+import Evento from './pages/Evento/index';
+import EventoCriar from './pages/Evento-Criar/index.js';
+import PerfilUsuario from './pages/perfilUsuario/index.js';
+import EditUsuario from './pages/EditUsuario/index'
 
-  // 404
-  import PageNotFound from './pages/404/index'
+// Mobile
+import EventsMobile from './pages/EventsMobile';
+import SearchPageMobile from './pages/SearchPageMobile/index';
+import NotificaoMobile from './pages/NotificacaoMobile/index';
+import DirectMobile from './pages/DirectMobile/index';
+import DirectWeb from './pages/DirectWeb/index';
+import MsgDireta from './pages/MsgDireta';
+
+// 404
+import PageNotFound from './pages/404/index'
 
 
-const Routes = () => {
-
-  //_entities --> user
-  const auth = useSelector(state => state.entitie.user.isLoggedIn)
-  
-  const currentURL  = useLocation();
-
-  const { width } = useWindowDimensions();
+const Test = () => {
 
 
   return (
-    <Fragment>
-
-      {auth && <Navbar pathName={currentURL.pathname} /> }
-
       <Switch>
+
+          <Route path={["/registro" , "/login", "/usuario/perfil/editar"]} component={NoNavbar} />
+          <Route component={UseNav} />
+
+          {/* 404  */}
+          <Route path="*" component={PageNotFound} />
+
+      </Switch>
+  );
+};
+
+
+// Routes that DOESNT USE the navbar or the bottom bar
+const NoNavbar = () => {
+  return (
+    <>
+      {/* Login && Registro  */}
+      <Route path="/registro" component={Registro} />
+      <Route path="/login" component={Login} />
+
+
+      {/* Usuario  */}
+      <ProtectedRoute path="/usuario/perfil/editar" component={EditUsuario} />
+    </>
+  )
+}
+
+
+// Routes that USE the navbar or the bottom bar
+
+const UseNav = () => {
+
+  const currentURL = useLocation();
+
+  const { width } = useWindowDimensions();
+
+  return (
+    <>
+
+        <Navbar pathName={currentURL.pathname} />
+
         {/* Home  */}
-        <ProtectdRoute exact path="/" component={FeedPrincipal} />
+        <ProtectedRoute exact path="/" component={FeedPrincipal} />
+
 
         {/* Grupo  */}
-        <ProtectdRoute path="/grupo/feed" component={FeedGrupo} />
+        <ProtectedRoute path="/grupo/feed" component={FeedGrupo} />
 
         {/* Evento  */}
         <Route path="/evento/criar" component={EventoCriar} />
         <Route path="/evento" component={Evento} />
-        
+
 
         {/* Mensagens */}
-        <ProtectdRoute path="/direct/user" component={DirectWeb} />
+        <ProtectedRoute path="/direct/user" component={DirectWeb} />
 
         {/* Usuario  */}
-        <ProtectdRoute path="/usuario/perfil" component={PerfilUsuario} />
+        <ProtectedRoute path="/usuario/perfil" component={PerfilUsuario} />
 
-        {/* Login && Registro  */}
-        <Route path="/registro" component={Registro} />
-        <Route path="/login" component={Login} />
 
         {/* Mobile Exclusive */}
 
-        {width <= 961 ? 
+        {width <= 961 ?
           <>
-            <ProtectdRoute path="/mobile-eventos" component={EventsMobile} />
+            <ProtectedRoute path="/mobile-eventos" component={EventsMobile} />
 
-            <ProtectdRoute path="/mobile-search" component={SearchPageMobile} />
+            <ProtectedRoute path="/mobile-search" component={SearchPageMobile} />
 
-            <ProtectdRoute path="/mobile-notificacao" component={NotificaoMobile} />
+            <ProtectedRoute path="/mobile-notificacao" component={NotificaoMobile} />
 
-            <ProtectdRoute path="/mobile-directs" component={DirectMobile} />
+            <ProtectedRoute path="/mobile-directs" component={DirectMobile} />
 
-            <ProtectdRoute path="/pv" component={ MsgDireta } />
+            <ProtectedRoute path="/pv" component={MsgDireta} />
           </>
-        : 
+          :
           null
         }
+        <BottomNavbar />
 
-        {/* 404  */}
-        <Route exact path="*" component={PageNotFound} />
+    </>
+  )
+}
 
-      </Switch>
-
-      {auth && <BottomNavbar /> }
-
-    </Fragment>
-  );
-};
-
-export default Routes;
+export default Test;
