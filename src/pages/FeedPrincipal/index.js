@@ -11,7 +11,7 @@ import PhotoUpdateContainer from '../../components/photoUpdateBox/index'
 
 // Redux
 import { useSelector, useDispatch } from 'react-redux';
-import { listEvents } from '../../store/_entities/Event';
+import { listEvent } from '../../store/_entities/Event';
 
 // Helpers
 import { firstLetterUppercase } from '../../helpers/UpperFirstLetter';
@@ -52,7 +52,7 @@ const FeedPrincipal = () => {
 
   useEffect(() => {
 
-    dispatch(listEvents());
+    dispatch(listEvent());
 
   }, [])
 
