@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './index.css';
 
 // Components
@@ -11,6 +11,7 @@ import PhotoUpdateContainer from '../../components/photoUpdateBox/index'
 
 // Redux
 import { useSelector, useDispatch } from 'react-redux';
+import { listEvents } from '../../store/_entities/Event';
 
 // Helpers
 import { firstLetterUppercase } from '../../helpers/UpperFirstLetter';
@@ -39,6 +40,15 @@ const FeedPrincipal = () => {
 
   const usuarioPerfil = useSelector(state => state.entitie.user.perfil);
   const usuarioFirstAccess = useSelector(state => state.entitie.user.firstAccess);
+  const eventList = useSelector(state => state.entitie.event.eventsList);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+
+    dispatch(listEvents());
+
+  }, [])
 
   return (
     <div id="FeedPrincipal-div-main">
@@ -46,6 +56,7 @@ const FeedPrincipal = () => {
         <div className="spaced">
           <div id="div-toHide-boxList">
             <ContainerList tituloBoxList="Grupos">
+              
               <GroupBox groupTitle="TECH" groupMembersNum="444" />
               <GroupBox groupTitle="TECH" groupMembersNum="444" />
               <GroupBox groupTitle="TECH" groupMembersNum="444" />
@@ -84,12 +95,11 @@ const FeedPrincipal = () => {
           </div>
           <div id="div-toHide-boxList">
             <ContainerList tituloBoxList="Eventos">
-              <EventBox tituloEvento="HackaTruck" dataEvento="31/08" />
-              <EventBox tituloEvento="HackaTruck" dataEvento="11/09" />
-              <EventBox tituloEvento="HackaTruck" dataEvento="17/09" />
-              <EventBox tituloEvento="HackaTruck" dataEvento="30/09/2020" />
-              <EventBox tituloEvento="HackaTruck" dataEvento="08/10/2020" />
-              <EventBox tituloEvento="HackaTruck" dataEvento="21/10/2020" />
+
+              {eventList.map((eventos) => (
+                <EventBox key={eventos.event_id} tituloEvento={eventos.event_name} dataEvento={eventos.event_dateInit}/>
+              ))}
+
             </ContainerList>
           </div>
         </div>

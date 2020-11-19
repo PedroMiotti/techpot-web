@@ -16,6 +16,7 @@ const slice = createSlice({
         success: false,
         successMessage: '',
         errorMessage: '',
+        eventsList: [],
 
     },
 
@@ -51,6 +52,7 @@ const slice = createSlice({
             evento.loading = false;
             evento.success = true;
             evento.error = false;
+            evento.eventsList = action.payload;
         },
 
         EVENT_UPDATED_SUCCESSFUL: (evento, action) =>{
@@ -102,7 +104,8 @@ const slice = createSlice({
     }
 })
 
-export const { EVENT_REQUESTED,  EVENT_FAILED, EVENT_CREATED_SUCCESSFUL} = slice.actions;
+export const { EVENT_REQUESTED, EVENT_FAILED, EVENT_INFO_SUCCESSFUL,  EVENT_CREATED_SUCCESSFUL, EVENT_DELETED_SUCCESSFUL, EVENT_LISTED_SUCCESSFUL, EVENT_UPDATED_SUCCESSFUL, EVENT_LIST_SUBSCRIBERS_SUCCESSFUL, EVENT_LIST_INVITED_SUCCESSFUL, EVENT_INVITE_SUCCESSFUL, EVENT_LIST_CATEGORY_SUCCESSFUL, EVENT_CONFIRM_INVITE_SUCCESSFUL} = slice.actions;
+
 
 
 export default slice.reducer;
@@ -152,15 +155,17 @@ export const updateEvent = ( id, nome, descricao, data_inicio, imagemUrl, catego
     onError: EVENT_FAILED.type,
 });
 
-export const listSubscribersEvent = (id) => apiCallBegan({
-    url: url + "/inscritos",
-    headers: null,
-    method: "get",
-    data: {id},
-    onStart: EVENT_REQUESTED.type,
-    onSuccess: EVENT_SUBSCRIBERS_SUCCESSFUL.type,
-    onError: EVENT_FAILED.type
-});
+
+// Criar o reducer EVENT_SUBSCRIBERS_SUCCESSFUL
+// export const listSubscribersEvent = (id) => apiCallBegan({
+//     url: url + "/inscritos",
+//     headers: null,
+//     method: "get",
+//     data: {id},
+//     onStart: EVENT_REQUESTED.type,
+//     onSuccess: EVENT_SUBSCRIBERS_SUCCESSFUL.type,
+//     onError: EVENT_FAILED.type
+// });
 
 export const listInvitedEvent = (id) => apiCallBegan({
     url: url + "/convidados",
