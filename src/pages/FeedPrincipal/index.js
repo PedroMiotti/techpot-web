@@ -35,9 +35,15 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+
+
+
+
 const FeedPrincipal = () => {
+
   const classes = useStyles();
 
+  
   const usuarioPerfil = useSelector(state => state.entitie.user.perfil);
   const usuarioFirstAccess = useSelector(state => state.entitie.user.firstAccess);
   const eventList = useSelector(state => state.entitie.event.eventsList);
@@ -106,6 +112,7 @@ const FeedPrincipal = () => {
       </div>
       <Fab color="secondary" aria-label="add" className={classes.fab}>
         <Add />
+
       </Fab>
     </div>
   );

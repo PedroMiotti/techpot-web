@@ -84,30 +84,4 @@ const EventoCriar = () => {
 }
 
 
-/* class EventoCriar extends React.Component {
-    constructor(props){
-        super(props)
-        this.state = {
-            file: null
-        }
-
-        this.handleChange = this.handleChange.bind(this)
-
-    }
-    handleChange(event) {
-        this.setState({
-            file: document.getElementById("EventoCriar-urlImg-input").value
-        })
-    }
-    
-    render(){
-        return(
-            
-        );
-
-    }
-    
-} */
-
-
 export default EventoCriar;

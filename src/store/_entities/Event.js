@@ -135,7 +135,7 @@ export const deleteEvent = (id) => apiCallBegan({
 });
 
 
-export const listEvents = () => apiCallBegan({
+export const listEvent = () => apiCallBegan({
     url: url + "/listar",
     headers: null,
     method: "get",
