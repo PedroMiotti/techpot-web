@@ -57,7 +57,7 @@
 #EventoCriar-dataInicio{
     width: 200px;
     height: 50px;
-    border: 15px #fff solid;
+    border: 10px #fff solid;
     border-radius: 30px;
 
     margin: 10px;
@@ -67,7 +67,7 @@
 #EventoCriar-dataFim{
     width: 200px;
     height: 50px;
-    border: 15px #fff solid;
+    border: 10px #fff solid;
     border-radius: 30px;
 
     margin: 10px;

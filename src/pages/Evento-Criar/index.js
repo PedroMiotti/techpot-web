@@ -52,9 +52,9 @@ const EventoCriar = () => {
                         <input id="EventoCriar-nomeEvento-input" placeholder="*Nome do Evento" value={nomeInput} onChange={e => setNomeInput(e.target.value)}/>
                         <textarea id="EventoCriar-descEvento-input" placeholder="*Descreva seu evento..." value={descInput} onChange={e => setDescInput(e.target.value)}></textarea>
                         <label for="EventoCriar-dataInicio">Início:</label>
-                        <input type="date" id="EventoCriar-dataInicio" name="dataInicio" value={dataIniInput} onChange={e => setDataIniInput(e.target.value)}/>
+                        <input type="datetime-local" id="EventoCriar-dataInicio" name="dataInicio" value={dataIniInput} onChange={e => setDataIniInput(e.target.value)}/>
                         <label for="EventoCriar-dataFim">Fim:</label>
-                        <input type="date" id="EventoCriar-dataFim" name="dataFim" value={dataFimInput} onChange={e => setDataFimInput(e.target.value)}/>
+                        <input type="datetime-local" id="EventoCriar-dataFim" name="dataFim" value={dataFimInput} onChange={e => setDataFimInput(e.target.value)}/>
     
                         {/* <select name="cat" id="EventoCriar-category" placeholder="Categoria" value={catInput} onChange={e => setCatInput(e.target.value)}></select> */}
                         <input name="cat" id="EventoCriar-category" placeholder="Categoria" value={catInput} onChange={e => setCatInput(e.target.value)}></input>
@@ -65,11 +65,13 @@ const EventoCriar = () => {
                         <p>Prévia:</p>
                         <img id="EventoCriar-preview-img" src={file} />
 
+                        <a href="/">
                         <button id="EventoCriar-criar-btn" onClick={criarEvento} >
                             <Add style={icon}/>
                             Confirmar
                             
                         </button>
+                        </a>
                         
     
     
