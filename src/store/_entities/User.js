@@ -85,14 +85,13 @@ const slice = createSlice({
             usuario.successMessage = action.payload.message;
             usuario.token = action.payload.token;
             usuario.firstAccess = true;
-
-            console.log(action.payload);
+            
             localStorage.setItem("_auth", usuario.token)
 
             // If it changes route in the middle of a reducer action it throws this error (TEMP FIX : Use setTimeout) --> Error: You may not call store.getState() while the reducer is executing. The reducer has already received the state as an argument. Pass it down from the top reducer instead of reading it from the store.
             setTimeout(() => {
                history.push("/");
-                window.location.reload(true);
+                // window.location.reload(true);
             }, 1000);
 
         },
@@ -101,6 +100,12 @@ const slice = createSlice({
             usuario.loading = false;
             usuario.success = true;
             usuario.successMessage = action.payload.message;
+            usuario.token = action.payload.token;
+
+            // Switch Tokens
+            localStorage.removeItem("_auth")
+            localStorage.setItem("_auth", usuario.token)
+
         },
 
         USER_DELETED_SUCCESSFUL: (usuario, action) => {
@@ -158,11 +163,11 @@ export const loginUser = (email, senha) => apiCallBegan({
 });
 
 
-export const editUser = (id, nome, perfil) => apiCallBegan({
+export const editUser = (id, nome, sobrenome, bio, ocupacao, github, linkedin ) => apiCallBegan({
     url: url + "/editar",
     headers: authHeader(),
     method: "post",
-    data: { id, nome, perfil },
+    data: { id, nome, sobrenome, bio, ocupacao, github, linkedin },
     onStart: USER_REQUESTED.type,
     onSuccess: USER_EDITED_SUCCESSFUL.type,
     onError: USER_FAILED.type

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './index.css';
 
+
 // Components
   import LogoTechPot from '../../shared/LogoTechPot/index'
 
