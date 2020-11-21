@@ -44,6 +44,7 @@ const ModalUserPreferences = ({ anchorLeft, anchorTop, onClose }) => {
 
             <div className="ModalUserPreferences-topbar-col2" >
               <h3>{usuarioPerfil.u ? firstLetterUppercase(usuarioPerfil.u.nome) + " " + firstLetterUppercase(usuarioPerfil.u.sobrenome) : "Usuario"}</h3>
+
               {usuarioPerfil.u ?
                         usuarioPerfil.u.ocupacao ?
                             <p> {firstLetterUppercase(usuarioPerfil.u.ocupacao)}</p>

@@ -10,6 +10,9 @@ import { useSelector, useDispatch } from 'react-redux';
 // Helpers
 import { firstLetterUppercase } from '../../../../helpers/UpperFirstLetter';
 
+// Router
+import { Link } from "react-router-dom";
+
 
 // Material UI
 import Fab from '@material-ui/core/Fab';
@@ -29,14 +32,18 @@ const InfoUsuario = () => {
 
 
     const usuarioPerfil = useSelector(state => state.entitie.user.perfil);
+    const usuarioId = useSelector(state => state.entitie.user.id);
+
 
     return (
         <div id="InfoUsuario" className="font-techpot">
             <div id="FotoUsuario">
                 <UserProfileImg classe="navbarUserProfilePic" />
-                <Fab color="secondary" aria-label="add" className={classes.fab}>
-                    <Edit />
-                </Fab>
+                <Link to={`/usuario/perfil/editar/${usuarioId}`} style={{ color: '#fff' }}>
+                    <Fab color="secondary" aria-label="add" className={classes.fab}>
+                        <Edit /> 
+                    </Fab>
+                </Link>
             </div>
 
 

@@ -45,8 +45,8 @@ const Test = () => {
   return (
       <Switch>
 
-          <Route path={["/registro" , "/login", "/usuario/perfil/editar"]} component={NoNavbar} />
-          <Route component={UseNav} />
+          <Route path={["/registro" , "/login", "/usuario/perfil/editar"]} component={ NoNavbar } />
+          <Route component={ UseNav } />
 
           {/* 404  */}
           <Route path="*" component={PageNotFound} />
@@ -66,7 +66,7 @@ const NoNavbar = () => {
 
 
       {/* Usuario  */}
-      <ProtectedRoute path="/usuario/perfil/editar" component={EditUsuario} />
+      <ProtectedRoute path="/usuario/perfil/editar/:id" component={EditUsuario} />
     </>
   )
 }
@@ -94,7 +94,7 @@ const UseNav = () => {
 
         {/* Evento  */}
         <Route path="/evento/criar" component={EventoCriar} />
-        <Route path="/evento" component={Evento} />
+        <Route exact path="/evento" component={Evento} />
 
 
         {/* Mensagens */}

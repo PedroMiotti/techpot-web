@@ -1,9 +1,9 @@
 #EventoCriar-div-main{
     display: flex;
     flex-direction: column;
-    width: 90vw;
+    /* width: 90vw; */
     height: 90vh;
-    padding: 25px 50px;
+    padding: 25px 20px;
 }
 
 #EventoCriar-div-header{

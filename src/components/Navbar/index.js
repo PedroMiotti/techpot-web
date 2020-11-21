@@ -32,10 +32,12 @@ const icon = {
   cursor: "pointer",
 };
 
+
+
 const Navbar = ({ pathName }) => {
-  const [toggleSidebar, setToggleSidebar] = useState(false);
-  const [showModalNotification, setShowModalNotification] = useState(false);
-  const [showModalMensagens, setShowModalMensagens] = useState(false);
+  const [ toggleSidebar, setToggleSidebar ] = useState(false);
+  const [showModalNotification, setShowModalNotification ] = useState(false);
+  const [ showModalMensagens, setShowModalMensagens ] = useState(false);
   const [showModalUserPreferences, setShowModalUserPreferences] = useState(false);
   const [anchorLeft, setAnchorLeft] = useState(null);
   const [anchorTop, setAnchorTop] = useState(null);
