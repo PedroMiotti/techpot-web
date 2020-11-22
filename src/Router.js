@@ -101,7 +101,7 @@ const UseNav = () => {
         <ProtectedRoute path="/direct/user" component={DirectWeb} />
 
         {/* Usuario  */}
-        <ProtectedRoute path="/usuario/perfil" component={PerfilUsuario} />
+        <ProtectedRoute path="/usuario/perfil/:id" component={PerfilUsuario} />
 
 
         {/* Mobile Exclusive */}

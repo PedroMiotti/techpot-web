@@ -209,7 +209,7 @@ export const infoEvent = (id) => apiCallBegan({
     url: url + "/info",
     headers: null,
     method: "get",
-    data: {id},
+    data: { id },
     onStart: EVENT_REQUESTED.type,
     onSuccess: EVENT_INFO_SUCCESSFUL.type,
     onError: EVENT_FAILED.type

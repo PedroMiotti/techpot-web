@@ -143,10 +143,9 @@ export const createUser = (nome, sobrenome, email, senha ) => apiCallBegan({
 });
 
 export const userInfo = ( id ) => apiCallBegan({
-    url: url + "/info",
+    url: url + `/info/${id}`,
     headers: authHeader(),
-    method: "post",
-    data: { id },
+    method: "get",
     onStart: USER_REQUESTED.type,
     onSuccess: USER_INFO_SUCCESSFUL.type,
     onError: USER_FAILED.type
@@ -180,15 +179,5 @@ export const deleteUser = (id) => apiCallBegan({
     data: { id },
     onStart: USER_REQUESTED.type,
     onSuccess: USER_DELETED_SUCCESSFUL.type,
-    onError: USER_FAILED.type
-})
-
-export const editUserProfile = (id, usuario, senhaAtual, novaSenha) => apiCallBegan({
-    url: url + "/editarPerfil",
-    headers: authHeader(),
-    method: "post",
-    data: { id, usuario, senhaAtual, novaSenha },
-    onStart: USER_REQUESTED.type,
-    onSuccess: USER_EDIT_PROFILE_SUCCESSFUL.type,
     onError: USER_FAILED.type
 })

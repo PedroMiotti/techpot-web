@@ -49,7 +49,7 @@ const InfoUsuario = () => {
 
             <div id="DescricaoUsuario">
                 <h1>{usuarioPerfil.u ? firstLetterUppercase(usuarioPerfil.u.nome) + " " + firstLetterUppercase(usuarioPerfil.u.sobrenome) : "Usuario"} </h1>
-                <p id="NickCat">
+                <div id="NickCat">
                     <p>@{usuarioPerfil.u ? firstLetterUppercase(usuarioPerfil.u.nome) + firstLetterUppercase(usuarioPerfil.u.sobrenome) : "Usuario"}</p>
 
                     {usuarioPerfil.u ?
@@ -60,7 +60,7 @@ const InfoUsuario = () => {
                         :
                         null
                     }
-                </p>
+                </div>
 
                 <div id="Bio">
                     {usuarioPerfil.u ?
