@@ -104,6 +104,7 @@ const FeedPrincipal = () => {
 
               {eventList.map((eventos) => (
                 <EventBox key={eventos.event_id} tituloEvento={eventos.event_name} dataEvento={eventos.event_dateInit}/>
+                //<EventBox key={eventos.event_id} tituloEvento={eventos.event_name} dataEvento={eventos.event_dateInit} img={eventos.event_img}/>
               ))}
 
             </ContainerList>

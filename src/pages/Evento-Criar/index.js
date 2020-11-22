@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './styles/index.css';
 
 // Redux
 import { useSelector, useDispatch } from 'react-redux';
-import { createEvent } from '../../store/_entities/Event';
+import { createEvent, listCategories, listTypes } from '../../store/_entities/Event';
 
 //Icons
     import { Add, FormatBold } from '@material-ui/icons';
@@ -23,7 +23,10 @@ const EventoCriar = () => {
     const [dataIniInput, setDataIniInput] = useState('');
     const [dataFimInput, setDataFimInput] = useState('');
     const [catInput, setCatInput] = useState('');
+    const [typeInput, setTypeInput] = useState('');
     //const [imgInput, setImgInput] = useState('');
+    const categoriesList = useSelector(state => state.entitie.event.categoriesList);
+    const typesList = useSelector(state => state.entitie.event.typesList);
 
     const [ file, setFile ] = useState('');
 
@@ -33,10 +36,20 @@ const EventoCriar = () => {
 
     }
 
+    //const eventCreateSuccess = useSelector(state => state.entitie.event.success);
+
     const dispatch = useDispatch();
 
+   useEffect(() => {
+        dispatch(listCategories());
+   }, []);
+
+   useEffect(()=>{
+       dispatch(listTypes());
+   }, []);
+
     const criarEvento = () =>{
-        dispatch(createEvent(nomeInput, descInput, dataIniInput, 1, catInput, dataFimInput))
+        dispatch(createEvent(nomeInput, descInput, dataIniInput, 1, catInput, dataFimInput, typeInput))
 
     }
 
@@ -56,8 +69,21 @@ const EventoCriar = () => {
                         <label for="EventoCriar-dataFim">Fim:</label>
                         <input type="datetime-local" id="EventoCriar-dataFim" name="dataFim" value={dataFimInput} onChange={e => setDataFimInput(e.target.value)}/>
     
-                        {/* <select name="cat" id="EventoCriar-category" placeholder="Categoria" value={catInput} onChange={e => setCatInput(e.target.value)}></select> */}
-                        <input name="cat" id="EventoCriar-category" placeholder="Categoria" value={catInput} onChange={e => setCatInput(e.target.value)}></input>
+                        
+                        
+                        <select>
+                            {categoriesList.map((categoria) => (
+                                <option value={categoria.category_id} onChange={e => setCatInput(e.target.value)}>{categoria.category_name}</option>
+                            ))}   
+                        </select>
+
+                        <select>
+                            {typesList.map((tipo) => (
+                                <option value={tipo.eventType_id} onChange={e => setTypeInput(e.target.value)}>{tipo.eventType_name}</option>
+                            ))}   
+                        </select>
+
+                        
                     </div>
     
                     <div id="EventoCriar-div-right">
@@ -65,13 +91,17 @@ const EventoCriar = () => {
                         <p>Prévia:</p>
                         <img id="EventoCriar-preview-img" src={file} />
 
-                        <a href="/">
                         <button id="EventoCriar-criar-btn" onClick={criarEvento} >
                             <Add style={icon}/>
                             Confirmar
                             
                         </button>
-                        </a>
+                        
+
+                        
+
+                        
+                        
                         
     
     

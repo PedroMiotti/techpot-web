@@ -17,6 +17,8 @@ const slice = createSlice({
         successMessage: '',
         errorMessage: '',
         eventsList: [],
+        categoriesList: [],
+        typesList: [],
 
     },
 
@@ -98,13 +100,29 @@ const slice = createSlice({
             evento.success = true;
             evento.error = false;
             evento.successMessage = action.payload.message;
+        },
+
+        EVENT_CATEGORY_LIST_SUCCESSFUL: (evento, action) =>{
+            evento.loading = false;
+            evento.success = true;
+            evento.error = false;
+            evento.categoriesList = action.payload;
+        },
+
+        EVENT_TYPES_LIST_SUCCESSFUL: (evento, action) =>{
+            evento.loading = false;
+            evento.success = true;
+            evento.error = false;
+            evento.typesList = action.payload;
         }
+
+
 
 
     }
 })
 
-export const { EVENT_REQUESTED, EVENT_FAILED, EVENT_INFO_SUCCESSFUL,  EVENT_CREATED_SUCCESSFUL, EVENT_DELETED_SUCCESSFUL, EVENT_LISTED_SUCCESSFUL, EVENT_UPDATED_SUCCESSFUL, EVENT_LIST_SUBSCRIBERS_SUCCESSFUL, EVENT_LIST_INVITED_SUCCESSFUL, EVENT_INVITE_SUCCESSFUL, EVENT_LIST_CATEGORY_SUCCESSFUL, EVENT_CONFIRM_INVITE_SUCCESSFUL} = slice.actions;
+export const { EVENT_REQUESTED, EVENT_FAILED, EVENT_INFO_SUCCESSFUL,  EVENT_CREATED_SUCCESSFUL, EVENT_DELETED_SUCCESSFUL, EVENT_LISTED_SUCCESSFUL, EVENT_UPDATED_SUCCESSFUL, EVENT_LIST_SUBSCRIBERS_SUCCESSFUL, EVENT_LIST_INVITED_SUCCESSFUL, EVENT_INVITE_SUCCESSFUL, EVENT_LIST_CATEGORY_SUCCESSFUL, EVENT_CONFIRM_INVITE_SUCCESSFUL, EVENT_CATEGORY_LIST_SUCCESSFUL, EVENT_TYPES_LIST_SUCCESSFUL} = slice.actions;
 
 
 
@@ -113,11 +131,11 @@ export default slice.reducer;
 const url = '/evento';
 
 
-export const createEvent = (nome, descricao, data_inicio, imagemUrl, categoriaId, data_fim) => apiCallBegan({
+export const createEvent = (nome, descricao, data_inicio, imagemUrl, categoriaId, data_fim, tipoId) => apiCallBegan({
     url: url + "/criar",
     headers: null,
     method: "post",
-    data: {nome, descricao, data_inicio, imagemUrl, categoriaId, data_fim},
+    data: {nome, descricao, data_inicio, imagemUrl, categoriaId, data_fim, tipoId},
     onStart: EVENT_REQUESTED.type,
     onSuccess: EVENT_CREATED_SUCCESSFUL.type,
     onError: EVENT_FAILED.type
@@ -145,11 +163,11 @@ export const listEvent = () => apiCallBegan({
 });
 
 
-export const updateEvent = ( id, nome, descricao, data_inicio, imagemUrl, categoriaId, data_fim ) => apiCallBegan({
+export const updateEvent = ( id, nome, descricao, data_inicio, imagemUrl, categoriaId, data_fim, tipoId) => apiCallBegan({
     url: url + "/editar",
     headers: null,
     method: "put",
-    data: {id, nome, descricao, data_inicio, imagemUrl, categoriaId, data_fim},
+    data: {id, nome, descricao, data_inicio, imagemUrl, categoriaId, data_fim, tipoId},
     onStart: EVENT_REQUESTED.type,
     onSuccess: EVENT_UPDATED_SUCCESSFUL.type,
     onError: EVENT_FAILED.type,
@@ -214,6 +232,24 @@ export const confirmInviteEvent = (id_evento, id_usuario) => apiCallBegan({
     data: {id_evento, id_usuario},
     onStart: EVENT_REQUESTED.type,
     onSuccess: EVENT_CONFIRM_INVITE_SUCCESSFUL.type,
+    onError: EVENT_FAILED.type
+});
+
+export const listCategories = () => apiCallBegan({
+    url: url + "/listar-categorias",
+    headers: null,
+    method: "get",
+    onStart: EVENT_REQUESTED.type,
+    onSuccess: EVENT_CATEGORY_LIST_SUCCESSFUL.type,
+    onError: EVENT_FAILED.type
+});
+
+export const listTypes = () => apiCallBegan({
+    url: url + "/listar-tipos",
+    headers: null,
+    method: "get",
+    onStart: EVENT_REQUESTED.type,
+    onSuccess: EVENT_TYPES_LIST_SUCCESSFUL.type,
     onError: EVENT_FAILED.type
 });
 

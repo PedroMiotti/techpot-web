@@ -61,6 +61,7 @@ const EventBox = ({ tituloEvento, dataEvento }) => {
   const diaDoMes = data.date();
   const mes = data.format("MMMM");
   const diaDaSemana = data.format("dddd");
+  const horaInicio = data.format("hh:mm")
 
 
   return (
@@ -81,7 +82,7 @@ const EventBox = ({ tituloEvento, dataEvento }) => {
       <Link to="/evento" className="eventBox2-bottom-Container-row2">
         <div id="eventBox2-bottom-details" class="font-techpot">
           <h3 id="eventBox2-titulo">{tituloEvento}</h3>
-          <p id="eventBox2-data">Começa ás 19:00 &middot; Evento Online</p>
+          <p id="eventBox2-data">Começa às {horaInicio} &middot; Evento Online</p>
         </div>
       </Link>
 
