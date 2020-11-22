@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './index.css';
 
 // Components
@@ -8,6 +8,8 @@ import GroupBox from '../../components/GroupBox/index';
 import Post from '../../components/post/index';
 import PostBox from '../../components/postBox/index';
 import PhotoUpdateContainer from '../../components/photoUpdateBox/index'
+import ModalCreatePost from "../../components/ModalCreatePost/index"
+
 
 // Redux
 import { useSelector, useDispatch } from 'react-redux';
@@ -36,19 +38,22 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-
-
-
 const FeedPrincipal = () => {
 
   const classes = useStyles();
 
-  
+  const [showModalCreatePost, setShowModalCreatePost] = useState(false);
+
   const usuarioPerfil = useSelector(state => state.entitie.user.perfil);
   const usuarioFirstAccess = useSelector(state => state.entitie.user.firstAccess);
   const eventList = useSelector(state => state.entitie.event.eventsList);
 
+
   const dispatch = useDispatch();
+
+  const openModalCreatePost = () => {
+    setShowModalCreatePost(!showModalCreatePost);
+  };
 
   useEffect(() => {
 
@@ -92,7 +97,7 @@ const FeedPrincipal = () => {
                 null
             }
 
-            <PostBox />
+            <PostBox open={openModalCreatePost}/>
             <Post />
             <Post />
             <Post />
@@ -112,8 +117,12 @@ const FeedPrincipal = () => {
       </div>
       <Fab color="secondary" aria-label="add" className={classes.fab}>
         <Add />
-
       </Fab>
+
+      {showModalCreatePost && (
+        <ModalCreatePost onClose={() => setShowModalCreatePost(!showModalCreatePost)} />
+      )}
+
     </div>
   );
 }

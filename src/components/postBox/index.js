@@ -3,12 +3,12 @@ import './style/index.css'
 
 
 // Icons
-    import { ImageOutlined } from '@material-ui/icons';
+    import CreateIcon from '@material-ui/icons/Create';
 
 // Components
     import UserProfileImg from "../../shared/UserProfileImg/index"
 
-const PostBox = () => {
+const PostBox = ({open}) => {
     return(
         <div className="postBoxContainer">
 
@@ -17,18 +17,10 @@ const PostBox = () => {
             </div>
 
             <div className="postBoxInfo">
-                <input className="postBoxTextInput" placeholder="     No que está pensando ?"></input>
-
-                <div className="postBoxButtonContainer">
-                    <div className="postBoxImageMediaContainer">
-                        <ImageOutlined style={{color:'#9e9e9e'}}/>
-                        <a href="/" className="postBoxMediaButton"> Foto/Video</a>
-                    </div>
-
-                    <a href="/" className="postBoxSendButton">Postar</a>
-                </div>
+                <a className="postBoxTextInput" onClick={open}> <CreateIcon fontSize="small" style={{marginRight: '10px'}}/> Criar publicação </a>
 
             </div>
+
 
         </div>
     )
