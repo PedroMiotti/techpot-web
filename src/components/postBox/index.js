@@ -18,7 +18,6 @@ const PostBox = ({open}) => {
 
             <div className="postBoxInfo">
                 <a className="postBoxTextInput" onClick={open}> <CreateIcon fontSize="small" style={{marginRight: '10px'}}/> Criar publicação </a>
-
             </div>
 
 

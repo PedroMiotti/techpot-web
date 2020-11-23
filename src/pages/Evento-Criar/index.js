@@ -105,15 +105,6 @@ const EventoCriar = () => {
 
                         </button>
 
-
-
-
-
-
-
-
-
-
                 </div>
 
             </div>

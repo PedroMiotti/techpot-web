@@ -13,7 +13,7 @@ import Grid from '@material-ui/core/Grid';
 import { withStyles, makeStyles } from '@material-ui/core/styles';
 
 // Redux
-import { useSelector, useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { loginUser } from '../../store/_entities/User';
 
 
@@ -67,7 +67,7 @@ const useStyles = makeStyles((theme) => ({
 
   gridInput: {
     flexGrow: 1
-  }
+  },
 
 }));
 
@@ -79,7 +79,6 @@ const Login = () => {
 
   const [emailInput, setEmailInput] = useState('');
   const [senhaInput, setSenhaInput] = useState('');
-
 
   const dispatch = useDispatch();
 

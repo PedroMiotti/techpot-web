@@ -1,21 +1,17 @@
-.loginContainer{
+.loginContainer {
     display: flex;
     justify-content: center;
     align-items: center;
-
-    /* background-color: var(--color-secundary); */
     background: url('../../../assets/codeImg.png');
     background-repeat: repeat;
     height: 100vh;
 }
 
-.loginWrapper{
+.loginWrapper {
     display: flex;
     justify-content: space-between;
     flex-direction: column;
-
     background-color: var(--color-secundary);
-
     box-shadow: 4px 5px 28px #3b3b3b;
     max-width: 600px;
     width: 530px;
@@ -23,39 +19,40 @@
     border-radius: 20px;
 }
 
-
-.loginWrapperHeader{
+.loginWrapperHeader {
     display: flex;
     justify-content: space-between;
     align-items: center;
     align-content: center;
     flex-direction: column;
     width: 100%;
+    min-height: 150px;
     height: 25%;
     color: #fff;
     padding: 20px;
     margin-top: 30px;
-    
 }
 
-
-.loginWrapperBottom{
-    flex: 1 ;
-    
+.loginWrapperBottom {
+    flex: 1;
     min-height: 400px;
-
     display: grid;
-    grid-template-columns: auto ;
+    grid-template-columns: auto;
     grid-template-rows: auto auto auto;
-
     background-color: var(--color-primary);
     border-radius: 20px;
     color: #fff;
 }
 
-.loginWrapperBottom a{
+.loginWrapperBottom a {
     text-decoration: none;
     color: #fff
+}
+
+.loginWrapperButtons {
+    justify-self: start;
+    align-self: center;
+    margin-left: 30px;
 }
 
 .loginWrapperButtons a {
@@ -63,15 +60,7 @@
     font-weight: 700;
 }
 
-
-.loginWrapperButtons{
-    justify-self: start;
-    align-self: center;
-    margin-left: 30px;
-    
-}
-
-.loginWrapperButtons a:first-child{
+.loginWrapperButtons a:first-child {
     border-bottom-width: 4px;
     border-bottom-color: var(--color-secundary);
     border-bottom-style: solid;
@@ -79,21 +68,22 @@
     border-bottom-left-radius: 2px;
 }
 
-
-.loginWrapperForm{
+.loginWrapperForm {
     place-self: center;
     width: 60%;
     margin-right: 20px;
-    
-
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
-.loginWrapperForm p{
-    margin: 18px 0 ;
+.loginWrapperForm p {
+    margin: 18px 0;
     font-weight: 600;
 }
 
-.loginWrapperForm input{
+.loginWrapperForm input {
     border-radius: 20px;
     height: 37px;
     border: 0;
@@ -101,11 +91,10 @@
     width: 100%;
 }
 
-
-.loginWrapperLoginButton{
+.loginWrapperLoginButton {
     place-self: center;
-
     padding: 10px 40px;
+    margin-top: 10px;
     background-color: var(--color-secundary);
     border: 1px solid var(--color-secundary);
     color: #fff;
@@ -115,50 +104,41 @@
     font-weight: 700;
 }
 
-.logginForm-ForgotPasswd{
-    
+.logginForm-ForgotPasswd {
     font-size: 14px;
     padding: 12px;
     color: #999;
 }
 
-
 /* Mobile  */
-@media screen and (max-height: 850px){
-    .loginWrapper{
+
+@media screen and (max-width: 850px) {
+    .loginWrapper {
         height: 100vh;
-        border-radius: 0 ;
-    }
-
-    .loginWrapperBottom{
         border-radius: 0;
-        border-top-left-radius: 20px ;
-        border-top-right-radius: 20px ;
-
     }
-
-    .loginWrapperLoginButton{
+    .loginWrapperBottom {
+        grid-template-rows: 90px auto;
+        border-radius: 0;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        height: 100%;
+    }
+    .loginWrapperForm {
+        width: 80%;
+        align-self: stretch;
+        justify-content: space-around;
+    }
+    .loginWrapperForm p {
+        margin: 15px 0;
+    }
+    .loginWrapperForm input {
+        height: 50px;
+    }
+    .loginWrapperLoginButton {
         width: 80%;
         height: 50px;
         text-align: center;
         line-height: 30px;
     }
-
-    .loginWrapperForm{
-        width: 80%;
-    }
-
-    .loginWrapperForm p{
-        margin: 15px 0 ;
-        
-    }
-
-    .loginWrapperForm input{
-        height: 50px;
-    }
-
 }
-
-
-
-
