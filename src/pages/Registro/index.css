@@ -1,18 +1,16 @@
-.RegistroContainer{
+.RegistroContainer {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: url('../../assets/codeImg.png') ;
+    background: url('../../assets/codeImg.png');
     height: 100vh;
 }
 
-.RegistroWrapper{
+.RegistroWrapper {
     display: flex;
     justify-content: space-between;
     flex-direction: column;
-
     background-color: var(--color-secundary);
-
     box-shadow: 4px 5px 28px #3b3b3b;
     max-width: 600px;
     width: 530px;
@@ -20,40 +18,32 @@
     border-radius: 20px;
 }
 
-
-.RegistroWrapperHeader{
+.RegistroWrapperHeader {
     display: flex;
     justify-content: space-between;
     align-items: center;
     align-content: center;
     flex-direction: column;
     width: 100%;
+    min-height: 120px;
     height: 18%;
     color: #fff;
     padding: 20px;
     margin-top: 30px;
-    
 }
 
-
-
-.RegistroWrapperBottom{
-    flex: 1 ;
-    
+.RegistroWrapperBottom {
+    flex: 1;
     min-height: 500px;
-
     display: grid;
-    grid-template-columns: auto ;
-    grid-template-rows: auto auto auto;
-
+    grid-template-columns: auto;
+    grid-template-rows: auto auto;
     background-color: var(--color-primary);
-    /* background: rgb(208,9,76);
-    background: linear-gradient(180deg, rgba(208,9,76,1) 4%, rgba(30,46,62,1) 57%); */
     border-radius: 20px;
     color: #fff;
 }
 
-.RegistroWrapperBottom a{
+.RegistroWrapperBottom a {
     text-decoration: none;
     color: #fff
 }
@@ -63,15 +53,13 @@
     font-weight: 700;
 }
 
-
-.RegistroWrapperButtons{
+.RegistroWrapperButtons {
     justify-self: start;
     align-self: center;
     margin-left: 30px;
-
 }
 
-.RegistroWrapperButtons a:last-child{
+.RegistroWrapperButtons a:last-child {
     border-bottom-width: 4px;
     border-bottom-color: var(--color-secundary);
     border-bottom-style: solid;
@@ -79,25 +67,23 @@
     border-bottom-left-radius: 2px;
 }
 
-
-.RegistroWrapperForm{
+.RegistroWrapperForm {
     place-self: center;
+    align-self: stretch;
     width: 80%;
     height: 90%;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: flex-start;
-    
-
 }
 
-.RegistroWrapperForm p{
-    margin: 18px 0 ;
+.RegistroWrapperForm p {
+    margin: 18px 0;
     font-weight: 600;
 }
 
-.RegistroWrapperForm input{
+.RegistroWrapperForm input {
     border-radius: 20px;
     height: 37px;
     border: 0;
@@ -105,82 +91,55 @@
     width: 100%;
 }
 
-
-
-
-.RegistroWrapperRegistroButton{
+.RegistroWrapperRegistroButton {
     place-self: center;
-
     border: 1px solid var(--color-secundary);
     background-color: var(--color-secundary);
     padding: 10px 40px;
     border-radius: 10px;
-    width: 180px;
+    width: 50%;
+    height: 50px;
     text-align: center;
     font-weight: 700;
     color: #fff;
 }
 
-.Registro-gridItem{
+.Registro-gridItem {
     width: 50%;
 }
 
-
 /* Mobile  */
-@media screen and (max-height: 850px){
-    .RegistroWrapper{
+
+@media screen and (max-width: 850px) {
+    .RegistroWrapper {
         height: 100vh;
         border-radius: 0;
     }
-
-    .RegistroWrapperBottom{
+    .RegistroWrapperBottom {
         border-radius: 0;
-        border-top-left-radius: 20px ;
-        border-top-right-radius: 20px ;
-
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        grid-template-rows: 80px auto;
     }
-
-    .RegistroWrapperRegistroButton{
-        width: 80%;
+    .RegistroWrapperRegistroButton {
+        width: 90%;
         height: 50px;
         text-align: center;
         line-height: 30px;
-        margin-bottom: 10px;
+        margin: 20px 0;
     }
-
-    .RegistroWrapperForm{
+    .RegistroWrapperForm {
         width: 90%;
         height: 80%;
-        overflow-y: scroll ;
-        overflow-x: hidden;
-
+        align-self: start;
     }
-
-    .RegistroWrapperForm p{
-        margin: 15px 0 ;
-        
+    .RegistroWrapperForm p {
+        margin: 15px 0;
     }
-
-    .RegistroWrapperForm input{
+    .RegistroWrapperForm input {
         height: 50px;
     }
-
-    .RegistroWrapperButtons{
-        margin-top: 20px;
-    }
-
-    .Registro-gridItem{
+    .Registro-gridItem {
         width: 100%;
     }
-
 }
-
-
-@media screen and (max-height: 1024px){
-    /* .Registro-gridItem{
-        width: 100%;
-    } */
-}
-
-
-

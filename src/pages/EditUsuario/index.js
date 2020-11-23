@@ -77,7 +77,7 @@ const EditUsuario = () => {
         <div className="editUserContainer font-techpot">
 
             <div className="editUserTitleBar">
-                <Link to="/usuario/perfil"><ArrowBackIcon style={icon} /></Link>
+                <Link to={`/usuario/perfil/${id}`}><ArrowBackIcon style={icon} /></Link>
                 <h1>Editar perfil</h1>
             </div>
 

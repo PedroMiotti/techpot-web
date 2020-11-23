@@ -4,7 +4,7 @@
     top: 30%;
     transform: translate3d(-50%,-50%, 0);
     z-index: 100;
-    width: 500px;
+    width: 600px;
     height: auto;
     background-color: #fff;
     border-radius: 15px;
@@ -34,13 +34,13 @@
     padding: 20px;
 }
 
-.modalCreatePost-userInfo-col2 input{
+.modalCreatePost-userInfo-col2 select{
     height: 30px;
     border: 1px solid #7c7c7c;
     border-radius: 20px;
     margin-top: 5px;
     padding-left: 10px;
-    width: auto;
+    width: 100px;
 }
 
 .modalCreatePost-userInfo-col2 h4{

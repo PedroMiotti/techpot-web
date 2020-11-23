@@ -3,122 +3,128 @@ import './index.css';
 
 
 // Components
-  import LogoTechPot from '../../shared/LogoTechPot/index'
+import LogoTechPot from '../../shared/LogoTechPot/index'
 
 // Icons
-  import { Visibility, VisibilityOff } from '@material-ui/icons' 
+import { Visibility, VisibilityOff } from '@material-ui/icons'
 
 // Material UI
-  import { TextField, Grid, IconButton, InputAdornment } from '@material-ui/core';
-  import { withStyles, makeStyles } from '@material-ui/core/styles';
+import { TextField, Grid, IconButton, InputAdornment } from '@material-ui/core';
+import { withStyles, makeStyles } from '@material-ui/core/styles';
 
 // Redux
-  import { useSelector, useDispatch } from 'react-redux';
-  import { createUser } from '../../store/_entities/User';
+import { useDispatch } from 'react-redux';
+import { createUser } from '../../store/_entities/User';
 
 
-    const CustomTextField = withStyles({
-        root: {
-          '& label.Mui-focused': {
-            color: 'var(--color-secundary)',
-          },
-          '& .MuiInput-underline:after': {
-            borderBottomColor: 'var(--color-secundary)',
-            color:'#fff !important',
-          },
-          '& .MuiInput-underline:before': {
-            borderBottomColor: '#ddd',
-            color:'#fff !important',
-            
-          },
-          '& .MuiInput-underline': {
-            borderBottomColor: '#ddd',
-            color:'#fff !important',
-            width: '100%',
-            marginBottom: '15px'
-            
-            
-          },
-          '& .MuiOutlinedInput-root': {
-            '& fieldset': {
-              borderColor: 'var(--color-secundary)',
-              color:'#fff !important',
-              
-            },
-            '&:hover fieldset': {
-              borderColor: 'var(--color-secundary)',
-              color:'#fff !important',
-            },
-            '&.Mui-focused fieldset': {
-              borderColor: 'var(--color-secundary)',
-              color:'#fff !important',
-            },
-          },
-        },
-      })(TextField);
+const CustomTextField = withStyles({
+  root: {
+    '& label.Mui-focused': {
+      color: 'var(--color-secundary)',
+    },
+    '& .MuiInput-underline:after': {
+      borderBottomColor: 'var(--color-secundary)',
+      color: '#fff !important',
+    },
+    '& .MuiInput-underline:before': {
+      borderBottomColor: '#ddd',
+      color: '#fff !important',
 
-      const CustomTextFieldInline = withStyles({
-        root: {
-          "& label.Mui-focused": {
-            color: "var(--color-secundary)",
-          },
-          "& .MuiInput-underline:after": {
-            borderBottomColor: "var(--color-secundary)",
-            color: "#fff !important",
-          },
-          "& .MuiInput-underline:before": {
-            borderBottomColor: "#ddd",
-            color: "#fff !important",
-          },
-          "& .MuiInput-underline": {
-            borderBottomColor: "#ddd",
-            color: "#fff !important",
-            width: "170px",
-            marginBottom: "15px",
-            ["@media (max-width:780px)"]: {
-              width: "100%",
-            },
-          },
-          "& .MuiOutlinedInput-root": {
-            "& fieldset": {
-              borderColor: "var(--color-secundary)",
-              color: "#fff !important",
-            },
-            "&:hover fieldset": {
-              borderColor: "var(--color-secundary)",
-              color: "#fff !important",
-            },
-            "&.Mui-focused fieldset": {
-              borderColor: "var(--color-secundary)",
-              color: "#fff !important",
-            },
-          },
-        },
-      })(TextField);
-
-      const useStyles = makeStyles((theme) => ({
-
-        inputLabel: {
-            color:'#fff !important',
-        },
-
-        inputLabelFocused: {
-            color:'var(--color-secundary) !important',
-        },
-
-        gridInput: {
-            flexGrow: 1
-        },
-
-        adornedEye: {
-          color: '#fff'
-        },
-
-      }));
+    },
+    '& .MuiInput-underline': {
+      borderBottomColor: '#ddd',
+      color: '#fff !important',
+      width: '100%',
+      marginBottom: '15px'
 
 
+    },
+    '& .MuiOutlinedInput-root': {
+      '& fieldset': {
+        borderColor: 'var(--color-secundary)',
+        color: '#fff !important',
 
-const Registro = ( ) => {
+      },
+      '&:hover fieldset': {
+        borderColor: 'var(--color-secundary)',
+        color: '#fff !important',
+      },
+      '&.Mui-focused fieldset': {
+        borderColor: 'var(--color-secundary)',
+        color: '#fff !important',
+      },
+    },
+  },
+})(TextField);
+
+const CustomTextFieldInline = withStyles({
+  root: {
+    "& label.Mui-focused": {
+      color: "var(--color-secundary)",
+    },
+    "& .MuiInput-underline:after": {
+      borderBottomColor: "var(--color-secundary)",
+      color: "#fff !important",
+    },
+    "& .MuiInput-underline:before": {
+      borderBottomColor: "#ddd",
+      color: "#fff !important",
+    },
+    "& .MuiInput-underline": {
+      borderBottomColor: "#ddd",
+      color: "#fff !important",
+      width: "170px",
+      marginBottom: "15px",
+      ["@media (max-width:780px)"]: {
+        width: "100%",
+      },
+    },
+    "& .MuiOutlinedInput-root": {
+      "& fieldset": {
+        borderColor: "var(--color-secundary)",
+        color: "#fff !important",
+      },
+      "&:hover fieldset": {
+        borderColor: "var(--color-secundary)",
+        color: "#fff !important",
+      },
+      "&.Mui-focused fieldset": {
+        borderColor: "var(--color-secundary)",
+        color: "#fff !important",
+      },
+    },
+  },
+})(TextField);
+
+const useStyles = makeStyles((theme) => ({
+
+  inputLabel: {
+    color: '#fff !important',
+  },
+
+  inputLabelFocused: {
+    color: 'var(--color-secundary) !important',
+  },
+
+  gridInput: {
+    flexGrow: 1
+  },
+
+  adornedEye: {
+    color: '#fff'
+  },
+
+  customInputResponsive: {
+    ["@media (max-width:960px)"]: {
+      width: "100%",
+    },
+  }
+
+}));
+
+
+
+const Registro = () => {
 
   const classes = useStyles();
 
@@ -129,14 +135,14 @@ const Registro = ( ) => {
   // const usuarioCreatedErrorMessage = useSelector(state => state.entitie.usuario.errorMessage);
   // const usuarioCreatedSuccessMessage = useSelector(state => state.entitie.usuario.successMessage);
 
-  const [ nomeInput, setNomeInput ] = useState('');
+  const [nomeInput, setNomeInput] = useState('');
   const [sobrenomeInput, setSobrenomeInput] = useState('');
   const [emailInput, setEmailInput] = useState('');
   const [senhaInput, setSenhaInput] = useState('');
-  
-  
+
+
   const dispatch = useDispatch();
-  
+
   const criarUsuario = (event) => {
     event.preventDefault();
 
@@ -160,7 +166,7 @@ const Registro = ( ) => {
     event.preventDefault();
   };
 
-  const customLabelInput = {classes: {root: classes.inputLabel,focused: classes.inputLabelFocused }}
+  const customLabelInput = { classes: { root: classes.inputLabel, focused: classes.inputLabelFocused } }
 
   return (
     <div className="RegistroContainer font-techpot">
@@ -187,9 +193,10 @@ const Registro = ( ) => {
               <Grid item className="Registro-gridItem">
                 <CustomTextFieldInline
                   label="Nome"
-                  InputLabelProps={customLabelInput} 
+                  InputLabelProps={customLabelInput}
                   value={nomeInput}
                   onChange={e => setNomeInput(e.target.value)}
+                  className={classes.customInputResponsive}
                 />
               </Grid>
               <Grid item className="Registro-gridItem">
@@ -198,6 +205,7 @@ const Registro = ( ) => {
                   InputLabelProps={customLabelInput}
                   value={sobrenomeInput}
                   onChange={e => setSobrenomeInput(e.target.value)}
+                  className={classes.customInputResponsive}
                 />
               </Grid>
             </Grid>
@@ -231,8 +239,8 @@ const Registro = ( ) => {
                       {values.showPassword ? (
                         <Visibility style={{ color: "#fff" }} />
                       ) : (
-                        <VisibilityOff style={{ color: "#fff" }} />
-                      )}
+                          <VisibilityOff style={{ color: "#fff" }} />
+                        )}
                     </IconButton>
                   </InputAdornment>
                 ),
