@@ -6,6 +6,8 @@
     max-width: 100vw;
     height: 60px;
     overflow: hidden;
+    z-index: 2;
+    position: relative;
 }
 
 .navbarContainer{

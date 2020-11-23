@@ -1,14 +1,14 @@
 #InfoUsuario {
-    background-color: var(--color-primary);
-    box-shadow: 0 0 24px var(--color-primary);
-    color: #eee;
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: var(--color-primary);
+    box-shadow: 0 0 24px var(--color-primary);
+    color: #eee;
+    padding: 20px 0;
+    border-bottom: 1px solid #a3aaae;
     border-bottom-left-radius: 5vh;
     border-bottom-right-radius: 5vh;
-    border-bottom: 1px solid #a3aaae;
-    padding: 20px 0;
 }
 
 #FotoUsuario {
@@ -21,44 +21,45 @@
 }
 
 #DescricaoUsuario {
-    margin-top: 25px;
-    padding-left: 15vh;
+    margin-left: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    width: 490px;
 }
 
-#DescricaoUsuario h1 {  
-    padding-top: 1.5vh;  
+#DescricaoUsuario h1 {
     color: #fff;
+    margin: 10px 0;
     font-size: 2.2rem;
 }
 
 #NickCat {
     display: flex;
-    padding-top: 10px;
-    padding-bottom: 2vh;
+    margin: 10px 0;
     font-size: 1.15rem;
 }
 
 #NickCat p {
     padding-left: 0.5vh;
-    /* font-size: 1rem; */
+    font-size: 1rem;
 }
 
-#Bio{
+#Bio {
     margin: 15px 0;
-    max-width: auto; /* TODO : Test the max chars */
-
 }
 
-#Bio h4{
-    max-width: 95vh;
-    font-size: 1.4rem;
+#Bio h4 {
+    font-weight: 300;
+    font-size: 1.1rem;
 }
 
-#Bio a{
+#Bio a {
     text-align: justify;
 }
 
-#Bio a:hover{
+#Bio a:hover {
     color: var(--color-terciary);
     cursor: pointer;
     transition: 0.44s;
@@ -67,14 +68,13 @@
 #BotaoSocial {
     display: flex;
     justify-content: space-between;
-    width: auto;
+    max-width: 450px;
     padding: 15px 10px 15px 0;
     border: 0;
     font-size: 0.95rem;
 }
 
-#BotaoSocial p,
-#BotaoSocial a {
+#BotaoSocial p, #BotaoSocial a {
     color: #eee;
     text-decoration: none;
     display: flex;
@@ -92,43 +92,30 @@
     color: var(--color-terciary);
 }
 
-#BotaoSocial p a,
-#BotaoSocial a h4{
+#BotaoSocial p a, #BotaoSocial a h4 {
     padding-left: 10px;
     padding-right: 15px;
 }
 
-
-
-@media only screen and (max-width: 1280px) {
-    #FotoUsuario {
-        padding-left: 2vh;
-    }
-    
-    #FotoUsuario a img {
-        width: 20vh;
-    }
-
+@media screen and (max-width: 850px) {
     #DescricaoUsuario {
-        padding-left: 5vh;
-        padding-right: 2.5vh;
+        align-items: center;
+        margin-left: 0;
+        padding: 10px 15px;
     }
-
-    #DescricaoUsuario h1 {  
-        font-size: 1.8rem;
-    }
-}
-
-@media only screen and (max-width: 600px) {
     #InfoUsuario {
         flex-flow: row wrap;
-        padding-bottom: 7.5vh;
     }
-
-    #DescricaoUsuario h1 {  
+    #BotaoSocial {
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-start;
+        width: auto;
+        height: 95px;
+    }
+    #DescricaoUsuario h1 {
         font-size: 1.6rem;
     }
-
     #Bio {
         font-size: 1.1rem;
     }

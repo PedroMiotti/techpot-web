@@ -1,36 +1,23 @@
-
 #InfoGrupo {
-    /* background-color: var(--color-primary); */
-    /* display: flex; */
-    /* flex-direction: column; */
-    margin: 0 5vw;
-    padding: 20px;
-
+    margin: 50px 20px;
 }
 
 #NomeInfoGrupo {
-    padding-top: 1.5vh;
+    padding-top: 25px;
     margin-bottom: 15px;
 }
 
 #NomeInfoGrupo h1 {
     color: #fff;
     font-size: 2.2rem;
-    /* text-decoration: underline; */
 }
 
 #VisualGrupos {
     display: flex;
-    justify-content: center;
-    align-items: center; 
-    /* padding-left: 200px; */
-    padding-left: 83%;
-
     min-height: 250px;
     overflow-x: auto;
     overflow-y: hidden;
 }
-
 
 #VisualGrupos a {
     display: flex;
@@ -50,13 +37,10 @@
 
 #VisualGrupos a h3 {
     color: #eee;
-    padding-bottom: 1.5vh;    
     text-align: center;
-    padding-left: 1.5vh;
-    padding-right: 1.5vh;
-    padding-top: 1.5vh;
-    padding-bottom: 4vh;
+    margin-top: 10px;
     max-width: 25vh;
+    font-weight: 300;
 }
 
 #VisualGrupos a h3:hover {
@@ -68,40 +52,13 @@
     color: var(--color-terciary);
 }
 
-@media only screen and (max-width: 1440px) {
-    #NomeInfoGrupo h1 {
-        padding-left: 0;
-        text-align: center;
-    }
-}
-
-@media only screen and (max-width: 800px) {
-    #VisualGrupos {
-        display: flex;
-        flex-flow: row nowrap;
-        max-height: 25vh;
-        justify-content: flex-start;
-    }
-
-    #VisualGrupos a h3 {
-        font-size: 1rem;
-    }
-}
-
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 850px) {
     #NomeInfoGrupo h1 {
         font-size: 1.75rem;
     }
-    
-    #VisualGrupos {
-        padding-left: 0vw;
-        padding-right: 0vw;
-    }
-    
     #VisualGrupos a {
         max-width: 180px;
     }
-
     #VisualGrupos a h3 {
         font-size: 1.05rem;
     }

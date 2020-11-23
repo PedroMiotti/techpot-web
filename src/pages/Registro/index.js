@@ -4,6 +4,9 @@ import './index.css';
 
 // Components
 import LogoTechPot from '../../shared/LogoTechPot/index'
+import SnackLoad from '../../shared/Snackload/index'
+import SnackMessage from '../../shared/Snackbar/index'
+
 
 // Icons
 import { Visibility, VisibilityOff } from '@material-ui/icons'
@@ -13,7 +16,7 @@ import { TextField, Grid, IconButton, InputAdornment } from '@material-ui/core';
 import { withStyles, makeStyles } from '@material-ui/core/styles';
 
 // Redux
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { createUser } from '../../store/_entities/User';
 
 
@@ -129,17 +132,14 @@ const Registro = () => {
   const classes = useStyles();
 
   // _entities
-  // const usuarioCreatedLoading = useSelector(state => state.entitie.usuario.loading);
-  // const usuarioCreatedFailed = useSelector(state => state.entitie.usuario.error);
-  // const usuarioCreatedSuccess = useSelector(state => state.entitie.usuario.success);
-  // const usuarioCreatedErrorMessage = useSelector(state => state.entitie.usuario.errorMessage);
-  // const usuarioCreatedSuccessMessage = useSelector(state => state.entitie.usuario.successMessage);
+  const usuarioCreatedLoading = useSelector(state => state.entitie.user.loading);
+  const usuarioCreatedFailed = useSelector(state => state.entitie.user.error);
+  const usuarioCreatedErrorMessage = useSelector(state => state.entitie.user.errorMessage);
 
   const [nomeInput, setNomeInput] = useState('');
   const [sobrenomeInput, setSobrenomeInput] = useState('');
   const [emailInput, setEmailInput] = useState('');
   const [senhaInput, setSenhaInput] = useState('');
-
 
   const dispatch = useDispatch();
 
@@ -262,6 +262,10 @@ const Registro = () => {
 
         </div>
       </div>
+
+      {usuarioCreatedLoading && <SnackLoad show={usuarioCreatedLoading} />}
+
+      {usuarioCreatedFailed && <SnackMessage message={usuarioCreatedErrorMessage} color={"error"} show={usuarioCreatedFailed} />}
     </div>
   );
 }

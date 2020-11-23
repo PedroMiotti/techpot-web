@@ -3,6 +3,9 @@ import './style/index.css';
 
 // Components
 import LogoTechPot from '../../shared/LogoTechPot/index'
+import SnackLoad from '../../shared/Snackload/index'
+import SnackMessage from '../../shared/Snackbar/index'
+
 
 // Icons
 import { PersonOutline, LockOutlined } from '@material-ui/icons'
@@ -13,7 +16,7 @@ import Grid from '@material-ui/core/Grid';
 import { withStyles, makeStyles } from '@material-ui/core/styles';
 
 // Redux
-import { useDispatch } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { loginUser } from '../../store/_entities/User';
 
 
@@ -77,6 +80,11 @@ const Login = () => {
 
   const classes = useStyles();
 
+  // _entities
+  const usuarioLoginLoading = useSelector(state => state.entitie.user.loading);
+  const usuarioLoginFailed = useSelector(state => state.entitie.user.error);
+  const usuarioLoginErrorMessage = useSelector(state => state.entitie.user.errorMessage);
+
   const [emailInput, setEmailInput] = useState('');
   const [senhaInput, setSenhaInput] = useState('');
 
@@ -121,17 +129,20 @@ const Login = () => {
                 <LockOutlined />
               </Grid>
               <Grid item>
-                <CssTextField label="Senha" value={senhaInput} onChange={e => setSenhaInput(e.target.value)} InputLabelProps={{ classes: { root: classes.inputLabel, focused: classes.inputLabelFocused, } }} />
+                <CssTextField label="Senha" type="password" value={senhaInput} onChange={e => setSenhaInput(e.target.value)} InputLabelProps={{ classes: { root: classes.inputLabel, focused: classes.inputLabelFocused, } }} />
               </Grid>
               <p className="logginForm-ForgotPasswd" style={{ margin: '2px 20px', marginLeft: 'auto' }}>Esqueceu a senha ?</p>
             </Grid>
 
             <button type="submit" className="loginWrapperLoginButton">LOGIN</button>
           </form>
-
-
         </div>
       </div>
+
+      {usuarioLoginLoading && <SnackLoad show={usuarioLoginLoading} />}
+
+      {usuarioLoginFailed && <SnackMessage message={usuarioLoginErrorMessage} color={"error"} show={usuarioLoginFailed} />}
+
 
     </div>
   )

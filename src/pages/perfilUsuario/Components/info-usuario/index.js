@@ -38,7 +38,7 @@ const InfoUsuario = () => {
     return (
         <div id="InfoUsuario" className="font-techpot">
             <div id="FotoUsuario">
-                <UserProfileImg classe="navbarUserProfilePic" />
+                <UserProfileImg />
                 <Link to={`/usuario/perfil/editar/${usuarioId}`} style={{ color: '#fff' }}>
                     <Fab color="secondary" aria-label="add" className={classes.fab}>
                         <Edit /> 
@@ -49,6 +49,7 @@ const InfoUsuario = () => {
 
             <div id="DescricaoUsuario">
                 <h1>{usuarioPerfil.u ? firstLetterUppercase(usuarioPerfil.u.nome) + " " + firstLetterUppercase(usuarioPerfil.u.sobrenome) : "Usuario"} </h1>
+
                 <div id="NickCat">
                     <p>@{usuarioPerfil.u ? firstLetterUppercase(usuarioPerfil.u.nome) + firstLetterUppercase(usuarioPerfil.u.sobrenome) : "Usuario"}</p>
 
@@ -67,9 +68,9 @@ const InfoUsuario = () => {
                         usuarioPerfil.u.bio ?
                             <h4>{usuarioPerfil.u.bio}</h4>
                             :
-                            <a>Adicionar Biografia</a>
+                            <Link to={`/usuario/perfil/editar/${usuarioId}`} >Add Bio</Link>
                         :
-                        <a>Adicionar Biografia</a>
+                        <Link to={`/usuario/perfil/editar/${usuarioId}`} >Add Bio</Link>
                     }
                 </div>
 
@@ -84,10 +85,11 @@ const InfoUsuario = () => {
                             :
                             <p>
                                 <LinkedIn />
-                                <a>Add Linkedin</a>
+                                <Link to={`/usuario/perfil/editar/${usuarioId}`} >Add Linkedin</Link>
                             </p>
                         :
-                        <a>Add Linkedin</a>
+                        
+                        <Link to={`/usuario/perfil/editar/${usuarioId}`} >Add Linkedin</Link>
                     }
 
                     {usuarioPerfil.u ?
@@ -99,10 +101,10 @@ const InfoUsuario = () => {
                             :
                             <p>
                                 <GitHub />
-                                <a>Add Gihub</a>
+                                <Link to={`/usuario/perfil/editar/${usuarioId}`} >Add Gihub</Link>
                             </p>
                         :
-                        <a>Add Gihub</a>
+                        <Link to={`/usuario/perfil/editar/${usuarioId}`} >Add Gihub</Link>
                     }
 
                 </div>

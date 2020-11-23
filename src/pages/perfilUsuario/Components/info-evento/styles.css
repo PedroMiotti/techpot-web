@@ -1,15 +1,10 @@
 #InfoEvento {
-    background-color: var(--color-primary);
-    /* box-shadow: 0 0 24px var(--color-primary); */
-    display: flex;
-    flex-direction: column;
-    /* border: 1px solid #a3aaae; */
-    margin: 0 5vw;
-    padding: 20px;
+    margin: 50px 20px;
 }
 
 #NomeInfoEvento {
-    padding-top: 1.5vh;
+    padding-top: 25px;
+    margin-bottom: 15px;
 }
 
 #NomeInfoEvento h1 {
@@ -19,13 +14,8 @@
 
 #VisualEventos {
     display: flex;
-    justify-content: center;
-    align-items: center; 
-
-    margin-top: 25px;
-
-    padding-left: 80%;
     min-height: 250px;
+    width: auto;
     overflow-x: auto;
     overflow-y: hidden;
 }
@@ -36,24 +26,31 @@
     justify-content: center;
     align-items: center;
     text-decoration: none;
+    margin: 20px 30px;
+}
+
+.eventoConatainer-imageContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center ;
+    max-width: 250px;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 30px;
 }
 
 #VisualEventos a img {
-    width: 50vh;
-    border-radius: 15%;
-    padding-left: 3.5vh;
-    padding-right: 3.5vh;
+    width: auto;
+    height: 100%;
 }
 
 #VisualEventos a h3 {
     color: #eee;
-    padding-bottom: 1.5vh;    
     text-align: center;
-    padding-left: 1.5vh;
-    padding-right: 1.5vh;
-    padding-top: 1.5vh;
-    padding-bottom: 7.5vh;
-    max-width: 50vh;
+    font-size: 1.1rem;
+    margin: 15px 0;
+    max-width: auto;
+    font-weight: 300;
 }
 
 #VisualEventos a h3:hover {
@@ -65,55 +62,11 @@
     color: var(--color-terciary);
 }
 
-@media only screen and (max-width: 1440px) {
-    #NomeInfoEvento h1 {
-        padding-left: 0;
-        text-align: center;
-    }
-}
-
-@media only screen and (max-width: 1280px) {
-    #VisualEventos a img {
-        width: 35vh;
-    }
-
-    #VisualEventos a h3 {
-        max-width: 35vh;
-        font-size: 1rem;
-    }
-}
-
-@media only screen and (max-width: 800px) {
-    #VisualEventos {
-        display: flex;
-        flex-flow: row nowrap;
-        max-height: 40vh;
-        justify-content: flex-start;
-        padding-top: 15vw;
-        padding-bottom: 15vw;
-    }
-
-    #VisualEventos a {
-        padding-left: 2vh;
-        padding-right: 2vh;
-    }
-
-    #VisualEventos a img {
-        width: 50vh;
-        border-radius: 15%;
-    }
-}
-
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 850px) {
     #NomeInfoEvento h1 {
         font-size: 1.75rem;
     }
-
-    #VisualEventos {
-        padding-top: 12.5vh;
-    }
-
-    #VisualEventos a img {
-        width: 40vh;
+    #VisualEventos a h3 {
+        font-size: 1rem;
     }
 }
