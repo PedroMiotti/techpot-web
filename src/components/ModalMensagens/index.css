@@ -3,14 +3,11 @@
     width: 300px;
     height: 430px;
     
-    z-index: 2;
+    z-index: 3;
     transform: translateX(-50%);
 
     border-radius: 20px;
     background-color: #fff;
-
-    position: fixed;
-    position: -webkit-sticky;
 
 }
 

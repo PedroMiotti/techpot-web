@@ -8,12 +8,16 @@ import EditorToolbar, { modules, formats } from "./Components/EditorToolbar";
 
 // Components
 import UserProfileImg from '../../shared/UserProfileImg/index';
+
 // Icons
 import { Close, Image, YouTube } from '@material-ui/icons';
 
 // Material UI
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
+
+// Hooks 
+import useLockBodyScroll from '../../hooks/useLockBodyScroll'
 
 
 const icon = {
@@ -24,6 +28,8 @@ const icon = {
 };
 
 const ModalCreatePost = ({ onClose }) => {
+
+    useLockBodyScroll();
 
     const [postBody, setPostBody] = useState({ value: null });
     const [updateBtt, setUpdateBtt] = useState(false);

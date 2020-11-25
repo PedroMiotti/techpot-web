@@ -16,8 +16,13 @@ import { firstLetterUppercase } from '../../helpers/UpperFirstLetter';
 // Router
 import { Link } from "react-router-dom";
 
+// Hooks 
+import useLockBodyScroll from '../../hooks/useLockBodyScroll'
+
 
 const ModalUserPreferences = ({ anchorLeft, anchorTop, onClose }) => {
+
+  useLockBodyScroll();
 
   const usuarioPerfil = useSelector(state => state.entitie.user.perfil);
   const usuarioId = useSelector(state => state.entitie.user.id)

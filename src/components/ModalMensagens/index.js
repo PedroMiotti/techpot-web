@@ -8,7 +8,12 @@ import './index.css'
   import MensagemBox from '../../shared/MensagemBox/index';
   import BottomLine from '../../shared/bottomLine/index'
 
+// Hooks 
+import useLockBodyScroll from '../../hooks/useLockBodyScroll'
+
 const ModalMensagens = ({anchorLeft, anchorTop, onClose}) => {
+  useLockBodyScroll();
+
     return (
       <Fragment>
         <div
