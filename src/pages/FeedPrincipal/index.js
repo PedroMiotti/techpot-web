@@ -13,7 +13,7 @@ import ModalCreatePost from "../../components/ModalCreatePost/index"
 
 // Redux
 import { useSelector, useDispatch } from 'react-redux';
-import { listEvent } from '../../store/_entities/Event';
+import { listEvent} from '../../store/_entities/Event';
 
 // Helpers
 import { firstLetterUppercase } from '../../helpers/UpperFirstLetter';
@@ -38,6 +38,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
+
 const FeedPrincipal = () => {
 
   const classes = useStyles();
@@ -47,7 +48,6 @@ const FeedPrincipal = () => {
   const usuarioPerfil = useSelector(state => state.entitie.user.perfil);
   const usuarioFirstAccess = useSelector(state => state.entitie.user.firstAccess);
   const eventList = useSelector(state => state.entitie.event.eventsList);
-
 
   const dispatch = useDispatch();
 
@@ -60,7 +60,8 @@ const FeedPrincipal = () => {
     dispatch(listEvent());
 
   }, [])
-
+    
+  
   return (
     <div id="FeedPrincipal-div-main">
       <div id="page" className="font-techpot">
@@ -108,9 +109,8 @@ const FeedPrincipal = () => {
             <ContainerList tituloBoxList="Eventos">
 
               {eventList.map((eventos) => (
-                <EventBox key={eventos.event_id} tituloEvento={eventos.event_name} dataEvento={eventos.event_dateInit}/>
-                //<EventBox key={eventos.event_id} tituloEvento={eventos.event_name} dataEvento={eventos.event_dateInit} img={eventos.event_img}/>
-              ))}
+                    <EventBox key={eventos.event_id} tituloEvento={eventos.event_name} dataEvento={eventos.event_dateInit} tipoEvento={eventos.eventType_name}/>
+                ))}
 
             </ContainerList>
           </div>

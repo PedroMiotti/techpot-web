@@ -19,6 +19,7 @@ const slice = createSlice({
         eventsList: [],
         categoriesList: [],
         typesList: [],
+        info: [],
 
     },
 
@@ -87,6 +88,7 @@ const slice = createSlice({
             evento.loading = false;
             evento.success = true;
             evento.error = false;
+            evento.info = action.payload;
         },
 
         EVENT_LIST_CATEGORY_SUCCESSFUL: (evento, action) =>{
@@ -131,11 +133,11 @@ export default slice.reducer;
 const url = '/evento';
 
 
-export const createEvent = (nome, descricao, data_inicio, imagemUrl, categoriaId, data_fim, tipoId) => apiCallBegan({
+export const createEvent = (nome, descricao, data_inicio, imagemUrl, categoriaId, data_fim, tipoId, criador) => apiCallBegan({ 
     url: url + "/criar",
     headers: null,
     method: "post",
-    data: {nome, descricao, data_inicio, imagemUrl, categoriaId, data_fim, tipoId},
+    data: {nome, descricao, data_inicio, imagemUrl, categoriaId, data_fim, tipoId, criador},
     onStart: EVENT_REQUESTED.type,
     onSuccess: EVENT_CREATED_SUCCESSFUL.type,
     onError: EVENT_FAILED.type
@@ -143,7 +145,7 @@ export const createEvent = (nome, descricao, data_inicio, imagemUrl, categoriaId
 
 
 export const deleteEvent = (id) => apiCallBegan({
-    url: url + "/excluir",
+    url: url + `/${id}`,
     headers: null,
     method: "delete",
     data: { id },
@@ -153,7 +155,7 @@ export const deleteEvent = (id) => apiCallBegan({
 });
 
 
-export const listEvent = () => apiCallBegan({
+export const listEvent = () => apiCallBegan({ 
     url: url + "/listar",
     headers: null,
     method: "get",
@@ -163,11 +165,11 @@ export const listEvent = () => apiCallBegan({
 });
 
 
-export const updateEvent = ( id, nome, descricao, data_inicio, imagemUrl, categoriaId, data_fim, tipoId) => apiCallBegan({
-    url: url + "/editar",
+export const updateEvent = ( id, nome, descricao, data_inicio, imagemUrl, categoriaId, data_fim, tipoId, criador) => apiCallBegan({ 
+    url: url + "/atualizar",
     headers: null,
     method: "put",
-    data: {id, nome, descricao, data_inicio, imagemUrl, categoriaId, data_fim, tipoId},
+    data: {id, nome, descricao, data_inicio, imagemUrl, categoriaId, data_fim, tipoId, criador},
     onStart: EVENT_REQUESTED.type,
     onSuccess: EVENT_UPDATED_SUCCESSFUL.type,
     onError: EVENT_FAILED.type,
@@ -176,7 +178,7 @@ export const updateEvent = ( id, nome, descricao, data_inicio, imagemUrl, catego
 
 // Criar o reducer EVENT_SUBSCRIBERS_SUCCESSFUL
 // export const listSubscribersEvent = (id) => apiCallBegan({
-//     url: url + "/inscritos",
+//     url: url + `/${id}/inscritos`,
 //     headers: null,
 //     method: "get",
 //     data: {id},
@@ -185,8 +187,8 @@ export const updateEvent = ( id, nome, descricao, data_inicio, imagemUrl, catego
 //     onError: EVENT_FAILED.type
 // });
 
-export const listInvitedEvent = (id) => apiCallBegan({
-    url: url + "/convidados",
+export const listInvitedEvent = (id) => apiCallBegan({  
+    url: url + `/${id}/convidados`,
     headers: null,
     method: "get",
     data: {id},
@@ -196,7 +198,7 @@ export const listInvitedEvent = (id) => apiCallBegan({
 });
 
 export const inviteEvent = (id_evento, id_usuario) => apiCallBegan({
-    url: url + "/convidar",
+    url: url + `/${id_evento}/convidar/${id_usuario}`,
     headers: null,
     method: "post",
     data: {id_evento, id_usuario},
@@ -205,8 +207,8 @@ export const inviteEvent = (id_evento, id_usuario) => apiCallBegan({
     onError: EVENT_FAILED
 });
 
-export const infoEvent = (id) => apiCallBegan({
-    url: url + "/info",
+export const infoEvent = (id) => apiCallBegan({ 
+    url: url + `/${id}`,
     headers: null,
     method: "get",
     data: { id },
@@ -215,8 +217,8 @@ export const infoEvent = (id) => apiCallBegan({
     onError: EVENT_FAILED.type
 });
 
-export const listByCategoryEvent = (cat_id) => apiCallBegan({
-    url: url + "/listar/categoria",
+export const listByCategoryEvent = (cat_id) => apiCallBegan({ 
+    url: url + `/listar/${cat_id}`,
     headers: null,
     method: "get",
     data: {cat_id},
@@ -225,8 +227,8 @@ export const listByCategoryEvent = (cat_id) => apiCallBegan({
     onError: EVENT_FAILED.type
 });
 
-export const confirmInviteEvent = (id_evento, id_usuario) => apiCallBegan({
-    url: url + "/aceitar-convite",
+export const confirmInviteEvent = (id_evento, id_usuario) => apiCallBegan({ 
+    url: url + `/${id_evento}/aceitar-convite/${id_usuario}`,
     headers: null,
     method: "put",
     data: {id_evento, id_usuario},
@@ -235,7 +237,7 @@ export const confirmInviteEvent = (id_evento, id_usuario) => apiCallBegan({
     onError: EVENT_FAILED.type
 });
 
-export const listCategories = () => apiCallBegan({
+export const listCategories = () => apiCallBegan({ 
     url: url + "/listar-categorias",
     headers: null,
     method: "get",
@@ -244,7 +246,7 @@ export const listCategories = () => apiCallBegan({
     onError: EVENT_FAILED.type
 });
 
-export const listTypes = () => apiCallBegan({
+export const listTypes = () => apiCallBegan({ 
     url: url + "/listar-tipos",
     headers: null,
     method: "get",

@@ -30,6 +30,7 @@ const EventoCriar = () => {
 
     const categoriesList = useSelector(state => state.entitie.event.categoriesList);
     const typesList = useSelector(state => state.entitie.event.typesList);
+    const criadorId = useSelector(state => state.entitie.user.id);
 
     const [file, setFile] = useState('');
 
@@ -39,7 +40,7 @@ const EventoCriar = () => {
 
     }
 
-    //const eventCreateSuccess = useSelector(state => state.entitie.event.success);
+    
 
     const dispatch = useDispatch();
 
@@ -54,7 +55,7 @@ const EventoCriar = () => {
         let categoriaInput = catInput.current.value;
         let tipoInput = typeInput.current.value;
 
-        dispatch(createEvent(nomeInput, descInput, dataIniInput, 1, categoriaInput, dataFimInput, tipoInput))
+        dispatch(createEvent(nomeInput, descInput, dataIniInput, 1, categoriaInput, dataFimInput, tipoInput, criadorId))
 
     }
 
