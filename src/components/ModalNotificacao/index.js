@@ -8,12 +8,7 @@ import './index.css'
   import NotificacaoBox from '../../shared/Notificacao/index';
   import BottomLine from '../../shared/bottomLine/index'
 
-// Hooks 
-import useLockBodyScroll from '../../hooks/useLockBodyScroll'
-
 const ModalNotificacao = ({anchorLeft, anchorTop, onClose}) => {
-
-  useLockBodyScroll();
 
     return (
       <Fragment>
