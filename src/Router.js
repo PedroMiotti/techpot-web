@@ -94,7 +94,7 @@ const UseNav = () => {
 
         {/* Evento  */}
         <Route path="/evento/criar" component={EventoCriar} />
-        <Route exact path="/evento" component={Evento} />
+        <Route exact path="/evento/:id" component={Evento} />
 
 
         {/* Mensagens */}

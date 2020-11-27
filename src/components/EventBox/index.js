@@ -46,7 +46,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const EventBox = ({ tituloEvento, dataEvento, tipoEvento }) => {
+const EventBox = ({ tituloEvento, dataEvento, tipoEvento, idEvento }) => {
 
   const classes = useStyles();
 
@@ -65,7 +65,7 @@ const EventBox = ({ tituloEvento, dataEvento, tipoEvento }) => {
   const mes = data.format("MMMM");
   const ano = data.format('YYYY');
   const diaDaSemana = data.format("dddd");
-  const horaInicio = data.format("hh:mm")
+  const horaInicio = data.format("LT");
 
   
 
@@ -73,10 +73,10 @@ const EventBox = ({ tituloEvento, dataEvento, tipoEvento }) => {
   return (
     <div id="container-eventBox2" className="font-techpot">
 
-      <Link to="/evento">
+      <Link to={`/evento/${idEvento}`}>
         <img src={eventImage} alt="eventImage" className="image-eventBox2" />
       </Link>
-      <Link to="/evento" className="eventBox2-bottom-Container-row1">
+      <Link to={`/evento/${idEvento}`} className="eventBox2-bottom-Container-row1">
         <div className="eventBox2-DayBox">
           <h3>{diaDoMes}</h3>
         </div>
@@ -85,7 +85,7 @@ const EventBox = ({ tituloEvento, dataEvento, tipoEvento }) => {
           <p id="eventBox2-data">{firstLetterUppercase(mes)}, {ano}</p>
         </div>
       </Link>
-      <Link to="/evento" className="eventBox2-bottom-Container-row2">
+      <Link to={`/evento/${idEvento}`} className="eventBox2-bottom-Container-row2">
         <div id="eventBox2-bottom-details" class="font-techpot">
           <h3 id="eventBox2-titulo">{tituloEvento}</h3>
           <p id="eventBox2-data">Começa às {horaInicio} &middot; {tipoEvento}</p>
