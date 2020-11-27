@@ -1,5 +1,6 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import './styles/index.css';
+import { useParams } from 'react-router-dom';
 
 
 // Assets
@@ -12,7 +13,17 @@ import './styles/index.css';
 
 // Material UI
     import Avatar from '@material-ui/core/Avatar';
-    import AvatarGroup from '@material-ui/lab/AvatarGroup'; 
+    import AvatarGroup from '@material-ui/lab/AvatarGroup';
+
+// Redux
+import { useSelector, useDispatch } from 'react-redux';
+import { infoEvent, listInvitedEvent } from '../../store/_entities/Event';
+import { firstLetterUppercase } from '../../helpers/UpperFirstLetter';
+
+// Moment
+import * as moment from 'moment';
+import 'moment/locale/pt-br';
+import { getDefaultNormalizer } from '@testing-library/react';
 
 
 const marginIcon = {
@@ -28,7 +39,69 @@ const avatarBorder = {
 }
 
 
+
+
 const Evento = () => {
+
+    /* state = {
+        valueInfo: null,
+        loadingInfo: true,
+        errorInfo: null,
+    };
+    this.getInfo();
+    
+    async getInfo(){
+        try{
+            this.setState({loadingInfo: true});
+            const valueInfo = await useSelector(state => state.entitie.event.info);
+            this.setState(valueInfo);
+
+        } catch (error){
+            this.setState({errorInfo: error});
+        } finally {
+            this.setState({loadingInfo: false});
+        }
+    } */
+    
+    const eventInfoList = useSelector(state => state.entitie.event.info);
+    const inviteList = useSelector(state => state.entitie.event.inviteList);
+    const subList = useSelector(state => state.entitie.event.subscribeList);
+
+    const {id} = useParams();
+
+    const dispatch = useDispatch();
+
+    useEffect(() =>{
+        dispatch(infoEvent(id));
+        
+    }, {})
+
+    useEffect(() => {
+        dispatch(listInvitedEvent(id));
+        /* dispatch(listSubEvent(id)); */
+    }, [])
+
+    
+    function hora(){
+        // Formating date
+        moment().locale('pt-br');
+        const inicio = moment(eventInfoList.e.data_inicio); 
+        var horaInicio = inicio.format("LT");
+        var dataInicio = inicio.format("L");
+        const fim = moment(eventInfoList.e.data_fim);
+        var horaFim = fim.format("LT");
+        var dataFim = fim.format("L");
+
+        return {
+            horaInicio,
+            dataInicio,
+            dataFim,
+            horaFim
+        };
+    }
+   
+    
+    
     return(
         <div className="eventoContainer font-techpot">
 
@@ -39,9 +112,9 @@ const Evento = () => {
 
                     <div className="eventoTopbar-SecondRow-Container">
                         <div className="eventoTopbar-SecondRow-FirstColumn"> 
-                            <h3>31/12/2020 - DAS 14:30 AS 21:00</h3>
-                            <h1>HACKA TRUCK - IBM</h1>
-                            <p>Evento online</p>
+                            <h3>{eventInfoList.e ? `${hora().dataInicio} - ${hora().horaInicio}` : ""}</h3>
+                            <h1>{eventInfoList.e ? firstLetterUppercase(eventInfoList.e.nome) : "Evento"}</h1>
+                            <p>Evento {eventInfoList.e ? eventInfoList.e.tipoNome : ""}</p>
                         </div>
                         
                     </div>
@@ -68,19 +141,23 @@ const Evento = () => {
 
                         <div className="eventoBottom-Detalhes-Horario">
                             <AccessTime style={redIcon}/>
-                            <p>31/12/2020 - DAS 14:30 AS 21:00</p>
+                            <p>{eventInfoList.e ? 
+                                eventInfoList.e.data_fim ? 
+                                `${hora().dataInicio} - ${hora().horaInicio} até ${hora().dataFim} - ${hora().horaFim}` 
+                                : 
+                                `${hora().dataInicio} - ${hora().horaInicio}` 
+                            : ""}
+                            </p>
 
                         </div>
 
                         <div className="eventoBottom-Detalhes-Tipo">
                             <Language style={redIcon}/>
-                            <p>Evento online</p>
+                            <p>Evento {eventInfoList.e ? eventInfoList.e.tipoNome : ""}</p>
                         </div>
                         
                         <div className="eventoBottom-Detalhes-Desc">
-                            <p>Pessoal, queria divulgar a vocês o Projeto HackaTruck, que será composto por diversos cursos online envolvendo desde lógica de programação, programação orientada a objetose, linguagem Swift (Apple) e IoT.
-                            Podem divulgar para todos os colegas de todos os cursos da ESPM, em nível nacional, além da palestra de sexta-feira agora.
-                            Aproveitem!!!</p>
+                            <p>{eventInfoList.e ? eventInfoList.e.descricao : ""}</p>
                         </div>
 
                     </div>   
@@ -92,12 +169,12 @@ const Evento = () => {
 
                             <div className="eventoBottom-Pessoas-stats">
                                 <div className="eventoBottom-Pessoas-stats-vao">
-                                    <h2>300</h2>
+                                    <h2>{subList ? subList.length : "-"}</h2>
                                     <p>VÃO</p>
                                 </div>
 
                                 <div className="eventoBottom-Pessoas-stats-confirmadas">
-                                    <h2>578</h2>
+                                    <h2>{inviteList ? inviteList.length : "-"}</h2>
                                     <p>CONVIDADAS</p>
                                 </div>
                             </div>
@@ -124,8 +201,8 @@ const Evento = () => {
                                     <img src={FlavioPic} alt="postTestPicture" className="organizadorProfilepic"/>
                                 </div>
                                 <div className="eventoBottom-Oganizador-card-info">
-                                    <h4>Flavinho Gameplayz</h4>
-                                    <p>Professor</p>
+                                    <h4>{eventInfoList.e ? firstLetterUppercase(eventInfoList.e.criadorNome) + " " + firstLetterUppercase(eventInfoList.e.criadorSobrenome) : ""}</h4>
+                                    <p>{eventInfoList.e ? eventInfoList.e.criadorJob ? firstLetterUppercase(eventInfoList.e.criadorJob) : "" : ""}</p>
                                 </div>
                             </div>
                         </div>

@@ -8,6 +8,10 @@ import { createEvent, listCategories, listTypes } from '../../store/_entities/Ev
 //Icons
 import { Add, FormatBold } from '@material-ui/icons';
 
+// Components
+import SnackMessage from '../../shared/Snackbar/index';
+
+
 
 const EventoCriar = () => {
 
@@ -22,6 +26,10 @@ const EventoCriar = () => {
     const [descInput, setDescInput] = useState('');
     const [dataIniInput, setDataIniInput] = useState('');
     const [dataFimInput, setDataFimInput] = useState('');
+    const eventCreatedSuccess = useSelector(state => state.entitie.event.success);
+    const eventCreatedSuccessMessage = useSelector(state => state.entitie.event.successMessage);
+    //
+    const [showSnack, setSnack] = useState(false);
     //const [imgInput, setImgInput] = useState('');
 
     // Hook useRef = faz um referencia do objeto, tipo dar um $('classe').val() no jquery
@@ -31,6 +39,9 @@ const EventoCriar = () => {
     const categoriesList = useSelector(state => state.entitie.event.categoriesList);
     const typesList = useSelector(state => state.entitie.event.typesList);
     const criadorId = useSelector(state => state.entitie.user.id);
+    const eventCreatedErrorMessage = useSelector(state => state.entitie.event.errorMessage);
+    const eventCreatedError = useSelector(state => state.entitie.event.error);
+
 
     const [file, setFile] = useState('');
 
@@ -51,12 +62,22 @@ const EventoCriar = () => {
 
     }, []);
 
+    const Snackbar = () => {
+        return(
+            <div>
+                {eventCreatedError && <SnackMessage message={eventCreatedErrorMessage} color={"error"} show={eventCreatedError} />}
+                {eventCreatedSuccess && <SnackMessage message={eventCreatedSuccessMessage} color={"success"} show={eventCreatedSuccess}/>}
+            </div>
+        )
+    }
+
     const criarEvento = () => {
         let categoriaInput = catInput.current.value;
         let tipoInput = typeInput.current.value;
 
         dispatch(createEvent(nomeInput, descInput, dataIniInput, 1, categoriaInput, dataFimInput, tipoInput, criadorId))
 
+        setSnack(true);
     }
 
     return (
@@ -107,12 +128,19 @@ const EventoCriar = () => {
 
                 </div>
 
+                
             </div>
+
+            {showSnack ? <Snackbar /> : null}
 
         </div>
 
+        
+
     )
 }
+
+
 
 
 export default EventoCriar;

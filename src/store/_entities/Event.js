@@ -20,11 +20,13 @@ const slice = createSlice({
         categoriesList: [],
         typesList: [],
         info: [],
+        inviteList: [],
+        subscribeList: [],
 
     },
 
     reducers: {
-        EVENT_REQUESTED: (evento, action) => {
+        EVENT_REQUESTED: (evento) => {
             evento.loading = true;
             evento.error = false;
             evento.success = false;
@@ -69,12 +71,14 @@ const slice = createSlice({
             evento.loading = false;
             evento.success = true;
             evento.error = false;
+            evento.subscribeList = action.payload;
         },
 
         EVENT_LIST_INVITED_SUCCESSFUL: (evento, action) =>{
             evento.loading = false;
             evento.success = true;
             evento.error = false;
+            evento.inviteList = action.payload;
         },
 
         EVENT_INVITE_SUCCESSFUL: (evento, action) =>{
@@ -175,17 +179,14 @@ export const updateEvent = ( id, nome, descricao, data_inicio, imagemUrl, catego
     onError: EVENT_FAILED.type,
 });
 
-
-// Criar o reducer EVENT_SUBSCRIBERS_SUCCESSFUL
-// export const listSubscribersEvent = (id) => apiCallBegan({
-//     url: url + `/${id}/inscritos`,
-//     headers: null,
-//     method: "get",
-//     data: {id},
-//     onStart: EVENT_REQUESTED.type,
-//     onSuccess: EVENT_SUBSCRIBERS_SUCCESSFUL.type,
-//     onError: EVENT_FAILED.type
-// });
+/* export const listSubEvent = (id) => apiCallBegan({
+    url: url + `/${id}/inscritos`,
+    headers: null,
+    method: "get",
+    onStart: EVENT_REQUESTED.type,
+    onSuccess: EVENT_LIST_SUBSCRIBERS_SUCCESSFUL.type,
+    onError: EVENT_FAILED.type
+}); */
 
 export const listInvitedEvent = (id) => apiCallBegan({  
     url: url + `/${id}/convidados`,
@@ -211,7 +212,6 @@ export const infoEvent = (id) => apiCallBegan({
     url: url + `/${id}`,
     headers: null,
     method: "get",
-    data: { id },
     onStart: EVENT_REQUESTED.type,
     onSuccess: EVENT_INFO_SUCCESSFUL.type,
     onError: EVENT_FAILED.type
@@ -221,7 +221,6 @@ export const listByCategoryEvent = (cat_id) => apiCallBegan({
     url: url + `/listar/${cat_id}`,
     headers: null,
     method: "get",
-    data: {cat_id},
     onStart: EVENT_REQUESTED.type,
     onSuccess: EVENT_LIST_CATEGORY_SUCCESSFUL.type,
     onError: EVENT_FAILED.type
