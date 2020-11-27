@@ -11,10 +11,9 @@
     background-color: var(--color-primary);
     width: 80vw;
     height: 100vh;
-    z-index: 1;
+    z-index: 3;
 
     transition: 0.5s;
-
 
     border-top-right-radius: 30px;
     border-bottom-right-radius: 30px;
