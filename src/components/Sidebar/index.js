@@ -1,51 +1,64 @@
 import React from 'react';
 import './index.css'
 
-// Assets
-import sidebarUserTestPicture from '../../assets/Rafa.jpg';
-
 // Components
 import GroupListContainer from '../../shared/GroupListContainer/index'
+import UserProfileImg from '../../shared/UserProfileImg/index';
 
 // React Awesome
-import { Slide } from "react-awesome-reveal";
+// import { Slide } from "react-awesome-reveal";
 
 // Icons
 import { Close } from '@material-ui/icons'
 
+// Helpers
+import { firstLetterUppercase } from '../../helpers/UpperFirstLetter';
+
+// Redux
+import { useSelector, useDispatch } from 'react-redux';
+
 const Sidebar = ({ onClose }) => {
+
+    const usuarioPerfil = useSelector(state => state.entitie.user.perfil);
+
     return (
-        <Slide >
-            <div className="sidebarContainer font-techpot">
-                <div className="sidebarUserInfoContainer">
-                    <div className="sidebarCloseContainer" onClick={onClose}>
-                        <Close style={{ color: '#fff', fontSize: '30px' }} />
-                    </div>
-                    <div className="sidebarProfilePictureContainer">
-                        <img src={sidebarUserTestPicture} alt="sidebarUserTestPicture" className="sidebarUserPicture" />
-                    </div>
-
-                    <div className="sidebarUserDescContainer">
-                        <h3>Carlos Rafael</h3>
-                        <p>Professor</p>
-                    </div>
-
+        <div className="sidebarContainer font-techpot">
+            <div className="sidebarUserInfoContainer">
+                <div className="sidebarCloseContainer" onClick={onClose}>
+                    <Close style={{ color: '#fff', fontSize: '30px' }} />
                 </div>
-                <div className="sidebarGroupsContainer">
-                    <h2>Grupos</h2>
+                <div className="sidebarProfilePictureContainer">
+                    <UserProfileImg />
+                </div>
 
-                    <div className="sidebarGroupsList">
-                        <GroupListContainer />
-                        <GroupListContainer />
-                        <GroupListContainer />
-                        <GroupListContainer />
-                        <GroupListContainer />
-                        <GroupListContainer />
+                <div className="sidebarUserDescContainer">
+                    <h3>{usuarioPerfil.u ? firstLetterUppercase(usuarioPerfil.u.nome) + " " + firstLetterUppercase(usuarioPerfil.u.sobrenome) : "Usuario"}</h3>
 
-                    </div>
+                    {usuarioPerfil.u ?
+                        usuarioPerfil.u.ocupacao ?
+                            <p> {firstLetterUppercase(usuarioPerfil.u.ocupacao)}</p>
+                            :
+                            null
+                        :
+                        null
+                    }
+                </div>
+
+            </div>
+            <div className="sidebarGroupsContainer">
+                <h2>Grupos</h2>
+
+                <div className="sidebarGroupsList">
+                    <GroupListContainer />
+                    <GroupListContainer />
+                    <GroupListContainer />
+                    <GroupListContainer />
+                    <GroupListContainer />
+                    <GroupListContainer />
+
                 </div>
             </div>
-        </Slide>
+        </div>
     )
 }
 
