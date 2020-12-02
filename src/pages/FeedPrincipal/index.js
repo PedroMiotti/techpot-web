@@ -9,11 +9,14 @@ import Post from '../../components/post/index';
 import PostBox from '../../components/postBox/index';
 import PhotoUpdateContainer from '../../components/photoUpdateBox/index'
 import ModalCreatePost from "../../components/ModalCreatePost/index"
+import ModalCreateGroup from '../../components/ModalCreateGroup/index'
 
 
 // Redux
 import { useSelector, useDispatch } from 'react-redux';
 import { listEvent } from '../../store/_entities/Event';
+import { listGroup } from '../../store/_entities/Group';
+
 
 // Helpers
 import { firstLetterUppercase } from '../../helpers/UpperFirstLetter';
@@ -44,10 +47,19 @@ const FeedPrincipal = () => {
   const classes = useStyles();
 
   const [showModalCreatePost, setShowModalCreatePost] = useState(false);
+  const [showModalCreateGroup, setShowModalCreateGroup] = useState(false);
 
+  // Usuario
   const usuarioPerfil = useSelector(state => state.entitie.user.perfil);
+  const usuarioId = useSelector(state => state.entitie.user.id);
   const usuarioFirstAccess = useSelector(state => state.entitie.user.firstAccess);
+
+  // Evento
   const eventList = useSelector(state => state.entitie.event.eventsList);
+
+  // Grupo
+  const groupList = useSelector(state => state.entitie.group.groupList);
+
   
 
   const dispatch = useDispatch();
@@ -56,9 +68,14 @@ const FeedPrincipal = () => {
     setShowModalCreatePost(!showModalCreatePost);
   };
 
+  const openModalCreateGroup = () => {
+    setShowModalCreateGroup(!showModalCreateGroup);
+  };
+
   useEffect(() => {
 
     dispatch(listEvent());
+    dispatch(listGroup(usuarioId));
 
   }, [])
     
@@ -68,23 +85,20 @@ const FeedPrincipal = () => {
       <div id="page" className="font-techpot">
         <div className="spaced">
           <div id="div-toHide-boxList">
-            <ContainerList tituloBoxList="Grupos">
+            <ContainerList tituloBoxList="Grupos" open={openModalCreateGroup}>
+
+              {groupList.map((grupos) => (
+                <GroupBox key={grupos.group_id} groupTitle={grupos.group_name} groupId={grupos.group_id} groupMembersNum={grupos.membros}/>
+              ))}
               
-              <GroupBox groupTitle="TECH" groupMembersNum="444" />
-              <GroupBox groupTitle="TECH" groupMembersNum="444" />
-              <GroupBox groupTitle="TECH" groupMembersNum="444" />
-              <GroupBox groupTitle="TECH" groupMembersNum="444" />
-              <GroupBox groupTitle="TECH" groupMembersNum="444" />
-              <GroupBox groupTitle="TECH" groupMembersNum="444" />
             </ContainerList>
+
           </div>
           <div id="div-posts-FeedPrincipal">
 
             {
               usuarioPerfil.u ?
-                !usuarioFirstAccess ?
-                  null
-                  :
+                usuarioFirstAccess ?
                   <div className="afterRegisterContainer">
 
                     <div className="containerWelcome font-techpot">
@@ -95,11 +109,13 @@ const FeedPrincipal = () => {
                       <PhotoUpdateContainer />
                     </div>
                   </div>
+                  :
+                  null
                 :
                 null
             }
 
-            <PostBox open={openModalCreatePost}/>
+            <PostBox open={ openModalCreatePost }/>
             <Post />
             <Post />
             <Post />
@@ -117,12 +133,17 @@ const FeedPrincipal = () => {
           </div>
         </div>
       </div>
+
       <Fab color="secondary" aria-label="add" className={classes.fab}>
         <Add />
       </Fab>
 
       {showModalCreatePost && (
         <ModalCreatePost onClose={() => setShowModalCreatePost(!showModalCreatePost)} />
+      )}
+
+      {showModalCreateGroup && (
+        <ModalCreateGroup onClose={() => setShowModalCreateGroup(!showModalCreateGroup)} />
       )}
 
       

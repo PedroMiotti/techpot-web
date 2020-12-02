@@ -70,12 +70,9 @@
 }
 
 #groupBox-tituloGrupo{
-    font-size: 24px;
+    font-size: 19px;
     align-self: center;
-    /* color: #444; */
     color: #fff;
-
-
 }
 
 #groupBox-members{

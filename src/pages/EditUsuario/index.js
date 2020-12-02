@@ -35,7 +35,7 @@ const EditUsuario = () => {
     const [linkedinInput, setLinkedinInput] = useState('');
     const [githubInput, setGithubInput] = useState('');
 
-    const [updateRender, setUpdateRender] = useState(false)
+    const [updateRender, setUpdateRender] = useState(false);
 
     const dispatch = useDispatch();
 

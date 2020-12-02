@@ -1,0 +1,27 @@
+
+
+.modalCreatePost-Container {
+    position: absolute;
+    left: 50%;
+    top: 30%;
+    transform: translate3d(-50%, -50%, 0);
+    z-index: 100;
+    width: 600px;
+    height: auto;
+    background-color: #fff;
+    border-radius: 15px;
+}
+
+
+/* Top bar  */
+
+.creategroup-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+    padding: 0 20px;
+    color: #7c7c7c;
+    border-bottom: 1px solid #c0c0c0;
+}
+

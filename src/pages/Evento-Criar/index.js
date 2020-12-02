@@ -26,6 +26,7 @@ const EventoCriar = () => {
     const [descInput, setDescInput] = useState('');
     const [dataIniInput, setDataIniInput] = useState('');
     const [dataFimInput, setDataFimInput] = useState('');
+    
     const eventCreatedSuccess = useSelector(state => state.entitie.event.success);
     const eventCreatedSuccessMessage = useSelector(state => state.entitie.event.successMessage);
     //

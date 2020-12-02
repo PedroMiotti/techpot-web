@@ -43,15 +43,15 @@ const Test = () => {
 
 
   return (
-      <Switch>
+    <Switch>
 
-          <Route path={["/registro" , "/login", "/usuario/perfil/editar"]} component={ NoNavbar } />
-          <Route component={ UseNav } />
+      <Route path={["/registro", "/login", "/usuario/perfil/editar"]} component={NoNavbar} />
+      <Route component={UseNav} />
 
-          {/* 404  */}
-          <Route path="*" component={PageNotFound} />
+      {/* 404  */}
+      <Route path="*" component={PageNotFound} />
 
-      </Switch>
+    </Switch>
   );
 };
 
@@ -83,47 +83,53 @@ const UseNav = () => {
   return (
     <>
 
-        <Navbar pathName={currentURL.pathname} />
+      <Navbar pathName={currentURL.pathname} />
 
-        {/* Home  */}
-        <ProtectedRoute exact path="/" component={FeedPrincipal} />
+      {/* Home  */}
+      <ProtectedRoute exact path="/" component={FeedPrincipal} />
 
 
-        {/* Grupo  */}
-        <ProtectedRoute path="/grupo/feed" component={FeedGrupo} />
+      {/* Grupo  */}
+      <ProtectedRoute path="/grupo/feed/:id" component={FeedGrupo} />
 
+<<<<<<< HEAD
         {/* Evento  */}
         <Switch>
         <Route path="/evento/criar" component={EventoCriar} />
         <Route exact path="/evento/:id" component={Evento} />
         </Switch>
+=======
+      {/* Evento  */}
+      <Route path="/evento/criar" component={EventoCriar} />
+      <Route exact path="/evento/:id" component={Evento} />
+>>>>>>> 7f6a42ef00df6b8f6c432acf51305ed17af7cd34
 
 
-        {/* Mensagens */}
-        <ProtectedRoute path="/direct/user" component={DirectWeb} />
+      {/* Mensagens */}
+      <ProtectedRoute path="/direct/user" component={DirectWeb} />
 
-        {/* Usuario  */}
-        <ProtectedRoute path="/usuario/perfil/:id" component={PerfilUsuario} />
+      {/* Usuario  */}
+      <ProtectedRoute path="/usuario/perfil/:id" component={PerfilUsuario} />
 
 
-        {/* Mobile Exclusive */}
+      {/* Mobile Exclusive */}
 
-        {width <= 961 ?
-          <>
-            <ProtectedRoute path="/mobile-eventos" component={EventsMobile} />
+      {width <= 961 ?
+        <>
+          <ProtectedRoute path="/mobile-eventos" component={EventsMobile} />
 
-            <ProtectedRoute path="/mobile-search" component={SearchPageMobile} />
+          <ProtectedRoute path="/mobile-search" component={SearchPageMobile} />
 
-            <ProtectedRoute path="/mobile-notificacao" component={NotificaoMobile} />
+          <ProtectedRoute path="/mobile-notificacao" component={NotificaoMobile} />
 
-            <ProtectedRoute path="/mobile-directs" component={DirectMobile} />
+          <ProtectedRoute path="/mobile-directs" component={DirectMobile} />
 
-            <ProtectedRoute path="/pv" component={MsgDireta} />
-          </>
-          :
-          null
-        }
-        <BottomNavbar />
+          <ProtectedRoute path="/pv" component={MsgDireta} />
+        </>
+        :
+        null
+      }
+      <BottomNavbar />
 
     </>
   )

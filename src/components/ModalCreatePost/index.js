@@ -8,9 +8,7 @@ import EditorToolbar, { modules, formats } from "./Components/EditorToolbar";
 
 // Components
 import UserProfileImg from '../../shared/UserProfileImg/index';
-
-// Icons
-import { Close, Image, YouTube } from '@material-ui/icons';
+import ModalContainer from '../../shared/ModalContainer/index';
 
 // Material UI
 import Select from '@material-ui/core/Select';
@@ -50,55 +48,46 @@ const ModalCreatePost = ({ onClose }) => {
 
 
     return (
-        <>
-            <div className="modalCreatePost-Container">
-                <div className="ModalCreatePost-top font-techpot">
-                    <h2 className="font-techpot">Criar publicação</h2>
 
-                    <Close onClick={onClose} style={{ "cursor": "pointer" }} />
+        <ModalContainer close={onClose} title="Criar Post">
 
+            <div className="modalCreatePost-userInfo">
+                <div className="modalCreatePost-profileimgcontainer">
+                    <UserProfileImg />
                 </div>
 
-                <div className="modalCreatePost-userInfo">
-                    <div className="modalCreatePost-profileimgcontainer">
-                        <UserProfileImg />
-                    </div>
-
-                    <div className="modalCreatePost-userInfo-col2">
-                        <h4 className="font-techpot">Pedro Miotti</h4>
-                        <Select placeholder="Aonde postar">
-                            <MenuItem value="0">Hackatruck</MenuItem>
-                            <MenuItem value={10}>TECH</MenuItem>
-                            <MenuItem value={20}>Gamelab</MenuItem>
-                        </Select>
-                    </div>
+                <div className="modalCreatePost-userInfo-col2">
+                    <h4 className="font-techpot">Pedro Miotti</h4>
+                    <Select placeholder="Aonde postar">
+                        <MenuItem value="0">Hackatruck</MenuItem>
+                        <MenuItem value={10}>TECH</MenuItem>
+                        <MenuItem value={20}>Gamelab</MenuItem>
+                    </Select>
                 </div>
-
-                <div className="modalCreatePost-postBody" id='quillEditor'>
-                    <EditorToolbar />
-                    <ReactQuill value={postBody.value} onChange={handleChange} placeholder={"system.out.println(Oque voce está pensando ?) "} modules={modules} formats={formats} />
-                </div>
-
-                <div className="modalCreatePost-bottom">
-                    <div className="modalCreatePost-media-row2">
-                        {/* <Image style={icon}/>
-                        <YouTube style={icon}/> */}
-                    </div>
-
-                    <div className="modalCreatePost-postbtt-col2">
-
-                        <div className={updateBtt ? "modalCreatePost-postbttContainer-col2-active font-techpot" : " modalCreatePost-postbttContainer-col2 font-techpot"}>
-                            <a href="">Postar</a>
-                        </div>
-
-                    </div>
-                </div>
-
             </div>
 
-            <div className="modalCreatePost-overlay" onClick={onClose}></div>
+            <div className="modalCreatePost-postBody" id='quillEditor'>
+                <EditorToolbar />
+                <ReactQuill value={postBody.value} onChange={handleChange} placeholder={"system.out.println(Oque voce está pensando ?) "} modules={modules} formats={formats} />
+            </div>
 
-        </>
+            <div className="modalCreatePost-bottom">
+                <div className="modalCreatePost-media-row2">
+                    {/* <Image style={icon}/>
+                        <YouTube style={icon}/> */}
+                </div>
+
+                <div className="modalCreatePost-postbtt-col2">
+
+                    <div className={updateBtt ? "modalCreatePost-postbttContainer-col2-active font-techpot" : " modalCreatePost-postbttContainer-col2 font-techpot"}>
+                        <a href="">Postar</a>
+                    </div>
+
+                </div>
+            </div>
+
+        </ModalContainer>
+
     )
 }
 

@@ -11,13 +11,13 @@ import { Link } from 'react-router-dom';
         fontSize: 26,
       };
 
-const ContainerList = ({tituloBoxList, children}) => {
+const ContainerList = ({tituloBoxList, children, open}) => {
 
     var addBtn;
     if(tituloBoxList == "Grupos"){
-        addBtn = <Link to="/grupo/criar">< Add id="criar-componente" style={icon}/></Link>
+        addBtn = <a onClick={open}>< Add id="criar-componente" style={icon}/></a>
     } else{
-        addBtn = <Link to="/evento/criar">< Add id="criar-componente" style={icon}/></Link>
+        addBtn = <a onClick={open}>< Add id="criar-componente" style={icon}/></a>
     }
 
     return(
