@@ -15,6 +15,7 @@ const slice = createSlice({
         successMessage: '',
         errorMessage: '',
         groupList: [],
+        groupInfo: {},
     },
 
     reducers: {
@@ -34,7 +35,7 @@ const slice = createSlice({
 
         GROUP_INFO_SUCCESSFUL: (grupo, action) => {
             grupo.loading = false;
-            grupo.perfil = { u: action.payload.u };
+            grupo.groupInfo = { g: action.payload.g };
 
         },
 
@@ -60,32 +61,48 @@ const slice = createSlice({
 
         },
 
+        GROUP_LISTED_SUCCESSFUL: (grupo, action) => {
+            grupo.loading = false;
+            grupo.error = false;
+            grupo.success = true;
+            grupo.groupList = action.payload;
+        },
+
 
     }
 });
 
-export const { GROUP_REQUESTED, GROUP_FAILED, GROUP_INFO_SUCCESSFUL, GROUP_CREATED_SUCCESSFUL, GROUP_LIST_SUCCESSFUL, GROUP_EDITED_SUCCESSFUL, GROUP_DELETED_SUCCESSFUL } = slice.actions;
+export const { GROUP_REQUESTED, GROUP_FAILED, GROUP_INFO_SUCCESSFUL, GROUP_CREATED_SUCCESSFUL, GROUP_LIST_SUCCESSFUL, GROUP_EDITED_SUCCESSFUL, GROUP_DELETED_SUCCESSFUL, GROUP_LISTED_SUCCESSFUL } = slice.actions;
 
 export default slice.reducer;
 
 const url = '/grupo';
 
-export const createGroup = (nome, descricao, tipo_privacidade) => apiCallBegan({
+export const createGroup = (nome, descricao, tipo_privacidade, user_id) => apiCallBegan({
     url: url + "/criar",
     headers: authHeader(),
     method: "post",
-    data: { nome, descricao, tipo_privacidade },
+    data: { nome, descricao, tipo_privacidade, user_id },
     onStart: GROUP_REQUESTED.type,
     onSuccess: GROUP_CREATED_SUCCESSFUL.type,
     onError: GROUP_FAILED.type
 });
 
-export const userInfo = (id) => apiCallBegan({
+export const infoGroup = (id) => apiCallBegan({
     url: url + `/info/${id}`,
     headers: authHeader(),
     method: "get",
     onStart: GROUP_REQUESTED.type,
     onSuccess: GROUP_INFO_SUCCESSFUL.type,
+    onError: GROUP_FAILED.type
+});
+
+export const listGroup = (id) => apiCallBegan({
+    url: url + `/listar/${id}`,
+    headers: authHeader(),
+    method: "get",
+    onStart: GROUP_REQUESTED.type,
+    onSuccess: GROUP_LISTED_SUCCESSFUL.type,
     onError: GROUP_FAILED.type
 });
 

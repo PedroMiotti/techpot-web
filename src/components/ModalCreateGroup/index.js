@@ -14,6 +14,8 @@ const ModalCreateGroup = ({ onClose }) => {
     const [nomeInput, setNomeInput] = useState('');
     const [descInput, setDescInput] = useState('');
 
+    const usuarioId = useSelector(state => state.entitie.user.id)
+
     const privacidadeInput = useRef();
 
     const dispatch = useDispatch();
@@ -21,7 +23,7 @@ const ModalCreateGroup = ({ onClose }) => {
     const criarGrupo = (() => {
         let privacyVal = privacidadeInput.current.value;
 
-        dispatch(createGroup(nomeInput, descInput, privacyVal));
+        dispatch(createGroup(nomeInput, descInput, privacyVal, usuarioId));
     })
 
     return (

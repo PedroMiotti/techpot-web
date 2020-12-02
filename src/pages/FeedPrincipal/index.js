@@ -15,6 +15,8 @@ import ModalCreateGroup from '../../components/ModalCreateGroup/index'
 // Redux
 import { useSelector, useDispatch } from 'react-redux';
 import { listEvent } from '../../store/_entities/Event';
+import { listGroup } from '../../store/_entities/Group';
+
 
 // Helpers
 import { firstLetterUppercase } from '../../helpers/UpperFirstLetter';
@@ -47,9 +49,17 @@ const FeedPrincipal = () => {
   const [showModalCreatePost, setShowModalCreatePost] = useState(false);
   const [showModalCreateGroup, setShowModalCreateGroup] = useState(false);
 
+  // Usuario
   const usuarioPerfil = useSelector(state => state.entitie.user.perfil);
+  const usuarioId = useSelector(state => state.entitie.user.id);
   const usuarioFirstAccess = useSelector(state => state.entitie.user.firstAccess);
+
+  // Evento
   const eventList = useSelector(state => state.entitie.event.eventsList);
+
+  // Grupo
+  const groupList = useSelector(state => state.entitie.group.groupList);
+
   
 
   const dispatch = useDispatch();
@@ -65,6 +75,7 @@ const FeedPrincipal = () => {
   useEffect(() => {
 
     dispatch(listEvent());
+    dispatch(listGroup(usuarioId));
 
   }, [])
     
@@ -75,13 +86,11 @@ const FeedPrincipal = () => {
         <div className="spaced">
           <div id="div-toHide-boxList">
             <ContainerList tituloBoxList="Grupos" open={openModalCreateGroup}>
+
+              {groupList.map((grupos) => (
+                <GroupBox key={grupos.group_id} groupTitle={grupos.group_name} groupId={grupos.group_id} groupMembersNum={grupos.membros}/>
+              ))}
               
-              <GroupBox groupTitle="TECH" groupMembersNum="444" />
-              <GroupBox groupTitle="TECH" groupMembersNum="444" />
-              <GroupBox groupTitle="TECH" groupMembersNum="444" />
-              <GroupBox groupTitle="TECH" groupMembersNum="444" />
-              <GroupBox groupTitle="TECH" groupMembersNum="444" />
-              <GroupBox groupTitle="TECH" groupMembersNum="444" />
             </ContainerList>
 
           </div>
