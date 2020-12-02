@@ -5,8 +5,6 @@ import { apiCallBegan } from "../api";
 // Helpers
 import { authHeader } from '../../helpers/auth-header';
 
-// Helper
-import history from '../../helpers/history'
 
 const slice = createSlice({
     name: "evento",
@@ -22,7 +20,6 @@ const slice = createSlice({
         info: [],
         inviteList: [],
         subscribeList: [],
-
     },
 
     reducers: {

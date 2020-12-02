@@ -87,13 +87,13 @@ const slice = createSlice({
             usuario.firstAccess = true;
             
             localStorage.setItem("_auth", usuario.token)
-
+            
             // If it changes route in the middle of a reducer action it throws this error (TEMP FIX : Use setTimeout) --> Error: You may not call store.getState() while the reducer is executing. The reducer has already received the state as an argument. Pass it down from the top reducer instead of reading it from the store.
             setTimeout(() => {
-               history.push("/");
-                // window.location.reload(true);
+                history.push("/");
+                window.location.reload(true);
             }, 1000);
-
+            
         },
 
         USER_EDITED_SUCCESSFUL: (usuario, action) => {

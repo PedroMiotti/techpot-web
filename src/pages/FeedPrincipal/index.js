@@ -9,6 +9,7 @@ import Post from '../../components/post/index';
 import PostBox from '../../components/postBox/index';
 import PhotoUpdateContainer from '../../components/photoUpdateBox/index'
 import ModalCreatePost from "../../components/ModalCreatePost/index"
+import ModalCreateGroup from '../../components/ModalCreateGroup/index'
 
 
 // Redux
@@ -44,6 +45,7 @@ const FeedPrincipal = () => {
   const classes = useStyles();
 
   const [showModalCreatePost, setShowModalCreatePost] = useState(false);
+  const [showModalCreateGroup, setShowModalCreateGroup] = useState(false);
 
   const usuarioPerfil = useSelector(state => state.entitie.user.perfil);
   const usuarioFirstAccess = useSelector(state => state.entitie.user.firstAccess);
@@ -54,6 +56,10 @@ const FeedPrincipal = () => {
 
   const openModalCreatePost = () => {
     setShowModalCreatePost(!showModalCreatePost);
+  };
+
+  const openModalCreateGroup = () => {
+    setShowModalCreateGroup(!showModalCreateGroup);
   };
 
   useEffect(() => {
@@ -68,7 +74,7 @@ const FeedPrincipal = () => {
       <div id="page" className="font-techpot">
         <div className="spaced">
           <div id="div-toHide-boxList">
-            <ContainerList tituloBoxList="Grupos">
+            <ContainerList tituloBoxList="Grupos" open={openModalCreateGroup}>
               
               <GroupBox groupTitle="TECH" groupMembersNum="444" />
               <GroupBox groupTitle="TECH" groupMembersNum="444" />
@@ -77,14 +83,13 @@ const FeedPrincipal = () => {
               <GroupBox groupTitle="TECH" groupMembersNum="444" />
               <GroupBox groupTitle="TECH" groupMembersNum="444" />
             </ContainerList>
+
           </div>
           <div id="div-posts-FeedPrincipal">
 
             {
               usuarioPerfil.u ?
-                !usuarioFirstAccess ?
-                  null
-                  :
+                usuarioFirstAccess ?
                   <div className="afterRegisterContainer">
 
                     <div className="containerWelcome font-techpot">
@@ -95,11 +100,13 @@ const FeedPrincipal = () => {
                       <PhotoUpdateContainer />
                     </div>
                   </div>
+                  :
+                  null
                 :
                 null
             }
 
-            <PostBox open={openModalCreatePost}/>
+            <PostBox open={ openModalCreatePost }/>
             <Post />
             <Post />
             <Post />
@@ -117,12 +124,17 @@ const FeedPrincipal = () => {
           </div>
         </div>
       </div>
+
       <Fab color="secondary" aria-label="add" className={classes.fab}>
         <Add />
       </Fab>
 
       {showModalCreatePost && (
         <ModalCreatePost onClose={() => setShowModalCreatePost(!showModalCreatePost)} />
+      )}
+
+      {showModalCreateGroup && (
+        <ModalCreateGroup onClose={() => setShowModalCreateGroup(!showModalCreateGroup)} />
       )}
 
       
