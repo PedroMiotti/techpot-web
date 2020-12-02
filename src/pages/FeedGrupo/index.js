@@ -19,6 +19,8 @@ import { Add } from '@material-ui/icons';
 // Redux
 import { useSelector, useDispatch } from 'react-redux';
 import { infoGroup } from '../../store/_entities/Group';
+import { listPostByGroup } from '../../store/_entities/Post';
+
 
 // Helper
 import { firstLetterUppercase } from '../../helpers/UpperFirstLetter';
@@ -43,6 +45,9 @@ const FeedGrupo = () => {
 
   const classes = useStyles();
 
+  // Posts
+  const postListGroup = useSelector(state => state.entitie.post.postListByGroup);
+
   const { id } = useParams();
 
   const dispatch = useDispatch();
@@ -50,6 +55,7 @@ const FeedGrupo = () => {
   useEffect(() => {
     
     dispatch(infoGroup(id));
+    dispatch(listPostByGroup(id));
 
     return () => {}
 
@@ -95,9 +101,11 @@ const FeedGrupo = () => {
       </div>
       <div className="feedGrupoPosts">
         <PostBox />
-        <Post />
-        <Post />
-        <Post />
+
+        {postListGroup.map((posts) => (
+          <Post key={posts.post_id} post_body={posts.post_body} data_criacao={posts.post_data_criacao} post_body_html={posts.post_body_html} post_body={posts.post_body} grupo={posts.group_name} nome_criador={posts.user_name} sobrenome_criador={posts.user_surname} />
+        ))}
+        
       </div>
 
       <Fab color="secondary" aria-label="add" className={classes.fab}>

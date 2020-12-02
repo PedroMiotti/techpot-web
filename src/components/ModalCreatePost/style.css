@@ -1,17 +1,15 @@
-
-.modalCreatePost-userInfo-col2 h4,
-.ModalCreatePost-top h2{
+.modalCreatePost-userInfo-col2 h4, .ModalCreatePost-top h2 {
     font-weight: 300;
 }
 
-
 /* User info  */
-.modalCreatePost-userInfo{
+
+.modalCreatePost-userInfo {
     display: flex;
     padding: 20px;
 }
 
-.modalCreatePost-userInfo-col2 select{
+.modalCreatePost-userInfo-col2 select {
     height: 30px;
     border: 1px solid #7c7c7c;
     border-radius: 20px;
@@ -20,42 +18,45 @@
     width: 100px;
 }
 
-.modalCreatePost-userInfo-col2 h4{
+.modalCreatePost-userInfo-col2 h4 {
     font-weight: 600;
     font-size: 17px;
 }
 
-
 /* Image  */
-.modalCreatePost-profileimgcontainer{
+
+.modalCreatePost-profileimgcontainer {
     display: inline-block;
     width: 50px;
     height: 50px;
     overflow: hidden;
-    border-radius: 50%; 
+    border-radius: 50%;
     margin-right: 20px;
 }
 
-.modalCreatePost-userInfo img{
+.modalCreatePost-userInfo img {
     width: auto;
     height: 100%;
 }
 
- /* Quill Editor  */
-.ql-editor {
-  min-height: 200px;
-}
+/* Quill Editor  */
+
+/* .ql-editor{
+    min-height: 200px;
+} */
+
 
 
 /* Bottom  */
-.modalCreatePost-bottom{
+
+.modalCreatePost-bottom {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px;
 }
 
-.modalCreatePost-postbttContainer-col2{
+.modalCreatePost-postbttContainer-col2 {
     background-color: #c4c4c4;
     text-align: center;
     border-radius: 25px;
@@ -64,12 +65,11 @@
     line-height: 40px;
 }
 
-.modalCreatePost-postbtt-col2 a{
+.modalCreatePost-postbtt-col2 a {
     color: #7c7c7c;
-
 }
 
-.modalCreatePost-postbttContainer-col2-active{
+.modalCreatePost-postbttContainer-col2-active {
     background-color: var(--color-secundary);
     text-align: center;
     border-radius: 25px;
@@ -79,7 +79,6 @@
     cursor: pointer;
 }
 
-.modalCreatePost-postbttContainer-col2-active a{
+.modalCreatePost-postbttContainer-col2-active a {
     color: #fff;
 }
-

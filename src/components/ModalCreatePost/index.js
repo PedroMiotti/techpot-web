@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import './style.css'
 
 // Quill
@@ -14,9 +14,12 @@ import ModalContainer from '../../shared/ModalContainer/index';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 
+// Redux
+import { useSelector, useDispatch } from 'react-redux';
+import { createPost } from '../../store/_entities/Post';
+
 // Hooks 
 import useLockBodyScroll from '../../hooks/useLockBodyScroll'
-
 
 const icon = {
     color: ' #7c7c7c',
@@ -30,11 +33,37 @@ const ModalCreatePost = ({ onClose }) => {
     useLockBodyScroll();
 
     const [postBody, setPostBody] = useState({ value: null });
+    const [postBodyHTML, setPostBodyHTML] = useState({ value: null });
+
     const [updateBtt, setUpdateBtt] = useState(false);
 
-    const handleChange = value => {
-        setPostBody({ value });
+    const groupInput = useRef();
+
+    // Usuario
+    const usuarioId = useSelector(state => state.entitie.user.id);
+
+    // Grupo
+    const groupList = useSelector(state => state.entitie.group.groupList);
+
+    const handleChange = (content) => {
+
+        setPostBodyHTML({ value: content });
+
+        // Get text without html
+        // const text = editor.getText();
+        // setPostBody(text);
     };
+
+    const dispatch = useDispatch();
+
+    const criarPost = (e) => {
+        e.preventDefault()
+
+        let grupoInput = groupInput.current.value;
+
+        dispatch(createPost(postBody, postBodyHTML.value, usuarioId, grupoInput));
+
+    }
 
     useEffect(() => {
 
@@ -44,7 +73,8 @@ const ModalCreatePost = ({ onClose }) => {
         return () => {
             setUpdateBtt(false)
         }
-    }, [postBody])
+        
+    }, [postBody.value])
 
 
     return (
@@ -58,17 +88,19 @@ const ModalCreatePost = ({ onClose }) => {
 
                 <div className="modalCreatePost-userInfo-col2">
                     <h4 className="font-techpot">Pedro Miotti</h4>
-                    <Select placeholder="Aonde postar">
-                        <MenuItem value="0">Hackatruck</MenuItem>
-                        <MenuItem value={10}>TECH</MenuItem>
-                        <MenuItem value={20}>Gamelab</MenuItem>
-                    </Select>
+                    <select placeholder="Aonde postar" ref={groupInput}> 
+
+                        {groupList.map((grupos) => (
+                            <option key={grupos.group_id} value={grupos.group_id}>{grupos.group_name}</option>
+                        ))}
+
+                    </select>
                 </div>
             </div>
 
             <div className="modalCreatePost-postBody" id='quillEditor'>
                 <EditorToolbar />
-                <ReactQuill value={postBody.value} onChange={handleChange} placeholder={"system.out.println(Oque voce está pensando ?) "} modules={modules} formats={formats} />
+                <ReactQuill value={postBodyHTML.value} onChange={handleChange} placeholder={"system.out.println(Oque voce está pensando ?) "} modules={modules} formats={formats} />
             </div>
 
             <div className="modalCreatePost-bottom">
@@ -79,7 +111,7 @@ const ModalCreatePost = ({ onClose }) => {
 
                 <div className="modalCreatePost-postbtt-col2">
 
-                    <div className={updateBtt ? "modalCreatePost-postbttContainer-col2-active font-techpot" : " modalCreatePost-postbttContainer-col2 font-techpot"}>
+                    <div onClick={criarPost} className={updateBtt ? "modalCreatePost-postbttContainer-col2-active font-techpot" : " modalCreatePost-postbttContainer-col2 font-techpot"}>
                         <a href="">Postar</a>
                     </div>
 

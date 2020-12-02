@@ -52,8 +52,6 @@ const EventoCriar = () => {
 
     }
 
-    
-
     const dispatch = useDispatch();
 
     useEffect(() => {

@@ -16,6 +16,8 @@ import ModalCreateGroup from '../../components/ModalCreateGroup/index'
 import { useSelector, useDispatch } from 'react-redux';
 import { listEvent } from '../../store/_entities/Event';
 import { listGroup } from '../../store/_entities/Group';
+import { listPostByUser } from '../../store/_entities/Post';
+
 
 
 // Helpers
@@ -60,6 +62,10 @@ const FeedPrincipal = () => {
   // Grupo
   const groupList = useSelector(state => state.entitie.group.groupList);
 
+  // Posts
+  const postListUser = useSelector(state => state.entitie.post.postListByUser);
+  
+
   
 
   const dispatch = useDispatch();
@@ -76,6 +82,8 @@ const FeedPrincipal = () => {
 
     dispatch(listEvent());
     dispatch(listGroup(usuarioId));
+    dispatch(listPostByUser(usuarioId));
+
 
   }, [])
     
@@ -116,11 +124,12 @@ const FeedPrincipal = () => {
             }
 
             <PostBox open={ openModalCreatePost }/>
-            <Post />
-            <Post />
-            <Post />
-            <Post />
-            <Post />
+
+            {postListUser.map((posts) => (
+              <Post key={posts.post_id} post_body={posts.post_body} data_criacao={posts.post_data_criacao} post_body_html={posts.post_body_html} post_body={posts.post_body} grupo={posts.group_name} nome_criador={posts.user_name} sobrenome_criador={posts.user_surname} />
+            ))}
+
+
           </div>
           <div id="div-toHide-boxList">
             <ContainerList tituloBoxList="Eventos">

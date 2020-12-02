@@ -1,75 +1,71 @@
-.postContainer{
+.postContainer {
     padding: 10px;
     border-radius: 20px;
     box-shadow: 8px 5px 15px #111b24;
     background-color: #fff;
     max-width: 500px;
+    min-width: 500px;
     margin-bottom: 30px;
-    
 }
 
-.postIcon{
+.postIcon {
     color: var(--color-secundary);
 }
 
-.postIcon:hover{
+.postIcon:hover {
     color: #54d0b4;
     cursor: pointer;
 }
 
+/* Post Header  */
 
- /* Post Header  */
-.postHeader{
+.postHeader {
     display: flex;
     padding: 10px 20px 10px 20px;
 }
 
-.postProfilePictureContainer{
+.postProfilePictureContainer {
     display: inline-block;
     width: 50px;
     height: 50px;
     overflow: hidden;
-    border-radius: 50%; 
+    border-radius: 50%;
     margin-bottom: 20px;
 }
 
-.postUserPicture{
+.postUserPicture {
     width: auto;
     height: 100%;
 }
 
-.postInfo{
+.postInfo {
     margin-left: 20px;
 }
 
-.postInfo .postInfoSubtext{
+.postInfo .postInfoSubtext {
     color: rgb(158, 158, 158);
     font-size: 0.8em;
 }
 
- /* Post Content  */
-.postContent{
-    padding: 0 20px 29px 20px;
+/* Post Content  */
+
+.postContent {
+    padding: 0 12px 29px 12px;
 }
 
+/* Post Footer  */
 
- /* Post Footer  */
-.postFooter{
+.postFooter {
     display: flex;
     justify-content: space-around;
-
     margin-top: 30px;
     margin-bottom: 10px;
 }
 
-.postLikesContainer,
-.postCommentsContainer{
+.postLikesContainer, .postCommentsContainer {
     display: flex;
-
 }
 
-.postLikesContainer p,
-.postCommentsContainer p{
+.postLikesContainer p, .postCommentsContainer p {
     margin-left: 12px;
 }
-

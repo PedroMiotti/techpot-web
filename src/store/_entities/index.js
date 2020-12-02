@@ -5,10 +5,12 @@ import { combineReducers } from "redux";
     import UserReducer from './User';
     import EventReducer from './Event';
     import GroupReducer from './Group';
+    import PostReducer from './Post';
 
 export default combineReducers({
     user: UserReducer,
     event: EventReducer,
-    group: GroupReducer
+    group: GroupReducer,
+    post : PostReducer,
     
 });

@@ -52,6 +52,8 @@ Quill.register(Font, true);
 
 // Modules object for setting up the Quill editor
 export const modules = {
+    syntax: true,
+    
     toolbar: {
         container: "#toolbar",
         handlers: {
