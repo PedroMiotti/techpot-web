@@ -42,31 +42,8 @@ const avatarBorder = {
 
 const Evento = () => {
 
-<<<<<<< HEAD
 
     
-=======
-    /* state = {
-        valueInfo: null,
-        loadingInfo: true,
-        errorInfo: null,
-    };
-    this.getInfo();
-    
-    async getInfo(){
-        try{
-            this.setState({loadingInfo: true});
-            const valueInfo = await useSelector(state => state.entitie.event.info);
-            this.setState(valueInfo);
-
-        } catch (error){
-            this.setState({errorInfo: error});
-        } finally {
-            this.setState({loadingInfo: false});
-        }
-    } */
-
->>>>>>> 7f6a42ef00df6b8f6c432acf51305ed17af7cd34
     const eventInfoList = useSelector(state => state.entitie.event.info);
     const inviteList = useSelector(state => state.entitie.event.inviteList);
     const subList = useSelector(state => state.entitie.event.subscribeList);
