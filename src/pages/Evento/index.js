@@ -16,7 +16,6 @@ import Avatar from '@material-ui/core/Avatar';
 import AvatarGroup from '@material-ui/lab/AvatarGroup';
 
 // Redux
-<<<<<<< HEAD
     import { useSelector, useDispatch } from 'react-redux';
     import { infoEvent, listInvitedEvent, listSubEvent } from '../../store/_entities/Event';
     import { firstLetterUppercase } from '../../helpers/UpperFirstLetter';
@@ -24,17 +23,6 @@ import AvatarGroup from '@material-ui/lab/AvatarGroup';
 // Moment
     import * as moment from 'moment';
     import 'moment/locale/pt-br';
-=======
-import { useSelector, useDispatch } from 'react-redux';
-import { infoEvent, listInvitedEvent } from '../../store/_entities/Event';
-
-// Helper
-import { firstLetterUppercase } from '../../helpers/UpperFirstLetter';
-
-// Moment
-import * as moment from 'moment';
-import 'moment/locale/pt-br';
->>>>>>> 7f6a42ef00df6b8f6c432acf51305ed17af7cd34
 
 
 const marginIcon = {
