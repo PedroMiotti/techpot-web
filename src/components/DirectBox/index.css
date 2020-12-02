@@ -1,7 +1,7 @@
 
 
 
-@media screen and (min-width: 801px) and (max-width: 1500px){
+@media screen and (min-width: 801px) and (max-width: 2000px){
     #div-main-DirectBox{
         display: flex;
 
@@ -353,10 +353,6 @@
     }
 
 }
-
-
-
-
 
 
 
