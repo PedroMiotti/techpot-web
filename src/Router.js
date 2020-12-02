@@ -92,9 +92,11 @@ const UseNav = () => {
       {/* Grupo  */}
       <ProtectedRoute path="/grupo/feed/:id" component={FeedGrupo} />
 
-      {/* Evento  */}
-      <Route path="/evento/criar" component={EventoCriar} />
-      <Route exact path="/evento/:id" component={Evento} />
+        {/* Evento  */}
+        <Switch>
+        <Route path="/evento/criar" component={EventoCriar} />
+        <Route exact path="/evento/:id" component={Evento} />
+        </Switch>
 
 
       {/* Mensagens */}

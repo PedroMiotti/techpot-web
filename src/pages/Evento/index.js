@@ -16,15 +16,13 @@ import Avatar from '@material-ui/core/Avatar';
 import AvatarGroup from '@material-ui/lab/AvatarGroup';
 
 // Redux
-import { useSelector, useDispatch } from 'react-redux';
-import { infoEvent, listInvitedEvent } from '../../store/_entities/Event';
-
-// Helper
-import { firstLetterUppercase } from '../../helpers/UpperFirstLetter';
+    import { useSelector, useDispatch } from 'react-redux';
+    import { infoEvent, listInvitedEvent, listSubEvent } from '../../store/_entities/Event';
+    import { firstLetterUppercase } from '../../helpers/UpperFirstLetter';
 
 // Moment
-import * as moment from 'moment';
-import 'moment/locale/pt-br';
+    import * as moment from 'moment';
+    import 'moment/locale/pt-br';
 
 
 const marginIcon = {
@@ -44,26 +42,8 @@ const avatarBorder = {
 
 const Evento = () => {
 
-    /* state = {
-        valueInfo: null,
-        loadingInfo: true,
-        errorInfo: null,
-    };
-    this.getInfo();
+
     
-    async getInfo(){
-        try{
-            this.setState({loadingInfo: true});
-            const valueInfo = await useSelector(state => state.entitie.event.info);
-            this.setState(valueInfo);
-
-        } catch (error){
-            this.setState({errorInfo: error});
-        } finally {
-            this.setState({loadingInfo: false});
-        }
-    } */
-
     const eventInfoList = useSelector(state => state.entitie.event.info);
     const inviteList = useSelector(state => state.entitie.event.inviteList);
     const subList = useSelector(state => state.entitie.event.subscribeList);
@@ -79,7 +59,7 @@ const Evento = () => {
 
     useEffect(() => {
         dispatch(listInvitedEvent(id));
-        /* dispatch(listSubEvent(id)); */
+        dispatch(listSubEvent(id));
     }, [])
 
 

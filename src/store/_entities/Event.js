@@ -176,14 +176,14 @@ export const updateEvent = ( id, nome, descricao, data_inicio, imagemUrl, catego
     onError: EVENT_FAILED.type,
 });
 
-/* export const listSubEvent = (id) => apiCallBegan({
+export const listSubEvent = (id) => apiCallBegan({
     url: url + `/${id}/inscritos`,
     headers: null,
     method: "get",
     onStart: EVENT_REQUESTED.type,
     onSuccess: EVENT_LIST_SUBSCRIBERS_SUCCESSFUL.type,
     onError: EVENT_FAILED.type
-}); */
+});
 
 export const listInvitedEvent = (id) => apiCallBegan({  
     url: url + `/${id}/convidados`,
