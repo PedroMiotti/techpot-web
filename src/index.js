@@ -13,13 +13,17 @@ import * as serviceWorker from './serviceWorker';
 // React-Router
 import { Router } from 'react-router-dom'
 
+
+
 // History
 import history from './helpers/history'
+
+
 
 ReactDOM.render(
   <Router history={history}>
     <Provider store={store}>
-      <Routes />
+        <Routes />
     </Provider>
   </Router>,
   document.getElementById("root")

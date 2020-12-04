@@ -1,56 +1,53 @@
-#FeedPrincipal-div-main{
+#FeedPrincipal-div-main {
     position: relative;
+    display: flex;
+    justify-content: center;
+    
     height: 100vh;
     width: 100%;
 }
 
-
-.spaced{
+.spaced {
     display: flex;
     justify-content: space-between;
 }
 
-#div-toHide-boxList{
+#div-toHide-boxList {
     display: flex;
     justify-content: center;
     margin: 0 2%;
     width: 22%;
 }
 
-.containerWelcome{
+.containerWelcome {
     height: 60px;
     align-self: left;
     width: 500px;
 }
 
-.containerWelcome h3{
+.containerWelcome h3 {
     color: #fff;
     font-weight: 600;
     font-size: 1.6em;
 }
 
-#div-posts-FeedPrincipal{
+#div-posts-FeedPrincipal {
     display: flex;
     flex-direction: column;
-    align-items:center;
+    align-items: center;
     /* width: 40%; */
     margin-top: 40px;
 }
 
-
-
-@media screen and (max-width: 960px){
-    #div-toHide-boxList{
+@media screen and (max-width: 960px) {
+    #div-toHide-boxList {
         display: none;
     }
-
-    .spaced{
+    .spaced {
         justify-content: center;
     }
-
-    #div-posts-FeedPrincipal{
+    #div-posts-FeedPrincipal {
         width: 90%;
         margin: 20px;
-        
     }
 }

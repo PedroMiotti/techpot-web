@@ -50,6 +50,7 @@ const FeedPrincipal = () => {
 
   const [showModalCreatePost, setShowModalCreatePost] = useState(false);
   const [showModalCreateGroup, setShowModalCreateGroup] = useState(false);
+  const [postList, setPostList] = useState([]);
 
   // Usuario
   const usuarioPerfil = useSelector(state => state.entitie.user.perfil);
@@ -66,7 +67,6 @@ const FeedPrincipal = () => {
   const postListUser = useSelector(state => state.entitie.post.postListByUser);
   
 
-  
 
   const dispatch = useDispatch();
 
@@ -79,11 +79,9 @@ const FeedPrincipal = () => {
   };
 
   useEffect(() => {
-
     dispatch(listEvent());
     dispatch(listGroup(usuarioId));
     dispatch(listPostByUser(usuarioId));
-
 
   }, [])
     
