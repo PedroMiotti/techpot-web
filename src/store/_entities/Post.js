@@ -65,14 +65,12 @@ const slice = createSlice({
         POST_LISTED_USER_SUCCESSFUL: (post, action) => {
             post.loading = false;
             post.error = false;
-            post.success = true;
             post.postListByUser = action.payload;
         },
 
         POST_LISTED_GROUP_SUCCESSFUL: (post, action) => {
             post.loading = false;
             post.error = false;
-            post.success = true;
             post.postListByGroup = action.payload;
         },
 

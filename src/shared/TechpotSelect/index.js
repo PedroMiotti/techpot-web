@@ -13,7 +13,7 @@ import Select from '@material-ui/core/Select';
 import InputLabel from '@material-ui/core/InputLabel';
 
 
-
+let padding = 0;
 
 const CustomSelect = withStyles({
     root: {
@@ -86,7 +86,7 @@ const CustomFormControl = withStyles({
         },
 
         '& .MuiOutlinedInput-notchedOutline': {
-            padding: '0 20px 0 13px',
+            padding: `0 ${padding}px 0 13px`,
             marginLeft: "-1.04px"
         },
 
@@ -115,21 +115,23 @@ const useStyles = makeStyles((theme) => ({
 
 
 
-const TechpotSelectInput = ({child, state, changeCB}) => {
+const TechpotSelectInput = ({child, state, changeCB, placeholder, pad}) => {
 
     const classes = useStyles();
+
+    padding = pad;
 
     return (
 
         <CustomFormControl variant="outlined" >
-            <InputLabel htmlFor="outlined-grupo-native-simple" >Grupo</InputLabel>
+            <InputLabel htmlFor="outlined-grupo-native-simple" >{placeholder}</InputLabel>
             <CustomSelect
                 native
-                label="Grupo"
+                label={placeholder}
                 value={state}
                 onChange={changeCB}
                 inputProps={{
-                    name: 'Grupo',
+                    name: `${placeholder}`,
                     id: 'outlined-grupo-native-simple',
                 }}
 

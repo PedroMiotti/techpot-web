@@ -5,18 +5,20 @@ import React from 'react';
 import TextField from '@material-ui/core/TextField';
 
 
-const TechpotTextArea = () => {
+const TechpotTextArea = ({ placeholder, value, onChange }) => {
 
 
     return (
 
         <TextField
             id="standard-multiline-static"
-            label="Descrição do grupo"
+            label={placeholder}
             multiline
             rows={4}
             variant="filled"
             color="secondary"
+            value={value}
+            onChange={onChange}
         />
 
     )

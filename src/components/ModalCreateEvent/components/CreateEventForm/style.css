@@ -41,8 +41,20 @@
     color: #fff;
 }
 
-.CreateGroup-navButtons-Container{
+.CreateGroup-navButtons-Container {
     width: 100%;
     padding: 15px 10px 0 10px;
     text-align: right;
+}
+
+.createEvent-date {
+    box-shadow: 2px 1px 5px #111b2444;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 88%;
+    height: auto;
+    background-color: rgba(224, 224, 224, 0);
+    padding: 20px;
+    border-radius: 10px;
 }

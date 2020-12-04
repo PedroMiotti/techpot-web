@@ -5,6 +5,7 @@ import './style.css';
 import CreateGroupImagePlaceholder from '../../../../assets/CreateGroupImagePlaceholder.jpg'
 
 // AntD
+import 'antd/dist/antd.css';
 import { Upload, message } from 'antd';
 
 // Material UI
@@ -41,7 +42,7 @@ function getBase64(file) {
     });
 }
 
-const CreateGroupImage = ({ values, imgSrcInput, activeStep, isLastStep, handleBack, handleNext, criarGrupo}) => {
+const CreateEventImage = ({ values, imgSrcInput, activeStep, isLastStep, handleBack, handleNext, criarEvento}) => {
     const classes = useStyles();
 
     const [uploadDone, setUploadDone] = useState(false);
@@ -108,7 +109,7 @@ const CreateGroupImage = ({ values, imgSrcInput, activeStep, isLastStep, handleB
                 <Button
                     variant="contained"
                     style={{ backgroundColor: "#d0094d", color: "#fff" }}
-                    onClick={isLastStep ? () => criarGrupo({ imgSrcInput: file }) : () => handleNext({ imgSrcInput: file })}
+                    onClick={isLastStep ? () => criarEvento({ imgSrcInput: file }) : () => handleNext({ imgSrcInput: file })}
                     className={classes.button}
                 >
                     {isLastStep ? 'Criar' : 'Próximo'}
@@ -119,4 +120,4 @@ const CreateGroupImage = ({ values, imgSrcInput, activeStep, isLastStep, handleB
     )
 }
 
-export default CreateGroupImage;
+export default CreateEventImage;

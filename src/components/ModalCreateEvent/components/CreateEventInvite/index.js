@@ -34,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
 
 
 
-const CreateGroupInvite = ({ values, nomeInputProp, descInputProp, groupSelectInputProp, activeStep, isLastStep, handleBack, handleNext, criarGrupo }) => {
+const CreateEventInvite = ({ values, activeStep, isLastStep, handleBack, handleNext, criarEvento }) => {
 
     const classes = useStyles();
 
@@ -71,7 +71,7 @@ const CreateGroupInvite = ({ values, nomeInputProp, descInputProp, groupSelectIn
                 <Button
                     variant="contained"
                     style={{ backgroundColor: "#d0094d", color: "#fff" }}
-                    onClick={isLastStep ? () => criarGrupo(values) : () => handleNext(values)}
+                    onClick={isLastStep ? () => criarEvento(values) : () => handleNext(values)}
                     className={classes.button}
                 >
                     {isLastStep ? 'Criar' : 'Próximo'}
@@ -82,4 +82,4 @@ const CreateGroupInvite = ({ values, nomeInputProp, descInputProp, groupSelectIn
     )
 }
 
-export default CreateGroupInvite;
+export default CreateEventInvite;

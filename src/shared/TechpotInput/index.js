@@ -5,16 +5,18 @@ import React from 'react';
 import TextField from '@material-ui/core/TextField';
 
 
-const TechpotInput = () => {
+const TechpotInput = ({placeholder, value, onChange}) => {
 
 
     return (
 
         <TextField
             id="filled-secondary"
-            label="Nome do grupo"
+            label={placeholder}
             variant="filled"
             color="secondary"
+            value={value}
+            onChange={onChange}
         />
 
     )

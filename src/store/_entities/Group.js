@@ -26,10 +26,18 @@ const slice = createSlice({
             grupo.errorMessage = '';
             grupo.successMessage = '';
         },
+        GROUP_CLEANUP: (grupo, action) => {
+            grupo.loading = false;
+            grupo.error = false;
+            grupo.success = false;
+            grupo.errorMessage = '';
+            grupo.successMessage = '';
+        },
 
         GROUP_FAILED: (grupo, action) => {
             grupo.loading = false;
             grupo.error = true;
+            grupo.success = false;
             grupo.errorMessage = action.payload;
         },
 
@@ -42,6 +50,7 @@ const slice = createSlice({
         GROUP_CREATED_SUCCESSFUL: (grupo, action) => {
             grupo.loading = false;
             grupo.success = true;
+            grupo.error = false;
             grupo.successMessage = action.payload.message;
 
         },
@@ -49,6 +58,7 @@ const slice = createSlice({
         GROUP_EDITED_SUCCESSFUL: (grupo, action) => {
             grupo.loading = false;
             grupo.success = true;
+            grupo.error = false;
             grupo.successMessage = action.payload.message;
 
         },
@@ -64,7 +74,6 @@ const slice = createSlice({
         GROUP_LISTED_SUCCESSFUL: (grupo, action) => {
             grupo.loading = false;
             grupo.error = false;
-            grupo.success = true;
             grupo.groupList = action.payload;
         },
 
@@ -72,7 +81,7 @@ const slice = createSlice({
     }
 });
 
-export const { GROUP_REQUESTED, GROUP_FAILED, GROUP_INFO_SUCCESSFUL, GROUP_CREATED_SUCCESSFUL, GROUP_LIST_SUCCESSFUL, GROUP_EDITED_SUCCESSFUL, GROUP_DELETED_SUCCESSFUL, GROUP_LISTED_SUCCESSFUL } = slice.actions;
+export const { GROUP_REQUESTED, GROUP_CLEANUP, GROUP_FAILED, GROUP_INFO_SUCCESSFUL, GROUP_CREATED_SUCCESSFUL, GROUP_LIST_SUCCESSFUL, GROUP_EDITED_SUCCESSFUL, GROUP_DELETED_SUCCESSFUL, GROUP_LISTED_SUCCESSFUL } = slice.actions;
 
 export default slice.reducer;
 

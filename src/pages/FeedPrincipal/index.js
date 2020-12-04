@@ -10,6 +10,9 @@ import PostBox from '../../components/postBox/index';
 import PhotoUpdateContainer from '../../components/photoUpdateBox/index'
 import ModalCreatePost from "../../components/ModalCreatePost/index"
 import ModalCreateGroup from '../../components/ModalCreateGroup/index'
+import ModalCreateEvent from '../../components/ModalCreateEvent/index'
+import SnackLoad from '../../shared/Snackload/index'
+import SnackMessage from '../../shared/Snackbar/index'
 
 
 // Redux
@@ -50,7 +53,8 @@ const FeedPrincipal = () => {
 
   const [showModalCreatePost, setShowModalCreatePost] = useState(false);
   const [showModalCreateGroup, setShowModalCreateGroup] = useState(false);
-  const [postList, setPostList] = useState([]);
+  const [showModalCreateEvent, setShowModalCreateEvent] = useState(false);
+
 
   // Usuario
   const usuarioPerfil = useSelector(state => state.entitie.user.perfil);
@@ -60,13 +64,29 @@ const FeedPrincipal = () => {
   // Evento
   const eventList = useSelector(state => state.entitie.event.eventsList);
 
+  const eventCreatedLoading = useSelector(state => state.entitie.event.loading);
+  const eventCreatedFailed = useSelector(state => state.entitie.event.error);
+  const eventCreatedErrorMessage = useSelector(state => state.entitie.event.errorMessage);
+  const eventCreatedSuccess = useSelector(state => state.entitie.event.success);
+  const eventCreatedSuccessMessage = useSelector(state => state.entitie.event.successMessage);
+
   // Grupo
   const groupList = useSelector(state => state.entitie.group.groupList);
 
+  const groupCreatedLoading = useSelector(state => state.entitie.group.loading);
+  const groupCreatedFailed = useSelector(state => state.entitie.group.error);
+  const groupCreatedErrorMessage = useSelector(state => state.entitie.group.errorMessage);
+  const groupCreatedSuccess = useSelector(state => state.entitie.group.success);
+  const groupCreatedSuccessMessage = useSelector(state => state.entitie.group.successMessage);
+
   // Posts
   const postListUser = useSelector(state => state.entitie.post.postListByUser);
-  
 
+  const postCreatedLoading = useSelector(state => state.entitie.post.loading);
+  const postCreatedFailed = useSelector(state => state.entitie.post.error);
+  const postCreatedErrorMessage = useSelector(state => state.entitie.post.errorMessage);
+  const postCreatedSuccess = useSelector(state => state.entitie.post.success);
+  const postCreatedSuccessMessage = useSelector(state => state.entitie.post.successMessage);
 
   const dispatch = useDispatch();
 
@@ -78,14 +98,18 @@ const FeedPrincipal = () => {
     setShowModalCreateGroup(!showModalCreateGroup);
   };
 
+  const openModalCreateEvent = () => {
+    setShowModalCreateEvent(!showModalCreateEvent);
+  };
+
   useEffect(() => {
     dispatch(listEvent());
     dispatch(listGroup(usuarioId));
     dispatch(listPostByUser(usuarioId));
 
   }, [])
-    
-  
+
+
   return (
     <div id="FeedPrincipal-div-main">
       <div id="page" className="font-techpot">
@@ -94,34 +118,33 @@ const FeedPrincipal = () => {
             <ContainerList tituloBoxList="Grupos" open={openModalCreateGroup}>
 
               {groupList.map((grupos) => (
-                <GroupBox key={grupos.group_id} groupTitle={grupos.group_name} groupId={grupos.group_id} groupMembersNum={grupos.membros}/>
+                <GroupBox key={grupos.group_id} groupTitle={grupos.group_name} groupId={grupos.group_id} groupMembersNum={grupos.membros} />
               ))}
-              
+
             </ContainerList>
 
           </div>
           <div id="div-posts-FeedPrincipal">
 
             {
-              usuarioPerfil.u ?
-                usuarioFirstAccess ?
-                  <div className="afterRegisterContainer">
 
-                    <div className="containerWelcome font-techpot">
-                      <h3 className="font-techpot">Bem vindo(a) a comunidade TECH {usuarioPerfil.u ? firstLetterUppercase(usuarioPerfil.u.nome) : "Usuario"} !</h3>
-                    </div>
+              usuarioFirstAccess.FA ?
+                <div className="afterRegisterContainer">
 
-                    <div className="containerPhotoUpdate">
-                      <PhotoUpdateContainer />
-                    </div>
+                  <div className="containerWelcome font-techpot">
+                    <h3 className="font-techpot">Bem vindo(a) a comunidade TECH {usuarioPerfil.u ? firstLetterUppercase(usuarioPerfil.u.nome) : "Usuario"} !</h3>
                   </div>
-                  :
-                  null
+
+                  <div className="containerPhotoUpdate">
+                    <PhotoUpdateContainer />
+                  </div>
+                </div>
                 :
                 null
+
             }
 
-            <PostBox open={ openModalCreatePost }/>
+            <PostBox open={openModalCreatePost} />
 
             {postListUser.map((posts) => (
               <Post key={posts.post_id} post_body={posts.post_body} data_criacao={posts.post_data_criacao} post_body_html={posts.post_body_html} post_body={posts.post_body} grupo={posts.group_name} nome_criador={posts.user_name} sobrenome_criador={posts.user_surname} />
@@ -130,11 +153,11 @@ const FeedPrincipal = () => {
 
           </div>
           <div id="div-toHide-boxList">
-            <ContainerList tituloBoxList="Eventos">
+            <ContainerList tituloBoxList="Eventos" open={openModalCreateEvent}>
 
               {eventList.map((eventos) => (
-                    <EventBox key={eventos.event_id} tituloEvento={eventos.event_name} dataEvento={eventos.event_dateInit} tipoEvento={eventos.eventType_name} idEvento={eventos.event_id}/>
-                ))}
+                <EventBox key={eventos.event_id} tituloEvento={eventos.event_name} dataEvento={eventos.event_dateInit} tipoEvento={eventos.eventType_name} idEvento={eventos.event_id} />
+              ))}
 
             </ContainerList>
           </div>
@@ -153,8 +176,30 @@ const FeedPrincipal = () => {
         <ModalCreateGroup onClose={() => setShowModalCreateGroup(!showModalCreateGroup)} />
       )}
 
-      
+      {showModalCreateEvent && (
+        <ModalCreateEvent onClose={() => setShowModalCreateEvent(!showModalCreateEvent)} />
+      )}
 
+
+      {groupCreatedLoading && <SnackLoad show={groupCreatedLoading} />}
+
+      {groupCreatedFailed && <SnackMessage message={groupCreatedErrorMessage} color={"error"} show={groupCreatedFailed} />}
+
+      {groupCreatedSuccess && <SnackMessage message={groupCreatedSuccessMessage} color={"success"} show={groupCreatedSuccess} />}
+
+
+      {postCreatedLoading && <SnackLoad show={postCreatedLoading} />}
+
+      {postCreatedFailed && <SnackMessage message={postCreatedErrorMessage} color={"error"} show={postCreatedFailed} />}
+
+      {postCreatedSuccess && <SnackMessage message={postCreatedSuccessMessage} color={"success"} show={postCreatedSuccess} />}
+
+
+      {eventCreatedLoading && <SnackLoad show={eventCreatedLoading} />}
+
+      {eventCreatedFailed && <SnackMessage message={eventCreatedErrorMessage} color={"error"} show={eventCreatedFailed} />}
+
+      {eventCreatedSuccess && <SnackMessage message={eventCreatedSuccessMessage} color={"success"} show={eventCreatedSuccess} />}
     </div>
   );
 }

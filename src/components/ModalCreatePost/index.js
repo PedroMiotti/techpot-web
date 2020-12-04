@@ -43,6 +43,9 @@ const ModalCreatePost = ({ onClose }) => {
     // Grupo
     const groupList = useSelector(state => state.entitie.group.groupList);
 
+    // Post
+    const postCreatedSuccess = useSelector(state => state.entitie.post.success);
+
 
 
     const handleChange = (content, delta, source, editor) => {
@@ -60,8 +63,13 @@ const ModalCreatePost = ({ onClose }) => {
         e.preventDefault()
 
         dispatch(createPost(postBody, postBodyHTML.value, usuarioId, groupSelectInput));
-        dispatch(listPostByUser(usuarioId))
 
+        
+        if (!postCreatedSuccess) {
+            onClose();
+            dispatch(listPostByUser(usuarioId))
+        }
+        
     }
 
     return (
@@ -75,7 +83,7 @@ const ModalCreatePost = ({ onClose }) => {
                 <div className="modalCreatePost-userInfo-col2">
                     <h4 className="font-techpot">{usuarioPerfil.u.nome + " " + usuarioPerfil.u.sobrenome || " " }</h4>
 
-                    <TechpotSelectInput changeCB={(e) => setGroupSelectInput(e.target.value)} state={groupSelectInput} child={groupList.map((grupos) => (
+                    <TechpotSelectInput pad={20} placeholder="Grupo" changeCB={(e) => setGroupSelectInput(e.target.value)} state={groupSelectInput} child={groupList.map((grupos) => (
                         <option key={grupos.group_id} value={grupos.group_id}>{grupos.group_name}</option>
                     ))} />
 

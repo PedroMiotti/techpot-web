@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 
 // Material UI
@@ -11,17 +11,17 @@ import Typography from '@material-ui/core/Typography';
 
 // Redux
 import { useSelector, useDispatch } from 'react-redux';
-import { createGroup, listGroup } from '../../store/_entities/Group';
+import { createEvent, listCategories, listEvent } from '../../store/_entities/Event';
 
 
 // Components
 import ModalContainer from '../../shared/ModalContainer/index';
+import CreateEventImage from './components/CreateEventImage/index';
+import CreateEventForm from './components/CreateEventForm/index';
+import CreateEventInvite from './components/CreateEventInvite/index';
 
-import CreateGroupImage from './components/CreateGroupImage/index';
-import CreateGroupForm from './components/CreateGroupForm/index';
-import CreateGroupInvite from './components/CreateGroupInvite/index';
-
-
+// Moment
+import * as moment from 'moment';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -42,54 +42,59 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function getSteps() {
-    return ['Imagem do grupo', 'Informações do grupo', 'Convide amigos'];
+    return ['Imagem do evento', 'Informações do evento', 'Convide amigos'];
 }
 
 
-const CreateGroupEvent = ({ onClose, imgSrcInput, nomeInputProp, descInputProp, groupSelectInputProp }) => {
+
+const CreateGroupModal = ({ onClose, imgSrcInput, nomeInputProp, descInputProp, data_inicioProp, tipoSelectProp, data_fimProp, categoriaSelectInputProp }) => {
     const classes = useStyles();
     const [activeStep, setActiveStep] = useState(0);
     const [skipped, setSkipped] = useState(new Set());
     const steps = getSteps();
 
     const [formValues, setFormValues] = useState({
-        imgSrcInput, nomeInputProp, descInputProp, groupSelectInputProp
+        imgSrcInput, nomeInputProp, descInputProp, data_inicioProp, tipoSelectProp, data_fimProp, categoriaSelectInputProp
     });
 
 
     // Usuario
     const usuarioId = useSelector(state => state.entitie.user.id)
 
-    // Grupo
-    const groupCreatedSuccess = useSelector(state => state.entitie.group.success);
-
-
+    // Evento
+    const eventCreatedSuccess = useSelector(state => state.entitie.event.success);
 
     const dispatch = useDispatch();
 
-    const criarGrupo = (() => {
+    const criarEvento = (() => {
+        let dataInicioISO = moment(formValues.data_inicioProp).format('YYYY-MM-DD HH:mm:ss');
+        let dataFimISO = moment(formValues.data_fimProp).format('YYYY-MM-DD HH:mm:ss');
 
-        dispatch(createGroup(formValues.nomeInputProp, formValues.descInputProp, formValues.groupSelectInputProp, usuarioId))
+        dispatch(createEvent(formValues.nomeInputProp, formValues.descInputProp, dataInicioISO, 1, formValues.categoriaSelectInputProp, dataFimISO, formValues.tipoSelectProp, usuarioId))
 
-
-        if (!groupCreatedSuccess) {
+        if (!eventCreatedSuccess) {
             onClose();
-            dispatch(listGroup(usuarioId));
-
+            dispatch(listEvent());
         }
 
-
     })
+
+    useEffect(() => {
+
+        dispatch(listCategories());
+
+    }, []);
+
 
     const getStepContent = (step) => {
         const isLastStep = (activeStep === steps.length - 1);
         switch (step) {
             case 0:
-                return <CreateGroupImage {...formValues} activeStep={activeStep} isLastStep={isLastStep} handleBack={handleBack} handleNext={handleNext} criarGrupo={criarGrupo} />;
+                return <CreateEventImage {...formValues} activeStep={activeStep} isLastStep={isLastStep} handleBack={handleBack} handleNext={handleNext} criarEvento={criarEvento} />;
             case 1:
-                return <CreateGroupForm {...formValues} activeStep={activeStep} isLastStep={isLastStep} handleBack={handleBack} handleNext={handleNext} criarGrupo={criarGrupo} />;
+                return <CreateEventForm {...formValues} activeStep={activeStep} isLastStep={isLastStep} handleBack={handleBack} handleNext={handleNext} criarEvento={criarEvento} />;
             case 2:
-                return <CreateGroupInvite {...formValues} activeStep={activeStep} isLastStep={isLastStep} handleBack={handleBack} handleNext={handleNext} criarGrupo={criarGrupo} />;
+                return <CreateEventInvite {...formValues} activeStep={activeStep} isLastStep={isLastStep} handleBack={handleBack} handleNext={handleNext} criarEvento={criarEvento} />;
             default:
                 return 'Unknown step';
         }
@@ -139,7 +144,7 @@ const CreateGroupEvent = ({ onClose, imgSrcInput, nomeInputProp, descInputProp, 
     };
 
     return (
-        <ModalContainer close={onClose} title="Criar Grupo">
+        <ModalContainer close={onClose} title="Criar Evento">
             <div className={classes.root}>
                 <Stepper activeStep={activeStep}>
                     {steps.map((label, index) => {
@@ -181,4 +186,4 @@ const CreateGroupEvent = ({ onClose, imgSrcInput, nomeInputProp, descInputProp, 
 }
 
 
-export default CreateGroupEvent;
+export default CreateGroupModal;

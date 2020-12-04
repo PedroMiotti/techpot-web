@@ -5,6 +5,14 @@
     margin: 0;
 }
 
+* h2,p, h1, h3, h4, h5 {
+    margin-bottom: 0;
+}
+
+* a:hover{
+    color: #fff;
+}
+
 body {
     background-color: var(--color-primary);
 }

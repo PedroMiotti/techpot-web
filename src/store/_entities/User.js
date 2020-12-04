@@ -29,7 +29,7 @@ const slice = createSlice({
         id: hasToken ? infoUser.u.id : '',
         token: '',
         perfil: {},
-        firstAccess: false
+        firstAccess: {}
     },
 
     reducers: {
@@ -56,7 +56,6 @@ const slice = createSlice({
         USER_LOGIN_SUCCESSFUL: (usuario, action) => {
             usuario.loading = false;
             usuario.isLoggedIn = true;
-            usuario.firstAccess = false;
 
             localStorage.setItem("_auth", action.payload.token)
             
@@ -72,7 +71,6 @@ const slice = createSlice({
             usuario.perfil = {};
             usuario.id = null;
             usuario.token = null;
-            usuario.firstAccess = false;
 
             localStorage.removeItem("_auth")
             history.push("/")
@@ -84,7 +82,7 @@ const slice = createSlice({
             usuario.isLoggedIn = true;
             usuario.successMessage = action.payload.message;
             usuario.token = action.payload.token;
-            usuario.firstAccess = true;
+            usuario.firstAccess = { FA: action.payload.firstAccess};
             
             localStorage.setItem("_auth", usuario.token)
             

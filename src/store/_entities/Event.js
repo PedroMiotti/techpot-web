@@ -52,7 +52,6 @@ const slice = createSlice({
 
         EVENT_LISTED_SUCCESSFUL: (evento, action) =>{
             evento.loading = false;
-            evento.success = true;
             evento.error = false;
             evento.eventsList = action.payload;
         },
@@ -66,14 +65,12 @@ const slice = createSlice({
 
         EVENT_LIST_SUBSCRIBERS_SUCCESSFUL: (evento, action) =>{
             evento.loading = false;
-            evento.success = true;
             evento.error = false;
             evento.subscribeList = action.payload;
         },
 
         EVENT_LIST_INVITED_SUCCESSFUL: (evento, action) =>{
             evento.loading = false;
-            evento.success = true;
             evento.error = false;
             evento.inviteList = action.payload;
         },
@@ -94,7 +91,6 @@ const slice = createSlice({
 
         EVENT_LIST_CATEGORY_SUCCESSFUL: (evento, action) =>{
             evento.loading = false;
-            evento.success = true;
             evento.error = false;
         },
 
@@ -107,14 +103,12 @@ const slice = createSlice({
 
         EVENT_CATEGORY_LIST_SUCCESSFUL: (evento, action) =>{
             evento.loading = false;
-            evento.success = true;
             evento.error = false;
             evento.categoriesList = action.payload;
         },
 
         EVENT_TYPES_LIST_SUCCESSFUL: (evento, action) =>{
             evento.loading = false;
-            evento.success = true;
             evento.error = false;
             evento.typesList = action.payload;
         }
