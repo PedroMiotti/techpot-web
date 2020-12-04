@@ -2,9 +2,6 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-
-    height: 450px;
-    overflow-y: scroll;
 }
 
 .modalCreateGroupContainerPadrao {

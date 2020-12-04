@@ -1,0 +1,31 @@
+.CreateGroupImage-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+
+.CreateGroupImage-imageContainer {
+    display: inline-block;
+    position: relative;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.CreateGroupImage-Image {
+    width: auto;
+    height: 100%;
+    margin-right: -50px;
+}
+
+.CreateGroupImage-Placeholder {
+    width: auto;
+    height: 100%;
+    margin-left: -25px;
+}

@@ -74,7 +74,8 @@ const EventoCriar = () => {
         let categoriaInput = catInput.current.value;
         let tipoInput = typeInput.current.value;
 
-        dispatch(createEvent(nomeInput, descInput, dataIniInput, 1, categoriaInput, dataFimInput, tipoInput, criadorId))
+        console.log(file)
+        // dispatch(createEvent(nomeInput, descInput, dataIniInput, 1, categoriaInput, dataFimInput, tipoInput, criadorId))
 
         setSnack(true);
     }
@@ -90,8 +91,10 @@ const EventoCriar = () => {
                 <div id="EventoCriar-div-left">
                     <input id="EventoCriar-nomeEvento-input" placeholder="*Nome do Evento" value={nomeInput} onChange={e => setNomeInput(e.target.value)} />
                     <textarea id="EventoCriar-descEvento-input" placeholder="*Descreva seu evento..." value={descInput} onChange={e => setDescInput(e.target.value)}></textarea>
+
                     <label for="EventoCriar-dataInicio">Início:</label>
                     <input type="datetime-local" id="EventoCriar-dataInicio" name="dataInicio" value={dataIniInput} onChange={e => setDataIniInput(e.target.value)} />
+
                     <label for="EventoCriar-dataFim">Fim:</label>
                     <input type="datetime-local" id="EventoCriar-dataFim" name="dataFim" value={dataFimInput} onChange={e => setDataFimInput(e.target.value)} />
 
