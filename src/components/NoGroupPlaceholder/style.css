@@ -1,0 +1,23 @@
+.NoGroupsPlaceholder-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+}
+
+.NoGroupsPlaceholder-container p {
+    color: #fff;
+    text-align: center;
+    margin: 15px 0;
+    font-size: 18px;
+}
+
+.NoGroupsPlaceholder-container button{
+    border: none;
+    background-color: var(--color-secundary);
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    width: 50%;
+}

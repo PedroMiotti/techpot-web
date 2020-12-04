@@ -1,0 +1,15 @@
+.NoPostsPlaceholder-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+}
+
+.NoPostsPlaceholder-container p {
+    color: #fff;
+    text-align: center;
+    margin: 15px 0;
+    font-size: 18px;
+}
+

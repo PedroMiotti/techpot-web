@@ -14,6 +14,11 @@ import ModalCreateEvent from '../../components/ModalCreateEvent/index'
 import SnackLoad from '../../shared/Snackload/index'
 import SnackMessage from '../../shared/Snackbar/index'
 
+import NoGroupsPlaceholder from '../../components/NoGroupPlaceholder/index'
+import NoPostsPlaceholder from '../../components/NoPostsPlaceholder/index'
+
+
+
 
 // Redux
 import { useSelector, useDispatch } from 'react-redux';
@@ -59,7 +64,9 @@ const FeedPrincipal = () => {
   // Usuario
   const usuarioPerfil = useSelector(state => state.entitie.user.perfil);
   const usuarioId = useSelector(state => state.entitie.user.id);
-  const usuarioFirstAccess = useSelector(state => state.entitie.user.firstAccess);
+  // const usuarioFirstAccess = useSelector(state => state.entitie.user.firstAccess);
+
+  let usuarioFirstAccess = localStorage.getItem('_firstAccess') || false;
 
   // Evento
   const eventList = useSelector(state => state.entitie.event.eventsList);
@@ -117,9 +124,16 @@ const FeedPrincipal = () => {
           <div id="div-toHide-boxList">
             <ContainerList tituloBoxList="Grupos" open={openModalCreateGroup}>
 
-              {groupList.map((grupos) => (
-                <GroupBox key={grupos.group_id} groupTitle={grupos.group_name} groupId={grupos.group_id} groupMembersNum={grupos.membros} />
-              ))}
+              {groupList.length === 0 ?
+                <NoGroupsPlaceholder />
+
+                :
+
+                groupList.map((grupos) => (
+                  <GroupBox key={grupos.group_id} groupTitle={grupos.group_name} groupId={grupos.group_id} groupMembersNum={grupos.membros} />
+                ))
+
+              }
 
             </ContainerList>
 
@@ -128,7 +142,7 @@ const FeedPrincipal = () => {
 
             {
 
-              usuarioFirstAccess.FA ?
+              usuarioFirstAccess ?
                 <div className="afterRegisterContainer">
 
                   <div className="containerWelcome font-techpot">
@@ -144,12 +158,17 @@ const FeedPrincipal = () => {
 
             }
 
-            <PostBox open={openModalCreatePost} />
-
-            {postListUser.map((posts) => (
-              <Post key={posts.post_id} post_body={posts.post_body} data_criacao={posts.post_data_criacao} post_body_html={posts.post_body_html} post_body={posts.post_body} grupo={posts.group_name} nome_criador={posts.user_name} sobrenome_criador={posts.user_surname} />
-            ))}
-
+            {
+              postListUser.length === 0 ?
+                <NoPostsPlaceholder />
+                :
+                <>
+                  <PostBox open={openModalCreatePost} />
+                  {postListUser.map((posts) => (
+                    <Post key={posts.post_id} post_body={posts.post_body} data_criacao={posts.post_data_criacao} post_body_html={posts.post_body_html} post_body={posts.post_body} grupo={posts.group_name} nome_criador={posts.user_name} sobrenome_criador={posts.user_surname} />
+                  ))}
+                </>
+            }
 
           </div>
           <div id="div-toHide-boxList">
