@@ -6,7 +6,7 @@ import './index.css'
 
 // Components
   import MensagemBox from '../../shared/MensagemBox/index';
-  import BottomLine from '../../shared/bottomLine/index'
+  import BottomLine from '../../shared/BottomLine/index'
 
 const ModalMensagens = ({anchorLeft, anchorTop, onClose}) => {
 

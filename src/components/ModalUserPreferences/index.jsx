@@ -3,7 +3,7 @@ import './index.css'
 
 
 // Components
-import BottomLine from '../../shared/bottomLine/index'
+import BottomLine from '../../shared/BottomLine/index'
 import UserProfileImg from "../../shared/UserProfileImg/index"
 
 // Redux

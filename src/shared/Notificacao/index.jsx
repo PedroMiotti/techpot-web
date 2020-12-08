@@ -5,7 +5,7 @@ import './index.css'
     import HTTP_Post from '../../assets/HTTP.png'
 
 // Components
-  import UserProfileImg from "../../shared/UserProfileImg/index"
+  import UserProfileImg from "../UserProfileImg/index"
 
 const NotificacaoBox = ({ fontColor }) => {
     return (

@@ -7,7 +7,7 @@ import EventBox from '../../components/EventBox/index';
 import GroupBox from '../../components/GroupBox/index';
 import Post from '../../components/post/index';
 import PostBox from '../../components/postBox/index';
-import PhotoUpdateContainer from '../../components/photoUpdateBox/index'
+import PhotoUpdateContainer from '../../components/NoUserPhotoAlert/index'
 import ModalCreatePost from "../../components/ModalCreatePost/index"
 import ModalCreateGroup from '../../components/ModalCreateGroup/index'
 import ModalCreateEvent from '../../components/ModalCreateEvent/index'

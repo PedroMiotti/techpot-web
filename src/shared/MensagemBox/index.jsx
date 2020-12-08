@@ -2,7 +2,7 @@ import React from "react";
 import "./index.css";
 
 // Components
-  import UserProfileImg from "../../shared/UserProfileImg/index"
+  import UserProfileImg from "../UserProfileImg/index"
 
 const MensagemBox = ({ DirectMobile }) => {
   return (

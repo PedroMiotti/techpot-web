@@ -6,7 +6,7 @@ import './index.css'
 
 // Components
   import NotificacaoBox from '../../shared/Notificacao/index';
-  import BottomLine from '../../shared/bottomLine/index'
+  import BottomLine from '../../shared/BottomLine/index'
 
 const ModalNotificacao = ({anchorLeft, anchorTop, onClose}) => {
 

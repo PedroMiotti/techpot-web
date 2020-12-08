@@ -1,5 +1,5 @@
 import React from 'react';
-import './style/index.css';
+import './index.css';
 
 // Assets
 import postTestPicture from '../../assets/Flavio.jpg';
@@ -9,7 +9,7 @@ import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.bubble.css';
 
 // Components
-import BottomLine from '../../shared/bottomLine/index';
+import BottomLine from '../../shared/BottomLine/index';
 
 // Icons
 import { FavoriteBorder, ChatBubbleOutline } from '@material-ui/icons'

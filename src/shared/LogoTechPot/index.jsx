@@ -10,7 +10,7 @@ const LogoTechPot = () => {
                         
         <div class="logoContainer">
 
-            <img src={logoIconTechPot} class="logoIcon" alt="logoTechpotiCon"/>
+            <img src={logoIconTechPot} class="logoIcon" alt="logo Techpot Icon"/>
             <a class="logoText" href="/">TECHPOT</a>
 
         </div>
