@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: var(--color-primary);
+}
+
+:root {
+    --color-primary: #1e2e3e;
+    --color-secundary: #d0094d;
+    --color-terciary: #04d361;
+    --color-secundary-hover: #a0063c;
+}
+
+.font-techpot {
+    font-family: 'PT Sans', sans-serif;
+}
+
+/* Custom scrollbar  */
+
+/* Firefox  */
+
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-secundary) #111b24;
+}
+
+/* Chrome/Edge/Safari */
+
+*::-webkit-scrollbar {
+    width: 10px;
+}
+
+*::-webkit-scrollbar-track {
+    background: #111b24;
+    border-radius: 20px;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: var(--color-secundary);
+    border-radius: 10px;
+    border: 3px solid #111b24;
+}

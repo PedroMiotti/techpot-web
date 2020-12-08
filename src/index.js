@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import 'antd/dist/antd.css';
-import './Index.css'
-import Routes from './Router'
+import './index.css'
+
+// AntD
+import './antd.css';
 
 // Redux 
 import store from './store/index'
@@ -13,6 +14,7 @@ import * as serviceWorker from './serviceWorker';
 // React-Router
 import { Router } from 'react-router-dom'
 
+import Routes from './Router'
 
 
 // History

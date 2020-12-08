@@ -57,17 +57,17 @@ const EventBox = ({ tituloEvento, dataEvento, tipoEvento, idEvento }) => {
   const avatarBorder = {
     border: 0
   }
-  
+
   // Formating date
   moment().locale('pt-br');
-  const data = moment(dataEvento); 
+  const data = moment(dataEvento);
   const diaDoMes = data.date();
   const mes = data.format("MMMM");
   const ano = data.format('YYYY');
   const diaDaSemana = data.format("dddd");
   const horaInicio = data.format("LT");
 
-  
+
 
 
   return (
@@ -78,16 +78,16 @@ const EventBox = ({ tituloEvento, dataEvento, tipoEvento, idEvento }) => {
       </Link>
       <Link to={`/evento/${idEvento}`} className="eventBox2-bottom-Container-row1">
         <div className="eventBox2-DayBox">
-          <h3>{diaDoMes}</h3>
+          <p>{diaDoMes}</p>
         </div>
         <div id="eventBox2-bottom-details-row1" class="font-techpot">
-          <h4 id="eventBox2-titulo">{firstLetterUppercase(diaDaSemana)}</h4>
+          <p id="eventBox2-titulo2-teste">{firstLetterUppercase(diaDaSemana)}</p>
           <p id="eventBox2-data">{firstLetterUppercase(mes)}, {ano}</p>
         </div>
       </Link>
       <Link to={`/evento/${idEvento}`} className="eventBox2-bottom-Container-row2">
         <div id="eventBox2-bottom-details" class="font-techpot">
-          <h3 id="eventBox2-titulo">{tituloEvento}</h3>
+          <p id="eventBox2-titulo2-teste" className="eventBox2-titulo1">{tituloEvento}</p>
           <p id="eventBox2-data">Começa às {horaInicio} &middot; {tipoEvento}</p>
         </div>
       </Link>

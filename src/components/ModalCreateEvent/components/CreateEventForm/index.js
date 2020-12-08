@@ -65,14 +65,9 @@ const CreateEventForm = ({ values, nomeInputProp, descInputProp, data_inicioProp
 
 
     function onChange(dates, dateStrings) {
-        // console.log('From: ', dates[0], ', to: ', dates[1]);
-        // console.log('From: ', dateStrings[0], ', to: ', dateStrings[1]);
         setDataIniInput(dates[0])
         setDataFimInput(dates[1])
-
     }
-
-
 
     return (
         <>
@@ -89,8 +84,8 @@ const CreateEventForm = ({ values, nomeInputProp, descInputProp, data_inicioProp
 
                     <div className="createEvent-date  ">
 
-                        <RangePicker placeholder={["Data inicio", "Data Fim"]} value={[dataIniInput, dataFimInput]} onChange={onChange}  showTime bordered={false}/>
-
+                        <RangePicker placeholder={["Data inicio", "Data Fim"]} value={[dataIniInput, dataFimInput]} onChange={onChange} showTime bordered={false}/>
+  
                     </div>
 
                     <div className="creategroup-info-privacy  modalCreateGroupContainerPadrao">

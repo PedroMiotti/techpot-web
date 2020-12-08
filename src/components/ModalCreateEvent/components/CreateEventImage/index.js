@@ -5,8 +5,8 @@ import './style.css';
 import CreateGroupImagePlaceholder from '../../../../assets/CreateGroupImagePlaceholder.jpg'
 
 // AntD
-import 'antd/dist/antd.css';
-import { Upload, message } from 'antd';
+// import 'antd/dist/antd.css';
+import { Upload } from 'antd';
 
 // Material UI
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';

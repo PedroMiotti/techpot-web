@@ -1,10 +1,7 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 
 // Router
-import { Switch, Route, useLocation, BrowserRouter } from 'react-router-dom';
-
-// Redux
-import { useSelector, } from 'react-redux'
+import { Switch, Route, useLocation } from 'react-router-dom';
 
 // Componentes
 import Navbar from './components/Navbar/index';
@@ -16,32 +13,40 @@ import useWindowDimensions from "./hooks/useWindowDimensions";
 
 
 // Pages
+import MainFeed from './pages/MainFeed';
 
-import Login from './pages/Login';
-import Registro from './pages/Registro/index'
+// Auth
+import Login from './pages/Auth/Login';
+import Register from './pages/Auth/Register'
 
-import FeedGrupo from './pages/FeedGrupo/index';
-import FeedPrincipal from './pages/FeedPrincipal';
-import Evento from './pages/Evento/index';
-import EventoCriar from './pages/Evento-Criar/index.js';
-import PerfilUsuario from './pages/perfilUsuario/index.js';
-import EditUsuario from './pages/EditUsuario/index'
+// Group
+import GroupFeed from './pages/Group/Feed';
 
-// Mobile
-import EventsMobile from './pages/EventsMobile';
-import SearchPageMobile from './pages/SearchPageMobile/index';
-import NotificaoMobile from './pages/NotificacaoMobile/index';
-import DirectMobile from './pages/DirectMobile/index';
-import DirectWeb from './pages/DirectWeb/index';
-import MsgDireta from './pages/MsgDireta';
+// Event
+import EventFeed from './pages/Event/Create';
+import EventCreate from './pages/Event/Feed';
+
+// User
+import UserProfile from './pages/User/Profile';
+import UserEdit from './pages/User/Edit'
 
 // 404
 import PageNotFound from './pages/404/index'
 
+// Mobile
+import MobileSearch from './pages/Mobile/Search';
+import MobileNotification from './pages/Mobile/Notification';
 
-const Test = () => {
+// Event
+import EventSearchMobile from './pages/Event/SearchMobile';
+
+// Messages
+import DirectMobile from './pages/Messages/DirectMobile';
+import DirectWeb from './pages/Messages/DirectWeb';
+import MsgDireta from './pages/Messages/MsgDireta';
 
 
+const Router = () => {
   return (
     <Switch>
 
@@ -60,13 +65,13 @@ const Test = () => {
 const NoNavbar = () => {
   return (
     <>
-      {/* Login && Registro  */}
-      <Route path="/registro" component={Registro} />
+      {/* Login && Register  */}
+      <Route path="/registro" component={Register} />
       <Route path="/login" component={Login} />
 
 
       {/* Usuario  */}
-      <ProtectedRoute path="/usuario/perfil/editar/:id" component={EditUsuario} />
+      <ProtectedRoute path="/usuario/perfil/editar/:id" component={UserEdit} />
     </>
   )
 }
@@ -86,35 +91,35 @@ const UseNav = () => {
       <Navbar pathName={currentURL.pathname} />
 
       {/* Home  */}
-      <ProtectedRoute exact path="/" component={FeedPrincipal} />
+      <ProtectedRoute exact path="/" component={MainFeed} />
 
 
       {/* Grupo  */}
-      <ProtectedRoute path="/grupo/feed/:id" component={FeedGrupo} />
+      <ProtectedRoute path="/grupo/feed/:id" component={GroupFeed} />
 
-        {/* Evento  */}
-        <Switch>
-        <Route path="/evento/criar" component={EventoCriar} />
-        <Route exact path="/evento/:id" component={Evento} />
-        </Switch>
+      {/* Evento  */}
+      <Switch>
+        <Route path="/evento/criar" component={EventCreate} />
+        <Route exact path="/evento/:id" component={EventFeed} />
+      </Switch>
 
 
       {/* Mensagens */}
       <ProtectedRoute path="/direct/user" component={DirectWeb} />
 
       {/* Usuario  */}
-      <ProtectedRoute path="/usuario/perfil/:id" component={PerfilUsuario} />
+      <ProtectedRoute path="/usuario/perfil/:id" component={UserProfile} />
 
 
       {/* Mobile Exclusive */}
 
       {width <= 961 ?
         <>
-          <ProtectedRoute path="/mobile-eventos" component={EventsMobile} />
+          <ProtectedRoute path="/mobile-eventos" component={EventSearchMobile} />
 
-          <ProtectedRoute path="/mobile-search" component={SearchPageMobile} />
+          <ProtectedRoute path="/mobile-search" component={MobileSearch} />
 
-          <ProtectedRoute path="/mobile-notificacao" component={NotificaoMobile} />
+          <ProtectedRoute path="/mobile-notificacao" component={MobileNotification} />
 
           <ProtectedRoute path="/mobile-directs" component={DirectMobile} />
 
@@ -129,4 +134,4 @@ const UseNav = () => {
   )
 }
 
-export default Test;
+export default Router;

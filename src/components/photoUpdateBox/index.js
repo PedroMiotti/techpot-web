@@ -1,9 +1,5 @@
 import React from 'react';
-import './style/index.css'
-
-
-// Icons
-    import { ImageOutlined } from '@material-ui/icons';
+import './index.css'
 
 // Components
     import UserProfileImg from "../../shared/UserProfileImg/index"
