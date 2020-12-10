@@ -1,11 +1,11 @@
 import React from 'react';
-import './index.css';
+import './style.css';
 
-import SearchImg from '../../assets/Flavio.jpg';
+import SearchImg from '../../../../../assets/Flavio.jpg';
 
-const SearchBox = () => {
+const SearchResultBox = () => {
     return(
-        <div id="div-container-SearchBox" class="font-techpot">
+        <div id="div-container-SearchResultBox" class="font-techpot">
             <div id="searchBox-div-img">
                 <img src={SearchImg} id="searchBox-img" alt="searchImage"/>
             </div>
@@ -20,4 +20,4 @@ const SearchBox = () => {
     );
 }
 
-export default SearchBox;
+export default SearchResultBox;

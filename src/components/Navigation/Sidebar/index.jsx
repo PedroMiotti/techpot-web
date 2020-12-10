@@ -1,8 +1,8 @@
 import React from 'react';
-import './index.css'
+import './style.css'
 
 // Components
-import GroupListContainer from '../../../shared/GroupListContainer/index'
+import GroupListContainer from './components/GroupListContainer/index'
 import UserProfileImg from '../../../shared/UserProfileImg/index';
 
 // Icons
@@ -52,7 +52,6 @@ const Sidebar = ({ onClose }) => {
                     <GroupListContainer />
                     <GroupListContainer />
                     <GroupListContainer />
-
                 </div>
             </div>
         </div>

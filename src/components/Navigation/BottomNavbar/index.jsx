@@ -1,5 +1,5 @@
 import React from 'react';
-import './index.css';
+import './style.css';
 
 // Materia UI
 import { Notifications, Home, Search, Event, AccountCircle} from '@material-ui/icons';

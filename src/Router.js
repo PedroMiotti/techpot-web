@@ -31,7 +31,7 @@ import UserProfile from './pages/User/Profile';
 import UserEdit from './pages/User/Edit'
 
 // 404
-import PageNotFound from './pages/404/index'
+import PageNotFound from './pages/404'
 
 // Mobile
 import MobileSearch from './pages/Mobile/Search';

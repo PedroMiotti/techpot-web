@@ -1,11 +1,11 @@
 import React from 'react';
-import './index.css';
+import './style.css';
 
 // Icons
     import SearchIcon from '@material-ui/icons/Search';
 
 // Components
-import SearchBox from '../../../components/SearchBox/index';
+import SearchBox from './components/SearchResultBox';
 
 const Search = () => {
     return(

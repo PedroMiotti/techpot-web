@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import './index.css';
+import './style.css';
 
 // Assets
 import groupImagePic from '../../../assets/unnamed.png'

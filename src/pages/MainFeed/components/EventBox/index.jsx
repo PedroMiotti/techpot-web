@@ -3,16 +3,16 @@ import './style.css';
 
 
 //Assets
-import eventImage from '../../assets/HackaTruck.jpg'
-import RafaPic from '../../assets/Rafa.jpg'
-import FlavioPic from '../../assets/Flavio.jpg'
+import eventImage from '../../../../assets/HackaTruck.jpg'
+import RafaPic from '../../../../assets/Rafa.jpg'
+import FlavioPic from '../../../../assets/Flavio.jpg'
 
 // Moment
 import * as moment from 'moment';
 import 'moment/locale/pt-br';
 
 // Helpers
-import { firstLetterUppercase } from '../../helpers/UpperFirstLetter'
+import { firstLetterUppercase } from '../../../../helpers/UpperFirstLetter'
 
 // Icons
 import { CheckCircleOutlineOutlined } from '@material-ui/icons'
@@ -24,9 +24,6 @@ import { makeStyles } from '@material-ui/core/styles';
 
 // React Router
 import { Link } from 'react-router-dom';
-
-// Redux
-import { useSelector, useDispatch } from 'react-redux';
 
 
 const useStyles = makeStyles((theme) => ({

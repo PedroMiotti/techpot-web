@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import './index.css'
+import './style.css'
 
 // Icons
   import { MailOutline } from "@material-ui/icons";

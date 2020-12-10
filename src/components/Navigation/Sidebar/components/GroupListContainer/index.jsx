@@ -1,9 +1,9 @@
 import React from 'react'
-import './index.css'
+import './style.css'
 
 
 // Assets
-    import groupListTestPic from '../../assets/unnamed.png';
+import groupListTestPic from '../../../../../assets/unnamed.png';
 
 
 const GroupListContainer = () => {
@@ -17,8 +17,6 @@ const GroupListContainer = () => {
                 <h3>Tech</h3>
                 <p>193 Membros</p>
             </div>
-
-
 
         </div>
     )

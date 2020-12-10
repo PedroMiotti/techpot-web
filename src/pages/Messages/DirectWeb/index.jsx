@@ -1,5 +1,5 @@
 import React from 'react';
-import './index.css';
+import './style.css';
 
 // Icons
 import { MoreHoriz } from '@material-ui/icons';
@@ -7,7 +7,7 @@ import { MoreHoriz } from '@material-ui/icons';
 // Assets
 import userProfilePicture from '../../../assets/Rafa.jpg';
 import contactProfilePicture from '../../../assets/Flavio.jpg';
-import DirectBox from '../../../components/DirectBox';
+import DirectBox from '../../../components/UserMessageBox';
 
 
 const icon = {

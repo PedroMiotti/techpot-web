@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 import './style.css';
 
 // Components
-import ContainerList from '../../components/ContainerList/index';
-import EventBox from '../../components/EventBox/index';
-import GroupBox from '../../components/GroupBox/index';
+import ContainerList from './components/ListContainer';
+import GroupBox from './components/GroupBox';
+import EventBox from './components/EventBox';
 import Post from '../../components/Post/index';
 import PostBox from '../../components/CreatePostContainer/index';
 import PhotoUpdateContainer from '../../components/NoUserPhotoAlert/index'
@@ -118,7 +118,7 @@ const MainFeed = () => {
       { load ?
         <LoadingScreen />
         :
-        <div id="FeedPrincipal-div-main ">
+        <div id="FeedPrincipal-div-main">
             <div className="spaced font-techpot">
               <div id="div-toHide-boxList">
                 <ContainerList tituloBoxList="Grupos" open={openModalCreateGroup}>

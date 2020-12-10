@@ -1,17 +1,17 @@
 import React, { useState, Fragment, useRef, useEffect } from "react";
-import "./index.css";
+import "./style.css";
 
 // Router
 import { Link, useHistory } from "react-router-dom";
 
 // Icons
-import { Mail, Menu, Notifications, SearchOutlined, ArrowBack, Add, ArrowDropDown } from "@material-ui/icons";
+import { Mail, Menu, Notifications, SearchOutlined, ArrowBack, Add } from "@material-ui/icons";
 
 // Componentes
 import LogoTechPot from "../../../shared/LogoTechPot/index";
 import Sidebar from "../../Navigation/Sidebar/index";
-import ModalNotificacao from "../../ModalNotificacao/index";
-import ModalMensagens from "../../ModalMensagens/index";
+import ModalNotificacao from "../../ModalNotification/index";
+import ModalMensagens from "../../ModalMessage/index";
 import ModalUserPreferences from '../../ModalUserPreferences/index'
 import UserProfileImg from "../../../shared/UserProfileImg/index"
 

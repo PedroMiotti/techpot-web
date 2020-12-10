@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './index.css';
+import './style.css';
 
 // Components
 import LogoTechPot from '../../../shared/LogoTechPot/index'

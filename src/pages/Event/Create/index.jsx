@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
-import './index.css';
+import './style.css';
 
 // Redux
 import { useSelector, useDispatch } from 'react-redux';

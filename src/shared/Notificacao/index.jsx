@@ -1,5 +1,5 @@
 import React from 'react';
-import './index.css'
+import './style.css'
 
 // Assets
     import HTTP_Post from '../../assets/HTTP.png'
