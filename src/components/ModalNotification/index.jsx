@@ -5,7 +5,7 @@ import './index.css'
   import { NotificationsNoneOutlined } from '@material-ui/icons';
 
 // Components
-  import NotificacaoBox from '../../shared/Notificacao/index';
+  import NotificacaoBox from '../../shared/NotificationListBox/index';
   import BottomLine from '../../shared/BottomLine/index'
 
 const ModalNotificacao = ({anchorLeft, anchorTop, onClose}) => {

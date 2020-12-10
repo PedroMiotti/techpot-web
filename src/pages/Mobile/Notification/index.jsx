@@ -2,7 +2,7 @@ import React from 'react'
 import './index.css'
 
 // Components
-import NotificacaoBox from '../../../shared/Notificacao'
+import NotificacaoBox from '../../../shared/NotificationListBox'
 
 const Notification = () => {
     return (
