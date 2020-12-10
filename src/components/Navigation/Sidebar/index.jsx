@@ -2,20 +2,17 @@ import React from 'react';
 import './index.css'
 
 // Components
-import GroupListContainer from '../../shared/GroupListContainer/index'
-import UserProfileImg from '../../shared/UserProfileImg/index';
-
-// React Awesome
-// import { Slide } from "react-awesome-reveal";
+import GroupListContainer from '../../../shared/GroupListContainer/index'
+import UserProfileImg from '../../../shared/UserProfileImg/index';
 
 // Icons
 import { Close } from '@material-ui/icons'
 
 // Helpers
-import { firstLetterUppercase } from '../../helpers/UpperFirstLetter';
+import { firstLetterUppercase } from '../../../helpers/UpperFirstLetter';
 
 // Redux
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 const Sidebar = ({ onClose }) => {
 

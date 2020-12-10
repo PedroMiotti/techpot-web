@@ -1,9 +1,6 @@
 .modalContainer-container {
     position: absolute;
-
     top: 10%;
-
-
     z-index: 5;
     width: 600px;
     height: auto;

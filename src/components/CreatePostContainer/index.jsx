@@ -1,5 +1,5 @@
 import React from 'react';
-import './style/index.css'
+import './style.css'
 
 
 // Icons

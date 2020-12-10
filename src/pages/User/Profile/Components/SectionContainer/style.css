@@ -1,0 +1,106 @@
+.sectionContainer-container {
+    margin: 100px 20px;
+}
+
+.sectionContainer-titulo {
+    padding-top: 25px;
+    margin-bottom: 15px;
+}
+
+.sectionContainer-titulo h1 {
+    color: #fff;
+    font-size: 2.2rem;
+}
+
+.sectionContainer-body {
+    display: flex;
+    min-height: 250px;
+    width: auto;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.sectionContainer-body a {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    margin: 20px 30px;
+}
+
+/* Grupo  */
+
+.PerfilUsuario-GroupChild-container img {
+    width: 150px;
+    border-radius: 50%;
+    padding-left: 3.5vh;
+    padding-right: 3.5vh;
+}
+
+.PerfilUsuario-GroupChild-container h3 {
+    color: #eee;
+    text-align: center;
+    margin-top: 10px;
+    max-width: 25vh;
+    font-weight: 300;
+}
+
+.PerfilUsuario-GroupChild-container h3:hover {
+    color: var(--color-terciary);
+    transition: 0.44s;
+}
+
+.PerfilUsuario-GroupChild-container h3:active {
+    color: var(--color-terciary);
+}
+
+/* Evento  */
+
+.PerfilUsuario-EventChild-imageContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 250px;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 30px;
+}
+
+.PerfilUsuario-EventChild-imageContainer img {
+    width: auto;
+    height: 100%;
+}
+
+.PerfilUsuario-EventChild-container h3 {
+    color: #eee;
+    text-align: center;
+    font-size: 1.1rem;
+    margin: 15px 0;
+    max-width: auto;
+    font-weight: 300;
+}
+
+.PerfilUsuario-EventChild-container h3:hover {
+    color: var(--color-terciary);
+    transition: 0.44s;
+}
+
+.PerfilUsuario-EventChild-container h3:active {
+    color: var(--color-terciary);
+}
+
+@media only screen and (max-width: 850px) {
+    .sectionContainer-titulo h1 {
+        font-size: 1.75rem;
+    }
+    .PerfilUsuario-GroupChild-container h3 {
+        font-size: 1rem;
+    }
+    .PerfilUsuario-EventChild-container {
+        max-width: 180px;
+    }
+    .PerfilUsuario-EventChild-container h3 {
+        font-size: 1.05rem;
+    }
+}

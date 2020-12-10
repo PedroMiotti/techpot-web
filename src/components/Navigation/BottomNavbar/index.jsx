@@ -1,7 +1,10 @@
 import React from 'react';
 import './index.css';
+
+// Materia UI
 import { Notifications, Home, Search, Event, AccountCircle} from '@material-ui/icons';
 
+// React Router
 import {Link} from 'react-router-dom'; 
 
 const icon = {

@@ -13,7 +13,9 @@ body {
     --color-primary: #1e2e3e;
     --color-secundary: #d0094d;
     --color-terciary: #04d361;
+    
     --color-secundary-hover: #a0063c;
+    --color-terciary-hover: #00af4f;
 }
 
 .font-techpot {

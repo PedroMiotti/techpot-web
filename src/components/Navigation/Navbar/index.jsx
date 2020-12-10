@@ -8,22 +8,22 @@ import { Link, useHistory } from "react-router-dom";
 import { Mail, Menu, Notifications, SearchOutlined, ArrowBack, Add, ArrowDropDown } from "@material-ui/icons";
 
 // Componentes
-import LogoTechPot from "../../shared/LogoTechPot/index";
-import Sidebar from "../Sidebar/index";
-import ModalNotificacao from "../ModalNotificacao/index";
-import ModalMensagens from "../ModalMensagens/index";
-import ModalUserPreferences from '../ModalUserPreferences/index'
-import UserProfileImg from "../../shared/UserProfileImg/index"
+import LogoTechPot from "../../../shared/LogoTechPot/index";
+import Sidebar from "../../Navigation/Sidebar/index";
+import ModalNotificacao from "../../ModalNotificacao/index";
+import ModalMensagens from "../../ModalMensagens/index";
+import ModalUserPreferences from '../../ModalUserPreferences/index'
+import UserProfileImg from "../../../shared/UserProfileImg/index"
 
 // Hooks
-import useWindowDimensions from "../../hooks/useWindowDimensions";
+import useWindowDimensions from "../../../hooks/useWindowDimensions";
 
 // Redux
 import { useSelector, useDispatch } from 'react-redux';
-import { userInfo } from '../../store/_entities/User';
+import { userInfo } from '../../../store/_entities/User';
 
 // Helpers
-import { firstLetterUppercase } from '../../helpers/UpperFirstLetter';
+import { firstLetterUppercase } from '../../../helpers/UpperFirstLetter';
 
 
 const icon = {

@@ -4,8 +4,8 @@ import React from 'react';
 import { Switch, Route, useLocation } from 'react-router-dom';
 
 // Componentes
-import Navbar from './components/Navbar/index';
-import BottomNavbar from './components/BottomNavbar/index';
+import Navbar from './components/Navigation/Navbar/index';
+import BottomNavbar from './components/Navigation/BottomNavbar/index';
 import ProtectedRoute from './shared/ProtectedRoute/index';
 
 // Hooks

@@ -5,8 +5,8 @@ import './index.css';
 import groupImagePic from '../../../assets/unnamed.png'
 
 // Components
-import PostBox from '../../../components/postBox/index'
-import Post from '../../../components/post/index'
+import PostBox from '../../../components/CreatePostContainer/index'
+import Post from '../../../components/Post/index'
 
 // Material UI
 import Fab from "@material-ui/core/Fab";

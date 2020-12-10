@@ -66,20 +66,12 @@
     color: #000;
 }
 
-#eventBox2-bottom-details-row1 #eventBox2-titulo2-teste,
- #eventBox2-bottom-details #eventBox2-titulo2-teste {
+.eventBox2-bottom-Container-row2 h3 {
     font-size: 18px;
     font-weight: 600;
-    color: #000;
 }
 
-.eventBox2-titulo1 {
-    font-size: 14px;
-    font-weight: 500;
-    color: rgb(133, 133, 133);
-}
-
-.eventBox2-titulo2-teste {
+.eventBox2-bottom-Container-row2 p {
     font-size: 14px;
     font-weight: 500;
     color: rgb(133, 133, 133);

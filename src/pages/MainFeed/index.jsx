@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import './index.css';
+import './style.css';
 
 // Components
 import ContainerList from '../../components/ContainerList/index';
 import EventBox from '../../components/EventBox/index';
 import GroupBox from '../../components/GroupBox/index';
-import Post from '../../components/post/index';
-import PostBox from '../../components/postBox/index';
+import Post from '../../components/Post/index';
+import PostBox from '../../components/CreatePostContainer/index';
 import PhotoUpdateContainer from '../../components/NoUserPhotoAlert/index'
 import ModalCreatePost from "../../components/ModalCreatePost/index"
 import ModalCreateGroup from '../../components/ModalCreateGroup/index'
@@ -48,7 +48,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-
 const MainFeed = () => {
 
   const classes = useStyles();
@@ -57,8 +56,6 @@ const MainFeed = () => {
   const [showModalCreateGroup, setShowModalCreateGroup] = useState(false);
   const [showModalCreateEvent, setShowModalCreateEvent] = useState(false);
   const [load, setLoad] = useState(false);
-
-
 
   // Usuario
   const usuarioPerfil = useSelector(state => state.entitie.user.perfil);
@@ -121,30 +118,22 @@ const MainFeed = () => {
       { load ?
         <LoadingScreen />
         :
-        <div id="FeedPrincipal-div-main">
-          <div id="page" className="font-techpot">
-            <div className="spaced">
+        <div id="FeedPrincipal-div-main ">
+            <div className="spaced font-techpot">
               <div id="div-toHide-boxList">
                 <ContainerList tituloBoxList="Grupos" open={openModalCreateGroup}>
-
                   {groupList.length === 0 ?
                     <NoGroupsPlaceholder />
-
                     :
-
                     groupList.map((grupos) => (
                       <GroupBox key={grupos.group_id} groupTitle={grupos.group_name} groupId={grupos.group_id} groupMembersNum={grupos.membros} />
                     ))
-
                   }
-
                 </ContainerList>
 
               </div>
               <div id="div-posts-FeedPrincipal">
-
                 {
-
                   usuarioFirstAccess ?
                     <div className="afterRegisterContainer">
 
@@ -184,7 +173,6 @@ const MainFeed = () => {
                 </ContainerList>
               </div>
             </div>
-          </div>
 
           <Fab color="secondary" aria-label="add" className={classes.fab}>
             <Add />
