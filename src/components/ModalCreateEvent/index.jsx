@@ -167,7 +167,7 @@ const CreateGroupModal = ({ onClose, imgSrcInput, nomeInputProp, descInputProp, 
                     {activeStep === steps.length ? (
                         <div>
                             <Typography className={classes.instructions}>
-                                All steps completed - you&apos;re finished
+                                Acabou
                             </Typography>
                             <Button onClick={handleReset} className={classes.button}>
                                 Reset

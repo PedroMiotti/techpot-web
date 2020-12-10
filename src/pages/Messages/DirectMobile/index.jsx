@@ -2,7 +2,7 @@ import React from 'react';
 import './style.css';
 
 //Components
-import MensagemBox from '../../../shared/MensagemBox/index';
+import MensagemBox from '../../../shared/MessageListBox/index';
 
 const DirectMobile = () =>{
     return (

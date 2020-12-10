@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import './index.css';
+import './style.css';
 
 // React Router
 import { useParams } from 'react-router-dom';
@@ -19,11 +19,10 @@ import AvatarGroup from '@material-ui/lab/AvatarGroup';
 // Redux
 import { useSelector, useDispatch } from 'react-redux';
 import { infoEvent, listInvitedEvent, listSubEvent } from '../../../store/_entities/Event';
-import { firstLetterUppercase } from '../../../helpers/UpperFirstLetter';
 
-// Moment
-import * as moment from 'moment';
-import 'moment/locale/pt-br';
+// Helpers
+import { DateFormatter } from '../../../helpers/dataFormatter'
+import { firstLetterUppercase } from '../../../helpers/UpperFirstLetter';
 
 
 const marginIcon = {
@@ -39,11 +38,7 @@ const avatarBorder = {
 }
 
 
-
-
 const Evento = () => {
-
-
 
     const eventInfoList = useSelector(state => state.entitie.event.info);
     const inviteList = useSelector(state => state.entitie.event.inviteList);
@@ -52,34 +47,30 @@ const Evento = () => {
     const { id } = useParams();
 
     const dispatch = useDispatch();
-
+    
     useEffect(() => {
+
         dispatch(infoEvent(id));
-
-    }, {})
-
-    useEffect(() => {
         dispatch(listInvitedEvent(id));
         dispatch(listSubEvent(id));
+
     }, [])
 
 
-    function hora() {
-        // Formating date
-        moment().locale('pt-br');
-        const inicio = moment(eventInfoList.e.data_inicio);
-        var horaInicio = inicio.format("LT");
-        var dataInicio = inicio.format("L");
-        const fim = moment(eventInfoList.e.data_fim);
-        var horaFim = fim.format("LT");
-        var dataFim = fim.format("L");
+    let fullDataInicio;
+    let horaInicio;
+    let fullDataFim;
+    let horaFim;
 
-        return {
-            horaInicio,
-            dataInicio,
-            dataFim,
-            horaFim
-        };
+    // Formating date
+    if (eventInfoList.e){
+        const dataInicio = new DateFormatter(eventInfoList.e.data_inicio);
+        fullDataInicio = dataInicio.getFullDate();
+        horaInicio = dataInicio.getHour();
+    
+        const dataFim = new DateFormatter(eventInfoList.e.data_fim);
+        fullDataFim = dataFim.getFullDate();
+        horaFim = dataFim.getHour();
     }
 
 
@@ -94,7 +85,7 @@ const Evento = () => {
 
                 <div className="eventoTopbar-SecondRow-Container">
                     <div className="eventoTopbar-SecondRow-FirstColumn">
-                        <h3>{eventInfoList.e ? `${hora().dataInicio} - ${hora().horaInicio}` : ""}</h3>
+                        <h3>{eventInfoList.e ? `${fullDataInicio} - ${horaInicio}` : ""}</h3>
                         <h1>{eventInfoList.e ? firstLetterUppercase(eventInfoList.e.nome) : "Evento"}</h1>
                         <p>Evento {eventInfoList.e ? eventInfoList.e.tipoNome : ""}</p>
                     </div>
@@ -125,9 +116,9 @@ const Evento = () => {
                         <AccessTime style={redIcon} />
                         <p>{eventInfoList.e ?
                             eventInfoList.e.data_fim ?
-                                `${hora().dataInicio} - ${hora().horaInicio} até ${hora().dataFim} - ${hora().horaFim}`
+                                `${fullDataInicio} - ${horaInicio} até ${fullDataFim} - ${horaFim}`
                                 :
-                                `${hora().dataInicio} - ${hora().horaInicio}`
+                                `${fullDataInicio} - ${horaInicio}`
                             : ""}
                         </p>
 

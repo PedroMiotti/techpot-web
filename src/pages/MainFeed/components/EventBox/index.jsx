@@ -7,12 +7,9 @@ import eventImage from '../../../../assets/HackaTruck.jpg'
 import RafaPic from '../../../../assets/Rafa.jpg'
 import FlavioPic from '../../../../assets/Flavio.jpg'
 
-// Moment
-import * as moment from 'moment';
-import 'moment/locale/pt-br';
-
 // Helpers
 import { firstLetterUppercase } from '../../../../helpers/UpperFirstLetter'
+import { DateFormatter } from '../../../../helpers/dataFormatter'
 
 // Icons
 import { CheckCircleOutlineOutlined } from '@material-ui/icons'
@@ -56,16 +53,12 @@ const EventBox = ({ tituloEvento, dataEvento, tipoEvento, idEvento }) => {
   }
 
   // Formating date
-  moment().locale('pt-br');
-  const data = moment(dataEvento);
-  const diaDoMes = data.date();
-  const mes = data.format("MMMM");
-  const ano = data.format('YYYY');
-  const diaDaSemana = data.format("dddd");
-  const horaInicio = data.format("LT");
-
-
-
+  const data = new DateFormatter(dataEvento);
+  const diaDoMes = data.getDayOfMonth();
+  const mes = data.getMonth();
+  const ano = data.getYear();
+  const diaDaSemana = data.getDay();
+  const horaInicio = data.getHour();
 
   return (
     <div id="container-eventBox2" className="font-techpot">

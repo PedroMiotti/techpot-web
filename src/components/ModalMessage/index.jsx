@@ -5,7 +5,7 @@ import './style.css'
   import { MailOutline } from "@material-ui/icons";
 
 // Components
-  import MensagemBox from '../../shared/MensagemBox/index';
+  import MensagemBox from '../../shared/MessageListBox/index';
   import BottomLine from '../../shared/BottomLine/index'
 
 const ModalMensagens = ({anchorLeft, anchorTop, onClose}) => {

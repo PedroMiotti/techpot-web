@@ -23,8 +23,7 @@ import Register from './pages/Auth/Register'
 import GroupFeed from './pages/Group/Feed';
 
 // Event
-import EventFeed from './pages/Event/Create';
-import EventCreate from './pages/Event/Feed';
+import EventFeed from './pages/Event/Feed';
 
 // User
 import UserProfile from './pages/User/Profile';
@@ -98,10 +97,7 @@ const UseNav = () => {
       <ProtectedRoute path="/grupo/feed/:id" component={GroupFeed} />
 
       {/* Evento  */}
-      <Switch>
-        <Route path="/evento/criar" component={EventCreate} />
-        <Route exact path="/evento/:id" component={EventFeed} />
-      </Switch>
+      <Route exact path="/evento/:id" component={EventFeed} />
 
 
       {/* Mensagens */}
