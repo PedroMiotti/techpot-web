@@ -4,22 +4,22 @@ import 'moment/locale/pt-br';
 
 moment().locale('pt-br');
 
-export class DateFormatter{
-    constructor(date){
+export class DateFormatter {
+    constructor(date) {
         this.date = moment(date);
     }
-    
-    getFullDate(){
+
+    getFullDate() {
         const fullDate = this.date.format("L");
         return fullDate;
     }
-    
-    getYear(){
+
+    getYear() {
         const year = this.date.format('YYYY');
         return year;
     }
 
-    getMonth(){
+    getMonth() {
         const month = this.date.format('MMMM');
         return month;
     }
@@ -29,12 +29,12 @@ export class DateFormatter{
         return day;
     }
 
-    getDayOfMonth(){
+    getDayOfMonth() {
         const dayOfMonth = this.date.date();
         return dayOfMonth;
     }
 
-    getHour(){
+    getHour() {
         const hour = this.date.format("LT");
         return hour;
     }

@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css'
+import * as serviceWorker from './serviceWorker';
 
 // AntD
 import './antd.css';
@@ -8,8 +9,6 @@ import './antd.css';
 // Redux 
 import store from './store/index'
 import { Provider } from 'react-redux'
-
-import * as serviceWorker from './serviceWorker';
 
 // React-Router
 import { Router } from 'react-router-dom'

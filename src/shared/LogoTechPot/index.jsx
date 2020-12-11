@@ -5,13 +5,13 @@ import './style.css';
     import logoIconTechPot from '../../assets/LogoIconTechpot.svg';
 
 
-const LogoTechPot = () => {
+const LogoTechPot = ({ textSizeX }) => {
     return(
                         
-        <div class="logoContainer">
+        <div className="logoContainer">
 
-            <img src={logoIconTechPot} class="logoIcon" alt="logo Techpot Icon"/>
-            <a class="logoText" href="/">TECHPOT</a>
+            <img src={logoIconTechPot} className="logoIcon" alt="logo Techpot Icon"/>
+            <a className="logoText" style={textSizeX ? {fontSize: '3em'} : {fontSize: '2em'}} href="/">TECHPOT</a>
 
         </div>
 

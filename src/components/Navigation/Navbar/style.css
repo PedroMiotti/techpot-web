@@ -74,8 +74,8 @@
 .navbarSearchBox{
     width: 100%;
     padding: 10px 20px;
-    border-top-left-radius: 50px;
-    border-bottom-left-radius: 50px;
+    border-top-left-radius: 7px;
+    border-bottom-left-radius: 7px;
 
     display: flex;
     border: 1px;
@@ -89,8 +89,8 @@
     background-color: #fff;
     color: var(--color-secundary);
 
-    border-top-right-radius: 50px;
-    border-bottom-right-radius: 50px;
+    border-top-right-radius: 7px;
+    border-bottom-right-radius: 7px;
     width: 60px;
 }
 

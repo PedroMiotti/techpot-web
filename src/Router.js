@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 // Router
 import { Switch, Route, useLocation } from 'react-router-dom';
@@ -10,7 +10,6 @@ import ProtectedRoute from './shared/ProtectedRoute/index';
 
 // Hooks
 import useWindowDimensions from "./hooks/useWindowDimensions";
-
 
 // Pages
 import MainFeed from './pages/MainFeed';
@@ -44,8 +43,45 @@ import DirectMobile from './pages/Messages/DirectMobile';
 import DirectWeb from './pages/Messages/DirectWeb';
 import MsgDireta from './pages/Messages/MsgDireta';
 
+// Redux
+import { useSelector, useDispatch } from 'react-redux';
+import { userInfo } from './store/_entities/User';
+import { listEvent } from './store/_entities/Event';
+import { listGroup } from './store/_entities/Group';
+import { listPostByUser } from './store/_entities/Post';
+
 
 const Router = () => {
+  // Get User ID
+  const usuarioId = useSelector(state => state.entitie.user.id);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+
+    const loadInitialData = async () => {
+
+      await dispatch(userInfo(usuarioId));
+      await dispatch(listEvent());
+      await dispatch(listGroup(usuarioId));
+      await dispatch(listPostByUser(usuarioId));
+
+      const loadinSpinner = document.getElementById('ipl-progress-indicator')
+      if (loadinSpinner) {
+        // fade out
+        loadinSpinner.classList.add('available')
+        setTimeout(() => {
+          // remove from DOM
+          loadinSpinner.outerHTML = ''
+        }, 2000)
+      }
+
+    }
+
+    loadInitialData();
+
+  }, [dispatch])
+
   return (
     <Switch>
 

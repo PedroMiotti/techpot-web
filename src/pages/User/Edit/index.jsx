@@ -3,7 +3,6 @@ import './style.css'
 
 // Component
 import UserProfileImg from "../../../shared/UserProfileImg/index";
-import LoadingScreen from '../../../components/LoadingScreen/index';
 
 // React Router
 import { Link, useParams } from 'react-router-dom';

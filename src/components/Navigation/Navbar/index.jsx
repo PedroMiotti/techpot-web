@@ -1,4 +1,4 @@
-import React, { useState, Fragment, useRef, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import "./style.css";
 
 // Router
@@ -19,12 +19,10 @@ import UserProfileImg from "../../../shared/UserProfileImg/index"
 import useWindowDimensions from "../../../hooks/useWindowDimensions";
 
 // Redux
-import { useSelector, useDispatch } from 'react-redux';
-import { userInfo } from '../../../store/_entities/User';
+import { useSelector } from 'react-redux';
 
 // Helpers
 import { firstLetterUppercase } from '../../../helpers/UpperFirstLetter';
-
 
 const icon = {
   color: "#fff",
@@ -32,12 +30,10 @@ const icon = {
   cursor: "pointer",
 };
 
-
-
 const Navbar = ({ pathName }) => {
-  const [ toggleSidebar, setToggleSidebar ] = useState(false);
-  const [showModalNotification, setShowModalNotification ] = useState(false);
-  const [ showModalMensagens, setShowModalMensagens ] = useState(false);
+  const [toggleSidebar, setToggleSidebar] = useState(false);
+  const [showModalNotification, setShowModalNotification] = useState(false);
+  const [showModalMensagens, setShowModalMensagens] = useState(false);
   const [showModalUserPreferences, setShowModalUserPreferences] = useState(false);
   const [anchorLeft, setAnchorLeft] = useState(null);
   const [anchorTop, setAnchorTop] = useState(null);
@@ -46,8 +42,6 @@ const Navbar = ({ pathName }) => {
   const modalMensagendsRef = useRef();
   const modalUserPreferencesRef = useRef();
 
-  // Getting user id && perfil
-  const usuarioId = useSelector(state => state.entitie.user.id);
   const usuarioPerfil = useSelector(state => state.entitie.user.perfil);
 
   const { width } = useWindowDimensions();
@@ -96,23 +90,15 @@ const Navbar = ({ pathName }) => {
     setAnchorTop(postion.bottom);
   };
 
-
   const history = useHistory();
 
   const goBackPrevious = () => {
     history.goBack();
   }
 
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-
-    dispatch(userInfo(usuarioId));
-
-  }, [])
 
   return (
-    <Fragment>
+    <>
       {showModalNotification && (
         <ModalNotificacao
           anchorLeft={anchorLeft}
@@ -222,7 +208,7 @@ const Navbar = ({ pathName }) => {
       {toggleSidebar && (
         <Sidebar onClose={() => setToggleSidebar(!toggleSidebar)} />
       )}
-    </Fragment>
+    </>
   );
 };
 
