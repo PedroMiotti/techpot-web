@@ -16,7 +16,7 @@ import { useSelector } from 'react-redux';
 
 const Sidebar = ({ onClose }) => {
 
-    const usuarioPerfil = useSelector(state => state.entitie.user.perfil);
+    const usuarioPerfil = useSelector(state => state.entitie.user.profile);
 
     return (
         <div className="sidebarContainer font-techpot">

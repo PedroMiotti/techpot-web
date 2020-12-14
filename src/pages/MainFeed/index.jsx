@@ -52,7 +52,7 @@ const MainFeed = () => {
   const [showModalCreateEvent, setShowModalCreateEvent] = useState(false);
 
   // Usuario
-  const usuarioPerfil = useSelector(state => state.entitie.user.perfil);
+  const usuarioPerfil = useSelector(state => state.entitie.user.profile);
   
   let usuarioFirstAccess = localStorage.getItem('_firstAccess') || false;
 
@@ -95,6 +95,8 @@ const MainFeed = () => {
     setShowModalCreateEvent(!showModalCreateEvent);
   };
 
+  //! ERROR Re-rendering 8 times due to useSelector changes
+
   return (
 
     <div id="FeedPrincipal-div-main">
@@ -136,7 +138,7 @@ const MainFeed = () => {
               :
               <>
                 {postListUser.map((posts) => (
-                  <Post key={posts.post_id} post_body={posts.post_body} data_criacao={posts.post_data_criacao} post_body_html={posts.post_body_html} post_body={posts.post_body} grupo={posts.group_name} nome_criador={posts.user_name} sobrenome_criador={posts.user_surname} />
+                  <Post key={posts.post_id} post_body={posts.post_body} data_criacao={posts.post_data_criacao} post_body_html={posts.post_body_html} post_body={posts.post_body} grupo={posts.group_name} id_criador={posts.user_id} nome_criador={posts.user_name} sobrenome_criador={posts.user_surname} />
                 ))}
               </>
           }

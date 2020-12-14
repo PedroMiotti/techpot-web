@@ -20,8 +20,9 @@ import CreateEventImage from './components/CreateEventImage/index';
 import CreateEventForm from './components/CreateEventForm/index';
 import CreateEventInvite from './components/CreateEventInvite/index';
 
-// Moment
-import * as moment from 'moment';
+
+// Helpers
+import { DateFormatter } from '../../helpers/dataFormatter';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -66,16 +67,18 @@ const CreateGroupModal = ({ onClose, imgSrcInput, nomeInputProp, descInputProp, 
 
     const dispatch = useDispatch();
 
-    const criarEvento = (() => {
-        let dataInicioISO = moment(formValues.data_inicioProp).format('YYYY-MM-DD HH:mm:ss');
-        let dataFimISO = moment(formValues.data_fimProp).format('YYYY-MM-DD HH:mm:ss');
+    const criarEvento = ( async() => {
 
-        dispatch(createEvent(formValues.nomeInputProp, formValues.descInputProp, dataInicioISO, 1, formValues.categoriaSelectInputProp, dataFimISO, formValues.tipoSelectProp, usuarioId))
+        const dataInicio = new DateFormatter(formValues.data_inicioProp);
+        let dataInicioISO = dataInicio.toSQLFormat();
 
-        if (!eventCreatedSuccess) {
-            onClose();
-            dispatch(listEvent());
-        }
+        const dataFim = new DateFormatter(formValues.data_fimProp);
+        let dataFimISO = dataFim.toSQLFormat();
+
+        await dispatch(createEvent(formValues.nomeInputProp, formValues.descInputProp, dataInicioISO, 1, formValues.categoriaSelectInputProp, dataFimISO, formValues.tipoSelectProp, usuarioId))
+
+        onClose();
+        await dispatch(listEvent());
 
     })
 

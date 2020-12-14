@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import './style.css'
 
 // Quill
@@ -38,15 +38,10 @@ const ModalCreatePost = ({ onClose }) => {
 
     // Usuario
     const usuarioId = useSelector(state => state.entitie.user.id);
-    const usuarioPerfil = useSelector(state => state.entitie.user.perfil);
+    const usuarioPerfil = useSelector(state => state.entitie.user.profile);
 
     // Grupo
     const groupList = useSelector(state => state.entitie.group.groupList);
-
-    // Post
-    const postCreatedSuccess = useSelector(state => state.entitie.post.success);
-
-
 
     const handleChange = (content, delta, source, editor) => {
 
@@ -59,17 +54,15 @@ const ModalCreatePost = ({ onClose }) => {
 
     const dispatch = useDispatch();
 
-    const criarPost = (e) => {
+    const criarPost = async (e) => {
         e.preventDefault()
 
-        dispatch(createPost(postBody, postBodyHTML.value, usuarioId, groupSelectInput));
+        await dispatch(createPost(postBody, postBodyHTML.value, usuarioId, groupSelectInput));
 
-        
-        if (!postCreatedSuccess) {
-            onClose();
-            dispatch(listPostByUser(usuarioId))
-        }
-        
+
+        onClose();
+        await dispatch(listPostByUser(usuarioId))
+
     }
 
     return (
@@ -81,7 +74,7 @@ const ModalCreatePost = ({ onClose }) => {
                 </div>
 
                 <div className="modalCreatePost-userInfo-col2">
-                    <h4 className="font-techpot">{usuarioPerfil.u.nome + " " + usuarioPerfil.u.sobrenome || " " }</h4>
+                    <h4 className="font-techpot">{usuarioPerfil.u.nome + " " + usuarioPerfil.u.sobrenome || " "}</h4>
 
                     <TechpotSelectInput pad={20} placeholder="Grupo" changeCB={(e) => setGroupSelectInput(e.target.value)} state={groupSelectInput} child={groupList.map((grupos) => (
                         <option key={grupos.group_id} value={grupos.group_id}>{grupos.group_name}</option>

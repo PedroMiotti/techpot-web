@@ -20,7 +20,7 @@ import { Link } from "react-router-dom";
 const ModalUserPreferences = ({ anchorLeft, anchorTop, onClose }) => {
 
 
-  const usuarioPerfil = useSelector(state => state.entitie.user.perfil);
+  const usuarioPerfil = useSelector(state => state.entitie.user.profile);
   const usuarioId = useSelector(state => state.entitie.user.id)
 
   const dispatch = useDispatch();

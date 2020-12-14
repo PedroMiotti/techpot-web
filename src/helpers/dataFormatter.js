@@ -38,5 +38,15 @@ export class DateFormatter {
         const hour = this.date.format("LT");
         return hour;
     }
+
+    getRelativeTime(){
+        const relTime = this.date.fromNow();
+        return relTime;
+    }
+
+    toSQLFormat() {
+        const sqlFormat = moment(this.date).format('YYYY-MM-DD HH:mm:ss');
+        return sqlFormat;
+    } 
 }
 

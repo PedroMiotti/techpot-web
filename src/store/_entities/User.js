@@ -28,8 +28,8 @@ const slice = createSlice({
         isLoggedIn: hasToken ? true : false,
         id: hasToken ? infoUser.u.id : '',
         token: '',
-        perfil: {},
-        firstAccess: {}
+        profile: {},
+        otherUserProfile: {}
     },
 
     reducers: {
@@ -47,18 +47,29 @@ const slice = createSlice({
             usuario.errorMessage = action.payload;
         },
 
-        USER_INFO_SUCCESSFUL: (usuario, action) => {
+        USER_PROFILE_SUCCESSFUL: (usuario, action) => {
             usuario.loading = false;
-            usuario.perfil = { u: action.payload.u }; 
+            usuario.profile = { u: action.payload.u };
 
         },
+
+        USER_INFO_SUCCESSFUL: (usuario, action) => {
+            usuario.loading = false;
+            usuario.otherUserProfile = { u: action.payload.u };
+        },
+
+        USER_INFO_CLEANUP: (usuario, action) => {
+            usuario.loading = false;
+            usuario.otherUserProfile = {};
+        },
+
 
         USER_LOGIN_SUCCESSFUL: (usuario, action) => {
             usuario.loading = false;
             usuario.isLoggedIn = true;
 
             localStorage.setItem("_auth", action.payload.token)
-            
+
             setTimeout(() => {
                 history.push("/");
                 window.location.reload(true);
@@ -68,7 +79,7 @@ const slice = createSlice({
 
         USER_LOGOUT: (usuario, action) => {
             usuario.isLoggedIn = false;
-            usuario.perfil = {};
+            usuario.profile = {};
             usuario.id = null;
             usuario.token = null;
 
@@ -83,16 +94,16 @@ const slice = createSlice({
             usuario.isLoggedIn = true;
             usuario.successMessage = action.payload.message;
             usuario.token = action.payload.token;
-            
+
             localStorage.setItem("_auth", usuario.token)
             localStorage.setItem("_firstAccess", true)
-            
+
             // If it changes route in the middle of a reducer action it throws this error (TEMP FIX : Use setTimeout) --> Error: You may not call store.getState() while the reducer is executing. The reducer has already received the state as an argument. Pass it down from the top reducer instead of reading it from the store.
             setTimeout(() => {
                 history.push("/");
                 window.location.reload(true);
             }, 1000);
-            
+
         },
 
         USER_EDITED_SUCCESSFUL: (usuario, action) => {
@@ -125,28 +136,28 @@ const slice = createSlice({
     }
 });
 
-export const { USER_REQUESTED, USER_FAILED, USER_INFO_SUCCESSFUL, USER_LOGIN_SUCCESSFUL, USER_LOGOUT ,USER_CREATED_SUCCESSFUL, USER_LIST_SUCCESSFUL, USER_EDITED_SUCCESSFUL, USER_DELETED_SUCCESSFUL, USER_EDIT_PROFILE_SUCCESSFUL } = slice.actions;
+export const { USER_REQUESTED, USER_FAILED, USER_PROFILE_SUCCESSFUL, USER_INFO_SUCCESSFUL, USER_INFO_CLEANUP, USER_LOGIN_SUCCESSFUL, USER_LOGOUT, USER_CREATED_SUCCESSFUL, USER_LIST_SUCCESSFUL, USER_EDITED_SUCCESSFUL, USER_DELETED_SUCCESSFUL, USER_EDIT_PROFILE_SUCCESSFUL } = slice.actions;
 
 export default slice.reducer;
 
 const url = '/usuario';
 
-export const createUser = (nome, sobrenome, email, senha ) => apiCallBegan({
+export const createUser = (nome, sobrenome, email, senha) => apiCallBegan({
     url: url + "/criar",
     headers: null,
     method: "post",
-    data: { nome, sobrenome, email, senha  },
+    data: { nome, sobrenome, email, senha },
     onStart: USER_REQUESTED.type,
     onSuccess: USER_CREATED_SUCCESSFUL.type,
     onError: USER_FAILED.type
 });
 
-export const userInfo = ( id ) => apiCallBegan({
+export const userInfo = (id, self) => apiCallBegan({
     url: url + `/info/${id}`,
     headers: authHeader(),
     method: "get",
     onStart: USER_REQUESTED.type,
-    onSuccess: USER_INFO_SUCCESSFUL.type,
+    onSuccess: self ? USER_PROFILE_SUCCESSFUL.type : USER_INFO_SUCCESSFUL.type ,
     onError: USER_FAILED.type
 });
 
@@ -161,7 +172,7 @@ export const loginUser = (email, senha) => apiCallBegan({
 });
 
 
-export const editUser = (id, nome, sobrenome, bio, ocupacao, github, linkedin ) => apiCallBegan({
+export const editUser = (id, nome, sobrenome, bio, ocupacao, github, linkedin) => apiCallBegan({
     url: url + "/editar",
     headers: authHeader(),
     method: "post",

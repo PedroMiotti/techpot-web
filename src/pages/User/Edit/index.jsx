@@ -23,7 +23,7 @@ const icon = {
 
 const Edit = () => {
 
-    const usuarioPerfil = useSelector(state => state.entitie.user.perfil);
+    const usuarioPerfil = useSelector(state => state.entitie.user.profile);
 
     const { id } = useParams();
 

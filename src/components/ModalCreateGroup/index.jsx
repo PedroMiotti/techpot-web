@@ -20,6 +20,7 @@ import ModalContainer from '../../shared/ModalContainer/index';
 import CreateGroupImage from './components/CreateGroupImage/index';
 import CreateGroupForm from './components/CreateGroupForm/index';
 import CreateGroupInvite from './components/CreateGroupInvite/index';
+import { createAsyncThunk } from '@reduxjs/toolkit';
 
 
 
@@ -63,21 +64,14 @@ const CreateGroupEvent = ({ onClose, imgSrcInput, nomeInputProp, descInputProp, 
     // Grupo
     const groupCreatedSuccess = useSelector(state => state.entitie.group.success);
 
-
-
     const dispatch = useDispatch();
 
-    const criarGrupo = (() => {
+    const criarGrupo = ( async () => {
 
-        dispatch(createGroup(formValues.nomeInputProp, formValues.descInputProp, formValues.groupSelectInputProp, usuarioId))
+        await dispatch(createGroup(formValues.nomeInputProp, formValues.descInputProp, formValues.groupSelectInputProp, usuarioId))
 
-
-        if (!groupCreatedSuccess) {
-            onClose();
-            dispatch(listGroup(usuarioId));
-
-        }
-
+        onClose();
+        await dispatch(listGroup(usuarioId));
 
     })
 

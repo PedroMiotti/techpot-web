@@ -4,8 +4,6 @@ import './styles.css';
 // Component
 import UserProfileImg from "../../../../../shared/UserProfileImg/index"
 
-// Redux
-import { useSelector } from 'react-redux';
 
 // Helpers
 import { firstLetterUppercase } from '../../../../../helpers/UpperFirstLetter';
@@ -27,23 +25,20 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const InfoUsuario = () => {
+const InfoUsuario = ({ usuarioPerfil, usuarioId, editPermission }) => {
     const classes = useStyles();
-
-
-    const usuarioPerfil = useSelector(state => state.entitie.user.perfil);
-    const usuarioId = useSelector(state => state.entitie.user.id);
-
 
     return (
         <div id="InfoUsuario" className="font-techpot">
             <div id="FotoUsuario">
                 <UserProfileImg />
-                <Link to={`/usuario/perfil/editar/${usuarioId}`} style={{ color: '#fff' }}>
-                    <Fab color="secondary" aria-label="add" className={classes.fab}>
-                        <Edit /> 
-                    </Fab>
-                </Link>
+                {editPermission &&
+                    <Link to={`/usuario/perfil/editar/${usuarioId}`} style={{ color: '#fff' }}>
+                        <Fab color="secondary" aria-label="add" className={classes.fab}>
+                            <Edit />
+                        </Fab>
+                    </Link>
+                }
             </div>
 
 
@@ -88,7 +83,7 @@ const InfoUsuario = () => {
                                 <Link to={`/usuario/perfil/editar/${usuarioId}`} >Add Linkedin</Link>
                             </p>
                         :
-                        
+
                         <Link to={`/usuario/perfil/editar/${usuarioId}`} >Add Linkedin</Link>
                     }
 

@@ -61,7 +61,7 @@ const Router = () => {
 
     const loadInitialData = async () => {
 
-      await dispatch(userInfo(usuarioId));
+      await dispatch(userInfo(usuarioId, true));
       await dispatch(listEvent());
       await dispatch(listGroup(usuarioId));
       await dispatch(listPostByUser(usuarioId));
@@ -85,7 +85,7 @@ const Router = () => {
   return (
     <Switch>
 
-      <Route path={["/registro", "/login", "/usuario/perfil/editar"]} component={NoNavbar} />
+      <Route path={["/registro", "/login", "/usuario/perfil/editar/:id"]} component={NoNavbar} />
       <Route component={UseNav} />
 
       {/* 404  */}

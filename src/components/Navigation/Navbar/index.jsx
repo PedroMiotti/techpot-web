@@ -42,7 +42,7 @@ const Navbar = ({ pathName }) => {
   const modalMensagendsRef = useRef();
   const modalUserPreferencesRef = useRef();
 
-  const usuarioPerfil = useSelector(state => state.entitie.user.perfil);
+  const usuarioPerfil = useSelector(state => state.entitie.user.profile);
 
   const { width } = useWindowDimensions();
 
