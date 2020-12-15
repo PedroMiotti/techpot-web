@@ -14,8 +14,8 @@ import ModalCreateEvent from '../../components/ModalCreateEvent/index'
 import SnackLoad from '../../shared/Snackload/index'
 import SnackMessage from '../../shared/Snackbar/index'
 
-import NoGroupsPlaceholder from '../../components/NoGroupPlaceholder/index'
-import NoPostsPlaceholder from '../../components/NoPostsPlaceholder/index'
+import NoGroupsPlaceholder from '../../components/NoGroupPlaceholder'
+import NoDataPlaceholder from '../../components/NoDataPlaceholder'
 
 // Redux
 import { useSelector } from 'react-redux';
@@ -113,6 +113,7 @@ const MainFeed = () => {
           </ContainerList>
 
         </div>
+        
         <div id="div-posts-FeedPrincipal">
           {
             usuarioFirstAccess ?
@@ -134,7 +135,7 @@ const MainFeed = () => {
           <PostBox open={openModalCreatePost} />
           {
             postListUser.length === 0 ?
-              <NoPostsPlaceholder />
+              <NoDataPlaceholder msg="Opss parece que seu feed esta vazio !"/>
               :
               <>
                 {postListUser.map((posts) => (

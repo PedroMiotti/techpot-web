@@ -2,11 +2,12 @@ import React, { useEffect } from 'react';
 import './style.css';
 
 // Assets
-import groupImagePic from '../../../assets/unnamed.png'
+import groupImagePic from '../../../assets/unnamed.png';
 
 // Components
-import PostBox from '../../../components/CreatePostContainer/index'
-import Post from '../../../components/Post/index'
+import PostBox from '../../../components/CreatePostContainer';
+import Post from '../../../components/Post';
+import NoDataPlaceholder from '../../../components/NoDataPlaceholder';
 
 // Material UI
 import Fab from "@material-ui/core/Fab";
@@ -95,9 +96,16 @@ const Feed = () => {
       <div className="feedGrupoPosts">
         <PostBox />
 
-        {postListGroup.map((posts) => (
-          <Post key={posts.post_id} post_body={posts.post_body} data_criacao={posts.post_data_criacao} post_body_html={posts.post_body_html} post_body={posts.post_body} grupo={posts.group_name} id_criador={posts.user_id} nome_criador={posts.user_name} sobrenome_criador={posts.user_surname} />
-        ))}
+        {
+          postListGroup.length === 0 ?
+            <NoDataPlaceholder msg="Eita! parece que o feed desse grupo está vazio, seja o primeiro a postar." />
+            :
+            <>
+              {postListGroup.map((posts) => (
+                <Post key={posts.post_id} post_body={posts.post_body} data_criacao={posts.post_data_criacao} post_body_html={posts.post_body_html} post_body={posts.post_body} grupo={posts.group_name} id_criador={posts.user_id} nome_criador={posts.user_name} sobrenome_criador={posts.user_surname} />
+              ))}
+            </>
+        }
         
       </div>
 

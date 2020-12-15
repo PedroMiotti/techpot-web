@@ -5,14 +5,13 @@ import './style.css'
 // Assets
 import empty from '../../assets/empty.png'
 
-const NoPostsPlaceholder = () => {
+const NoDataPlaceholder = ({msg}) => {
     return (
         <div className="NoPostsPlaceholder-container font-techpot">
             <img src={empty} alt="" />
-            <p>Opss parece que seu feed esta vazio !</p>
-            {/* <button>Procurar</button>             */}
+            <p>{msg}</p>
         </div>
     )
 }
 
-export default NoPostsPlaceholder
+export default NoDataPlaceholder
