@@ -6,8 +6,11 @@ import TechpotInput from '../../../../shared/TechpotInput/index';
 import TechpotSelectInput from '../../../../shared/TechpotSelect/index';
 import TechpotTextArea from '../../../../shared/TechpotTextArea/index';
 
+// Materia UI
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
+import { GroupOutlined } from '@material-ui/icons';
+
 
 
 const useStyles = makeStyles((theme) => ({
@@ -55,11 +58,11 @@ const CreateGroupForm = ({ values, nomeInputProp, descInputProp, groupSelectInpu
 
                 <div className="creategroup-info-container font-techpot">
                     <div className="creategroup-info-nome  modalCreateGroupContainerPadrao">
-                        <TechpotInput placeholder={'Nome do grupo'} value={nomeInput} onChange={e => setNomeInput(e.target.value)} />
+                        <TechpotInput placeholder={'Nome do grupo'} value={nomeInput} onChange={e => setNomeInput(e.target.value)} icon={<GroupOutlined />}/>
                     </div>
 
                     <div className="creategroup-info-desc  modalCreateGroupContainerPadrao">
-                        <TechpotTextArea placeholder={'Descrição do grupo'} value={descInput} onChange={e => setDescInput(e.target.value)} />
+                        <TechpotTextArea placeholder={'Descrição do grupo'} value={descInput} onChange={e => setDescInput(e.target.value)} wordCount="255" />
 
                     </div>
 

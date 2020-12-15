@@ -1,26 +1,47 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import './style.css'
 
 
-// Material UI
-import TextField from '@material-ui/core/TextField';
+
+const TechpotTextArea = ({ placeholder, value, onChange, icon, wordCount }) => {
 
 
-const TechpotTextArea = ({ placeholder, value, onChange }) => {
+    const [textLength, setTextLength] = useState(0);
 
+
+    const charCount = (e) => {
+
+        let current = e.target.value;
+        let counter = current.length;
+
+        setTextLength(counter);
+
+    }
 
     return (
 
-        <TextField
-            id="standard-multiline-static"
-            label={placeholder}
-            multiline
-            rows={4}
-            variant="filled"
-            color="secondary"
-            value={value}
-            onChange={onChange}
-        />
+        <div className="TechpotTextArea-containerGroup">
+            <label>{placeholder}</label>
+            <div
+                className={`TechpotTextArea-inputControl ${icon ? 'TechpotTextArea-hasIcon' : ''}`}>
 
+                <textarea maxLength={wordCount} style={wordCount ? { resize: 'none', height: `calc(${wordCount}px / 2)` } : { resize: 'vertical' }} type="text" className="TechpotTextArea-input is-fade" value={value} onChange={wordCount ? (e) => { onChange(e); charCount(e); } : onChange} />
+
+                {icon &&
+                    <div className="TechpotTextArea-inputIcon">
+                        {icon}
+                    </div>
+                }
+
+            </div>
+
+            {wordCount &&
+                <div style={{ textAlign: 'right', width: '100%' }}>
+                    <label>{textLength}/{wordCount}</label>
+                </div>
+            }
+
+        </div>
     )
 }
 

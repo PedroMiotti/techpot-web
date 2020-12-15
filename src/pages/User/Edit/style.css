@@ -1,132 +1,27 @@
-.editUserContainer{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+.logo {
+    height: 32px;
+    background: rgba(255, 255, 255, 0.2);
+    margin: 16px;
 }
 
-.editUserTitleBar{
-    align-self: flex-start;
-    padding-left: 25px;
-    display: flex;
-    width: 55%;
-    justify-content: space-between;
-
-    color: #fff;
-    margin: 20px 0;
+.site-layout-sub-header-background {
+    background: #fff;
 }
 
-.editUserContainerPadrao{    
-    width: 50vw;
-    height: auto;
-    background-color: #fff;
-    margin:  20px 0;
-    padding: 20px;
-    border-radius: 10px;
+.site-layout-background {
+    background: #fff;
+}
+
+.ant-menu-dark.ant-menu-dark:not(.ant-menu-horizontal) .ant-menu-item-selected {
+    background-color: var(--color-secundary);
 
 }
 
-.editUserContainerPadrao-col1{
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px ;
+.voltar-editeuserBtt {
+    color: #000;
+    transition: all .3s;
 }
 
-.editUserContainerPadrao-col1 span{
-    color: rgb(150, 150, 150);
-    font-size: 15px;
-    font-weight: 300;
+.voltar-editeuserBtt:hover {
+    color: var(--color-secundary);
 }
-
-.editUserContainerInput-row1{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 5px 20px;
-}
-
-.editUserContainerInput-row1 input{
-    border-radius: 10px;
-    height: 40px;
-    width: 40%;
-    border: 1px solid #1e2e3e;
-    padding: 9px;
-    font-size: 15px;
-}
-
-.editUserContainerPadrao-col1 h2{
-    color: #1e2e3e;
-}
-
-.editUserContainerPadrao-col1 a{
-    color: #1e2e3e;
-    text-decoration: underline;
-}
-
-.editPhotoImage{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.editPhotoImage img{
-    width: 200px;
-    border-radius: 50%;
-}
-
-
-.editUserContainerBio-row1{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
-.editBioContainer textarea{
-    width: 90%;
-    resize: vertical;
-    border-radius: 7px;
-    border: 1px solid #1e2e3e;
-    padding: 10px;
-}
-
-.editUserContainerJob-row1{
-    padding: 5px 20px;
-
-}
-
-
-
-.editUserContainerJob-row1 input{
-    border-radius: 10px;
-    height: 40px;
-    width: 40%;
-    border: 1px solid #1e2e3e;
-    padding: 9px;
-    font-size: 15px;
-
-}
-
-.editUserContainerSocial-row1{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 5px 20px;
-}
-
-
-.editUserContainerSocial-row1 input{
-    border-radius: 10px;
-    height: 40px;
-    width: 40%;
-    border: 1px solid #1e2e3e;
-    padding: 9px;
-    font-size: 15px;
-
-}
-
-
-.editUserContainer button{
-    margin: 30px;
-}
-

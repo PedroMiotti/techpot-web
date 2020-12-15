@@ -15,10 +15,8 @@ import { Router } from 'react-router-dom'
 
 import Routes from './Router'
 
-
 // History
 import history from './helpers/history'
-
 
 
 ReactDOM.render(

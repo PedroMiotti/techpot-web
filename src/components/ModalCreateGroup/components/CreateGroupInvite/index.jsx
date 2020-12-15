@@ -1,15 +1,9 @@
-import React, { useState } from 'react'
+import React from 'react'
 import './style.css'
-
-// Redux
-import { useSelector, useDispatch } from 'react-redux';
-import { createGroup } from '../../../../store/_entities/Group';
 
 
 // Components
-import TechpotInput from '../../../../shared/TechpotInput/index';
 import TechpotSelectInput from '../../../../shared/TechpotSelect/index';
-import TechpotTextArea from '../../../../shared/TechpotTextArea/index';
 
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';

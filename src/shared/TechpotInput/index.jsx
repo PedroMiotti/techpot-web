@@ -1,24 +1,27 @@
 import React from 'react';
+import './style.css'
 
 
-// Material UI
-import TextField from '@material-ui/core/TextField';
 
-
-const TechpotInput = ({placeholder, value, onChange}) => {
+const TechpotInput = ({ placeholder, value, onChange, icon }) => {
 
 
     return (
 
-        <TextField
-            id="filled-secondary"
-            label={placeholder}
-            variant="filled"
-            color="secondary"
-            value={value}
-            onChange={onChange}
-        />
+        <div className="techpotInput-containerGroup">
+            <label>{placeholder}</label>
+            <div 
+                className={`techpotInput-inputControl ${icon ? 'techpotInput-hasIcon' : ''}`}>
 
+                <input type="text" className="techpotInput-input is-fade" value={value} onChange={onChange}/>
+                
+                {icon &&
+                    <div className="techpotInput-inputIcon">
+                        {icon}
+                    </div>
+                }
+            </div>
+        </div>
     )
 }
 

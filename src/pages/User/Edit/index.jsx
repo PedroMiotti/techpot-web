@@ -1,154 +1,92 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react'
 import './style.css'
 
-// Component
-import UserProfileImg from "../../../shared/UserProfileImg/index";
+import { Layout, Menu } from 'antd';
+
+import {
+    BellOutlined,
+    QuestionCircleOutlined,
+    LockOutlined,
+    SettingOutlined,
+    SlidersOutlined,
+    LeftOutlined
+} from '@ant-design/icons';
 
 // React Router
 import { Link, useParams } from 'react-router-dom';
 
-// Redux
-import { useSelector, useDispatch } from 'react-redux';
-import { editUser } from '../../../store/_entities/User';
+// Components
+import General from './components/General'
 
-// Material UI
-import ArrowBackIcon from '@material-ui/icons/ArrowBack';
-
-const icon = {
-    color: "#fff",
-    fontSize: 30,
-    cursor: "pointer",
-};
-
+const { Header, Content, Sider } = Layout;
 
 const Edit = () => {
 
-    const usuarioPerfil = useSelector(state => state.entitie.user.profile);
+    const [currentNav, setCurrentNav] = useState('1');
+    const [collapsed, setCollapsed] = useState(false);
+
+
+    const handleClick = e => {
+        setCurrentNav(e.key);
+    }
 
     const { id } = useParams();
 
-    const [nomeInput, setNomeInput] = useState('');
-    const [sobrenomeInput, setSobrenomeInput] = useState('');
-    const [bioInput, setBioInput] = useState('');
-    const [ocupacaoInput, setOcupacaoInput] = useState('');
-    const [linkedinInput, setLinkedinInput] = useState('');
-    const [githubInput, setGithubInput] = useState('');
-
-    const [updateRender, setUpdateRender] = useState(false);
-
-    const dispatch = useDispatch();
-
-
-    const saveUserInfo = () => {
-
-        dispatch(editUser(id, nomeInput, sobrenomeInput, bioInput, ocupacaoInput, linkedinInput, githubInput))
-
+    const getNavContent = (current) => {
+        switch (current) {
+            case "1":
+                return <General />;
+            default:
+                return 'Not configured yet';
+        }
     }
-
-    useEffect(() => {
-
-        if (usuarioPerfil.u) {
-            let perfil = usuarioPerfil.u;
-
-            setNomeInput(perfil.nome)
-            setSobrenomeInput(perfil.sobrenome)
-            if (perfil.bio) setBioInput(perfil.bio)
-            if (perfil.ocupacao) setOcupacaoInput(perfil.ocupacao)
-            if (perfil.linkedin) setLinkedinInput(perfil.linkedin)
-            if (perfil.github) setGithubInput(perfil.github)
-        }
-
-        return () => {
-            setNomeInput(null)
-            setSobrenomeInput(null)
-            setBioInput(null)
-            setOcupacaoInput(null)
-            setLinkedinInput(null)
-            setGithubInput(null)
-        }
-
-    }, [usuarioPerfil.u])
 
 
     return (
+        <Layout style={{ minHeight: '100vh' }} className="font-techpot" >
 
+            <Sider breakpoint="lg" collapsedWidth="0" 
+                    style={{  height: '100vh', position: 'fixed', left: 0 }} 
+                    onCollapse={(collapsed, type) => {
+                        setCollapsed(collapsed);
+                    }}
+            >
+                <div className="logo" />
+                <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']} onClick={handleClick}>
+                    <Menu.Item key="1" icon={<SettingOutlined />}>
+                        Geral
+                    </Menu.Item>
+                    <Menu.Item key="2" icon={<LockOutlined />}>
+                        Privacidade
+                    </Menu.Item>
+                    <Menu.Item key="3" icon={<BellOutlined />}>
+                        Notificação
+                    </Menu.Item>
 
-        <div className="editUserContainer font-techpot">
+                    <Menu.Item key="4" icon={<SlidersOutlined />}>
+                        Preferencias
+                    </Menu.Item>
+                    <Menu.Item key="5" icon={<QuestionCircleOutlined />}>
+                        Ajuda
+                    </Menu.Item>
+                </Menu>
+            </Sider>
 
-            <div className="editUserTitleBar">
-                <Link to={`/usuario/perfil/${id}`}><ArrowBackIcon style={icon} /></Link>
-                <h1>Editar perfil</h1>
-            </div>
+            <Layout style={!collapsed ? { marginLeft: '200px' } : null }>
+                <Header className="site-layout-sub-header-background" style={{ position: 'fixed', zIndex: 1, width: '100%', padding: 0 }}>
+                    <div style={{paddingLeft: "15px", textDecoration: 'none', color: '#000'}}>
+                        <Link to={`/usuario/perfil/${id}`} className="voltar-editeuserBtt"><LeftOutlined /> Voltar</Link>
+                    </div>
+                </Header>
+                <Content style={{ margin: '85px 16px 24px 16px' }}>
+                    <div className="site-layout-background" style={{ padding: 24, minHeight: 360 }}>
+                        {getNavContent(currentNav)}
+                    </div>
+                </Content>
+            </Layout>
 
-            <div className="editPhotoContainer editUserContainerPadrao">
-                <div className="editUserContainerPadrao-col1 font-techpot">
-                    <h2>Foto de perfil</h2>
-                </div>
-
-                <div className="editPhotoImage">
-                    <UserProfileImg />
-                </div>
-            </div>
-
-            <div className="editNameContainer editUserContainerPadrao">
-                <div className="editUserContainerPadrao-col1">
-                    <h2>Nome</h2>
-                </div>
-
-                <div className="editUserContainerInput-row1">
-                    <input placeholder="Nome" value={nomeInput} onChange={e => setNomeInput(e.target.value)} />
-                    <input placeholder="Sobrenome" value={sobrenomeInput} onChange={e => setSobrenomeInput(e.target.value)} />
-
-                </div>
-
-            </div>
-
-            <div className="editBioContainer editUserContainerPadrao">
-                <div className="editUserContainerPadrao-col1">
-                    <h2>Bio <span>- Conte-nos mais sobre voce</span></h2>
-                </div>
-
-
-                <div className="editUserContainerBio-row1">
-                    <textarea value={bioInput} onChange={e => setBioInput(e.target.value)}>
-
-                    </textarea>
-                </div>
-
-            </div>
-
-            <div className="editOcupacaoContainer editUserContainerPadrao">
-                <div className="editUserContainerPadrao-col1">
-                    <h2>Ocupação </h2>
-                </div>
-
-
-                <div className="editUserContainerJob-row1">
-                    <input placeholder="Ocupação" value={ocupacaoInput} onChange={e => setOcupacaoInput(e.target.value)} />
-                </div>
-
-            </div>
-
-            <div className="editOcupacaoContainer editUserContainerPadrao">
-                <div className="editUserContainerPadrao-col1">
-                    <h2>Social </h2>
-                </div>
-
-
-                <div className="editUserContainerSocial-row1">
-                    <input placeholder="Linkedin" value={linkedinInput} onChange={e => setLinkedinInput(e.target.value)} />
-                    <input placeholder="Github" value={githubInput} onChange={e => setGithubInput(e.target.value)} />
-
-                </div>
-
-            </div>
-
-            <button onClick={saveUserInfo}> Salvar </button>
-
-        </div>
-
-    )
-
+        </Layout>
+    );
 }
 
 

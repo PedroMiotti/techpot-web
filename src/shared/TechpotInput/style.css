@@ -1,0 +1,92 @@
+.techpotInput-containerGroup {
+    border-radius: 6px;
+    border: 1px solid #e0e0e0;
+    background-color: #fff;
+}
+
+.techpotInput-containerGroup label {
+    text-transform: uppercase;
+    font-size: .70em;
+    color: #999;
+    padding-left: 6px;
+    font-weight: 500;
+}
+
+.techpotInput-inputControl {
+    box-sizing: border-box;
+    clear: both;
+    font-size: 1rem;
+    text-align: inherit;
+}
+
+.techpotInput-input {
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    font-family: 'Roboto', sans-serif;
+    font-size: .9rem;
+    
+    box-shadow: none !important;
+    
+    max-width: 100%;
+    width: 100%;
+    
+    background-color: #fff;
+    color: #2b435a;
+    
+    border-radius: 8px;
+    border: none !important;
+
+    -webkit-box-pack: start;
+    -webkit-appearance: none;
+    -webkit-box-align: center;
+    
+    margin: 0;
+    padding-top: 0;
+    padding-bottom: calc(0.5em - 1px);
+    padding-right: calc(0.75em - 1px);
+    line-height: 1.5;
+    
+    position: relative;
+    vertical-align: top;
+
+    padding-left: 10px ;
+    
+    transition: all .3s;
+}
+
+.techpotInput-input:focus {
+    box-shadow: -1px 3px 10px 0 rgba(0, 0, 0, 0.06) !important;
+}
+
+
+.techpotInput-hasIcon {
+    position: relative;
+}
+
+.techpotInput-hasIcon .techpotInput-input {
+    height: 36px;
+    padding-left: 40px;
+}
+
+.techpotInput-inputIcon {
+    position: absolute;
+    top: 0;
+    left: 10px;
+    height: 26px;
+    width: 26px;
+
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.techpotInput-inputIcon svg {
+    height: 17px;
+    width: 17px;
+    color: #cecece;
+    transition: all .3s;
+
+}

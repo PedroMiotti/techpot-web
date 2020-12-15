@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import './style.css'
 
 // Components
@@ -12,13 +12,11 @@ import { useSelector } from 'react-redux';
 // Material UI
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
+import { Today } from '@material-ui/icons';
 
 // AntD
-import { DatePicker, Space } from 'antd';
+import { DatePicker } from 'antd';
 const { RangePicker } = DatePicker;
-//Moment
-// import 'moment/locale/pt-br';
-// import locale from 'antd/es/date-picker/locale/pt-br';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -75,14 +73,14 @@ const CreateEventForm = ({ values, nomeInputProp, descInputProp, data_inicioProp
 
                 <div className="creategroup-info-container font-techpot">
                     <div className="creategroup-info-nome  modalCreateGroupContainerPadrao">
-                        <TechpotInput placeholder={'Titulo do Evento'} value={nomeInput} onChange={e => setNomeInput(e.target.value)} />
+                        <TechpotInput placeholder={'Titulo do Evento'} value={nomeInput} onChange={e => setNomeInput(e.target.value)} icon={<Today />}/>
                     </div>
 
                     <div className="creategroup-info-desc  modalCreateGroupContainerPadrao">
-                        <TechpotTextArea placeholder={'Descrição do Evento'} value={descInput} onChange={e => setDescInput(e.target.value)} />
+                        <TechpotTextArea placeholder={'Descrição do Evento'} value={descInput} onChange={e => setDescInput(e.target.value)} wordCount="255" />
                     </div>
 
-                    <div className="createEvent-date  ">
+                    <div className="createEvent-date">
 
                         <RangePicker placeholder={["Data inicio", "Data Fim"]} value={[dataIniInput, dataFimInput]} onChange={onChange} showTime bordered={false}/>
   
