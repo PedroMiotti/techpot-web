@@ -62,7 +62,7 @@ const CreateGroupForm = ({ values, nomeInputProp, descInputProp, groupSelectInpu
                     </div>
 
                     <div className="creategroup-info-desc  modalCreateGroupContainerPadrao">
-                        <TechpotTextArea placeholder={'Descrição do grupo'} value={descInput} onChange={e => setDescInput(e.target.value)} wordCount="255" />
+                        <TechpotTextArea placeholder={'Descrição do grupo'} value={descInput} onChange={e => setDescInput(e.target.value)} wordCount="120" />
 
                     </div>
 

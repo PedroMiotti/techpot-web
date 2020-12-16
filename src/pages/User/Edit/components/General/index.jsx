@@ -86,8 +86,6 @@ const General = () => {
 
 
     return (
-
-
         <div className="editUserContainer font-techpot">
 
             <div className="editPhotoContainer editUserContainerPadrao">
@@ -118,7 +116,7 @@ const General = () => {
                 </div>
                 <div className="editUserContainerBio-row1">
 
-                    <TechpotTextArea placeholder="Bio" value={bioInput} onChange={e => setBioInput(e.target.value)} wordCount="255" />
+                    <TechpotTextArea placeholder="Bio" value={bioInput} onChange={e => setBioInput(e.target.value)} wordCount="180" />
 
                 </div>
 

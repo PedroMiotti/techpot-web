@@ -77,7 +77,7 @@ const CreateEventForm = ({ values, nomeInputProp, descInputProp, data_inicioProp
                     </div>
 
                     <div className="creategroup-info-desc  modalCreateGroupContainerPadrao">
-                        <TechpotTextArea placeholder={'Descrição do Evento'} value={descInput} onChange={e => setDescInput(e.target.value)} wordCount="255" />
+                        <TechpotTextArea placeholder={'Descrição do Evento'} value={descInput} onChange={e => setDescInput(e.target.value)} wordCount="90" />
                     </div>
 
                     <div className="createEvent-date">
