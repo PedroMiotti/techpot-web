@@ -6,7 +6,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
-import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 
 // Redux
@@ -68,17 +67,16 @@ const CreateGroupModal = ({ onClose, imgSrcInput, eventInfoForm }) => {
 
         let { eventName, eventDesc, eventType, eventCategory, eventDate } = formValues.eventInfoForm;
 
-        console.log(eventDate[0]);
-        // const dataInicio = new DateFormatter(formValues.data_inicioProp);
-        // let dataInicioISO = dataInicio.toSQLFormat();
+        const dataInicio = new DateFormatter(eventDate[0]);
+        let dataInicioISO = dataInicio.toSQLFormat();
 
-        // const dataFim = new DateFormatter(formValues.data_fimProp);
-        // let dataFimISO = dataFim.toSQLFormat();
+        const dataFim = new DateFormatter(eventDate[1]);
+        let dataFimISO = dataFim.toSQLFormat();
 
-        // await dispatch(createEvent(formValues.nomeInputProp, formValues.descInputProp, dataInicioISO, 1, formValues.categoriaSelectInputProp, dataFimISO, formValues.tipoSelectProp, usuarioId))
+        await dispatch(createEvent(eventName, eventDesc, dataInicioISO, 1, eventCategory, dataFimISO, eventType, usuarioId))
 
-        // onClose();
-        // await dispatch(listEvent());
+        onClose();
+        await dispatch(listEvent());
 
     })
 

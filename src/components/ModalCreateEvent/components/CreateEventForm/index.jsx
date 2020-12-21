@@ -35,18 +35,13 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-// nomeInputProp, descInputProp, data_inicioProp, tipoSelectProp, data_fimProp, categoriaSelectInputProp
-
 const CreateEventForm = ({ values, eventInfoForm, activeStep, isLastStep, handleBack, handleNext, criarEvento }) => {
 
     const classes = useStyles();
 
     const [form] = Form.useForm();
 
-    const [buttonClicked, setButtonClicked] = useState('')
-
-    // const [dataIniInput, setDataIniInput] = useState(data_inicioProp);
-    // const [dataFimInput, setDataFimInput] = useState(data_fimProp);
+    const [buttonClicked, setButtonClicked] = useState('');
 
     const categoriesList = useSelector(state => state.entitie.event.categoriesList);
 
@@ -73,12 +68,6 @@ const CreateEventForm = ({ values, eventInfoForm, activeStep, isLastStep, handle
     ];
 
 
-    function onChangeDate(dates, dateStrings) {
-        return
-        // setDataIniInput(dates[0])
-        // setDataFimInput(dates[1])
-    }
-
     return (
         <>
             <Form
@@ -95,10 +84,10 @@ const CreateEventForm = ({ values, eventInfoForm, activeStep, isLastStep, handle
                 style={{ width: "100%" }}
                 scrollToFirstError
             >
-                <div className="creategroup-container">
+                <div className="createEvent-container">
 
-                    <div className="creategroup-info-container font-techpot">
-                        <div className="creategroup-info-nome  modalCreateGroupContainerPadrao">
+                    <div className="createEvent-info-container font-techpot">
+                        <div className="createEvent-info-nome  modalcreateEventContainerPadrao">
                             <Form.Item
                                 name="eventName"
                                 rules={[
@@ -113,7 +102,7 @@ const CreateEventForm = ({ values, eventInfoForm, activeStep, isLastStep, handle
                             </Form.Item>
                         </div>
 
-                        <div className="creategroup-info-desc  modalCreateGroupContainerPadrao">
+                        <div className="createEvent-info-desc  modalcreateEventContainerPadrao">
                             <Form.Item
                                 name="eventDesc"
                                 rules={[
@@ -128,7 +117,7 @@ const CreateEventForm = ({ values, eventInfoForm, activeStep, isLastStep, handle
                             </Form.Item>
                         </div>
 
-                        <div className="createEvent-date">
+                        <div className="createEvent-date-container">
                             <Form.Item
                                 name="eventDate"
                                 rules={[
@@ -140,14 +129,15 @@ const CreateEventForm = ({ values, eventInfoForm, activeStep, isLastStep, handle
                                 ]}
 
                             >
-                                <RangePicker placeholder={["Data inicío", "Data Fim"]} onChange={onChangeDate} showTime bordered={false} />
-                            </Form.Item>
+                                <div className="createEvent-date">
 
-                            {/* value={[dataIniInput, dataFimInput]} */}
+                                <RangePicker placeholder={["Data inicío", "Data Fim"]} showTime bordered={false} />
+                                </div>
+                            </Form.Item>
 
                         </div>
 
-                        <div className="creategroup-info-privacy  modalCreateGroupContainerPadrao">
+                        <div className="createEvent-info-privacy  modalcreateEventContainerPadrao">
                             <Form.Item
                                 name="eventType"
                                 rules={[
@@ -160,12 +150,12 @@ const CreateEventForm = ({ values, eventInfoForm, activeStep, isLastStep, handle
                             >
                                 <Select placeholder="Tipo" size="large">
                                     {tipoEventoValues.map((tipo) => (
-                                        <option key={tipo.value} value={tipo.value}>{tipo.name}</option>
+                                        <Select.Option className="font-techpot" key={tipo.value} value={tipo.value}>{tipo.name}</Select.Option>
                                     ))}
                                 </Select>
                             </Form.Item>
                         </div>
-                        <div className="creategroup-info-privacy  modalCreateGroupContainerPadrao">
+                        <div className="createEvent-info-privacy  modalcreateEventContainerPadrao">
                             <Form.Item
                                 name="eventCategory"
                                 rules={[
@@ -178,14 +168,14 @@ const CreateEventForm = ({ values, eventInfoForm, activeStep, isLastStep, handle
                             >
                                 <Select placeholder="Categoria" size="large">
                                     {categoriesList.map((categoria) => (
-                                        <option key={categoria.category_id} value={categoria.category_id}>{categoria.category_name}</option>
+                                        <Select.Option className="font-techpot" key={categoria.category_id} value={categoria.category_id}>{categoria.category_name}</Select.Option>
                                     ))}
                                 </Select>
                             </Form.Item>
                         </div>
                     </div>
                 </div>
-                <div className="CreateGroup-navButtons-Container">
+                <div className="createEvent-navButtons-Container">
                     <Button type="submit" disabled={activeStep === 0} onClick={() => setButtonClicked('back')} className={classes.button}>
                         Voltar
                     </Button>

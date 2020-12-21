@@ -121,7 +121,7 @@ const CreateGroupForm = ({ values, groupInfoForm, activeStep, isLastStep, handle
 
                                 <Select placeholder="Privacidade" size="large">
                                     {privacyValues.map((tipo) => (
-                                        <option className="font-techpot" value={tipo.value}>{tipo.name}</option>
+                                        <Select.Option className="font-techpot" key={tipo.value} value={tipo.value}>{tipo.name}</Select.Option>
                                     ))}
                                 </Select>
 

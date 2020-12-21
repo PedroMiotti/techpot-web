@@ -1,25 +1,25 @@
-.creategroup-container {
+.createEvent-container {
     display: flex;
     align-items: center;
     flex-direction: column;
 }
 
-.modalCreateGroupContainerPadrao {
+.modalcreateEventContainerPadrao {
     display: flex;
     justify-content: center;
     flex-direction: column;
     width: 95%;
     height: auto;
     background-color: rgba(224, 224, 224, 0);
-    padding: 20px;
+    margin-bottom: 20px;
     border-radius: 10px;
 }
 
-.modalCreateGroupContainerPadrao label {
+.modalcreateEventContainerPadrao label {
     margin-bottom: 10px;
 }
 
-.creategroup-info-container {
+.createEvent-info-container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -27,7 +27,7 @@
     width: 90%;
 }
 
-.creategroup-bottom {
+.createEvent-bottom {
     background-color: var(--color-secundary);
     text-align: center;
     border-radius: 25px;
@@ -37,24 +37,32 @@
     margin: 20px 0;
 }
 
-.creategroup-createBtt {
+.createEvent-createBtt {
     color: #fff;
 }
 
-.CreateGroup-navButtons-Container {
+.createEvent-navButtons-Container {
     width: 100%;
     padding: 15px 10px 0 10px;
     text-align: right;
+}
+
+.createEvent-date-container {
+    margin-bottom: 20px;
+    width: 95%;
+
+
 }
 
 .createEvent-date {
     border: 1px solid #e0e0e0;
     display: flex;
     justify-content: center;
+    align-items: center;
     flex-direction: column;
-    width: 88%;
     height: auto;
     background-color: rgba(224, 224, 224, 0);
-    padding: 20px;
+    padding: 15px 0;
     border-radius: 10px;
+
 }
