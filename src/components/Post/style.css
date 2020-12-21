@@ -31,7 +31,7 @@
 }
 
 
-.postHeader-editAction{
+.postHeader-editAction {
     margin-top: 8px;
     color: var(--color-secundary);
 }
@@ -82,4 +82,20 @@
 .postLikesContainer p,
 .postCommentsContainer p {
     margin-left: 12px;
+}
+
+
+@media screen and (max-width: 510px) {
+    .postContainer {
+        width: 100vw;
+        min-width: 0;
+        border-radius: 0;
+
+    }
+
+    .postHeader a {
+        display: flex;
+        padding: 10px 20px 10px 0 ;
+        color: #111b24;
+    }
 }

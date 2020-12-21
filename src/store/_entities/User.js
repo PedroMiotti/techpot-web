@@ -171,12 +171,11 @@ export const loginUser = (email, senha) => apiCallBegan({
     onError: USER_FAILED.type
 });
 
-
-export const editUser = (id, nome, sobrenome, bio, ocupacao, github, linkedin) => apiCallBegan({
+export const editUser = (id, userInfo) => apiCallBegan({
     url: url + "/editar",
     headers: authHeader(),
     method: "post",
-    data: { id, nome, sobrenome, bio, ocupacao, github, linkedin },
+    data: { id, userInfo },
     onStart: USER_REQUESTED.type,
     onSuccess: USER_EDITED_SUCCESSFUL.type,
     onError: USER_FAILED.type

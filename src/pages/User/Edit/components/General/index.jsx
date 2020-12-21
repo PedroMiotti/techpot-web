@@ -5,7 +5,8 @@ import './style.css'
 import UserProfileImg from "../../../../../shared/UserProfileImg";
 import TechpotInput from '../../../../../shared/TechpotInput';
 import TechpotTextArea from '../../../../../shared/TechpotTextArea';
-
+import SnackLoad from '../../../../../shared/Snackload/index'
+import SnackMessage from '../../../../../shared/Snackbar/index'
 
 // React Router
 import { useParams } from 'react-router-dom';
@@ -18,6 +19,13 @@ import { editUser } from '../../../../../store/_entities/User';
 import { PersonOutlineOutlined, LinkedIn, GitHub } from '@material-ui/icons';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
+
+// AntD
+import {
+    Form,
+    Input
+} from 'antd';
+
 
 
 const useStyles = makeStyles((theme) => ({
@@ -35,11 +43,20 @@ const icon = {
 };
 
 
+
 const General = () => {
 
     const classes = useStyles();
 
+    const [form] = Form.useForm();
+
     const usuarioPerfil = useSelector(state => state.entitie.user.profile);
+
+    const userEditedLoading = useSelector(state => state.entitie.user.loading);
+    const userEditedFailed = useSelector(state => state.entitie.user.error);
+    const userEditedErrorMessage = useSelector(state => state.entitie.user.errorMessage);
+    const userEditedSuccess = useSelector(state => state.entitie.user.success);
+    const userEditedSuccessMessage = useSelector(state => state.entitie.user.successMessage);
 
     const { id } = useParams();
 
@@ -50,14 +67,12 @@ const General = () => {
     const [linkedinInput, setLinkedinInput] = useState('');
     const [githubInput, setGithubInput] = useState('');
 
-    const [updateRender, setUpdateRender] = useState(false);
-
     const dispatch = useDispatch();
 
 
-    const saveUserInfo = () => {
+    const saveUserInfo = formValues => {
 
-        dispatch(editUser(id, nomeInput, sobrenomeInput, bioInput, ocupacaoInput, linkedinInput, githubInput))
+        dispatch(editUser(id, formValues))
 
     }
 
@@ -84,80 +99,148 @@ const General = () => {
 
     }, [usuarioPerfil.u])
 
+    if (nomeInput === '') {
+        return <h1>Carregando</h1>
+    }
 
     return (
-        <div className="editUserContainer font-techpot">
+        <>
+            <div className="editUserContainer font-techpot">
 
-            <div className="editPhotoContainer editUserContainerPadrao">
-                <div className="editUserContainerPadrao-col1 font-techpot">
-                    <h2>Foto de perfil</h2>
-                </div>
+                <div className="editPhotoContainer editUserContainerPadrao">
+                    <div className="editUserContainerPadrao-col1 font-techpot">
+                        <h2>Foto de perfil</h2>
+                    </div>
 
-                <div className="editPhotoImage">
-                    <UserProfileImg />
+                    <div className="editPhotoImage">
+                        <UserProfileImg />
+                    </div>
                 </div>
+                <Form
+                    form={form}
+                    name="editUser"
+                    onFinish={saveUserInfo}
+                    initialValues={{
+                        nome: nomeInput || '',
+                        sobrenome: sobrenomeInput || "",
+                        bio: bioInput || "",
+                        ocupacao: ocupacaoInput || "",
+                        linkedin: linkedinInput || "",
+                        github: githubInput || "",
+                    }}
+                    style={{ width: "100%" }}
+                    scrollToFirstError
+                >
+
+                    <div className="editNameContainer editUserContainerPadrao">
+                        <div className="editUserContainerPadrao-col1">
+                            <h2>Nome</h2>
+                        </div>
+
+                        <div className="editUserContainerInput-row1">
+                            <Form.Item
+                                name="nome"
+                                rules={[
+                                    {
+                                        required: true,
+                                        message: 'Seu nome é obrigatorio',
+                                    },
+                                ]}
+                            >
+                                <TechpotInput placeholder="Nome" icon={<PersonOutlineOutlined />} />
+                            </Form.Item>
+
+                            <Form.Item
+                                name="sobrenome"
+                                rules={[
+                                    {
+                                        required: true,
+                                        message: 'Seu sobrenome é obrigatorio',
+                                    },
+                                ]}
+                            >
+                                <TechpotInput placeholder="Sobrenome" icon={<PersonOutlineOutlined />} />
+                            </Form.Item>
+
+                        </div>
+
+                    </div>
+
+                    <div className="editBioContainer editUserContainerPadrao">
+                        <div className="editUserContainerPadrao-col1">
+                            <h2>Bio <span>- Conte-nos mais sobre voce</span></h2>
+                        </div>
+                        <div className="editUserContainerBio-row1">
+
+                            <Form.Item
+                                name="bio"
+                            >
+                                <TechpotTextArea placeholder="Bio" wordCount="180" />
+                            </Form.Item>
+                        </div>
+
+                    </div>
+
+                    <div className="editOcupacaoContainer editUserContainerPadrao">
+                        <div className="editUserContainerPadrao-col1">
+                            <h2>Ocupação </h2>
+                        </div>
+
+
+                        <div className="editUserContainerJob-row1">
+                            <Form.Item
+                                name="ocupacao"
+                            >
+                                <TechpotInput placeholder="Ocupação" />
+                            </Form.Item>
+                        </div>
+
+                    </div>
+
+                    <div className="editOcupacaoContainer editUserContainerPadrao">
+                        <div className="editUserContainerPadrao-col1">
+                            <h2>Social </h2>
+                        </div>
+
+
+                        <div className="editUserContainerSocial-row1">
+                            <Form.Item
+                                name="linkedin"
+                            >
+                                <TechpotInput placeholder="Linkedin" icon={<LinkedIn />} />
+                            </Form.Item>
+                            <Form.Item
+                                name="github"
+                            >
+                                <TechpotInput placeholder="Github" icon={<GitHub />} />
+                            </Form.Item>
+
+
+                        </div>
+
+                    </div>
+
+                    <div className="editUserBottom">
+                        <Form.Item noStyle>
+                            <Button
+                                variant="contained"
+                                style={{ backgroundColor: "#d0094d", color: "#fff" }}
+                                className={classes.button}
+                                type="submit"
+                            >
+                                Salvar
+                    </Button >
+                        </Form.Item>
+                    </div>
+                </Form>
             </div>
 
-            <div className="editNameContainer editUserContainerPadrao">
-                <div className="editUserContainerPadrao-col1">
-                    <h2>Nome</h2>
-                </div>
+            {userEditedLoading && <SnackLoad show={userEditedLoading} />}
 
-                <div className="editUserContainerInput-row1">
-                    <TechpotInput value={nomeInput} onChange={e => setNomeInput(e.target.value)} placeholder="Nome" icon={<PersonOutlineOutlined />} />
-                    <TechpotInput placeholder="Sobrenome" value={sobrenomeInput} onChange={e => setSobrenomeInput(e.target.value)} icon={<PersonOutlineOutlined />} />
-                </div>
+            {userEditedFailed && <SnackMessage message={userEditedErrorMessage} color={"error"} show={userEditedFailed} />}
 
-            </div>
-
-            <div className="editBioContainer editUserContainerPadrao">
-                <div className="editUserContainerPadrao-col1">
-                    <h2>Bio <span>- Conte-nos mais sobre voce</span></h2>
-                </div>
-                <div className="editUserContainerBio-row1">
-
-                    <TechpotTextArea placeholder="Bio" value={bioInput} onChange={e => setBioInput(e.target.value)} wordCount="180" />
-
-                </div>
-
-            </div>
-
-            <div className="editOcupacaoContainer editUserContainerPadrao">
-                <div className="editUserContainerPadrao-col1">
-                    <h2>Ocupação </h2>
-                </div>
-
-
-                <div className="editUserContainerJob-row1">
-                    <TechpotInput placeholder="Ocupação" value={ocupacaoInput} onChange={e => setOcupacaoInput(e.target.value)} />
-                </div>
-
-            </div>
-
-            <div className="editOcupacaoContainer editUserContainerPadrao">
-                <div className="editUserContainerPadrao-col1">
-                    <h2>Social </h2>
-                </div>
-
-
-                <div className="editUserContainerSocial-row1">
-                    <TechpotInput placeholder="Linkedin" value={linkedinInput} onChange={e => setLinkedinInput(e.target.value)} icon={<LinkedIn />} />
-                    <TechpotInput placeholder="Github" value={githubInput} onChange={e => setGithubInput(e.target.value)} icon={<GitHub />} />
-
-                </div>
-
-            </div>
-
-            <Button
-                variant="contained"
-                style={{ backgroundColor: "#d0094d", color: "#fff" }}
-                onClick={saveUserInfo}
-                className={classes.button}
-            >
-                Salvar
-            </Button >
-
-        </div>
+            {userEditedSuccess && <SnackMessage message={userEditedSuccessMessage} color={"success"} show={userEditedSuccess} />}
+        </>
 
     )
 
@@ -165,3 +248,6 @@ const General = () => {
 
 
 export default General;
+
+
+// onClick={saveUserInfo}
