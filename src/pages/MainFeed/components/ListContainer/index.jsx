@@ -5,10 +5,10 @@ import './style.css';
 const ContainerList = ({ tituloBoxList, children, open }) => {
 
     return (
-        <div class="containerList">
+        <div className="containerList">
             {/*Titulo do container*/}
             <div id="ContainerList-div-header">
-                <h1 id="containerHeader" class="font-techpot">{tituloBoxList}</h1>
+                <h1 id="containerHeader" className="font-techpot">{tituloBoxList}</h1>
                 <a onClick={open} className="OpenModalBtt">Criar</a>
             </div>
 

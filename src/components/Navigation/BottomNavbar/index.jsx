@@ -18,7 +18,7 @@ const BottomNavbar = () => {
     return (
       <div className="bottomBarContainer-higher">
         <nav id="bottom-nav">
-          <div class="div-bottom-icons">
+          <div className="div-bottom-icons">
             <a href="/" id="homeIcon">
               <Home style={icon} />
             </a>

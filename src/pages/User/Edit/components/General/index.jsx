@@ -36,13 +36,6 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const icon = {
-    color: "#000",
-    fontSize: 30,
-    cursor: "pointer",
-};
-
-
 
 const General = () => {
 

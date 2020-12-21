@@ -47,28 +47,27 @@ function getSteps() {
 }
 
 
-const CreateGroupEvent = ({ onClose, imgSrcInput, nomeInputProp, descInputProp, groupSelectInputProp }) => {
+const CreateGroupStepper = ({ onClose, imgSrcInput, groupInfoForm }) => {
     const classes = useStyles();
     const [activeStep, setActiveStep] = useState(0);
     const [skipped, setSkipped] = useState(new Set());
     const steps = getSteps();
 
     const [formValues, setFormValues] = useState({
-        imgSrcInput, nomeInputProp, descInputProp, groupSelectInputProp
+        imgSrcInput, groupInfoForm
     });
 
 
     // Usuario
     const usuarioId = useSelector(state => state.entitie.user.id)
 
-    // Grupo
-    const groupCreatedSuccess = useSelector(state => state.entitie.group.success);
-
     const dispatch = useDispatch();
 
-    const criarGrupo = ( async () => {
+    const criarGrupo = (async () => {
 
-        await dispatch(createGroup(formValues.nomeInputProp, formValues.descInputProp, formValues.groupSelectInputProp, usuarioId))
+        let { nomeGrupo, descGrupo, tipoGrupo } = formValues.groupInfoForm;
+
+        await dispatch(createGroup(nomeGrupo, descGrupo, tipoGrupo, usuarioId))
 
         onClose();
         await dispatch(listGroup(usuarioId));
@@ -115,22 +114,6 @@ const CreateGroupEvent = ({ onClose, imgSrcInput, nomeInputProp, descInputProp, 
         setActiveStep(activeStep - 1);
     };
 
-    const handleSkip = () => {
-        if (!isStepOptional(activeStep)) {
-            throw new Error("Ops ! Esse passo não é opcional.");
-        }
-
-        setActiveStep((prevActiveStep) => prevActiveStep + 1);
-        setSkipped((prevSkipped) => {
-            const newSkipped = new Set(prevSkipped.values());
-            newSkipped.add(activeStep);
-            return newSkipped;
-        });
-    };
-
-    const handleReset = () => {
-        setActiveStep(0);
-    };
 
     return (
         <ModalContainer close={onClose} title="Criar Grupo">
@@ -153,21 +136,11 @@ const CreateGroupEvent = ({ onClose, imgSrcInput, nomeInputProp, descInputProp, 
                     })}
                 </Stepper>
                 <div>
-                    {activeStep === steps.length ? (
-                        <div>
-                            <Typography className={classes.instructions}>
-                                All steps completed - you&apos;re finished
-                            </Typography>
-                            <Button onClick={handleReset} className={classes.button}>
-                                Reset
-                            </Button>
-                        </div>
-                    ) : (
-                            <div>
-                                <Typography className={classes.instructions}>{getStepContent(activeStep)}</Typography>
 
-                            </div>
-                        )}
+                    <div>
+                        <div className={classes.instructions}>{getStepContent(activeStep)}</div>
+                    </div>
+
                 </div>
             </div>
         </ModalContainer>
@@ -175,4 +148,4 @@ const CreateGroupEvent = ({ onClose, imgSrcInput, nomeInputProp, descInputProp, 
 }
 
 
-export default CreateGroupEvent;
+export default CreateGroupStepper;

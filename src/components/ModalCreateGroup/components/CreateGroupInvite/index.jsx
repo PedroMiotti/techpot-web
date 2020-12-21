@@ -50,11 +50,13 @@ const CreateGroupInvite = ({ values, nomeInputProp, descInputProp, groupSelectIn
         <div className="creategroup-container">
 
             <div className="modalCreateGroupContainerPadrao">
-                <TechpotSelectInput pad={20} placeholder="Amigos" child={
-                    privacyValues.map((tipo) => (
-                        <option key={tipo.value} value={tipo.value}>{tipo.name}</option>
-                    ))
-                } />
+                <TechpotSelectInput placeholder="Privacidade">
+
+                    {privacyValues.map((tipo) => (
+                        <option className="font-techpot" key={tipo.value} value={tipo.value}>{tipo.name}</option>
+                    ))}
+
+                </TechpotSelectInput>
 
             </div>
             <div className="CreateGroup-navButtons-Container">

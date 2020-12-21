@@ -1,148 +1,16 @@
 import React from 'react';
 
-// Icons
-import { PersonOutline, LockOutlined } from '@material-ui/icons'
 
-// Material UI
-// import TextField from '@material-ui/core/TextField';
-// import Grid from '@material-ui/core/Grid';
-import { withStyles, makeStyles } from '@material-ui/core/styles';
-
-import FormControl from '@material-ui/core/FormControl';
-import Select from '@material-ui/core/Select';
-import InputLabel from '@material-ui/core/InputLabel';
+// Ant Design
+import { Select } from 'antd';
 
 
-let padding = 0;
-
-const CustomSelect = withStyles({
-    root: {
-
-
-        '& .MuiSelect-root': {
-            color: 'var(--color-secundary)',
-        },
-
-        '& .MuiOutlinedInput-input': {
-            padding: '5px',
-        },
-
-        '&  .MuiSelect-select': {
-            borderBottomColor: '#ddd',
-            color: '#fff !important',
-            width: '250px'
-        },
-
-        '&  .MuiSelect-select:focus': {
-            borderBottomColor: '#ddd',
-            color: '#fff !important',
-            width: '250px'
-        },
-
-        '& .MuiFormControl-root': {
-            '& fieldset': {
-                borderColor: 'var(--color-secundary)',
-                color: '#fff !important',
-
-            },
-            '&:hover fieldset': {
-                borderColor: 'var(--color-secundary)',
-                color: '#fff !important',
-            },
-            '&.Mui-focused fieldset': {
-                borderColor: 'var(--color-secundary)',
-                color: '#fff !important',
-            },
-        },
-
-    },
-})(Select);
-
-const CustomFormControl = withStyles({
-    root: {
-
-        // Controls the text inside -- Option text
-        '& .MuiSelect-root': {
-            color: '#000',
-            fontSize: "12px",
-        },
-
-
-        '& .MuiOutlinedInput-input': {
-            padding: '12px',
-        },
-
-        '& .MuiFormLabel-root.Mui-focused': {
-            color: "var(--color-secundary)",
-            lineHeight: '15px'
-        },
-
-        '& .MuiFormLabel-root': {
-            lineHeight: '0px'
-        },
-
-        '& .MuiFormLabel-filled': {
-            lineHeight: '15px'
-        },
-
-        '& .MuiOutlinedInput-notchedOutline': {
-            padding: `0 ${padding}px 0 13px`,
-            marginLeft: "-1.04px"
-        },
-
-        '& .MuiOutlinedInput-notchedOutline.Mui-focused': {
-            border: "1px solid var(--color-secundary)",
-        },
-
-
-        // Controls inside the select
-        '&  .MuiSelect-select': {
-            backgroundColor: "#fff",
-        },
-
-        '& .MuiOutlinedInput-input.Mui-focused': {
-            border: "1px solid var(--color-secundary)"
-        },
-
-    },
-})(FormControl);
-
-
-
-
-const useStyles = makeStyles((theme) => ({
-}));
-
-
-
-const TechpotSelectInput = ({child, state, changeCB, placeholder, pad}) => {
-
-    const classes = useStyles();
-
-    padding = pad;
+const TechpotSelectInput = ({ children ,placeholder }) => {
 
     return (
-
-        <CustomFormControl variant="outlined" >
-            <InputLabel htmlFor="outlined-grupo-native-simple" >{placeholder}</InputLabel>
-            <CustomSelect
-                native
-                label={placeholder}
-                value={state}
-                onChange={changeCB}
-                inputProps={{
-                    name: `${placeholder}`,
-                    id: 'outlined-grupo-native-simple',
-                }}
-
-                style={{ fontSize: '12px', padding: '0px' }}
-            >
-                <option aria-label="None" value="" />
-
-                {child}
-
-            </CustomSelect>
-        </CustomFormControl>
+        <Select size="large" placeholder={placeholder}  style={{ width: '100%' }}>
+            {children}
+        </Select>
     )
 }
 
@@ -150,4 +18,9 @@ const TechpotSelectInput = ({child, state, changeCB, placeholder, pad}) => {
 
 export default TechpotSelectInput;
 
+// value={selectValue} onChange={selectHandleChange} , selectValue, selectHandleChange
 
+
+
+// Tweak styles on line 2696 in the andt.css file
+// Seach pattern -> .ant-select {

@@ -70,13 +70,13 @@ const EventBox = ({ tituloEvento, dataEvento, tipoEvento, idEvento }) => {
         <div className="eventBox2-DayBox">
           <h3>{diaDoMes}</h3>
         </div>
-        <div id="eventBox2-bottom-details-row1" class="font-techpot">
+        <div id="eventBox2-bottom-details-row1" className="font-techpot">
           <h4 id="eventBox2-titulo">{firstLetterUppercase(diaDaSemana)}</h4>
           <p id="eventBox2-data">{firstLetterUppercase(mes)}, {ano}</p>
         </div>
       </Link>
       <Link to={`/evento/${idEvento}`} className="eventBox2-bottom-Container-row2">
-        <div id="eventBox2-bottom-details" class="font-techpot">
+        <div id="eventBox2-bottom-details" className="font-techpot">
           <h3 id="eventBox2-titulo">{tituloEvento}</h3>
           <p id="eventBox2-data">Começa às {horaInicio} &middot; {tipoEvento}</p>
         </div>

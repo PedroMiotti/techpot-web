@@ -5,7 +5,7 @@ import SearchImg from '../../../../../assets/Flavio.jpg';
 
 const SearchResultBox = () => {
     return(
-        <div id="div-container-SearchResultBox" class="font-techpot">
+        <div id="div-container-SearchResultBox" className="font-techpot">
             <div id="searchBox-div-img">
                 <img src={SearchImg} id="searchBox-img" alt="searchImage"/>
             </div>
