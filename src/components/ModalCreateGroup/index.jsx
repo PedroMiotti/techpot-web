@@ -118,7 +118,7 @@ const CreateGroupStepper = ({ onClose, imgSrcInput, groupInfoForm }) => {
     return (
         <ModalContainer close={onClose} title="Criar Grupo">
             <div className={classes.root}>
-                <Stepper activeStep={activeStep}>
+                <Stepper activeStep={activeStep} alternativeLabel>
                     {steps.map((label, index) => {
                         const stepProps = {};
                         const labelProps = {};

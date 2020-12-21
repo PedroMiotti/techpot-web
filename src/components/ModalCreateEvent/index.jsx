@@ -48,37 +48,37 @@ function getSteps() {
 
 
 
-const CreateGroupModal = ({ onClose, imgSrcInput, nomeInputProp, descInputProp, data_inicioProp, tipoSelectProp, data_fimProp, categoriaSelectInputProp }) => {
+const CreateGroupModal = ({ onClose, imgSrcInput, eventInfoForm }) => {
     const classes = useStyles();
     const [activeStep, setActiveStep] = useState(0);
     const [skipped, setSkipped] = useState(new Set());
     const steps = getSteps();
 
     const [formValues, setFormValues] = useState({
-        imgSrcInput, nomeInputProp, descInputProp, data_inicioProp, tipoSelectProp, data_fimProp, categoriaSelectInputProp
+        imgSrcInput, eventInfoForm
     });
 
 
     // Usuario
     const usuarioId = useSelector(state => state.entitie.user.id)
 
-    // Evento
-    const eventCreatedSuccess = useSelector(state => state.entitie.event.success);
-
     const dispatch = useDispatch();
 
-    const criarEvento = ( async() => {
+    const criarEvento = (async () => {
 
-        const dataInicio = new DateFormatter(formValues.data_inicioProp);
-        let dataInicioISO = dataInicio.toSQLFormat();
+        let { eventName, eventDesc, eventType, eventCategory, eventDate } = formValues.eventInfoForm;
 
-        const dataFim = new DateFormatter(formValues.data_fimProp);
-        let dataFimISO = dataFim.toSQLFormat();
+        console.log(eventDate[0]);
+        // const dataInicio = new DateFormatter(formValues.data_inicioProp);
+        // let dataInicioISO = dataInicio.toSQLFormat();
 
-        await dispatch(createEvent(formValues.nomeInputProp, formValues.descInputProp, dataInicioISO, 1, formValues.categoriaSelectInputProp, dataFimISO, formValues.tipoSelectProp, usuarioId))
+        // const dataFim = new DateFormatter(formValues.data_fimProp);
+        // let dataFimISO = dataFim.toSQLFormat();
 
-        onClose();
-        await dispatch(listEvent());
+        // await dispatch(createEvent(formValues.nomeInputProp, formValues.descInputProp, dataInicioISO, 1, formValues.categoriaSelectInputProp, dataFimISO, formValues.tipoSelectProp, usuarioId))
+
+        // onClose();
+        // await dispatch(listEvent());
 
     })
 
@@ -149,7 +149,7 @@ const CreateGroupModal = ({ onClose, imgSrcInput, nomeInputProp, descInputProp, 
     return (
         <ModalContainer close={onClose} title="Criar Evento">
             <div className={classes.root}>
-                <Stepper activeStep={activeStep}>
+                <Stepper activeStep={activeStep} alternativeLabel>
                     {steps.map((label, index) => {
                         const stepProps = {};
                         const labelProps = {};
@@ -167,21 +167,12 @@ const CreateGroupModal = ({ onClose, imgSrcInput, nomeInputProp, descInputProp, 
                     })}
                 </Stepper>
                 <div>
-                    {activeStep === steps.length ? (
-                        <div>
-                            <Typography className={classes.instructions}>
-                                Acabou
-                            </Typography>
-                            <Button onClick={handleReset} className={classes.button}>
-                                Reset
-                            </Button>
-                        </div>
-                    ) : (
-                            <div>
-                                <Typography className={classes.instructions}>{getStepContent(activeStep)}</Typography>
 
-                            </div>
-                        )}
+                    <div>
+                        <div className={classes.instructions}>{getStepContent(activeStep)}</div>
+
+                    </div>
+
                 </div>
             </div>
         </ModalContainer>

@@ -15,7 +15,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Today } from '@material-ui/icons';
 
 // AntD
-import { DatePicker } from 'antd';
+import { Form, Select, DatePicker } from 'antd';
 const { RangePicker } = DatePicker;
 
 const useStyles = makeStyles((theme) => ({
@@ -35,19 +35,30 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
+// nomeInputProp, descInputProp, data_inicioProp, tipoSelectProp, data_fimProp, categoriaSelectInputProp
 
-const CreateEventForm = ({ values, nomeInputProp, descInputProp, data_inicioProp, tipoSelectProp, data_fimProp, categoriaSelectInputProp, activeStep, isLastStep, handleBack, handleNext, criarEvento }) => {
+const CreateEventForm = ({ values, eventInfoForm, activeStep, isLastStep, handleBack, handleNext, criarEvento }) => {
 
     const classes = useStyles();
 
-    const [nomeInput, setNomeInput] = useState(nomeInputProp);
-    const [descInput, setDescInput] = useState(descInputProp);
-    const [categoriaSelectInput, setCategoriaSelectInput] = useState(categoriaSelectInputProp);
-    const [tipoSelectInput, setTipoSelectInput] = useState(tipoSelectProp);
-    const [dataIniInput, setDataIniInput] = useState(data_inicioProp);
-    const [dataFimInput, setDataFimInput] = useState(data_fimProp);
+    const [form] = Form.useForm();
+
+    const [buttonClicked, setButtonClicked] = useState('')
+
+    // const [dataIniInput, setDataIniInput] = useState(data_inicioProp);
+    // const [dataFimInput, setDataFimInput] = useState(data_fimProp);
 
     const categoriesList = useSelector(state => state.entitie.event.categoriesList);
+
+    const onFinish = formValues => {
+        let formData = { 'eventInfoForm': formValues };
+        if (buttonClicked === 'next') {
+            isLastStep ? criarEvento(formData) : handleNext(formData)
+        }
+        else {
+            handleBack(formData)
+        }
+    }
 
     const tipoEventoValues = [
         {
@@ -62,60 +73,134 @@ const CreateEventForm = ({ values, nomeInputProp, descInputProp, data_inicioProp
     ];
 
 
-    function onChange(dates, dateStrings) {
-        setDataIniInput(dates[0])
-        setDataFimInput(dates[1])
+    function onChangeDate(dates, dateStrings) {
+        return
+        // setDataIniInput(dates[0])
+        // setDataFimInput(dates[1])
     }
 
     return (
         <>
-            <div className="creategroup-container">
+            <Form
+                form={form}
+                name="createEvent"
+                onFinish={onFinish}
+                initialValues={eventInfoForm ? {
+                    eventName: eventInfoForm.eventName || '',
+                    eventDesc: eventInfoForm.eventDesc || '',
+                    eventType: eventInfoForm.eventType || '',
+                    eventCategory: eventInfoForm.eventCategory || '',
+                    eventDate: eventInfoForm.eventDate || '',
+                } : null}
+                style={{ width: "100%" }}
+                scrollToFirstError
+            >
+                <div className="creategroup-container">
 
-                <div className="creategroup-info-container font-techpot">
-                    <div className="creategroup-info-nome  modalCreateGroupContainerPadrao">
-                        <TechpotInput placeholder={'Titulo do Evento'} value={nomeInput} onChange={e => setNomeInput(e.target.value)} icon={<Today />}/>
-                    </div>
+                    <div className="creategroup-info-container font-techpot">
+                        <div className="creategroup-info-nome  modalCreateGroupContainerPadrao">
+                            <Form.Item
+                                name="eventName"
+                                rules={[
+                                    {
+                                        required: true,
+                                        message: 'O nome do evento é obrigatório',
+                                    },
+                                ]}
 
-                    <div className="creategroup-info-desc  modalCreateGroupContainerPadrao">
-                        <TechpotTextArea placeholder={'Descrição do Evento'} value={descInput} onChange={e => setDescInput(e.target.value)} wordCount="90" />
-                    </div>
+                            >
+                                <TechpotInput placeholder='Titulo do Evento' icon={<Today />} />
+                            </Form.Item>
+                        </div>
 
-                    <div className="createEvent-date">
+                        <div className="creategroup-info-desc  modalCreateGroupContainerPadrao">
+                            <Form.Item
+                                name="eventDesc"
+                                rules={[
+                                    {
+                                        required: true,
+                                        message: 'A descrição do evento é obrigatório',
+                                    },
+                                ]}
 
-                        <RangePicker placeholder={["Data inicio", "Data Fim"]} value={[dataIniInput, dataFimInput]} onChange={onChange} showTime bordered={false}/>
-  
-                    </div>
+                            >
+                                <TechpotTextArea placeholder='Descrição do Evento' wordCount="90" />
+                            </Form.Item>
+                        </div>
 
-                    <div className="creategroup-info-privacy  modalCreateGroupContainerPadrao">
-                        <TechpotSelectInput pad={20} changeCB={(e) => setTipoSelectInput(e.target.value)} placeholder="Tipo" state={tipoSelectInput} child={
-                            tipoEventoValues.map((tipo) => (
-                                <option key={tipo.value} value={tipo.value}>{tipo.name}</option>
-                            ))
-                        } />
-                    </div>
-                    <div className="creategroup-info-privacy  modalCreateGroupContainerPadrao">
-                        <TechpotSelectInput pad={20} changeCB={(e) => setCategoriaSelectInput(e.target.value)} placeholder="Categoria" state={categoriaSelectInput} child={
-                            categoriesList.map((categoria) => (
-                                <option key={categoria.category_id} value={categoria.category_id}>{categoria.category_name}</option>
-                            ))
-                        } />
+                        <div className="createEvent-date">
+                            <Form.Item
+                                name="eventDate"
+                                rules={[
+                                    {
+                                        type: 'array',
+                                        required: true,
+                                        message: 'A data de inicío do evento é obrigatório',
+                                    },
+                                ]}
+
+                            >
+                                <RangePicker placeholder={["Data inicío", "Data Fim"]} onChange={onChangeDate} showTime bordered={false} />
+                            </Form.Item>
+
+                            {/* value={[dataIniInput, dataFimInput]} */}
+
+                        </div>
+
+                        <div className="creategroup-info-privacy  modalCreateGroupContainerPadrao">
+                            <Form.Item
+                                name="eventType"
+                                rules={[
+                                    {
+                                        required: true,
+                                        message: 'O tipo do evento é obrigatório',
+                                    },
+                                ]}
+
+                            >
+                                <Select placeholder="Tipo" size="large">
+                                    {tipoEventoValues.map((tipo) => (
+                                        <option key={tipo.value} value={tipo.value}>{tipo.name}</option>
+                                    ))}
+                                </Select>
+                            </Form.Item>
+                        </div>
+                        <div className="creategroup-info-privacy  modalCreateGroupContainerPadrao">
+                            <Form.Item
+                                name="eventCategory"
+                                rules={[
+                                    {
+                                        required: true,
+                                        message: 'A categoria do evento é obrigatório',
+                                    },
+                                ]}
+
+                            >
+                                <Select placeholder="Categoria" size="large">
+                                    {categoriesList.map((categoria) => (
+                                        <option key={categoria.category_id} value={categoria.category_id}>{categoria.category_name}</option>
+                                    ))}
+                                </Select>
+                            </Form.Item>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div className="CreateGroup-navButtons-Container">
-                <Button disabled={activeStep === 0} onClick={() => handleBack({ nomeInputProp: nomeInput, descInputProp: descInput, data_inicioProp: dataIniInput, data_fimProp: dataFimInput, categoriaSelectInputProp: categoriaSelectInput, tipoSelectProp: tipoSelectInput })} className={classes.button}>
-                    Voltar
+                <div className="CreateGroup-navButtons-Container">
+                    <Button type="submit" disabled={activeStep === 0} onClick={() => setButtonClicked('back')} className={classes.button}>
+                        Voltar
                     </Button>
 
-                <Button
-                    variant="contained"
-                    style={{ backgroundColor: "#d0094d", color: "#fff" }}
-                    onClick={isLastStep ? () => criarEvento({ nomeInputProp: nomeInput, descInputProp: descInput, data_inicioProp: dataIniInput, data_fimProp: dataFimInput, categoriaSelectInputProp: categoriaSelectInput, tipoSelectProp: tipoSelectInput }) : () => handleNext({ nomeInputProp: nomeInput, descInputProp: descInput, data_inicioProp: dataIniInput, data_fimProp: dataFimInput, categoriaSelectInputProp: categoriaSelectInput, tipoSelectProp: tipoSelectInput })}
-                    className={classes.button}
-                >
-                    {isLastStep ? 'Criar' : 'Próximo'}
-                </Button>
-            </div>
+                    <Button
+                        type="submit"
+                        variant="contained"
+                        style={{ backgroundColor: "#d0094d", color: "#fff" }}
+                        onClick={() => setButtonClicked('next')}
+                        className={classes.button}
+                    >
+                        {isLastStep ? 'Criar' : 'Próximo'}
+                    </Button>
+                </div>
+            </Form>
         </>
 
     )

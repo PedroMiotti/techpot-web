@@ -11,10 +11,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { GroupOutlined } from '@material-ui/icons';
 
 // AntD
-import {
-    Form,
-    Select
-} from 'antd';
+import { Form, Select } from 'antd';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -68,7 +65,7 @@ const CreateGroupForm = ({ values, groupInfoForm, activeStep, isLastStep, handle
         <>
             <Form
                 form={form}
-                name="editUser"
+                name="createGroup"
                 onFinish={onFinish}
                 initialValues={groupInfoForm ? {
                     nomeGrupo: groupInfoForm.nomeGrupo || '',
@@ -117,7 +114,7 @@ const CreateGroupForm = ({ values, groupInfoForm, activeStep, isLastStep, handle
                                 rules={[
                                     {
                                         required: true,
-                                        message: 'O tipo do grupo é obrigatorio',
+                                        message: 'O tipo de privacidade do grupo é obrigatorio',
                                     },
                                 ]}
                             >

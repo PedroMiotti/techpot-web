@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
 
 
 
-const CreateGroupInvite = ({ values, nomeInputProp, descInputProp, groupSelectInputProp, activeStep, isLastStep, handleBack, handleNext, criarGrupo }) => {
+const CreateGroupInvite = ({ values, groupInfoForm, activeStep, isLastStep, handleBack, handleNext, criarGrupo }) => {
 
     const classes = useStyles();
 
