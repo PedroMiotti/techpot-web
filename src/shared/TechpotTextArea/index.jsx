@@ -25,7 +25,7 @@ const TechpotTextArea = ({ placeholder, value, onChange, icon, wordCount }) => {
             <div
                 className={`TechpotTextArea-inputControl ${icon ? 'TechpotTextArea-hasIcon' : ''}`}>
 
-                <textarea maxLength={wordCount} style={wordCount ? { resize: 'none', height: `calc(${wordCount}px / 2)` } : { resize: 'vertical' }} type="text" className="TechpotTextArea-input is-fade" value={value} onChange={wordCount ? (e) => { onChange(e); charCount(e); } : onChange} />
+                <textarea maxLength={wordCount} style={wordCount ? { resize: 'none', height: `calc(${wordCount}px / 1.5)` } : { resize: 'vertical' }} type="text" className="TechpotTextArea-input is-fade" value={value} onChange={wordCount ? (e) => { onChange(e); charCount(e); } : onChange} />
 
                 {icon &&
                     <div className="TechpotTextArea-inputIcon">

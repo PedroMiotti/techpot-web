@@ -1,111 +1,122 @@
-import React, { useState } from 'react'
-import './style.css'
+import React, { useState } from "react";
+import "./style.css";
 
 // Quill
-import ReactQuill from 'react-quill';
-import 'react-quill/dist/quill.snow.css';
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css";
 import EditorToolbar, { modules, formats } from "./Components/EditorToolbar";
 
-
 // Redux
-import { useSelector, useDispatch } from 'react-redux';
-import { createPost } from '../../store/_entities/Post';
-import { listPostByUser } from '../../store/_entities/Post';
+import { useSelector, useDispatch } from "react-redux";
+import { createPost } from "../../store/_entities/Post";
+import { listPostByUser } from "../../store/_entities/Post";
 
 // Components
-import ModalContainer from '../../shared/ModalContainer/index';
-import UserProfileImg from '../../shared/UserProfileImg/index'
-import TechpotSelectInput from '../../shared/TechpotSelect/index';
+import ModalContainer from "../../shared/ModalContainer/index";
+import UserProfileImg from "../../shared/UserProfileImg/index";
+import TechpotSelectInput from "../../shared/TechpotSelect/index";
 
-// Hooks 
-import useLockBodyScroll from '../../hooks/useLockBodyScroll'
+// Hooks
+import useLockBodyScroll from "../../hooks/useLockBodyScroll";
 
+// AntD
+import { Form, Select } from "antd";
 
 const icon = {
-    color: ' #7c7c7c',
-    fontSize: 30,
-    cursor: 'pointer'
-
+  color: " #7c7c7c",
+  fontSize: 30,
+  cursor: "pointer",
 };
 
 const ModalCreatePost = ({ onClose }) => {
+  useLockBodyScroll();
 
-    useLockBodyScroll();
+  const [postBody, setPostBody] = useState({ value: null });
+  const [postBodyHTML, setPostBodyHTML] = useState({ value: null });
+  const [groupSelectInput, setGroupSelectInput] = useState("");
 
-    const [postBody, setPostBody] = useState({ value: null });
-    const [postBodyHTML, setPostBodyHTML] = useState({ value: null });
-    const [groupSelectInput, setGroupSelectInput] = useState('');
+  // Usuario
+  const usuarioId = useSelector((state) => state.entitie.user.id);
+  const usuarioPerfil = useSelector((state) => state.entitie.user.profile);
 
-    // Usuario
-    const usuarioId = useSelector(state => state.entitie.user.id);
-    const usuarioPerfil = useSelector(state => state.entitie.user.profile);
+  // Grupo
+  const groupList = useSelector((state) => state.entitie.group.groupList);
 
-    // Grupo
-    const groupList = useSelector(state => state.entitie.group.groupList);
+  const handleChange = (content, delta, source, editor) => {
+    setPostBodyHTML({ value: content });
 
-    const handleChange = (content, delta, source, editor) => {
+    // Get text without html
+    const text = editor.getText();
+    setPostBody(text);
+  };
 
-        setPostBodyHTML({ value: content });
+  const dispatch = useDispatch();
 
-        // Get text without html
-        const text = editor.getText();
-        setPostBody(text);
-    };
+  const criarPost = async (e) => {
+    e.preventDefault();
 
-    const dispatch = useDispatch();
+    await dispatch(
+      createPost(postBody, postBodyHTML.value, usuarioId, groupSelectInput)
+    );
 
-    const criarPost = async (e) => {
-        e.preventDefault()
+    onClose();
+    await dispatch(listPostByUser(usuarioId));
+  };
 
-        await dispatch(createPost(postBody, postBodyHTML.value, usuarioId, groupSelectInput));
+  return (
+    <ModalContainer close={onClose} title="Criar Post">
+      <div className="modalCreatePost-userInfo">
+        <div className="modalCreatePost-profileimgcontainer">
+          <UserProfileImg />
+        </div>
 
+        <div className="modalCreatePost-userInfo-col2">
+          <h4 className="font-techpot">
+            {usuarioPerfil.u.nome + " " + usuarioPerfil.u.sobrenome || " "}
+          </h4>
+          <Select placeholder="Grupo" size="large">
+            {groupList.map((grupos) => (
+              <Select.Option
+                className="font-techpot"
+                key={grupos.group_id}
+                value={grupos.group_id}
+              >
+                {grupos.group_name}
+              </Select.Option>
+            ))}
+          </Select>
+        </div>
+      </div>
 
-        onClose();
-        await dispatch(listPostByUser(usuarioId))
+      <div className="modalCreatePost-postBody" id="quillEditor">
+        <EditorToolbar />
+        <ReactQuill
+          className="ql-custom"
+          value={postBodyHTML.value}
+          onChange={handleChange}
+          placeholder={"system.out.println(Oque voce está pensando ?) "}
+          modules={modules}
+          formats={formats}
+        />
+      </div>
 
-    }
-
-    return (
-        <ModalContainer close={onClose} title="Criar Post">
-            <div className="modalCreatePost-userInfo">
-
-                <div className="modalCreatePost-profileimgcontainer">
-                    <UserProfileImg />
-                </div>
-
-                <div className="modalCreatePost-userInfo-col2">
-                    <h4 className="font-techpot">{usuarioPerfil.u.nome + " " + usuarioPerfil.u.sobrenome || " "}</h4>
-
-                    <TechpotSelectInput pad={20} placeholder="Grupo" changeCB={(e) => setGroupSelectInput(e.target.value)} state={groupSelectInput} child={groupList.map((grupos) => (
-                        <option key={grupos.group_id} value={grupos.group_id}>{grupos.group_name}</option>
-                    ))} />
-
-                </div>
-            </div>
-
-            <div className="modalCreatePost-postBody" id='quillEditor'>
-                <EditorToolbar />
-                <ReactQuill className="ql-custom" value={postBodyHTML.value} onChange={handleChange} placeholder={"system.out.println(Oque voce está pensando ?) "} modules={modules} formats={formats} />
-            </div>
-
-            <div className="modalCreatePost-bottom">
-                <div className="modalCreatePost-media-row2">
-                    {/* <Image style={icon}/>
+      <div className="modalCreatePost-bottom">
+        <div className="modalCreatePost-media-row2">
+          {/* <Image style={icon}/>
                         <YouTube style={icon}/> */}
-                </div>
+        </div>
 
-                <div className="modalCreatePost-postbtt-col2">
+        <div className="modalCreatePost-postbtt-col2">
+          <div
+            onClick={criarPost}
+            className="modalCreatePost-postbttContainer-col2-active font-techpot"
+          >
+            <a href="">Postar</a>
+          </div>
+        </div>
+      </div>
+    </ModalContainer>
+  );
+};
 
-                    <div onClick={criarPost} className="modalCreatePost-postbttContainer-col2-active font-techpot" >
-                        <a href="">Postar</a>
-                    </div>
-
-                </div>
-            </div>
-
-        </ModalContainer>
-
-    )
-}
-
-export default ModalCreatePost
+export default ModalCreatePost;

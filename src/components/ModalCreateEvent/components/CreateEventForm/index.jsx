@@ -109,6 +109,7 @@ const CreateEventForm = ({ values, eventInfoForm, activeStep, isLastStep, handle
                                     {
                                         required: true,
                                         message: 'A descrição do evento é obrigatório',
+                                        max: 90
                                     },
                                 ]}
 
@@ -124,14 +125,13 @@ const CreateEventForm = ({ values, eventInfoForm, activeStep, isLastStep, handle
                                     {
                                         type: 'array',
                                         required: true,
-                                        message: 'A data de inicío do evento é obrigatório',
+                                        message: 'A data do evento é obrigatório',
                                     },
                                 ]}
 
                             >
                                 <div className="createEvent-date">
-
-                                <RangePicker placeholder={["Data inicío", "Data Fim"]} showTime bordered={false} />
+                                    <RangePicker placeholder={["Data inicío", "Data Fim"]} showTime bordered={false} />
                                 </div>
                             </Form.Item>
 
