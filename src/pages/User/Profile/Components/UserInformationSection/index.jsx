@@ -43,14 +43,14 @@ const InfoUsuario = ({ usuarioPerfil, usuarioId, editPermission }) => {
 
 
             <div id="DescricaoUsuario">
-                <h1>{usuarioPerfil.u ? firstLetterUppercase(usuarioPerfil.u.nome) + " " + firstLetterUppercase(usuarioPerfil.u.sobrenome) : "Usuario"} </h1>
+                <h1>{usuarioPerfil.u ? firstLetterUppercase(usuarioPerfil.u.name) + " " + firstLetterUppercase(usuarioPerfil.u.surname) : "Usuario"} </h1>
 
                 <div id="NickCat">
-                    <p>@{usuarioPerfil.u ? firstLetterUppercase(usuarioPerfil.u.nome) + firstLetterUppercase(usuarioPerfil.u.sobrenome) : "Usuario"}</p>
+                    <p>@{usuarioPerfil.u ? firstLetterUppercase(usuarioPerfil.u.name) + firstLetterUppercase(usuarioPerfil.u.surname) : "Usuario"}</p>
 
                     {usuarioPerfil.u ?
-                        usuarioPerfil.u.ocupacao ?
-                            <p>&middot; {usuarioPerfil.u.ocupacao} </p>
+                        usuarioPerfil.u.occupation ?
+                            <p>&middot; {usuarioPerfil.u.occupation} </p>
                             :
                             null
                         :

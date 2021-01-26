@@ -73,10 +73,10 @@ const General = () => {
 
         let perfil = usuarioPerfil.u;
         if (perfil) {
-            setNomeInput(perfil.nome)
-            setSobrenomeInput(perfil.sobrenome)
+            setNomeInput(perfil.name)
+            setSobrenomeInput(perfil.surname)
             if (perfil.bio) setBioInput(perfil.bio)
-            if (perfil.ocupacao) setOcupacaoInput(perfil.ocupacao)
+            if (perfil.ocupacao) setOcupacaoInput(perfil.occupation)
             if (perfil.linkedin) setLinkedinInput(perfil.linkedin)
             if (perfil.github) setGithubInput(perfil.github)
         }

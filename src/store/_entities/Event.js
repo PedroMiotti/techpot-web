@@ -17,7 +17,7 @@ const slice = createSlice({
         eventsList: [],
         categoriesList: [],
         typesList: [],
-        info: [],
+        info: {},
         inviteList: [],
         subscribeList: [],
     },
@@ -87,6 +87,8 @@ const slice = createSlice({
             evento.success = true;
             evento.error = false;
             evento.info = action.payload;
+          console.log(action.payload)
+          console.log('hello')
         },
 
         EVENT_LIST_CATEGORY_SUCCESSFUL: (evento, action) =>{

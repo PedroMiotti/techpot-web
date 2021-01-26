@@ -87,11 +87,11 @@ export default slice.reducer;
 
 const url = '/grupo';
 
-export const createGroup = (nome, descricao, tipo_privacidade, user_id) => apiCallBegan({
+export const createGroup = (name, description, privacy_type, user_id) => apiCallBegan({
     url: url + "/criar",
     headers: authHeader(),
     method: "post",
-    data: { nome, descricao, tipo_privacidade, user_id },
+    data: {name, description, privacy_type, user_id},
     onStart: GROUP_REQUESTED.type,
     onSuccess: GROUP_CREATED_SUCCESSFUL.type,
     onError: GROUP_FAILED.type
@@ -116,22 +116,3 @@ export const listGroup = (id) => apiCallBegan({
 });
 
 
-export const editUser = (id, nome, sobrenome, bio, ocupacao, github, linkedin) => apiCallBegan({
-    url: url + "/editar",
-    headers: authHeader(),
-    method: "post",
-    data: { id, nome, sobrenome, bio, ocupacao, github, linkedin },
-    onStart: GROUP_REQUESTED.type,
-    onSuccess: GROUP_EDITED_SUCCESSFUL.type,
-    onError: GROUP_FAILED.type
-});
-
-export const deleteUser = (id) => apiCallBegan({
-    url: url + "/excluir",
-    headers: authHeader(),
-    method: "post",
-    data: { id },
-    onStart: GROUP_REQUESTED.type,
-    onSuccess: GROUP_DELETED_SUCCESSFUL.type,
-    onError: GROUP_FAILED.type
-})

@@ -49,15 +49,13 @@ const ModalCreatePost = ({ onClose }) => {
     const text = editor.getText();
     setPostBody(text);
   };
-
   const dispatch = useDispatch();
 
   const criarPost = async (e) => {
     e.preventDefault();
-
-    await dispatch(
-      createPost(postBody, postBodyHTML.value, usuarioId, groupSelectInput)
-    );
+     await dispatch( 
+       createPost(postBody, postBodyHTML.value, usuarioId, groupSelectInput) 
+     ); 
 
     onClose();
     await dispatch(listPostByUser(usuarioId));
@@ -72,9 +70,9 @@ const ModalCreatePost = ({ onClose }) => {
 
         <div className="modalCreatePost-userInfo-col2">
           <h4 className="font-techpot">
-            {usuarioPerfil.u.nome + " " + usuarioPerfil.u.sobrenome || " "}
+            {usuarioPerfil.u.name + " " + usuarioPerfil.u.surname || " "}
           </h4>
-          <Select placeholder="Grupo" size="large">
+          <Select placeholder="Grupo" size="large" onChange={(value) => setGroupSelectInput(value) }>
             {groupList.map((grupos) => (
               <Select.Option
                 className="font-techpot"

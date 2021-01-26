@@ -107,7 +107,7 @@ const MainFeed = () => {
               <NoGroupsPlaceholder />
               :
               groupList.map((grupos) => (
-                <GroupBox key={grupos.group_id} groupTitle={grupos.group_name} groupId={grupos.group_id} groupMembersNum={grupos.membros} />
+                <GroupBox key={grupos.group_id} groupTitle={grupos.group_name} groupId={grupos.group_id} groupMembersNum={grupos.group_members_count} />
               ))
             }
           </ContainerList>
@@ -120,7 +120,7 @@ const MainFeed = () => {
               <div className="afterRegisterContainer">
 
                 <div className="containerWelcome font-techpot">
-                  <h3 className="font-techpot">Bem vindo(a) a comunidade TECH {usuarioPerfil.u ? firstLetterUppercase(usuarioPerfil.u.nome) : "Usuario"} !</h3>
+                  <h3 className="font-techpot">Bem vindo(a) a comunidade TECH {usuarioPerfil.u ? firstLetterUppercase(usuarioPerfil.u.name) : "Usuario"} !</h3>
                 </div>
 
                 <div className="containerPhotoUpdate">
@@ -149,7 +149,7 @@ const MainFeed = () => {
           <ContainerList tituloBoxList="Eventos" open={openModalCreateEvent}>
 
             {eventList.map((eventos) => (
-              <EventBox key={eventos.event_id} tituloEvento={eventos.event_name} dataEvento={eventos.event_dateInit} tipoEvento={eventos.eventType_name} idEvento={eventos.event_id} />
+              <EventBox key={eventos.event_id} tituloEvento={eventos.event_name} dataEvento={eventos.event_dateInit} tipoEvento={eventos.event_type_name} idEvento={eventos.event_id} />
             ))}
 
           </ContainerList>

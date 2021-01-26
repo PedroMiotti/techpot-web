@@ -190,7 +190,7 @@ const Navbar = ({ pathName }) => {
               <div className="navbarUserContainer" onClick={openModalUserPreferences} ref={modalUserPreferencesRef}>
                 <div className="navbarUserInfo">
                   <li className="nickname">
-                    Olá, {usuarioPerfil.u ? firstLetterUppercase(usuarioPerfil.u.nome) : "Usuario"}
+                    Olá, {usuarioPerfil.u ? firstLetterUppercase(usuarioPerfil.u.name) : "Usuario"}
                   </li>
                 </div>
 

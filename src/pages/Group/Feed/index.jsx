@@ -70,8 +70,8 @@ const Feed = () => {
           </div>
 
           <div className="feedGrupoInfoText">
-            <h1 className="feedGrupoInfoTextName">{infoGrupo.g ? infoGrupo.g.nome : " "}</h1>
-            <p className="feedGrupoInfoTextMembros">{infoGrupo.g ? infoGrupo.g.num_membros + (infoGrupo.g.num_membros == 1 ? ' Membro' : ' Membros') : " "}</p>
+            <h1 className="feedGrupoInfoTextName">{infoGrupo.g ? infoGrupo.g.name : " "}</h1>
+            <p className="feedGrupoInfoTextMembros">{infoGrupo.g ? infoGrupo.g.num_members + (infoGrupo.g.num_members === 1 ? ' Membro' : ' Membros') : " "}</p>
             <p className="feedGrupoInfoTextBIO">
               {infoGrupo.g ? infoGrupo.g.descricao : " "}
               </p>

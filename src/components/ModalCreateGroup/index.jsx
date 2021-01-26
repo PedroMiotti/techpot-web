@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 
-
 // Material UI
 import { makeStyles } from '@material-ui/core/styles';
 import Stepper from '@material-ui/core/Stepper';
@@ -21,9 +20,6 @@ import CreateGroupImage from './components/CreateGroupImage/index';
 import CreateGroupForm from './components/CreateGroupForm/index';
 import CreateGroupInvite from './components/CreateGroupInvite/index';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-
-
-
 
 const useStyles = makeStyles((theme) => ({
     root: {
