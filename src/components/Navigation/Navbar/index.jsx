@@ -23,6 +23,7 @@ import { useSelector } from 'react-redux';
 
 // Helpers
 import { firstLetterUppercase } from '../../../helpers/UpperFirstLetter';
+import { formatedUserName } from '../../../helpers/formatUserName';
 
 const icon = {
   color: "#fff",
@@ -95,7 +96,6 @@ const Navbar = ({ pathName }) => {
   const goBackPrevious = () => {
     history.goBack();
   }
-
 
   return (
     <>
@@ -190,7 +190,7 @@ const Navbar = ({ pathName }) => {
               <div className="navbarUserContainer" onClick={openModalUserPreferences} ref={modalUserPreferencesRef}>
                 <div className="navbarUserInfo">
                   <li className="nickname">
-                    Olá, {usuarioPerfil.u ? firstLetterUppercase(usuarioPerfil.u.name) : "Usuario"}
+                    Olá, {usuarioPerfil.u ? formatedUserName(usuarioPerfil.u.name) : "Usuario"}
                   </li>
                 </div>
 

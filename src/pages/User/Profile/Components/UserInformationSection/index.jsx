@@ -7,7 +7,7 @@ import UserProfileImg from "../../../../../shared/UserProfileImg/index"
 
 // Helpers
 import { firstLetterUppercase } from '../../../../../helpers/UpperFirstLetter';
-
+import { formatedUserName } from '../../../../../helpers/formatUserName';
 // Router
 import { Link } from "react-router-dom";
 
@@ -43,10 +43,10 @@ const InfoUsuario = ({ usuarioPerfil, usuarioId, editPermission }) => {
 
 
             <div id="DescricaoUsuario">
-                <h1>{usuarioPerfil.u ? firstLetterUppercase(usuarioPerfil.u.name) + " " + firstLetterUppercase(usuarioPerfil.u.surname) : "Usuario"} </h1>
+                <h1>{usuarioPerfil.u ? formatedUserName(usuarioPerfil.u.name)  : "Usuario"} </h1>
 
                 <div id="NickCat">
-                    <p>@{usuarioPerfil.u ? firstLetterUppercase(usuarioPerfil.u.name) + firstLetterUppercase(usuarioPerfil.u.surname) : "Usuario"}</p>
+                    <p>@{usuarioPerfil.u ? firstLetterUppercase(usuarioPerfil.u.username)  : "Usuario"}</p>
 
                     {usuarioPerfil.u ?
                         usuarioPerfil.u.occupation ?

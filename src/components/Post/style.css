@@ -84,7 +84,56 @@
     margin-left: 12px;
 }
 
+.like-btn {
+    position: relative;
+    /* display: flex; */
+    /* justify-content: center; */
+    /* align-items: center; */
+    cursor: pointer;
+    transition: all 0.5s;
+    opacity: 0;
+    z-index: 2;
+  }
 
+.like-icon{
+      position: absolute;
+      -webkit-text-stroke: 2px var(--color-secundary);
+      color: var(--color-secundary);
+      transition: all ease-in-out;
+  }
+
+  .like-btn:checked + .like-icon{
+      color: var(--color-secundary);
+      -webkit-text-stroke: 1px var(--color-secundary);
+      animation: .5s linear burst; 
+  }
+
+
+@keyframes burst{
+    0%,10%{
+        transform: scale(1);
+        opacity: .5;
+        color:var(--color-secundary);
+    }
+    45%{
+        transform: scale(.2) rotate(30deg);
+        opacity: .75;
+    }
+    50%{
+        transform: scale(2) rotate(-37.5deg);
+        opacity: 1;
+        color: var(--color-secundary);
+        text-shadow: 2px 2px 6px rgba(235, 9, 9, 0.5);
+    }
+    90%,95%{
+        transform: scale(1) rotate(10deg);
+        text-shadow: none;
+    }
+    100% {
+        transform: rotate(-2.5deg);
+    }
+
+  }
 @media screen and (max-width: 510px) {
     .postContainer {
         width: 100vw;

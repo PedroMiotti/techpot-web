@@ -15,7 +15,7 @@ import useWindowDimensions from "./hooks/useWindowDimensions";
 import MainFeed from './pages/MainFeed';
 
 // Auth
-import Login from './pages/Auth/Login';
+import Login from './pages/Auth/LoginCas';
 import Register from './pages/Auth/Register'
 
 // Group

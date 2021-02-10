@@ -6,16 +6,15 @@ import { apiCallBegan } from "../api";
 import { authHeader } from '../../helpers/auth-header';
 
 // Helper
-import history from '../../helpers/history'
+import history from '../../helpers/history';
+import { getCookie , deleteCookie } from '../../helpers/handleCookie';
 
 // JWT
 import jwt_decode from 'jwt-decode';
 
-
-const hasToken = localStorage.getItem('_auth');
+let hasToken = getCookie('_auth');
 let infoUser;
-if (hasToken) infoUser = jwt_decode(hasToken);
-
+if (hasToken != "") infoUser = jwt_decode(hasToken);
 
 const slice = createSlice({
     name: "usuario",
@@ -25,8 +24,8 @@ const slice = createSlice({
         success: false,
         successMessage: '',
         errorMessage: '',
-        isLoggedIn: hasToken ? true : false,
-        id: hasToken ? infoUser.u.id : '',
+        isLoggedIn: hasToken != "" ? true : false,
+        id: hasToken != "" ? infoUser.u.id : '',
         token: '',
         profile: {},
         otherUserProfile: {}
@@ -50,7 +49,6 @@ const slice = createSlice({
         USER_PROFILE_SUCCESSFUL: (usuario, action) => {
             usuario.loading = false;
             usuario.profile = { u: action.payload.u };
-
         },
 
         USER_INFO_SUCCESSFUL: (usuario, action) => {
@@ -82,8 +80,8 @@ const slice = createSlice({
             usuario.profile = {};
             usuario.id = null;
             usuario.token = null;
-
-            localStorage.removeItem("_auth")
+            
+            deleteCookie('_auth');
             localStorage.removeItem("_firstAccess")
             history.push("/")
         },
@@ -110,12 +108,8 @@ const slice = createSlice({
             usuario.loading = false;
             usuario.success = true;
             usuario.successMessage = action.payload.message;
-            usuario.token = action.payload.token;
-
-            // Switch Tokens
-            localStorage.removeItem("_auth")
-            localStorage.setItem("_auth", usuario.token)
-
+            console.log(action.payload)
+            
         },
 
         USER_DELETED_SUCCESSFUL: (usuario, action) => {

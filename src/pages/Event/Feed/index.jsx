@@ -222,9 +222,7 @@ const Evento = () => {
               <div className="eventoBottom-Oganizador-card-info">
                 <h4>
                   {eventInfo.row
-                    ? firstLetterUppercase(eventInfo.row.user_name) +
-                      " " +
-                      firstLetterUppercase(eventInfo.row.user_surname)
+                    ? firstLetterUppercase(eventInfo.row.user_name)
                     : ""}
                 </h4>
                 <p>

@@ -70,7 +70,7 @@ const ModalCreatePost = ({ onClose }) => {
 
         <div className="modalCreatePost-userInfo-col2">
           <h4 className="font-techpot">
-            {usuarioPerfil.u.name + " " + usuarioPerfil.u.surname || " "}
+            {usuarioPerfil.u.name || " "}
           </h4>
           <Select placeholder="Grupo" size="large" onChange={(value) => setGroupSelectInput(value) }>
             {groupList.map((grupos) => (

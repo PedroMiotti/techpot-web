@@ -19,9 +19,9 @@ import { Link } from 'react-router-dom';
 
 // Helpers
 import { DateFormatter } from '../../helpers/dataFormatter';
+import { formatedUserName } from '../../helpers/formatUserName';
 
-
-const Post = ({ post_body_html, post_body, id_criador, nome_criador, sobrenome_criador, data_criacao, grupo }) => {
+const Post = ({ post_body_html, post_body, id_criador, nome_criador, data_criacao, grupo }) => {
 
   const dataCriacao = new DateFormatter(data_criacao);
   let relativeTime = dataCriacao.getRelativeTime();
@@ -41,7 +41,7 @@ const Post = ({ post_body_html, post_body, id_criador, nome_criador, sobrenome_c
           </div>
 
           <div className="postInfo">
-            <p>{nome_criador + " " + sobrenome_criador}</p>
+            <p>{formatedUserName(nome_criador)}</p>
             <p className="postInfoSubtext">{relativeTime} | {grupo}</p>
           </div>
         </Link>
@@ -71,7 +71,8 @@ const Post = ({ post_body_html, post_body, id_criador, nome_criador, sobrenome_c
         </div>
 
         <div className="postLikesContainer">
-          <FavoriteBorder className="postIcon" />
+          <input type='checkbox' class='like-btn'/>
+          <FavoriteBorder className="postIcon like-icon" />
           <p className="postLikesText">186</p>
         </div>
       </div>

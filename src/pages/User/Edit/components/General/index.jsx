@@ -54,7 +54,6 @@ const General = () => {
     const { id } = useParams();
 
     const [nomeInput, setNomeInput] = useState('');
-    const [sobrenomeInput, setSobrenomeInput] = useState('');
     const [bioInput, setBioInput] = useState('');
     const [ocupacaoInput, setOcupacaoInput] = useState('');
     const [linkedinInput, setLinkedinInput] = useState('');
@@ -74,7 +73,6 @@ const General = () => {
         let perfil = usuarioPerfil.u;
         if (perfil) {
             setNomeInput(perfil.name)
-            setSobrenomeInput(perfil.surname)
             if (perfil.bio) setBioInput(perfil.bio)
             if (perfil.ocupacao) setOcupacaoInput(perfil.occupation)
             if (perfil.linkedin) setLinkedinInput(perfil.linkedin)
@@ -83,7 +81,6 @@ const General = () => {
 
         return () => {
             setNomeInput(null)
-            setSobrenomeInput(null)
             setBioInput(null)
             setOcupacaoInput(null)
             setLinkedinInput(null)
@@ -91,7 +88,7 @@ const General = () => {
         }
 
     }, [usuarioPerfil.u])
-
+  // TODO --> Create proper loading 
     if (nomeInput === '') {
         return <h1>Carregando</h1>
     }
@@ -115,7 +112,6 @@ const General = () => {
                     onFinish={saveUserInfo}
                     initialValues={{
                         nome: nomeInput || '',
-                        sobrenome: sobrenomeInput || "",
                         bio: bioInput || "",
                         ocupacao: ocupacaoInput || "",
                         linkedin: linkedinInput || "",
@@ -147,7 +143,7 @@ const General = () => {
                                 name="sobrenome"
                                 rules={[
                                     {
-                                        required: true,
+                                        required: false,
                                         message: 'Seu sobrenome é obrigatorio',
                                     },
                                 ]}
