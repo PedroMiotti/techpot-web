@@ -74,11 +74,21 @@ const slice = createSlice({
             post.postListByGroup = action.payload;
         },
 
+        POST_LIKED_SUCCESSFUL: (post, action) => {
+            post.loading = false;
+            post.error = false;
+        },
+
+        
+        POST_UNLIKED_SUCCESSFUL: (post, action) => {
+            post.loading = false;
+            post.error = false;
+        },
 
     }
 });
 
-export const { POST_REQUESTED, POST_FAILED, POST_INFO_SUCCESSFUL, POST_CREATED_SUCCESSFUL, POST_LIST_SUCCESSFUL, POST_EDITED_SUCCESSFUL, POST_DELETED_SUCCESSFUL, POST_LISTED_USER_SUCCESSFUL, POST_LISTED_GROUP_SUCCESSFUL } = slice.actions;
+export const { POST_REQUESTED, POST_FAILED, POST_INFO_SUCCESSFUL, POST_CREATED_SUCCESSFUL, POST_LIST_SUCCESSFUL, POST_EDITED_SUCCESSFUL, POST_DELETED_SUCCESSFUL, POST_LISTED_USER_SUCCESSFUL, POST_LISTED_GROUP_SUCCESSFUL, POST_LIKED_SUCCESSFUL,POST_UNLIKED_SUCCESSFUL, } = slice.actions;
 
 export default slice.reducer;
 
@@ -122,7 +132,6 @@ export const infoPost = (id) => apiCallBegan({
 });
 
 
-
 export const editPost = (id, nome, sobrenome, bio, ocupacao, github, linkedin) => apiCallBegan({
     url: url + "/editar",
     headers: authHeader(),
@@ -142,3 +151,24 @@ export const deletePost = (id) => apiCallBegan({
     onSuccess: POST_DELETED_SUCCESSFUL.type,
     onError: POST_FAILED.type
 })
+
+export const likePost = (user_id, post_id) => apiCallBegan({
+    url: url + "/like",
+    headers: authHeader(),
+    method: "post",
+    data: {user_id, post_id},
+    onStart: POST_REQUESTED.type,
+    onSuccess: POST_LIKED_SUCCESSFUL.type,
+    onError: POST_FAILED.type
+});
+
+
+export const unlikePost = (user_id, post_id) => apiCallBegan({
+    url: url + "/unlike",
+    headers: authHeader(),
+    method: "post",
+    data: {user_id, post_id},
+    onStart: POST_REQUESTED.type,
+    onSuccess: POST_UNLIKED_SUCCESSFUL.type,
+    onError: POST_FAILED.type
+});
