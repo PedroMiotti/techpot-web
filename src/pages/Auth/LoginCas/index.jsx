@@ -13,7 +13,7 @@ const LoginCas = () => {
           <LogoTechPot />
           <p>Bem vindo(a) comunindade TECH !</p>
         </div>
-        <a className="loginButton" href="https://credenciamento.espm.br/ad/redir?callback=http://localhost:4000/usuario/login-cas">Login</a>
+        <a className="loginButton" href="https://credenciamento.espm.br/ad/teste-redir?callback=http://localhost:4000/usuario/login-cas">Login</a>
       
       </div>
     </div>

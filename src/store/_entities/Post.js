@@ -16,6 +16,7 @@ const slice = createSlice({
         errorMessage: '',
         postListByUser: [],
         postListByGroup: [],
+        postsUserLiked: [],
         postInfo: {},
     },
 
@@ -65,7 +66,8 @@ const slice = createSlice({
         POST_LISTED_USER_SUCCESSFUL: (post, action) => {
             post.loading = false;
             post.error = false;
-            post.postListByUser = action.payload;
+            post.postListByUser = action.payload.listPosts;
+            post.postsUserLiked = action.payload.postUserLikedParsed;
         },
 
         POST_LISTED_GROUP_SUCCESSFUL: (post, action) => {

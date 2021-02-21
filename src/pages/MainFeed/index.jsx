@@ -76,6 +76,7 @@ const MainFeed = () => {
 
   // Posts
   const postListUser = useSelector(state => state.entitie.post.postListByUser);
+  const postLikedByUser = useSelector(state => state.entitie.post.postsUserLiked);
 
   const postCreatedLoading = useSelector(state => state.entitie.post.loading);
   const postCreatedFailed = useSelector(state => state.entitie.post.error);
@@ -139,7 +140,7 @@ const MainFeed = () => {
               :
               <>
                 {postListUser.map((posts) => (
-                  <Post key={posts.post_id} post_body={posts.post_body} post_id={posts.post_id} data_criacao={posts.post_data_criacao} post_body_html={posts.post_body_html} post_body={posts.post_body} grupo={posts.group_name} id_criador={posts.user_id} nome_criador={posts.user_name} />
+                  <Post key={posts.post_id} post_body={posts.post_body} post_id={posts.post_id} data_criacao={posts.post_data_criacao} post_body_html={posts.post_body_html} post_body={posts.post_body} grupo={posts.group_name} id_criador={posts.user_id} nome_criador={posts.user_name} like_count={posts.post_like_count} />
                 ))}
               </>
           }
