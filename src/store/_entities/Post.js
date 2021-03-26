@@ -94,10 +94,10 @@ export const { POST_REQUESTED, POST_FAILED, POST_INFO_SUCCESSFUL, POST_CREATED_S
 
 export default slice.reducer;
 
-const url = '/post';
+const url = '/api/v1/posts';
 
 export const createPost = (post_body, post_body_html, user_id, group_id) => apiCallBegan({
-    url: url + "/criar",
+    url: url + "/",
     headers: authHeader(),
     method: "post",
     data: { post_body, post_body_html, user_id, group_id },
@@ -107,7 +107,7 @@ export const createPost = (post_body, post_body_html, user_id, group_id) => apiC
 });
 
 export const listPostByUser = (id) => apiCallBegan({
-    url: url + `/feed/listar/${id}`,
+    url: url + `/feed/user/${id}`,
     headers: authHeader(),
     method: "get",
     onStart: POST_REQUESTED.type,
@@ -116,7 +116,7 @@ export const listPostByUser = (id) => apiCallBegan({
 });
 
 export const listPostByGroup = (id) => apiCallBegan({
-    url: url + `/feed/grupo/listar/${id}`,
+    url: url + `/feed/group/${id}`,
     headers: authHeader(),
     method: "get",
     onStart: POST_REQUESTED.type,
@@ -124,6 +124,7 @@ export const listPostByGroup = (id) => apiCallBegan({
     onError: POST_FAILED.type
 });
 
+// Not implemented yet
 export const infoPost = (id) => apiCallBegan({
     url: url + `/info/${id}`,
     headers: authHeader(),
@@ -133,29 +134,29 @@ export const infoPost = (id) => apiCallBegan({
     onError: POST_FAILED.type
 });
 
-
-export const editPost = (id, nome, sobrenome, bio, ocupacao, github, linkedin) => apiCallBegan({
-    url: url + "/editar",
+// Not implemented yet
+export const editPost = (id) => apiCallBegan({
+    url: url + `/${id}`,
     headers: authHeader(),
-    method: "post",
-    data: { id, nome, sobrenome, bio, ocupacao, github, linkedin },
+    method: "put",
+    data: {},
     onStart: POST_REQUESTED.type,
     onSuccess: POST_EDITED_SUCCESSFUL.type,
     onError: POST_FAILED.type
 });
 
+// Not implemented yet
 export const deletePost = (id) => apiCallBegan({
-    url: url + "/excluir",
+    url: url + `/${id}`,
     headers: authHeader(),
-    method: "post",
-    data: { id },
+    method: "delete",
     onStart: POST_REQUESTED.type,
     onSuccess: POST_DELETED_SUCCESSFUL.type,
     onError: POST_FAILED.type
 })
 
 export const likePost = (user_id, post_id) => apiCallBegan({
-    url: url + "/like",
+    url: url + `/like/post/${post_id}/user/${user_id}`,
     headers: authHeader(),
     method: "post",
     data: {user_id, post_id},
@@ -166,10 +167,9 @@ export const likePost = (user_id, post_id) => apiCallBegan({
 
 
 export const unlikePost = (user_id, post_id) => apiCallBegan({
-    url: url + "/unlike",
+    url: url + `/unlike/post/${post_id}/user/${user_id}`,
     headers: authHeader(),
-    method: "post",
-    data: {user_id, post_id},
+    method: "put",
     onStart: POST_REQUESTED.type,
     onSuccess: POST_UNLIKED_SUCCESSFUL.type,
     onError: POST_FAILED.type

@@ -134,10 +134,10 @@ export const { USER_REQUESTED, USER_FAILED, USER_PROFILE_SUCCESSFUL, USER_INFO_S
 
 export default slice.reducer;
 
-const url = '/usuario';
+const url = 'api/v1/user';
 
 export const createUser = (nome, sobrenome, email, senha) => apiCallBegan({
-    url: url + "/criar",
+    url: url + "/",
     headers: null,
     method: "post",
     data: { nome, sobrenome, email, senha },
@@ -147,7 +147,7 @@ export const createUser = (nome, sobrenome, email, senha) => apiCallBegan({
 });
 
 export const userInfo = (id, self) => apiCallBegan({
-    url: url + `/info/${id}`,
+    url: url + `/${id}`,
     headers: authHeader(),
     method: "get",
     onStart: USER_REQUESTED.type,
@@ -166,20 +166,20 @@ export const loginUser = (email, senha) => apiCallBegan({
 });
 
 export const editUser = (id, userInfo) => apiCallBegan({
-    url: url + "/editar",
+    url: url + `/${ id }`,
     headers: authHeader(),
-    method: "post",
-    data: { id, userInfo },
+    method: "put",
+    data:  userInfo ,
     onStart: USER_REQUESTED.type,
     onSuccess: USER_EDITED_SUCCESSFUL.type,
     onError: USER_FAILED.type
 });
 
 export const deleteUser = (id) => apiCallBegan({
-    url: url + "/excluir",
+    url: url + `/${ id }`,
     headers: authHeader(),
-    method: "post",
-    data: { id },
+    method: "delete",
+    data: null ,
     onStart: USER_REQUESTED.type,
     onSuccess: USER_DELETED_SUCCESSFUL.type,
     onError: USER_FAILED.type

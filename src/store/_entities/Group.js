@@ -85,10 +85,10 @@ export const { GROUP_REQUESTED, GROUP_CLEANUP, GROUP_FAILED, GROUP_INFO_SUCCESSF
 
 export default slice.reducer;
 
-const url = '/grupo';
+const url = '/api/v1/groups';
 
 export const createGroup = (name, description, privacy_type, user_id) => apiCallBegan({
-    url: url + "/criar",
+    url: url + "/",
     headers: authHeader(),
     method: "post",
     data: {name, description, privacy_type, user_id},
@@ -98,7 +98,7 @@ export const createGroup = (name, description, privacy_type, user_id) => apiCall
 });
 
 export const infoGroup = (id) => apiCallBegan({
-    url: url + `/info/${id}`,
+    url: url + `/group/${id}`,
     headers: authHeader(),
     method: "get",
     onStart: GROUP_REQUESTED.type,
@@ -107,7 +107,7 @@ export const infoGroup = (id) => apiCallBegan({
 });
 
 export const listGroup = (id) => apiCallBegan({
-    url: url + `/listar/${id}`,
+    url: url + `/user/${id}`,
     headers: authHeader(),
     method: "get",
     onStart: GROUP_REQUESTED.type,

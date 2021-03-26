@@ -127,7 +127,7 @@ export const { EVENT_REQUESTED, EVENT_FAILED, EVENT_INFO_SUCCESSFUL,  EVENT_CREA
 
 export default slice.reducer;
 
-const url = '/evento';
+const url = '/api/v1/events';
 
 
 export const createEvent = (nome, descricao, data_inicio, imagemUrl, categoriaId, data_fim, tipoId, criador) => apiCallBegan({ 

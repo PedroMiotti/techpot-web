@@ -35,7 +35,7 @@ ReactDOM.render(
   <Router history={history}>
     <Provider store={store}>
       <ScrollToTop>
-        <Routes />
+        <Routes /> 
       </ScrollToTop>
     </Provider>
   </Router>,

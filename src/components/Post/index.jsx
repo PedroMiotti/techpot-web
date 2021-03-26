@@ -75,7 +75,8 @@ const Post = ({ post_id ,post_body_html, post_body, id_criador, nome_criador, da
 
           <div className="postInfo">
             <p>{formatedUserName(nome_criador)}</p>
-            <p className="postInfoSubtext">{relativeTime} | {grupo}</p>
+            <p className="postInfoSubtext">{dataCriacao.getRelativeTime()
+} | {grupo}</p>
           </div>
         </Link>
 
