@@ -66,6 +66,8 @@ const Navbar = ({ pathName }) => {
 
   const openModalNotification = (e) => {
     setShowModalNotification(!showModalNotification);
+    setShowModalUserPreferences(false);
+    setShowModalMensagens(false);
 
     // Pegando a posicao do icone
     const postion = modalNotificacaoRef.current.getBoundingClientRect();
@@ -75,6 +77,8 @@ const Navbar = ({ pathName }) => {
 
   const openModalMensagens = (e) => {
     setShowModalMensagens(!showModalMensagens);
+    setShowModalNotification(false);
+    setShowModalUserPreferences(false);
 
     // Pegando a posicao do icone
     const postion = modalMensagendsRef.current.getBoundingClientRect();
@@ -84,6 +88,8 @@ const Navbar = ({ pathName }) => {
 
   const openModalUserPreferences = (e) => {
     setShowModalUserPreferences(!showModalUserPreferences);
+    setShowModalMensagens(false);
+    setShowModalNotification(false);
 
     // Pegando a posicao do icone
     const postion = modalUserPreferencesRef.current.getBoundingClientRect();

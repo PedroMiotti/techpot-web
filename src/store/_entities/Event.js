@@ -131,7 +131,7 @@ const url = '/api/v1/events';
 
 
 export const createEvent = (nome, descricao, data_inicio, imagemUrl, categoriaId, data_fim, tipoId, criador) => apiCallBegan({ 
-    url: url + "/criar",
+    url: url + "/",
     headers: null,
     method: "post",
     data: {nome, descricao, data_inicio, imagemUrl, categoriaId, data_fim, tipoId, criador},
