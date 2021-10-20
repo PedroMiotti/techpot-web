@@ -1,7 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Bungee&display=swap');
 
-
-
 .navbarContainer-higher{
     max-width: 100vw;
     height: 60px;
@@ -202,11 +200,6 @@
         display: block;
     }
 
-    /* .navbarContainer{
-        border-bottom-left-radius: 10%;
-        border-bottom-right-radius: 10%;
-        
-    } */
     .navbarContainer,
     .navbarContainer-higher{
         height: 70px;
